@@ -5,24 +5,37 @@ import type { CartItem } from "@/lib/types";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Trash2 } from "lucide-react";
-import { useCart } from "@/hooks/useCart";
+import { useApiCart } from "@/hooks/useApiCart";
 import { useToast } from "@/hooks/use-toast";
+import { useState } from "react";
 
 interface CartItemCardProps {
   item: CartItem;
 }
 
 export function CartItemCard({ item }: CartItemCardProps) {
-  const { dispatch } = useCart();
+  const { removeFromCart } = useApiCart();
   const { toast } = useToast();
+  const [isRemoving, setIsRemoving] = useState(false);
 
-  const handleRemoveItem = () => {
-    dispatch({ type: "REMOVE_ITEM", payload: item.id });
-    toast({
-      title: "Item removed",
-      description: `${item.name} has been removed from your cart.`,
-      variant: "destructive",
-    });
+  const handleRemoveItem = async () => {
+    try {
+      setIsRemoving(true);
+      await removeFromCart(item.id);
+      toast({
+        title: "Item removed",
+        description: `${item.name} has been removed from your cart.`,
+        variant: "destructive",
+      });
+    } catch (error) {
+      toast({
+        title: "Error",
+        description: "Failed to remove item from cart.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsRemoving(false);
+    }
   };
 
   return (
@@ -52,6 +65,7 @@ export function CartItemCard({ item }: CartItemCardProps) {
             variant="ghost"
             size="icon"
             onClick={handleRemoveItem}
+            disabled={isRemoving}
             className="text-destructive hover:bg-destructive/10"
           >
             <Trash2 className="h-5 w-5" />

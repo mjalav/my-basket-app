@@ -15,11 +15,17 @@ export function OrderItemCard({ order }: OrderItemCardProps) {
         <div className="flex flex-col sm:flex-row justify-between sm:items-center">
           <CardTitle className="text-xl mb-1 sm:mb-0">Order #{order.id.substring(0, 8)}</CardTitle>
           <Badge variant="outline" className="border-primary text-primary bg-primary/10 w-fit">
-            {new Date(order.date).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
+            {new Date(order.orderDate).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
           </Badge>
         </div>
         <CardDescription>
-          Placed on {new Date(order.date).toLocaleTimeString()}
+          Placed on {new Date(order.orderDate).toLocaleString('en-US', { 
+            year: 'numeric', 
+            month: 'short', 
+            day: 'numeric', 
+            hour: '2-digit', 
+            minute: '2-digit' 
+          })}
         </CardDescription>
       </CardHeader>
       <CardContent>
@@ -52,7 +58,12 @@ export function OrderItemCard({ order }: OrderItemCardProps) {
       </CardContent>
       <CardFooter className="bg-muted/50 p-4 rounded-b-lg">
         <div className="w-full flex justify-between items-center">
-          <span className="text-lg font-semibold text-muted-foreground">Total Amount:</span>
+          <div className="flex items-center space-x-2">
+            <span className="text-lg font-semibold text-muted-foreground">Total:</span>
+            <Badge variant="secondary" className="capitalize">
+              {order.status}
+            </Badge>
+          </div>
           <span className="text-xl font-bold text-primary">${order.totalAmount.toFixed(2)}</span>
         </div>
       </CardFooter>

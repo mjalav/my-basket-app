@@ -5,23 +5,38 @@ import type { Product } from "@/lib/types";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { ShoppingCart } from "lucide-react";
-import { useCart } from "@/hooks/useCart";
 import { useToast } from "@/hooks/use-toast";
+import { useApiCart } from "@/hooks/useApiCart";
+import { useState } from "react";
 
 interface ProductCardProps {
   product: Product;
 }
 
 export function ProductCard({ product }: ProductCardProps) {
-  const { dispatch } = useCart();
   const { toast } = useToast();
+  const { addToCart } = useApiCart();
+  const [isLoading, setIsLoading] = useState(false);
 
-  const handleAddToCart = () => {
-    dispatch({ type: "ADD_ITEM", payload: product });
-    toast({
-      title: "Added to cart",
-      description: `${product.name} has been added to your cart.`,
-    });
+  const handleAddToCart = async () => {
+    try {
+      setIsLoading(true);
+      await addToCart(product.id, 1);
+      
+      toast({
+        title: "Added to cart",
+        description: `${product.name} has been added to your cart.`,
+      });
+    } catch (error) {
+      console.error('Error adding to cart:', error);
+      toast({
+        title: "Error",
+        description: "Failed to add item to cart. Please try again.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   return (
@@ -48,8 +63,13 @@ export function ProductCard({ product }: ProductCardProps) {
         </p>
       </CardContent>
       <CardFooter className="p-4 pt-0">
-        <Button onClick={handleAddToCart} className="w-full bg-accent text-accent-foreground hover:bg-accent/90">
-          <ShoppingCart className="mr-2 h-4 w-4" /> Add to Cart
+        <Button 
+          onClick={handleAddToCart} 
+          disabled={isLoading}
+          className="w-full bg-accent text-accent-foreground hover:bg-accent/90"
+        >
+          <ShoppingCart className="mr-2 h-4 w-4" /> 
+          {isLoading ? "Adding..." : "Add to Cart"}
         </Button>
       </CardFooter>
     </Card>

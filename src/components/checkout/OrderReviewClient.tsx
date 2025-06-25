@@ -1,6 +1,6 @@
 "use client";
 
-import { useCart } from "@/hooks/useCart";
+import { useApiCart } from "@/hooks/useApiCart";
 import type { CartItem, Order } from "@/lib/types";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
@@ -9,17 +9,20 @@ import { useToast } from "@/hooks/use-toast";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
-import { ShoppingBag, CheckCircle } from "lucide-react";
+import { ShoppingBag, CheckCircle, Loader2 } from "lucide-react";
 import { useState } from "react";
+import { apiClient } from "@/lib/api/client";
+import { getUserId } from "@/lib/session";
 
 export function OrderReviewClient() {
-  const { items, cartTotalAmount, dispatch } = useCart();
+  const { items, totalAmount: cartTotalAmount, clearCart, loading, error } = useApiCart();
   const { toast } = useToast();
   const router = useRouter();
   const [isOrderPlaced, setIsOrderPlaced] = useState(false);
+  const [isPlacingOrder, setIsPlacingOrder] = useState(false);
 
-  const handlePlaceOrder = () => {
-    if (items.length === 0) {
+  const handlePlaceOrder = async () => {
+    if (!items || items.length === 0) {
       toast({
         title: "Cannot place order",
         description: "Your cart is empty.",
@@ -28,23 +31,60 @@ export function OrderReviewClient() {
       return;
     }
 
-    const newOrder: Order = {
-      id: new Date().toISOString() + Math.random().toString(36).substring(2, 9), // Simple unique ID
-      date: new Date().toISOString(),
-      items: [...items], // Create a copy of items
-      totalAmount: cartTotalAmount,
-    };
-
-    dispatch({ type: "PLACE_ORDER", payload: newOrder });
-    setIsOrderPlaced(true);
-
-    toast({
-      title: "Order Placed!",
-      description: "Thank you for your purchase. Your order has been successfully placed.",
-      className: "bg-green-500 text-white", // A success specific style for toast
-    });
-    // setTimeout(() => router.push("/orders"), 2000); // Redirect after a delay
+    try {
+      setIsPlacingOrder(true);
+      const userId = getUserId();
+      
+      // Create order through the order service
+      const orderItems = items.map(item => ({
+        id: item.id,
+        name: item.name,
+        price: item.price,
+        quantity: item.quantity,
+        description: item.description,
+        image: item.image,
+        dataAiHint: item.dataAiHint,
+      }));
+      
+      await apiClient.createOrder(userId, orderItems);
+      
+      // Clear the cart after successful order
+      await clearCart();
+      
+      setIsOrderPlaced(true);
+      toast({
+        title: "Order placed successfully!",
+        description: "Your order has been placed and you will receive a confirmation email.",
+      });
+    } catch (error) {
+      console.error('Error placing order:', error);
+      toast({
+        title: "Error placing order",
+        description: "There was a problem placing your order. Please try again.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsPlacingOrder(false);
+    }
   };
+
+  if (loading) {
+    return (
+      <div className="text-center py-12">
+        <Loader2 className="mx-auto h-8 w-8 animate-spin text-muted-foreground mb-4" />
+        <p className="text-muted-foreground">Loading your order...</p>
+      </div>
+    );
+  }
+
+  if (error) {
+    return (
+      <div className="text-center py-12">
+        <p className="text-destructive mb-4">Error loading order: {error}</p>
+        <Button onClick={() => window.location.reload()}>Retry</Button>
+      </div>
+    );
+  }
 
   if (isOrderPlaced) {
     return (
@@ -64,7 +104,7 @@ export function OrderReviewClient() {
   }
   
 
-  if (items.length === 0 && !isOrderPlaced) {
+  if (!items || items.length === 0) {
     return (
       <div className="text-center py-12">
         <ShoppingBag className="mx-auto h-16 w-16 text-muted-foreground mb-4" />
@@ -129,9 +169,16 @@ export function OrderReviewClient() {
           <Button 
             onClick={handlePlaceOrder} 
             className="w-full text-lg py-6 bg-accent text-accent-foreground hover:bg-accent/90"
-            disabled={items.length === 0}
+            disabled={!items || items.length === 0 || isPlacingOrder}
           >
-            Place Order
+            {isPlacingOrder ? (
+              <>
+                <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                Placing Order...
+              </>
+            ) : (
+              "Place Order"
+            )}
           </Button>
         </CardFooter>
       </Card>

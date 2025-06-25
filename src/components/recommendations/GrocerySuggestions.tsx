@@ -1,21 +1,21 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { useCart } from "@/hooks/useCart";
-import { getGrocerySuggestions, GrocerySuggestionsOutput } from "@/ai/flows/grocery-suggestions";
+import { useApiCart } from "@/hooks/useApiCart";
+import { apiClient } from "@/lib/api/client";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Loader2, Lightbulb } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 
 export function GrocerySuggestions() {
-  const { items: cartItems } = useCart();
+  const { items: cartItems } = useApiCart();
   const [suggestions, setSuggestions] = useState<string[]>([]);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-    if (cartItems.length > 0) {
+    if (cartItems && cartItems.length > 0) {
       fetchSuggestions();
     } else {
       setSuggestions([]);
@@ -24,12 +24,14 @@ export function GrocerySuggestions() {
   }, [cartItems]);
 
   const fetchSuggestions = async () => {
+    if (!cartItems || cartItems.length === 0) return;
+    
     setIsLoading(true);
     setError(null);
     try {
       const itemNames = cartItems.map((item) => item.name);
-      const result: GrocerySuggestionsOutput = await getGrocerySuggestions({ cartItems: itemNames });
-      setSuggestions(result.suggestions);
+      const result = await apiClient.getGrocerySuggestions(itemNames) as { suggestions: string[] };
+      setSuggestions(result.suggestions || []);
     } catch (err) {
       console.error("Error fetching grocery suggestions:", err);
       setError("Could not fetch suggestions at this time.");
@@ -39,7 +41,7 @@ export function GrocerySuggestions() {
     }
   };
 
-  if (cartItems.length === 0) {
+  if (!cartItems || cartItems.length === 0) {
     return null; 
   }
 

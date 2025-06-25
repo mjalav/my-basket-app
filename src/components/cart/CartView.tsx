@@ -1,16 +1,34 @@
 "use client";
 
 import Link from "next/link";
-import { useCart } from "@/hooks/useCart";
+import { useApiCart } from "@/hooks/useApiCart";
 import { CartItemCard } from "./CartItemCard";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
-import { ShoppingBag, ArrowRight } from "lucide-react";
+import { ShoppingBag, ArrowRight, Loader2 } from "lucide-react";
 import { GrocerySuggestions } from "@/components/recommendations/GrocerySuggestions";
 
 export function CartView() {
-  const { items, cartTotalAmount } = useCart();
+  const { items, totalAmount: cartTotalAmount, loading, error } = useApiCart();
+
+  if (loading) {
+    return (
+      <div className="text-center py-12">
+        <Loader2 className="mx-auto h-8 w-8 animate-spin text-muted-foreground mb-4" />
+        <p className="text-muted-foreground">Loading your cart...</p>
+      </div>
+    );
+  }
+
+  if (error) {
+    return (
+      <div className="text-center py-12">
+        <p className="text-destructive mb-4">Error loading cart: {error}</p>
+        <Button onClick={() => window.location.reload()}>Retry</Button>
+      </div>
+    );
+  }
 
   if (items.length === 0) {
     return (

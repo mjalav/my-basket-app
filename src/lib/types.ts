@@ -13,7 +13,31 @@ export interface CartItem extends Product {
 
 export interface Order {
   id: string;
-  date: string;
+  userId: string;
   items: CartItem[];
   totalAmount: number;
+  status: string;
+  orderDate: string;
+  estimatedDelivery?: string;
+  shippingAddress: {
+    street: string;
+    city: string;
+    state: string;
+    zipCode: string;
+    country: string;
+  };
+  billingAddress: {
+    street: string;
+    city: string;
+    state: string;
+    zipCode: string;
+    country: string;
+  };
+  paymentMethod: {
+    type: string;
+    last4?: string;
+    brand?: string;
+  };
+  createdAt: string;
+  updatedAt: string;
 }

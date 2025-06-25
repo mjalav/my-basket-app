@@ -3,11 +3,11 @@
 import Link from "next/link";
 import { ShoppingCart, Package, HomeIcon, Receipt } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { useCart } from "@/hooks/useCart";
+import { useApiCart } from "@/hooks/useApiCart";
 import { Badge } from "@/components/ui/badge";
 
 export function Header() {
-  const { totalCartItems } = useCart();
+  const { totalCartItems } = useApiCart();
 
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
@@ -19,13 +19,13 @@ export function Header() {
           </span>
         </Link>
         <nav className="flex flex-1 items-center space-x-4">
-          <Link href="/" legacyBehavior passHref>
+          <Link href="/">
             <Button variant="ghost" className="text-sm font-medium">
               <HomeIcon className="mr-2 h-4 w-4" />
               Products
             </Button>
           </Link>
-          <Link href="/orders" legacyBehavior passHref>
+          <Link href="/orders">
             <Button variant="ghost" className="text-sm font-medium">
               <Receipt className="mr-2 h-4 w-4" />
               My Orders
@@ -33,7 +33,7 @@ export function Header() {
           </Link>
         </nav>
         <div className="flex items-center space-x-4">
-          <Link href="/cart" legacyBehavior passHref>
+          <Link href="/cart">
             <Button variant="outline" size="icon" className="relative">
               <ShoppingCart className="h-5 w-5" />
               {totalCartItems > 0 && (

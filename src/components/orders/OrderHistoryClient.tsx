@@ -1,15 +1,33 @@
 "use client";
 
-import { useCart } from "@/hooks/useCart";
+import { useApiOrders } from "@/hooks/useApiOrders";
 import { OrderItemCard } from "./OrderItemCard";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
-import { Receipt } from "lucide-react";
+import { Receipt, Loader2 } from "lucide-react";
 
 export function OrderHistoryClient() {
-  const { orders } = useCart(); // orders are loaded from localStorage via CartContext
+  const { orders, loading, error } = useApiOrders();
 
-  if (orders.length === 0) {
+  if (loading) {
+    return (
+      <div className="text-center py-12">
+        <Loader2 className="mx-auto h-8 w-8 animate-spin text-muted-foreground mb-4" />
+        <p className="text-muted-foreground">Loading your orders...</p>
+      </div>
+    );
+  }
+
+  if (error) {
+    return (
+      <div className="text-center py-12">
+        <p className="text-destructive mb-4">Error loading orders: {error}</p>
+        <Button onClick={() => window.location.reload()}>Retry</Button>
+      </div>
+    );
+  }
+
+  if (!orders || orders.length === 0) {
     return (
       <div className="text-center py-12">
         <Receipt className="mx-auto h-16 w-16 text-muted-foreground mb-4" />
@@ -23,7 +41,7 @@ export function OrderHistoryClient() {
   }
 
   // Display orders, newest first
-  const sortedOrders = [...orders].sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+  const sortedOrders = [...orders].sort((a, b) => new Date(b.orderDate).getTime() - new Date(a.orderDate).getTime());
 
   return (
     <div className="space-y-6">
