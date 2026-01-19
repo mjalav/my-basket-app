@@ -78,6 +78,14 @@ The application will be available at:
 - `npm run microservices:stop` - Stop all running microservices
 - `npm run microservices:health` - Check health of all microservices
 
+#### Windows Compatibility
+For Windows users, OS-specific scripts are available:
+- `npm run microservices:start:win` - Start microservices using Windows batch files
+- `npm run microservices:stop:win` - Stop microservices using Windows batch files  
+- `npm run microservices:health:win` - Health check using Windows batch files
+
+**Note**: Windows batch files include UTF-8 encoding (`chcp 65001`) for proper emoji display in Command Prompt.
+
 ### Docker Scripts
 - `npm run docker:build` - Build all Docker images
 - `npm run docker:up` - Start all services with Docker Compose
@@ -295,12 +303,86 @@ AI_SERVICE_URL=http://localhost:3004
 - Add monitoring and logging
 - Consider message queues for async communication
 
-## 🤝 Contributing
+## 🤝 Contributing & Forking
 
-1. Fork the repository
-2. Create a feature branch
-3. Make changes and test
-4. Submit a pull request
+### How This Repository Was Forked
+
+This repository was originally forked from [uppadhyayraj/my-basket-app](https://github.com/uppadhyayraj/my-basket-app) to add Windows compatibility improvements.
+
+**Forking Process:**
+
+**Step 1: Create Your Fork**
+- **Option A**: If you have access to the original repository:
+  1. Go to https://github.com/uppadhyayraj/my-basket-app
+  2. Click the "Fork" button (top right)
+  3. Select your GitHub account to fork it to
+  
+- **Option B**: If the repository is private or you can't fork:
+  1. Create a new repository on your GitHub account named `my-basket-app`
+  2. Make it public or private as needed
+  3. **Don't** initialize with README (you'll push existing code)
+
+**Step 2: Clone Your Repository**
+```bash
+# Replace 'mjalav' with your actual GitHub username
+git clone https://github.com/mjalav/my-basket-app
+cd my-basket-app
+```
+**⚠️ Important**: Replace `mjalav` with your actual GitHub username before running the command!
+
+**Step 3: Add Upstream Remote** (for getting updates from original)
+```bash
+git remote add upstream https://github.com/uppadhyayraj/my-basket-app
+```
+
+**Step 4: Update from Upstream** (when needed)
+```bash
+git fetch upstream
+git merge upstream/main
+```
+
+### Windows Compatibility Improvements
+
+This fork includes Windows-specific enhancements:
+
+**Files Added:**
+- `scripts/start-microservices.bat` - Windows batch script for starting services
+- `scripts/stop-microservices.bat` - Windows batch script for stopping services  
+- `scripts/health-check.bat` - Windows batch script for health checks
+
+**Key Features:**
+- UTF-8 encoding support for proper emoji display (`chcp 65001`)
+- Windows Command Prompt compatibility  
+- OS-specific npm scripts (`:win` and `:unix` suffixes)
+- Cross-platform development workflow
+
+**Branch Structure:**
+- `main` - Synced with upstream repository
+- `fix/windows-microservices-compatibility` - Windows compatibility features
+- `fix/windows-emoji-display-utf8` - UTF-8 encoding improvements
+
+### Contributing to This Fork
+
+1. **Fork this repository** to your GitHub account:
+   - Go to https://github.com/mjalav/my-basket-app
+   - Click "Fork" button
+2. **Clone your fork**:
+   ```bash
+   # Replace 'your-username' with your actual GitHub username
+   git clone https://github.com/your-username/my-basket-app
+   cd my-basket-app
+   ```
+3. **Create a feature branch**: 
+   ```bash
+   git checkout -b feature/your-feature-name
+   ```
+4. **Make changes and test** on your platform
+5. **Commit with clear messages**
+6. **Push and create a pull request**
+
+### Contributing to Original Repository
+
+To contribute back to the original repository, submit pull requests to [uppadhyayraj/my-basket-app](https://github.com/uppadhyayraj/my-basket-app).
 
 ## 📄 License
 
