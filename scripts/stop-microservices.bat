@@ -1,4 +1,5 @@
 @echo off
+chcp 65001 >nul
 echo 🛑 Stopping all microservices...
 
 REM Kill processes on specific ports

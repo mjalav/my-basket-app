@@ -1,4 +1,5 @@
 @echo off
+chcp 65001 >nul
 echo 🏥 Testing microservice health...
 
 set "all_healthy=true"
