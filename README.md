@@ -1,6 +1,16 @@
 # MyBasket Lite - Microservices Retail Application
 
+🎉 **This is a fork of [uppadhyayraj/my-basket-app](https://github.com/uppadhyayraj/my-basket-app) with Windows compatibility improvements!**
+
 A modern, scalable retail application built with Next.js frontend and Node.js microservices architecture. This application has been transformed from a monolithic structure into a distributed microservices system.
+
+## ✨ Fork Enhancements
+
+This fork adds:
+- 🪟 **Windows Command Prompt compatibility** - All scripts work natively on Windows
+- 🎨 **UTF-8 emoji support** - Proper emoji display in Windows terminals  
+- 📚 **Enhanced documentation** - Complete setup instructions for both platforms
+- 🔄 **Cross-platform npm scripts** - OS-specific variants for seamless development
 
 ## 🏗️ Architecture Overview
 
@@ -307,20 +317,16 @@ AI_SERVICE_URL=http://localhost:3004
 
 ### How This Repository Was Forked
 
-This repository was originally forked from [uppadhyayraj/my-basket-app](https://github.com/uppadhyayraj/my-basket-app) to add Windows compatibility improvements.
+This repository is a proper fork of [uppadhyayraj/my-basket-app](https://github.com/uppadhyayraj/my-basket-app) with Windows compatibility improvements.
+
+**✅ This is now a proper GitHub fork with full fork relationship established.**
 
 **Forking Process:**
 
 **Step 1: Create Your Fork**
-- **Option A**: If you have access to the original repository:
-  1. Go to https://github.com/uppadhyayraj/my-basket-app
-  2. Click the "Fork" button (top right)
-  3. Select your GitHub account to fork it to
-  
-- **Option B**: If the repository is private or you can't fork:
-  1. Create a new repository on your GitHub account named `my-basket-app`
-  2. Make it public or private as needed
-  3. **Don't** initialize with README (you'll push existing code)
+1. Go to https://github.com/uppadhyayraj/my-basket-app
+2. Click the "Fork" button (top right)
+3. Select your GitHub account to fork it to
 
 **Step 2: Clone Your Repository**
 ```bash
@@ -372,12 +378,43 @@ This fork includes Windows-specific enhancements:
    git clone https://github.com/your-username/my-basket-app
    cd my-basket-app
    ```
-3. **Create a feature branch**: 
+3. **Set up remotes** for upstream synchronization:
+   ```bash
+   git remote add upstream https://github.com/mjalav/my-basket-app
+   git remote -v  # Verify configuration
+   ```
+4. **Create a feature branch**: 
    ```bash
    git checkout -b feature/your-feature-name
    ```
-4. **Make changes and test** on your platform
-5. **Commit with clear messages**
+5. **Make changes and test** on your platform
+6. **Commit with clear messages**
+7. **Push to your fork**:
+   ```bash
+   git push origin feature/your-feature-name
+   ```
+8. **Create a Pull Request** against this repository
+
+### Syncing with Upstream Original
+
+To keep your fork updated with the original repository:
+
+```bash
+# Add original repository as upstream (first time only)
+git remote add original-upstream https://github.com/uppadhyayraj/my-basket-app
+
+# Fetch and merge changes from original
+git fetch original-upstream
+git checkout main
+git merge original-upstream/main
+
+# Push updates to your fork
+git push origin main
+```
+
+## 📄 License
+
+This project is a fork of [uppadhyayraj/my-basket-app](https://github.com/uppadhyayraj/my-basket-app) with enhancements for Windows compatibility.
 6. **Push and create a pull request**
 
 ### Contributing to Original Repository
