@@ -1,4 +1,21 @@
-const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3000';
+// Smart API URL detection for Docker environments
+const getApiUrl = (): string => {
+  // Client-side (browser): always use localhost
+  if (typeof window !== 'undefined') {
+    return process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3000';
+  }
+  
+  // Server-side: check if we're inside Docker container
+  if (process.env.DOCKER_CONTAINER === 'true') {
+    // Inside Docker: use internal service network
+    return 'http://api-gateway:3000';
+  }
+  
+  // Server-side outside Docker: use localhost
+  return process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3000';
+};
+
+const API_BASE_URL = getApiUrl();
 
 export class ApiClient {
   private baseUrl: string;
