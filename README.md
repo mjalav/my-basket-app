@@ -11,6 +11,8 @@ This fork adds:
 - 🎨 **UTF-8 emoji support** - Proper emoji display in Windows terminals  
 - 📚 **Enhanced documentation** - Complete setup instructions for both platforms
 - 🔄 **Cross-platform npm scripts** - OS-specific variants for seamless development
+- 🏥 **Production-grade health monitoring** - Advanced liveness/readiness probes and resource monitoring
+- 🧪 **Automated API Testing** - Comprehensive Playwright test suite for service reliability
 
 ## 🏗️ Architecture Overview
 
@@ -22,7 +24,7 @@ The application consists of the following microservices:
 ### Microservices
 - **API Gateway** (Port 3000) - Central entry point, routing, rate limiting, and load balancing
 - **Product Service** (Port 3001) - Product catalog management
-- **Cart Service** (Port 3002) - Shopping cart operations
+- **Cart Service** (Port 3002) - Shopping cart operations (includes advanced health monitoring)
 - **Order Service** (Port 3003) - Order processing and management
 - **AI Service** (Port 3004) - AI-powered recommendations and suggestions
 
@@ -55,6 +57,8 @@ The application will be available at:
 - Frontend: http://localhost:9002
 - API Gateway: http://localhost:3000
 - Individual service health checks: http://localhost:300X/api/health
+- Cart Service Liveness: http://localhost:3002/api/health/live
+- Cart Service Readiness: http://localhost:3002/api/health/ready
 
 ### Option 2: Docker (Recommended for production-like testing)
 
@@ -105,7 +109,8 @@ For Windows users, OS-specific scripts are available:
 ### Testing Scripts
 - `npm run lint` - Run ESLint
 - `npm run typecheck` - Run TypeScript type checking
-- `npm run test:api` - Run API tests (when implemented)
+- `npm run test:api` - Run comprehensive Playwright API tests for the Cart Service
+- `npm run test:report` - Generate HTML test reports for API tests
 
 ## 🔧 Service Details
 
@@ -145,7 +150,9 @@ For Windows users, OS-specific scripts are available:
 - `DELETE /api/cart/:userId/items/:productId` - Remove item from cart
 - `DELETE /api/cart/:userId` - Clear entire cart
 - `GET /api/cart/:userId/summary` - Get cart summary
-- `GET /api/health` - Service health check
+- `GET /api/health` - Comprehensive service health check (diagnostics)
+- `GET /api/health/live` - Liveness probe (process check)
+- `GET /api/health/ready` - Readiness probe (dependency and resource check)
 
 ### Order Service (Port 3003)
 **Endpoints:**
@@ -212,6 +219,32 @@ For Windows users, OS-specific scripts are available:
 4. View cart and checkout
 5. Check order history
 
+### Automated API Testing
+
+The Cart Service includes a professional API testing framework built with Playwright and TypeScript.
+
+1. **Navigate to the test directory:**
+   ```bash
+   cd cart-service-api-tests
+   ```
+
+2. **Run the full test suite:**
+   ```bash
+   npm install
+   npm test
+   ```
+
+3. **Run tests for specific issues:**
+   ```bash
+   # Test dependency validation
+   npm test -- tests/issue1-dependency-validation.spec.ts
+   ```
+
+4. **View test reports:**
+   ```bash
+   npx playwright show-report
+   ```
+
 ## 🔒 Environment Variables
 
 ### Frontend (.env.local)
@@ -248,6 +281,8 @@ AI_SERVICE_URL=http://localhost:3004
 │   ├── cart-service/             # Shopping cart service
 │   ├── order-service/            # Order management service
 │   └── ai-service/               # AI recommendations service
+├── cart-service-api-tests/        # Playwright API test suite for Cart Service
+├── Assignments/                  # Audit trail of AI prompts and reports
 ├── scripts/                      # Development scripts
 ├── docker-compose.yml            # Docker configuration
 └── README.md                     # This file

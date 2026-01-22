@@ -1,0 +1,10 @@
+Task:
+Identify where the Health Check logic is implemented for the Cart Service.
+Details to include:
+File name(s) and path(s)
+Entry point (controller, endpoint, or handler)
+Any supporting services, configs, or middleware involved
+How the health check is triggered (e.g. HTTP endpoint, startup probe, scheduled check)
+
+Output expectation:
+Provide a brief explanation of the flow and reference the exact code locations.

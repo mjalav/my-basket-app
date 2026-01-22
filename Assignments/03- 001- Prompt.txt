@@ -1,0 +1,59 @@
+Task:
+Generate a complete Playwright TypeScript project with Page Object Model (POM) framework for API testing. The project should include all necessary setup files, framework structure, core components, and automatically generate comprehensive API test cases for each endpoint provided.
+
+Project Requirements:
+- Project Name: [INSERT_PROJECT_NAME]
+- APIs to Test: [LIST_API_ENDPOINTS with Method, URL, Authentication type]
+- Base URL: [INSERT_BASE_URL]
+- Authentication Method: [None/Bearer Token/API Key/Basic Auth]
+
+Generate the following:
+1- Project Setup Files:
+   - package.json with all necessary dependencies
+   - tsconfig.json for TypeScript configuration
+   - playwright.config.ts with proper configuration
+   - .gitignore file
+   - README.md with setup and execution instructions
+2- Framework Structure:
+   - /src/pages/ - Page Object Models for each API endpoint
+   - /src/utils/ - Utility functions for authentication, data helpers, response validation, error handling, logging
+   - /src/types/ - TypeScript interfaces and types
+   - /src/fixtures/ - Test fixtures and test data
+   - /tests/ - Test files organized by feature or API endpoint
+   - /config/ - Environment configuration files (dev, staging, prod)
+3- Core Components:
+   - Base API class with reusable HTTP methods (GET, POST, PUT, DELETE, PATCH)
+   - Authentication handler
+   - Response validation utilities (status codes, body structure, headers)
+   - Test data management and fixtures
+   - Error handling and retry mechanisms
+   - Logging and reporting setup (console + HTML/JSON reports)
+4- Automated Test Case Generation for Each API Endpoint:
+   For every endpoint, generate tests covering:
+   4.1-  Valid requests with all required fields
+   4.2-  Valid requests with optional fields
+   4.3-  Invalid authentication/authorization scenarios
+   4.4-  Missing required fields
+   4.5-  Invalid data types and formats
+   4.6-  Boundary value testing
+   4.7-  Large payload testing
+   4.8-  Concurrent request testing
+   4.9-  Rate limiting and throttling scenarios
+   4.10- Error response validation (status codes, messages, headers)
+   4.11- Integration workflow tests
+
+Include in Test Implementation:
+   - HTTP status code assertions
+   - Response body validation against expected JSON/XML schema
+   - Header validations
+   - Response time and performance checks
+   - Proper TypeScript types and interfaces
+   - Comprehensive error handling with meaningful logs
+   - Configurable environments (dev, staging, prod)
+   - Detailed setup and execution instructions in README
+   - Sample tests for CRUD operations, workflows, authentication, and error scenarios
+
+Additional Notes:
+   - Ensure code follows best practices for API testing and TypeScript development
+   - Organize tests and POM structure for reusability and scalability
+   - Include inline comments and clear documentation for each generated file

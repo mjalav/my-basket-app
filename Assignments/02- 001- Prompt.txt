@@ -1,0 +1,17 @@
+Task:
+Review the Health Check implementation for the Cart Service from a Senior QA perspective.
+
+Details to include:
+Identify potential risks, failure points, or scenarios where the Health Check could give inaccurate or misleading results.
+Highlight areas where the logic could fail due to misconfiguration, dependency failures, performance issues, or error handling gaps.
+Verify adherence to standard best practices for health checks (e.g., clear status codes, meaningful error messages, dependency validation, timeout handling, observability).
+Suggest improvements or mitigations for any identified risks.
+Reference exact code locations (file name, path, function, or method) wherever relevant.
+
+Output expectation:
+A concise report outlining potential failure scenarios and risks.
+Recommendations for improving reliability, maintainability, and observability of the Health Check.
+Clear references to the code to facilitate developer review.
+
+Role:
+Act as a Senior QA Partner reviewing the code for robustness, correctness, and adherence to best practices.
