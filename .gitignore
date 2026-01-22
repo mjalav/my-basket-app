@@ -3,7 +3,6 @@
 # dependencies
 **/dist/
 **/node_modules/
-**/package-lock.json
 /.pnp
 .pnp.*
 .yarn/*
@@ -14,6 +13,8 @@
 
 # testing
 /coverage
+**/playwright-report/
+**/test-results/
 
 # next.js
 /.next/
@@ -25,6 +26,7 @@
 # misc
 .DS_Store
 *.pem
+*.code-workspace
 
 # debug
 npm-debug.log*
@@ -40,7 +42,10 @@ yarn-error.log*
 next-env.d.ts
 
 .genkit/*
-.env*
+.genkit/*
+.env
+.env.*
+!.env.example
 
 # firebase
 firebase-debug.log
