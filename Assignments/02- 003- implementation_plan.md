@@ -73,7 +73,7 @@ cart-service-api-tests/
 
 ### Test Framework Files
 
-#### [NEW] [package.json](cart-service-api-tests/package.json)
+#### [NEW] [package.json](../cart-service-api-tests/package.json)
 
 Complete package.json with Playwright dependencies:
 ```json
@@ -103,7 +103,7 @@ Complete package.json with Playwright dependencies:
 
 ---
 
-#### [NEW] [playwright.config.ts](cart-service-api-tests/playwright.config.ts)
+#### [NEW] [playwright.config.ts](../cart-service-api-tests/playwright.config.ts)
 
 Playwright configuration for API testing:
 ```typescript
@@ -142,7 +142,7 @@ export default defineConfig({
 
 ---
 
-#### [NEW] [src/pages/BaseAPI.ts](cart-service-api-tests/src/pages/BaseAPI.ts)
+#### [NEW] [src/pages/BaseAPI.ts](../cart-service-api-tests/src/pages/BaseAPI.ts)
 
 Base API class with reusable HTTP methods:
 ```typescript
@@ -192,7 +192,7 @@ export class BaseAPI {
 
 ---
 
-#### [NEW] [src/pages/HealthCheckAPI.ts](cart-service-api-tests/src/pages/HealthCheckAPI.ts)
+#### [NEW] [src/pages/HealthCheckAPI.ts](../cart-service-api-tests/src/pages/HealthCheckAPI.ts)
 
 Page Object Model for Health Check endpoint:
 ```typescript
@@ -247,7 +247,7 @@ export class HealthCheckAPI extends BaseAPI {
 
 ### Test Files Covering 7 Critical Issues
 
-#### [NEW] [tests/health/issue1-dependency-validation.spec.ts](cart-service-api-tests/tests/health/issue1-dependency-validation.spec.ts)
+#### [NEW] [tests/health/issue1-dependency-validation.spec.ts](../cart-service-api-tests/tests/health/issue1-dependency-validation.spec.ts)
 
 **Issue 1: No Dependency Validation**
 
@@ -327,7 +327,7 @@ test.describe('Issue 1: Dependency Validation', () => {
 
 ---
 
-#### [NEW] [tests/health/issue2-liveness-readiness.spec.ts](cart-service-api-tests/tests/health/issue2-liveness-readiness.spec.ts)
+#### [NEW] [tests/health/issue2-liveness-readiness.spec.ts](../cart-service-api-tests/tests/health/issue2-liveness-readiness.spec.ts)
 
 **Issue 2: Missing Readiness vs. Liveness Distinction**
 
@@ -378,7 +378,7 @@ test.describe('Issue 2: Liveness vs Readiness', () => {
 
 ---
 
-#### [NEW] [tests/health/issue3-timeout-handling.spec.ts](cart-service-api-tests/tests/health/issue3-timeout-handling.spec.ts)
+#### [NEW] [tests/health/issue3-timeout-handling.spec.ts](../cart-service-api-tests/tests/health/issue3-timeout-handling.spec.ts)
 
 **Issue 3: No Timeout or Circuit Breaker**
 
@@ -390,7 +390,7 @@ Tests covering:
 
 ---
 
-#### [NEW] [tests/health/issue4-resource-monitoring.spec.ts](cart-service-api-tests/tests/health/issue4-resource-monitoring.spec.ts)
+#### [NEW] [tests/health/issue4-resource-monitoring.spec.ts](../cart-service-api-tests/tests/health/issue4-resource-monitoring.spec.ts)
 
 **Issue 4: In-Memory Storage Without Monitoring**
 
@@ -402,7 +402,7 @@ Tests covering:
 
 ---
 
-#### [NEW] [tests/health/issue5-observability.spec.ts](cart-service-api-tests/tests/health/issue5-observability.spec.ts)
+#### [NEW] [tests/health/issue5-observability.spec.ts](../cart-service-api-tests/tests/health/issue5-observability.spec.ts)
 
 **Issue 5: Missing Observability and Metrics**
 
@@ -414,7 +414,7 @@ Tests covering:
 
 ---
 
-#### [NEW] [tests/health/issue6-error-handling.spec.ts](cart-service-api-tests/tests/health/issue6-error-handling.spec.ts)
+#### [NEW] [tests/health/issue6-error-handling.spec.ts](../cart-service-api-tests/tests/health/issue6-error-handling.spec.ts)
 
 **Issue 6: No Error Handling**
 
@@ -426,7 +426,7 @@ Tests covering:
 
 ---
 
-#### [NEW] [tests/health/issue7-docker-health.spec.ts](cart-service-api-tests/tests/health/issue7-docker-health.spec.ts)
+#### [NEW] [tests/health/issue7-docker-health.spec.ts](../cart-service-api-tests/tests/health/issue7-docker-health.spec.ts)
 
 **Issue 7: Docker Compose Missing Health Check**
 
@@ -442,7 +442,7 @@ Tests covering:
 
 ### Core Implementation
 
-#### [NEW] [health-check.service.ts](microservices/cart-service/src/health-check.service.ts)
+#### [NEW] [health-check.service.ts](../microservices/cart-service/src/health-check.service.ts)
 
 Health check service with:
 - Dependency validation (Product Service)
@@ -454,7 +454,7 @@ Health check service with:
 
 ---
 
-#### [MODIFY] [product-client.ts](microservices/cart-service/src/product-client.ts)
+#### [MODIFY] [product-client.ts](../microservices/cart-service/src/product-client.ts)
 
 Add:
 - Axios instance with 5-second timeout
@@ -463,7 +463,7 @@ Add:
 
 ---
 
-#### [MODIFY] [service.ts](microservices/cart-service/src/service.ts)
+#### [MODIFY] [service.ts](../microservices/cart-service/src/service.ts)
 
 Add:
 - `getCartCount()` method
@@ -471,7 +471,7 @@ Add:
 
 ---
 
-#### [MODIFY] [routes.ts](microservices/cart-service/src/routes.ts)
+#### [MODIFY] [routes.ts](../microservices/cart-service/src/routes.ts)
 
 Add three health endpoints:
 - `GET /api/health` - Comprehensive health check
@@ -480,7 +480,7 @@ Add three health endpoints:
 
 ---
 
-#### [NEW] [types.ts additions](microservices/cart-service/src/types.ts)
+#### [NEW] [types.ts additions](../microservices/cart-service/src/types.ts)
 
 Add interfaces:
 - `HealthCheckResponse`
@@ -493,7 +493,7 @@ Add interfaces:
 
 ### Infrastructure
 
-#### [MODIFY] [docker-compose.yml](docker-compose.yml)
+#### [MODIFY] [docker-compose.yml](../docker-compose.yml)
 
 Add health check to cart-service:
 ```yaml
@@ -584,3 +584,4 @@ npm run test:report
 
 **Risk:** Test data cleanup  
 **Mitigation:** Use test fixtures and cleanup hooks
+

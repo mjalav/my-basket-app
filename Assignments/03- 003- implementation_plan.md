@@ -38,7 +38,7 @@
 
 ### Component 1: Health Check Service (New)
 
-#### [NEW] [health-check.service.ts](file:///d:/Personal/AI%20Course/daily-challenge/lesson1/my-basket-app/microservices/cart-service/src/health-check.service.ts)
+#### [NEW] [health-check.service.ts](../microservices/cart-service/src/health-check.service.ts)
 
 **Purpose:** Centralized health check logic with dependency validation, resource monitoring, and caching
 
@@ -83,7 +83,7 @@ class HealthCheckService {
 
 ### Component 2: Product Service Client Updates
 
-#### [MODIFY] [product-client.ts](file:///d:/Personal/AI%20Course/daily-challenge/lesson1/my-basket-app/microservices/cart-service/src/product-client.ts)
+#### [MODIFY] [product-client.ts](../microservices/cart-service/src/product-client.ts)
 
 **Changes:**
 
@@ -145,7 +145,7 @@ private categorizeError(error: any): ErrorCategory {
 
 ### Component 3: Routes Updates
 
-#### [MODIFY] [routes.ts](file:///d:/Personal/AI%20Course/daily-challenge/lesson1/my-basket-app/microservices/cart-service/src/routes.ts)
+#### [MODIFY] [routes.ts](../microservices/cart-service/src/routes.ts)
 
 **Changes:**
 
@@ -261,7 +261,7 @@ router.get('/health/ready', async (req: Request, res: Response) => {
 
 ### Component 4: Type Definitions Updates
 
-#### [MODIFY] [types.ts](file:///d:/Personal/AI%20Course/daily-challenge/lesson1/my-basket-app/microservices/cart-service/src/types.ts)
+#### [MODIFY] [types.ts](../microservices/cart-service/src/types.ts)
 
 **Add new types:**
 
@@ -311,7 +311,7 @@ export type ErrorCategory =
 
 ### Component 5: Swagger Documentation Updates
 
-#### [MODIFY] [swagger.ts](file:///d:/Personal/AI%20Course/daily-challenge/lesson1/my-basket-app/microservices/cart-service/src/swagger.ts)
+#### [MODIFY] [swagger.ts](../microservices/cart-service/src/swagger.ts)
 
 **Add schema definitions:**
 
@@ -375,7 +375,7 @@ HealthCheckResponse: {
 
 ### Component 6: Infrastructure Updates
 
-#### [MODIFY] [docker-compose.yml](file:///d:/Personal/AI%20Course/daily-challenge/lesson1/my-basket-app/docker-compose.yml)
+#### [MODIFY] [docker-compose.yml](../docker-compose.yml)
 
 **Update cart-service configuration (lines 33-44):**
 
@@ -423,7 +423,7 @@ product-service:
     start_period: 30s
 ```
 
-#### [MODIFY] [Dockerfile](file:///d:/Personal/AI%20Course/daily-challenge/lesson1/my-basket-app/microservices/cart-service/Dockerfile)
+#### [MODIFY] [Dockerfile](../microservices/cart-service/Dockerfile)
 
 **Add wget for health checks (after line 1):**
 
@@ -453,7 +453,7 @@ CMD ["npm", "start"]
 
 ### Component 7: Package Dependencies
 
-#### [MODIFY] [package.json](file:///d:/Personal/AI%20Course/daily-challenge/lesson1/my-basket-app/microservices/cart-service/package.json)
+#### [MODIFY] [package.json](../microservices/cart-service/package.json)
 
 **No new dependencies required** - all functionality uses existing packages:
 - `axios` - already installed (HTTP client)
@@ -836,3 +836,4 @@ autocannon -c 100 -d 30 http://localhost:3002/api/health
 **Plan Created:** 2026-01-23T08:58:16+13:00  
 **Status:** ✅ Ready for Review  
 **Next Artifact:** Test Framework Implementation
+

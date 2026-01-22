@@ -17,7 +17,7 @@ This walkthrough demonstrates the enhancements made to the Cart Service health c
 ### API Documentation (Swagger)
 The new health endpoints are fully documented and accessible via the Swagger UI.
 
-![Swagger Health Endpoints](file:///C:/Users/MJ.Alavi/.gemini/antigravity\brain\da452d05-13be-4a89-88b7-87ce128b402e/health_endpoints_swagger_1769114859966.png)
+![Swagger Health Endpoints](images/health_endpoints_swagger_1769114859966.png)
 _Screenshot of the Cart Service Swagger UI showing the new health-related endpoints._
 
 ---
@@ -77,11 +77,11 @@ cart-service:
 
 ## 📁 Key Files Modified
 
-- [health-check.service.ts](file:///d:/Personal/AI%20Course/daily-challenge/lesson1/my-basket-app/microservices/cart-service/src/health-check.service.ts) - Core logic
-- [product-client.ts](file:///d:/Personal/AI%20Course/daily-challenge/lesson1/my-basket-app/microservices/cart-service/src/product-client.ts) - Dependency timeout handling
-- [routes.ts](file:///d:/Personal/AI%20Course/daily-challenge/lesson1/my-basket-app/microservices/cart-service/src/routes.ts) - Endpoint exposure
-- [docker-compose.yml](file:///d:/Personal/AI%20Course/daily-challenge/lesson1/my-basket-app/docker-compose.yml) - Infrastructure support
-- [cart-service-api-tests/](file:///d:/Personal/AI%20Course/daily-challenge/lesson1/my-basket-app/cart-service-api-tests/) - New verification framework
+- [health-check.service.ts](../microservices/cart-service/src/health-check.service.ts) - Core logic
+- [product-client.ts](../microservices/cart-service/src/product-client.ts) - Dependency timeout handling
+- [routes.ts](../microservices/cart-service/src/routes.ts) - Endpoint exposure
+- [docker-compose.yml](../docker-compose.yml) - Infrastructure support
+- [cart-service-api-tests/](../cart-service-api-tests/) - New verification framework
 
 ---
 
@@ -97,3 +97,5 @@ cart-service:
 | #6: No Caching Mechanism | **High** | Implemented 30-second logic-based cache |
 | #7: No Docker Health Check | **Critical** | Integrated `HEALTHCHECK` in Dockerfile and Compose |
 | #8: No Observability Metrics | **Medium** | Added uptime, version, and responseTime to JSON |
+
+
