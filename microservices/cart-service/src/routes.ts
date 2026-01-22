@@ -175,19 +175,92 @@ router.get('/cart/:userId/summary', validateUserId, async (req: Request, res: Re
   }
 });
 
+import { HealthCheckService } from './health-check.service';
+
+const healthCheckService = new HealthCheckService();
+
 /**
  * @swagger
  * /api/health:
  *   get:
- *     summary: Health check
- *     description: Check if the service is healthy
+ *     summary: Comprehensive health check
+ *     description: Check service health including dependencies and resources
  *     tags: [Health]
  *     responses:
  *       200:
  *         description: Service is healthy
+ *       503:
+ *         description: Service is unhealthy
  */
-router.get('/health', (req: Request, res: Response) => {
-  res.json({ status: 'healthy', service: 'cart-service', timestamp: new Date().toISOString() });
+router.get('/health', async (req: Request, res: Response) => {
+  try {
+    const health = await healthCheckService.checkHealth(cartService);
+    const statusCode = health.status === 'healthy' ? 200 : 503;
+    res.status(statusCode).json(health);
+  } catch (error) {
+    console.error('Health check error:', error);
+    res.status(503).json({
+      status: 'unhealthy',
+      service: 'cart-service',
+      timestamp: new Date().toISOString(),
+      error: 'Health check failed',
+    });
+  }
+});
+
+/**
+ * @swagger
+ * /api/health/live:
+ *   get:
+ *     summary: Liveness probe
+ *     description: Check if service is alive
+ *     tags: [Health]
+ *     responses:
+ *       200:
+ *         description: Service is alive
+ */
+router.get('/health/live', async (req: Request, res: Response) => {
+  try {
+    const health = await healthCheckService.checkLiveness();
+    res.status(200).json(health);
+  } catch (error) {
+    console.error('Liveness check error:', error);
+    res.status(503).json({
+      status: 'unhealthy',
+      service: 'cart-service',
+      timestamp: new Date().toISOString(),
+      error: 'Liveness check failed',
+    });
+  }
+});
+
+/**
+ * @swagger
+ * /api/health/ready:
+ *   get:
+ *     summary: Readiness probe
+ *     description: Check if service is ready to handle traffic
+ *     tags: [Health]
+ *     responses:
+ *       200:
+ *         description: Service is ready
+ *       503:
+ *         description: Service is not ready
+ */
+router.get('/health/ready', async (req: Request, res: Response) => {
+  try {
+    const health = await healthCheckService.checkReadiness(cartService);
+    const statusCode = health.status === 'healthy' ? 200 : 503;
+    res.status(statusCode).json(health);
+  } catch (error) {
+    console.error('Readiness check error:', error);
+    res.status(503).json({
+      status: 'unhealthy',
+      service: 'cart-service',
+      timestamp: new Date().toISOString(),
+      error: 'Readiness check failed',
+    });
+  }
 });
 
 export default router;

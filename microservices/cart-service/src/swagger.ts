@@ -86,6 +86,51 @@ const options: swaggerJsdoc.Options = {
             details: { type: 'array', items: { type: 'object' } },
           },
         },
+        HealthCheckResponse: {
+          type: 'object',
+          properties: {
+            status: { type: 'string', enum: ['healthy', 'unhealthy', 'degraded'] },
+            service: { type: 'string' },
+            version: { type: 'string' },
+            timestamp: { type: 'string', format: 'date-time' },
+            uptime: { type: 'number' },
+            checks: {
+              type: 'object',
+              properties: {
+                dependencies: {
+                  type: 'array',
+                  items: { $ref: '#/components/schemas/DependencyHealth' },
+                },
+                resources: {
+                  type: 'array',
+                  items: { $ref: '#/components/schemas/ResourceHealth' },
+                },
+              },
+            },
+            responseTime: { type: 'number' },
+            error: { type: 'string' },
+          },
+        },
+        DependencyHealth: {
+          type: 'object',
+          properties: {
+            name: { type: 'string' },
+            status: { type: 'string', enum: ['healthy', 'unhealthy', 'degraded'] },
+            responseTime: { type: 'number' },
+            error: { type: 'string' },
+          },
+        },
+        ResourceHealth: {
+          type: 'object',
+          properties: {
+            name: { type: 'string' },
+            status: { type: 'string', enum: ['healthy', 'unhealthy', 'degraded'] },
+            value: { type: 'number' },
+            limit: { type: 'number' },
+            percentage: { type: 'number' },
+            unit: { type: 'string' },
+          },
+        },
       },
     },
   },
