@@ -17,7 +17,7 @@ The Cart Service health check implementation is **critically insufficient** for 
 
 ### 1. **No Dependency Validation** 🔴 CRITICAL
 
-**Location:** [`routes.ts:189-191`](microservices/cart-service/src/routes.ts#L189-L191)
+**Location:** [`routes.ts:189-191`](../microservices/cart-service/src/routes.ts#L189-L191)
 
 ```typescript
 router.get('/health', (req: Request, res: Response) => {
@@ -27,8 +27,8 @@ router.get('/health', (req: Request, res: Response) => {
 
 **Problem:**  
 The health check **always returns 200 OK** regardless of actual service health. It doesn't verify:
-- Product Service connectivity (critical dependency at [`product-client.ts:4`](microservices/cart-service/src/product-client.ts#L4))
-- Memory/storage availability for the in-memory cart store ([`service.ts:6`](microservices/cart-service/src/service.ts#L6))
+- Product Service connectivity (critical dependency at [`product-client.ts:4`](../microservices/cart-service/src/product-client.ts#L4))
+- Memory/storage availability for the in-memory cart store ([`service.ts:6`](../microservices/cart-service/src/service.ts#L6))
 - Application initialization state
 
 **Failure Scenarios:**
@@ -39,14 +39,14 @@ The health check **always returns 200 OK** regardless of actual service health. 
 
 **Impact:**  
 - Orchestrators (Kubernetes, Docker Swarm) won't detect failures
-- API Gateway ([`health.ts:6-28`](microservices/api-gateway/src/health.ts#L6-L28)) reports cart service as healthy when it's actually degraded
+- API Gateway ([`health.ts:6-28`](../microservices/api-gateway/src/health.ts#L6-L28)) reports cart service as healthy when it's actually degraded
 - Load balancers continue routing traffic to unhealthy instances
 
 ---
 
 ### 2. **Missing Readiness vs. Liveness Distinction** 🔴 CRITICAL
 
-**Location:** Single endpoint at [`routes.ts:189`](microservices/cart-service/src/routes.ts#L189)
+**Location:** Single endpoint at [`routes.ts:189`](../microservices/cart-service/src/routes.ts#L189)
 
 **Problem:**  
 No separation between:
@@ -57,13 +57,13 @@ No separation between:
 During startup, the service might be alive but not ready to handle requests (e.g., waiting for Product Service to be available). Current implementation would route traffic prematurely.
 
 **Docker/K8s Impact:**  
-The [`Dockerfile`](microservices/cart-service/Dockerfile) and [`docker-compose.yml:33-44`](docker-compose.yml#L33-L44) have no health check configuration, meaning containers are considered healthy immediately after starting.
+The [`Dockerfile`](../microservices/cart-service/Dockerfile) and [`docker-compose.yml:33-44`](../docker-compose.yml#L33-L44) have no health check configuration, meaning containers are considered healthy immediately after starting.
 
 ---
 
 ### 3. **No Timeout or Circuit Breaker for Dependency Checks** 🟠 HIGH
 
-**Location:** [`product-client.ts:7-17`](microservices/cart-service/src/product-client.ts#L7-L17)
+**Location:** [`product-client.ts:7-17`](../microservices/cart-service/src/product-client.ts#L7-L17)
 
 **Problem:**  
 Product Service client has no timeout configuration:
@@ -78,7 +78,7 @@ If Product Service becomes slow (not down, just degraded), cart operations will 
 - Cascading failures
 
 **Comparison:**  
-The API Gateway properly implements timeouts ([`health.ts:11`](microservices/api-gateway/src/health.ts#L11)):
+The API Gateway properly implements timeouts ([`health.ts:11`](../microservices/api-gateway/src/health.ts#L11)):
 ```typescript
 const response = await axios.get(healthUrl, { timeout: 5000 });
 ```
@@ -87,7 +87,7 @@ const response = await axios.get(healthUrl, { timeout: 5000 });
 
 ### 4. **In-Memory Storage Without Persistence Health Check** 🟠 HIGH
 
-**Location:** [`service.ts:6`](microservices/cart-service/src/service.ts#L6)
+**Location:** [`service.ts:6`](../microservices/cart-service/src/service.ts#L6)
 
 ```typescript
 private carts: Map<string, Cart> = new Map();
@@ -107,7 +107,7 @@ private carts: Map<string, Cart> = new Map();
 
 ### 5. **Missing Observability and Metrics** 🟡 MEDIUM
 
-**Location:** [`routes.ts:189-191`](microservices/cart-service/src/routes.ts#L189-L191)
+**Location:** [`routes.ts:189-191`](../microservices/cart-service/src/routes.ts#L189-L191)
 
 **Problem:**  
 Health check response provides minimal diagnostic information:
@@ -133,19 +133,19 @@ Health check response provides minimal diagnostic information:
 
 ### 6. **No Error Handling or Graceful Degradation** 🟡 MEDIUM
 
-**Location:** [`routes.ts:189-191`](microservices/cart-service/src/routes.ts#L189-L191)
+**Location:** [`routes.ts:189-191`](../microservices/cart-service/src/routes.ts#L189-L191)
 
 **Problem:**  
 Health check is synchronous and has no try-catch block. If the health check logic itself throws an error (e.g., `new Date().toISOString()` fails due to system clock issues), it will:
 1. Return 500 Internal Server Error
-2. Trigger the global error handler ([`index.ts:28-31`](microservices/cart-service/src/index.ts#L28-L31))
+2. Trigger the global error handler ([`index.ts:28-31`](../microservices/cart-service/src/index.ts#L28-L31))
 3. Provide no useful diagnostic information
 
 ---
 
 ### 7. **Docker Compose Missing Health Check Configuration** 🟠 HIGH
 
-**Location:** [`docker-compose.yml:33-44`](docker-compose.yml#L33-L44)
+**Location:** [`docker-compose.yml:33-44`](../docker-compose.yml#L33-L44)
 
 **Problem:**  
 Cart service definition has no `healthcheck` configuration:
@@ -188,7 +188,7 @@ Industry standard defines three levels:
 - Should respond within 1-2 seconds maximum
 
 ### ❌ **Swagger Documentation Incomplete**
-[`routes.ts:178-188`](microservices/cart-service/src/routes.ts#L178-L188) only documents success case:
+[`routes.ts:178-188`](../microservices/cart-service/src/routes.ts#L178-L188) only documents success case:
 ```typescript
 /**
  * @swagger
@@ -333,3 +333,4 @@ The current health check implementation is a **"hello world" placeholder** that 
 **Estimated Effort:** 4-6 hours for Priority 1-3 improvements
 
 **Risk if Not Fixed:** High probability of undetected outages, cascading failures, and poor customer experience in production.
+

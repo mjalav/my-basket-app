@@ -38,7 +38,7 @@ The Cart Service health check implementation has **critical deficiencies** that 
 ### Issue #1: No Dependency Validation ⚠️ CRITICAL
 
 **Severity:** 🔴 **CRITICAL**  
-**File:** [routes.ts](file:///d:/Personal/AI%20Course/daily-challenge/lesson1/my-basket-app/microservices/cart-service/src/routes.ts#L189-L191)  
+**File:** [routes.ts](../microservices/cart-service/src/routes.ts#L189-L191)  
 **Lines:** 189-191
 
 #### Current Implementation
@@ -77,16 +77,16 @@ The health check **always returns 200 OK** regardless of:
 - **Business Impact:** Lost sales, cart abandonment
 
 #### Code References
-- **Health Endpoint:** [routes.ts:189-191](file:///d:/Personal/AI%20Course/daily-challenge/lesson1/my-basket-app/microservices/cart-service/src/routes.ts#L189-L191)
-- **Product Client:** [product-client.ts:7-18](file:///d:/Personal/AI%20Course/daily-challenge/lesson1/my-basket-app/microservices/cart-service/src/product-client.ts#L7-L18)
-- **Service Dependency:** [service.ts:33](file:///d:/Personal/AI%20Course/daily-challenge/lesson1/my-basket-app/microservices/cart-service/src/service.ts#L33)
+- **Health Endpoint:** [routes.ts:189-191](../microservices/cart-service/src/routes.ts#L189-L191)
+- **Product Client:** [product-client.ts:7-18](../microservices/cart-service/src/product-client.ts#L7-L18)
+- **Service Dependency:** [service.ts:33](../microservices/cart-service/src/service.ts#L33)
 
 ---
 
 ### Issue #2: No Liveness vs Readiness Distinction ⚠️ CRITICAL
 
 **Severity:** 🔴 **CRITICAL**  
-**File:** [routes.ts](file:///d:/Personal/AI%20Course/daily-challenge/lesson1/my-basket-app/microservices/cart-service/src/routes.ts#L189-L191)  
+**File:** [routes.ts](../microservices/cart-service/src/routes.ts#L189-L191)  
 **Lines:** 189-191
 
 #### Problem
@@ -128,7 +128,7 @@ This violates Kubernetes/Docker best practices.
 ### Issue #3: No Timeout Configuration ⚠️ HIGH
 
 **Severity:** 🔴 **HIGH**  
-**File:** [product-client.ts](file:///d:/Personal/AI%20Course/daily-challenge/lesson1/my-basket-app/microservices/cart-service/src/product-client.ts#L7-L18)  
+**File:** [product-client.ts](../microservices/cart-service/src/product-client.ts#L7-L18)  
 **Lines:** 7-18
 
 #### Current Implementation
@@ -172,15 +172,15 @@ async getProduct(productId: string): Promise<Product | null> {
 - **Cascading Failures:** Timeouts propagate to dependent services
 
 #### Code References
-- **Product Client:** [product-client.ts:9](file:///d:/Personal/AI%20Course/daily-challenge/lesson1/my-basket-app/microservices/cart-service/src/product-client.ts#L9)
-- **API Gateway Health Check:** [health.ts:11](file:///d:/Personal/AI%20Course/daily-challenge/lesson1/my-basket-app/microservices/api-gateway/src/health.ts#L11) (has 5s timeout - inconsistent)
+- **Product Client:** [product-client.ts:9](../microservices/cart-service/src/product-client.ts#L9)
+- **API Gateway Health Check:** [health.ts:11](../microservices/api-gateway/src/health.ts#L11) (has 5s timeout - inconsistent)
 
 ---
 
 ### Issue #4: No Resource Monitoring ⚠️ HIGH
 
 **Severity:** 🔴 **HIGH**  
-**File:** [routes.ts](file:///d:/Personal/AI%20Course/daily-challenge/lesson1/my-basket-app/microservices/cart-service/src/routes.ts#L189-L191)  
+**File:** [routes.ts](../microservices/cart-service/src/routes.ts#L189-L191)  
 **Lines:** 189-191
 
 #### Problem
@@ -223,7 +223,7 @@ Health check does not monitor:
 ### Issue #5: Inadequate Error Handling ⚠️ HIGH
 
 **Severity:** 🔴 **HIGH**  
-**File:** [product-client.ts](file:///d:/Personal/AI%20Course/daily-challenge/lesson1/my-basket-app/microservices/cart-service/src/product-client.ts#L11-L17)  
+**File:** [product-client.ts](../microservices/cart-service/src/product-client.ts#L11-L17)  
 **Lines:** 11-17
 
 #### Current Implementation
@@ -268,14 +268,14 @@ catch (error: any) {
 - **Reliability:** Cannot implement smart retry logic
 
 #### Code References
-- **Product Client Error Handling:** [product-client.ts:11-17](file:///d:/Personal/AI%20Course/daily-challenge/lesson1/my-basket-app/microservices/cart-service/src/product-client.ts#L11-L17)
+- **Product Client Error Handling:** [product-client.ts:11-17](../microservices/cart-service/src/product-client.ts#L11-L17)
 
 ---
 
 ### Issue #6: No Caching Mechanism ⚠️ HIGH
 
 **Severity:** 🔴 **HIGH**  
-**File:** [routes.ts](file:///d:/Personal/AI%20Course/daily-challenge/lesson1/my-basket-app/microservices/cart-service/src/routes.ts#L189-L191)  
+**File:** [routes.ts](../microservices/cart-service/src/routes.ts#L189-L191)  
 **Lines:** 189-191
 
 #### Problem
@@ -317,7 +317,7 @@ Every health check would call Product Service directly (if implemented):
 ### Issue #7: No Docker Health Check Configuration ⚠️ HIGH
 
 **Severity:** 🔴 **HIGH**  
-**File:** [docker-compose.yml](file:///d:/Personal/AI%20Course/daily-challenge/lesson1/my-basket-app/docker-compose.yml#L33-L44)  
+**File:** [docker-compose.yml](../docker-compose.yml#L33-L44)  
 **Lines:** 33-44
 
 #### Current Implementation
@@ -369,15 +369,15 @@ cart-service:
 - ❌ No startup dependency validation
 
 #### Code References
-- **Docker Compose:** [docker-compose.yml:33-44](file:///d:/Personal/AI%20Course/daily-challenge/lesson1/my-basket-app/docker-compose.yml#L33-L44)
-- **Dockerfile:** [Dockerfile:1-25](file:///d:/Personal/AI%20Course/daily-challenge/lesson1/my-basket-app/microservices/cart-service/Dockerfile#L1-L25) (no HEALTHCHECK)
+- **Docker Compose:** [docker-compose.yml:33-44](../docker-compose.yml#L33-L44)
+- **Dockerfile:** [Dockerfile:1-25](../microservices/cart-service/Dockerfile#L1-L25) (no HEALTHCHECK)
 
 ---
 
 ### Issue #8: No Observability Metrics ⚠️ MEDIUM
 
 **Severity:** 🟡 **MEDIUM**  
-**File:** [routes.ts](file:///d:/Personal/AI%20Course/daily-challenge/lesson1/my-basket-app/microservices/cart-service/src/routes.ts#L189-L191)  
+**File:** [routes.ts](../microservices/cart-service/src/routes.ts#L189-L191)  
 **Lines:** 189-191
 
 #### Problem
@@ -436,7 +436,7 @@ Health check response lacks:
 ### Issue #9: No Graceful Degradation ⚠️ MEDIUM
 
 **Severity:** 🟡 **MEDIUM**  
-**File:** [routes.ts](file:///d:/Personal/AI%20Course/daily-challenge/lesson1/my-basket-app/microservices/cart-service/src/routes.ts#L189-L191)  
+**File:** [routes.ts](../microservices/cart-service/src/routes.ts#L189-L191)  
 **Lines:** 189-191
 
 #### Problem
@@ -465,7 +465,7 @@ No concept of "degraded" state:
 ### Issue #10: No Circuit Breaker Pattern ⚠️ LOW
 
 **Severity:** 🟢 **LOW**  
-**File:** [product-client.ts](file:///d:/Personal/AI%20Course/daily-challenge/lesson1/my-basket-app/microservices/cart-service/src/product-client.ts#L7-L18)  
+**File:** [product-client.ts](../microservices/cart-service/src/product-client.ts#L7-L18)  
 **Lines:** 7-18
 
 #### Problem
@@ -603,16 +603,16 @@ No circuit breaker for Product Service calls:
 
 | Issue | File | Lines | Function/Endpoint |
 |-------|------|-------|-------------------|
-| #1 | [routes.ts](file:///d:/Personal/AI%20Course/daily-challenge/lesson1/my-basket-app/microservices/cart-service/src/routes.ts#L189-L191) | 189-191 | `/api/health` |
-| #2 | [routes.ts](file:///d:/Personal/AI%20Course/daily-challenge/lesson1/my-basket-app/microservices/cart-service/src/routes.ts#L189-L191) | 189-191 | `/api/health` |
-| #3 | [product-client.ts](file:///d:/Personal/AI%20Course/daily-challenge/lesson1/my-basket-app/microservices/cart-service/src/product-client.ts#L7-L18) | 7-18 | `getProduct()` |
-| #4 | [routes.ts](file:///d:/Personal/AI%20Course/daily-challenge/lesson1/my-basket-app/microservices/cart-service/src/routes.ts#L189-L191) | 189-191 | `/api/health` |
-| #5 | [product-client.ts](file:///d:/Personal/AI%20Course/daily-challenge/lesson1/my-basket-app/microservices/cart-service/src/product-client.ts#L11-L17) | 11-17 | `getProduct()` error handling |
-| #6 | [routes.ts](file:///d:/Personal/AI%20Course/daily-challenge/lesson1/my-basket-app/microservices/cart-service/src/routes.ts#L189-L191) | 189-191 | `/api/health` |
-| #7 | [docker-compose.yml](file:///d:/Personal/AI%20Course/daily-challenge/lesson1/my-basket-app/docker-compose.yml#L33-L44) | 33-44 | `cart-service` config |
-| #8 | [routes.ts](file:///d:/Personal/AI%20Course/daily-challenge/lesson1/my-basket-app/microservices/cart-service/src/routes.ts#L189-L191) | 189-191 | `/api/health` response |
-| #9 | [routes.ts](file:///d:/Personal/AI%20Course/daily-challenge/lesson1/my-basket-app/microservices/cart-service/src/routes.ts#L189-L191) | 189-191 | `/api/health` |
-| #10 | [product-client.ts](file:///d:/Personal/AI%20Course/daily-challenge/lesson1/my-basket-app/microservices/cart-service/src/product-client.ts#L7-L18) | 7-18 | `getProduct()` |
+| #1 | [routes.ts](../microservices/cart-service/src/routes.ts#L189-L191) | 189-191 | `/api/health` |
+| #2 | [routes.ts](../microservices/cart-service/src/routes.ts#L189-L191) | 189-191 | `/api/health` |
+| #3 | [product-client.ts](../microservices/cart-service/src/product-client.ts#L7-L18) | 7-18 | `getProduct()` |
+| #4 | [routes.ts](../microservices/cart-service/src/routes.ts#L189-L191) | 189-191 | `/api/health` |
+| #5 | [product-client.ts](../microservices/cart-service/src/product-client.ts#L11-L17) | 11-17 | `getProduct()` error handling |
+| #6 | [routes.ts](../microservices/cart-service/src/routes.ts#L189-L191) | 189-191 | `/api/health` |
+| #7 | [docker-compose.yml](../docker-compose.yml#L33-L44) | 33-44 | `cart-service` config |
+| #8 | [routes.ts](../microservices/cart-service/src/routes.ts#L189-L191) | 189-191 | `/api/health` response |
+| #9 | [routes.ts](../microservices/cart-service/src/routes.ts#L189-L191) | 189-191 | `/api/health` |
+| #10 | [product-client.ts](../microservices/cart-service/src/product-client.ts#L7-L18) | 7-18 | `getProduct()` |
 
 ---
 
@@ -651,3 +651,4 @@ The Cart Service health check implementation requires **significant improvements
 **Report Generated:** 2026-01-23T08:58:16+13:00  
 **Review Status:** ✅ Complete  
 **Next Artifact:** Implementation Plan + Test Framework
+
