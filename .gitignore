@@ -26,6 +26,7 @@
 # misc
 .DS_Store
 *.pem
+my-basket-app.code-workspace
 *.code-workspace
 
 # debug
