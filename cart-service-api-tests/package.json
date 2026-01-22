@@ -1,0 +1,44 @@
+{
+  "name": "cart-service-api-tests",
+  "version": "1.0.0",
+  "description": "Playwright API tests for Cart Service health check implementation",
+  "main": "index.js",
+  "scripts": {
+    "test": "playwright test",
+    "test:debug": "playwright test --debug",
+    "test:ui": "playwright test --ui",
+    "test:report": "playwright test --reporter=html",
+    "test:report:open": "playwright show-report",
+    "test:json": "playwright test --reporter=json --reporter-output=test-results/results.json",
+    "test:junit": "playwright test --reporter=junit --reporter-output=test-results/junit.xml",
+    "test:headed": "playwright test --headed",
+    "test:parallel": "playwright test --workers=4",
+    "test:smoke": "playwright test --grep @smoke",
+    "test:critical": "playwright test --grep @critical",
+    "typecheck": "tsc --noEmit",
+    "lint": "eslint src tests --ext .ts",
+    "format": "prettier --write \"src/**/*.ts\" \"tests/**/*.ts\""
+  },
+  "keywords": [
+    "playwright",
+    "api-testing",
+    "typescript",
+    "health-check",
+    "microservices"
+  ],
+  "author": "MJ Alavi",
+  "license": "MIT",
+  "devDependencies": {
+    "@playwright/test": "^1.40.0",
+    "@types/node": "^20.10.0",
+    "@typescript-eslint/eslint-plugin": "^6.13.0",
+    "@typescript-eslint/parser": "^6.13.0",
+    "dotenv": "^16.3.1",
+    "eslint": "^8.54.0",
+    "prettier": "^3.1.0",
+    "typescript": "^5.3.2"
+  },
+  "dependencies": {
+    "axios": "^1.6.0"
+  }
+}
