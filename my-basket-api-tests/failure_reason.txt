@@ -1,0 +1,50 @@
+﻿      "image": "http://example.com/image.jpg",
+      "dataAiHint": "electronic",
+      "category": "Electronics",
+      "inStock": false,
+      "id": "1769124817038",
+      "createdAt": "2026-01-22T23:33:37.038Z",
+      "updatedAt": "2026-01-22T23:33:37.091Z"
+    }
+  ],
+  "total": 9,
+  "page": 1,
+  "limit": 10,
+  "totalPages": 1
+}
+  âœ“  34 [api] â€º tests\product-service\product.spec.ts:51:9 â€º Product Service API Tests â€º CRUD Operations â€º should list all products (24ms)
+[2026-01-22T23:33:37.146Z] [INFO] [ProductAPI] DELETE Request: http://localhost:3000/api/products/1769124817038
+[2026-01-22T23:33:37.157Z] [INFO] [ProductAPI] Response Status: 204 No Content
+[2026-01-22T23:33:37.158Z] [INFO] [ProductAPI] GET Request: http://localhost:3000/api/products/1769124817038
+[2026-01-22T23:33:37.168Z] [INFO] [ProductAPI] Response Status: 404 Not Found
+[2026-01-22T23:33:37.169Z] [DEBUG] [ProductAPI] Response Body: {
+  "error": "Product not found"
+}
+  âœ“  35 [api] â€º tests\product-service\product.spec.ts:61:9 â€º Product Service API Tests â€º CRUD Operations â€º should delete product (27ms)
+
+
+  1) [api] â€º tests\order-service\order.spec.ts:91:9 â€º Order Service API Tests â€º Order Lifecycle â€º should cancel order 
+
+    Error: Expected status 200 but got 404
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+    Expected: [32m200[39m
+    Received: [31m404[39m
+
+       at ..\src\pages\BaseAPI.ts:79
+
+      77 |    */
+      78 |   async assertStatus(response: APIResponse, expectedStatus: number) {
+    > 79 |     expect(response.status(), `Expected status ${expectedStatus} but got ${response.status()}`).toBe(expectedStatus);
+         |                                                                                                 ^
+      80 |   }
+      81 |
+      82 |   async assertSuccess(response: APIResponse) {
+        at OrderAPI.assertStatus (D:\Personal\AI Course\daily-challenge\lesson1\my-basket-app\my-basket-api-tests\src\pages\BaseAPI.ts:79:97)
+        at D:\Personal\AI Course\daily-challenge\lesson1\my-basket-app\my-basket-api-tests\tests\order-service\order.spec.ts:95:22
+
+  1 failed
+    [api] â€º tests\order-service\order.spec.ts:91:9 â€º Order Service API Tests â€º Order Lifecycle â€º should cancel order 
+  1 skipped
+  33 passed (4.7s)

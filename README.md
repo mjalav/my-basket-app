@@ -109,8 +109,14 @@ For Windows users, OS-specific scripts are available:
 ### Testing Scripts
 - `npm run lint` - Run ESLint
 - `npm run typecheck` - Run TypeScript type checking
-- `npm run test:api` - Run comprehensive Playwright API tests for the Cart Service
+- `npm run test:api` - Run comprehensive Playwright API tests
 - `npm run test:report` - Generate HTML test reports for API tests
+
+## 📚 Assignments
+- [01 - Health Check QA Review](Assignments/01-%20002-%20health_check_qa_review.md)
+- [02 - Implementation Plan v1](Assignments/02-%20003-%20implementation_plan.md)
+- [03 - Health Check Implementation](Assignments/03-%20003-%20implementation_plan.md)
+- [04 - Consolidated API Testing Framework](Assignments/04-%20003-%20implementation_plan.md)
 
 ## 🔧 Service Details
 

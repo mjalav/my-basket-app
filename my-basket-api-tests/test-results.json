@@ -1,0 +1,2840 @@
+{
+  "config": {
+    "configFile": "D:\\Personal\\AI Course\\daily-challenge\\lesson1\\my-basket-app\\my-basket-api-tests\\playwright.config.ts",
+    "rootDir": "D:/Personal/AI Course/daily-challenge/lesson1/my-basket-app/my-basket-api-tests/tests",
+    "forbidOnly": false,
+    "fullyParallel": true,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "reporter": [
+      [
+        "html",
+        null
+      ],
+      [
+        "json",
+        {
+          "outputFile": "test-results.json"
+        }
+      ],
+      [
+        "list",
+        null
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "quiet": false,
+    "projects": [
+      {
+        "outputDir": "D:/Personal/AI Course/daily-challenge/lesson1/my-basket-app/my-basket-api-tests/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "api",
+        "name": "api",
+        "testDir": "D:/Personal/AI Course/daily-challenge/lesson1/my-basket-app/my-basket-api-tests/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      }
+    ],
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "patch",
+    "version": "1.57.0",
+    "workers": 1,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "ai-service\\ai.spec.ts",
+      "file": "ai-service/ai.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "AI Service API Tests",
+          "file": "ai-service/ai.spec.ts",
+          "line": 3,
+          "column": 6,
+          "specs": [
+            {
+              "title": "should get grocery suggestions based on items",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "api",
+                  "projectName": "api",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 126,
+                      "errors": [],
+                      "stdout": [
+                        {
+                          "text": "[2026-01-22T23:56:08.320Z] [INFO] [AIAPI] POST Request: http://localhost:3000/api/recommendations/grocery-suggestions\n"
+                        },
+                        {
+                          "text": "[2026-01-22T23:56:08.322Z] [DEBUG] [AIAPI] Payload: {\n  \"items\": [\n    \"milk\",\n    \"bread\"\n  ]\n}\n"
+                        },
+                        {
+                          "text": "[2026-01-22T23:56:08.397Z] [INFO] [AIAPI] Response Status: 200 OK\n"
+                        },
+                        {
+                          "text": "[2026-01-22T23:56:08.400Z] [DEBUG] [AIAPI] Response Body: {\n  \"suggestions\": [\n    \"Fresh fruits\",\n    \"Vegetables\",\n    \"Whole grain bread\",\n    \"Lean proteins\",\n    \"Dairy products\",\n    \"Healthy snacks\",\n    \"Cooking oils\",\n    \"Seasonings and spices\"\n  ],\n  \"generatedAt\": \"2026-01-22T23:56:08.380Z\",\n  \"confidence\": 0.8\n}\n"
+                        }
+                      ],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-01-22T23:56:08.254Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "5d3a58d246cc12625cee-f4f9cf4124c962ba6bc6",
+              "file": "ai-service/ai.spec.ts",
+              "line": 6,
+              "column": 7
+            },
+            {
+              "title": "should get personalized recommendations for user",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "api",
+                  "projectName": "api",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 38,
+                      "errors": [],
+                      "stdout": [
+                        {
+                          "text": "[2026-01-22T23:56:08.461Z] [INFO] [AIAPI] POST Request: http://localhost:3000/api/recommendations/personalized\n"
+                        },
+                        {
+                          "text": "[2026-01-22T23:56:08.461Z] [DEBUG] [AIAPI] Payload: {\n  \"userId\": \"ai-test-user\"\n}\n"
+                        },
+                        {
+                          "text": "[2026-01-22T23:56:08.481Z] [INFO] [AIAPI] Response Status: 200 OK\n"
+                        },
+                        {
+                          "text": "[2026-01-22T23:56:08.486Z] [DEBUG] [AIAPI] Response Body: {\n  \"suggestions\": [\n    \"Winter vegetables\",\n    \"Warm beverages\",\n    \"Fresh fruits\",\n    \"Vegetables\",\n    \"Whole grain bread\",\n    \"Lean proteins\"\n  ],\n  \"userId\": \"ai-test-user\",\n  \"generatedAt\": \"2026-01-22T23:56:08.470Z\",\n  \"confidence\": 0.85\n}\n"
+                        }
+                      ],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-01-22T23:56:08.446Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "5d3a58d246cc12625cee-d8b1c849f8632fb71161",
+              "file": "ai-service/ai.spec.ts",
+              "line": 16,
+              "column": 7
+            }
+          ],
+          "suites": [
+            {
+              "title": "Negative Testing",
+              "file": "ai-service/ai.spec.ts",
+              "line": 25,
+              "column": 8,
+              "specs": [
+                {
+                  "title": "should handle empty items list for suggestions",
+                  "ok": true,
+                  "tags": [],
+                  "tests": [
+                    {
+                      "timeout": 30000,
+                      "annotations": [],
+                      "expectedStatus": "passed",
+                      "projectId": "api",
+                      "projectName": "api",
+                      "results": [
+                        {
+                          "workerIndex": 0,
+                          "parallelIndex": 0,
+                          "status": "passed",
+                          "duration": 42,
+                          "errors": [],
+                          "stdout": [
+                            {
+                              "text": "[2026-01-22T23:56:08.526Z] [INFO] [AIAPI] POST Request: http://localhost:3000/api/recommendations/grocery-suggestions\n"
+                            },
+                            {
+                              "text": "[2026-01-22T23:56:08.526Z] [DEBUG] [AIAPI] Payload: {\n  \"items\": []\n}\n"
+                            },
+                            {
+                              "text": "[2026-01-22T23:56:08.558Z] [INFO] [AIAPI] Response Status: 200 OK\n"
+                            },
+                            {
+                              "text": "[2026-01-22T23:56:08.560Z] [DEBUG] [AIAPI] Response Body: {\n  \"suggestions\": [\n    \"Fresh fruits\",\n    \"Vegetables\",\n    \"Whole grain bread\",\n    \"Lean proteins\",\n    \"Dairy products\",\n    \"Healthy snacks\",\n    \"Cooking oils\",\n    \"Seasonings and spices\"\n  ],\n  \"generatedAt\": \"2026-01-22T23:56:08.547Z\",\n  \"confidence\": 0.8\n}\n"
+                            }
+                          ],
+                          "stderr": [],
+                          "retry": 0,
+                          "startTime": "2026-01-22T23:56:08.513Z",
+                          "annotations": [],
+                          "attachments": []
+                        }
+                      ],
+                      "status": "expected"
+                    }
+                  ],
+                  "id": "5d3a58d246cc12625cee-4fe1dea84ff78fc4e777",
+                  "file": "ai-service/ai.spec.ts",
+                  "line": 26,
+                  "column": 9
+                },
+                {
+                  "title": "should handle invalid payload format gracefully",
+                  "ok": true,
+                  "tags": [],
+                  "tests": [
+                    {
+                      "timeout": 30000,
+                      "annotations": [],
+                      "expectedStatus": "passed",
+                      "projectId": "api",
+                      "projectName": "api",
+                      "results": [
+                        {
+                          "workerIndex": 0,
+                          "parallelIndex": 0,
+                          "status": "passed",
+                          "duration": 28,
+                          "errors": [],
+                          "stdout": [
+                            {
+                              "text": "[2026-01-22T23:56:08.593Z] [INFO] [AIAPI] POST Request: http://localhost:3000/api/recommendations/grocery-suggestions\n"
+                            },
+                            {
+                              "text": "[2026-01-22T23:56:08.593Z] [DEBUG] [AIAPI] Payload: {\n  \"invalid\": \"data\"\n}\n"
+                            },
+                            {
+                              "text": "[2026-01-22T23:56:08.613Z] [INFO] [AIAPI] Response Status: 200 OK\n"
+                            },
+                            {
+                              "text": "[2026-01-22T23:56:08.615Z] [DEBUG] [AIAPI] Response Body: {\n  \"suggestions\": [\n    \"Fresh fruits\",\n    \"Vegetables\",\n    \"Whole grain bread\",\n    \"Lean proteins\",\n    \"Dairy products\",\n    \"Healthy snacks\",\n    \"Cooking oils\",\n    \"Seasonings and spices\"\n  ],\n  \"generatedAt\": \"2026-01-22T23:56:08.602Z\",\n  \"confidence\": 0.8\n}\n"
+                            }
+                          ],
+                          "stderr": [],
+                          "retry": 0,
+                          "startTime": "2026-01-22T23:56:08.582Z",
+                          "annotations": [],
+                          "attachments": []
+                        }
+                      ],
+                      "status": "expected"
+                    }
+                  ],
+                  "id": "5d3a58d246cc12625cee-7c429cf74f51da272680",
+                  "file": "ai-service/ai.spec.ts",
+                  "line": 34,
+                  "column": 9
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "cart-service\\cart.spec.ts",
+      "file": "cart-service/cart.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "Cart Service API Tests",
+          "file": "cart-service/cart.spec.ts",
+          "line": 3,
+          "column": 6,
+          "specs": [],
+          "suites": [
+            {
+              "title": "Cart Operations",
+              "file": "cart-service/cart.spec.ts",
+              "line": 34,
+              "column": 8,
+              "specs": [
+                {
+                  "title": "should add item to cart",
+                  "ok": true,
+                  "tags": [],
+                  "tests": [
+                    {
+                      "timeout": 30000,
+                      "annotations": [],
+                      "expectedStatus": "passed",
+                      "projectId": "api",
+                      "projectName": "api",
+                      "results": [
+                        {
+                          "workerIndex": 0,
+                          "parallelIndex": 0,
+                          "status": "passed",
+                          "duration": 55,
+                          "errors": [],
+                          "stdout": [
+                            {
+                              "text": "[2026-01-22T23:56:08.652Z] [INFO] [ProductAPI] GET Request: http://localhost:3000/api/products\n"
+                            },
+                            {
+                              "text": "[2026-01-22T23:56:08.685Z] [INFO] [ProductAPI] Response Status: 200 OK\n"
+                            },
+                            {
+                              "text": "[2026-01-22T23:56:08.686Z] [DEBUG] [ProductAPI] Response Body: {\n  \"products\": [\n    {\n      \"id\": \"1\",\n      \"name\": \"Organic Apples\",\n      \"price\": 3.99,\n      \"description\": \"Crisp and juicy organic apples, perfect for snacking or baking.\",\n      \"image\": \"https://placehold.co/300x200.png\",\n      \"dataAiHint\": \"apples fruit\",\n      \"category\": \"fruits\",\n      \"inStock\": true,\n      \"createdAt\": \"2026-01-22T23:23:45.326Z\",\n      \"updatedAt\": \"2026-01-22T23:23:45.326Z\"\n    },\n    {\n      \"id\": \"2\",\n      \"name\": \"Whole Wheat Bread\",\n      \"price\": 4.49,\n      \"description\": \"Freshly baked whole wheat bread, rich in fiber.\",\n      \"image\": \"https://placehold.co/300x200.png\",\n      \"dataAiHint\": \"bread bakery\",\n      \"category\": \"bakery\",\n      \"inStock\": true,\n      \"createdAt\": \"2026-01-22T23:23:45.326Z\",\n      \"updatedAt\": \"2026-01-22T23:23:45.326Z\"\n    },\n    {\n      \"id\": \"3\",\n      \"name\": \"Free-Range Eggs\",\n      \"price\": 5.99,\n      \"description\": \"A dozen large free-range eggs, great for breakfast.\",\n      \"image\": \"https://placehold.co/300x200.png\",\n      \"dataAiHint\": \"eggs dairy\",\n      \"category\": \"dairy\",\n      \"inStock\": true,\n      \"createdAt\": \"2026-01-22T23:23:45.326Z\",\n      \"updatedAt\": \"2026-01-22T23:23:45.326Z\"\n    },\n    {\n      \"id\": \"4\",\n      \"name\": \"Organic Spinach\",\n      \"price\": 2.99,\n      \"description\": \"A bag of fresh organic spinach, packed with nutrients.\",\n      \"image\": \"https://placehold.co/300x200.png\",\n      \"dataAiHint\": \"spinach vegetables\",\n      \"category\": \"vegetables\",\n      \"inStock\": true,\n      \"createdAt\": \"2026-01-22T23:23:45.326Z\",\n      \"updatedAt\": \"2026-01-22T23:23:45.326Z\"\n    },\n    {\n      \"id\": \"5\",\n      \"name\": \"Almond Milk\",\n      \"price\": 3.79,\n      \"description\": \"Unsweetened almond milk, a great dairy-free alternative.\",\n      \"image\": \"https://placehold.co/300x200.png\",\n      \"dataAiHint\": \"almond milk\",\n      \"category\": \"dairy\",\n      \"inStock\": true,\n      \"createdAt\": \"2026-01-22T23:23:45.326Z\",\n      \"updatedAt\": \"2026-01-22T23:23:45.326Z\"\n    },\n    {\n      \"id\": \"6\",\n      \"name\": \"Chicken Breast\",\n      \"price\": 9.99,\n      \"description\": \"Boneless, skinless chicken breast, lean and versatile.\",\n      \"image\": \"https://placehold.co/300x200.png\",\n      \"dataAiHint\": \"chicken meat\",\n      \"category\": \"meat\",\n      \"inStock\": true,\n      \"createdAt\": \"2026-01-22T23:23:45.326Z\",\n      \"updatedAt\": \"2026-01-22T23:23:45.326Z\"\n    },\n    {\n      \"id\": \"7\",\n      \"name\": \"Brown Rice\",\n      \"price\": 2.49,\n      \"description\": \"Long-grain brown rice, a healthy whole grain option.\",\n      \"image\": \"https://placehold.co/300x200.png\",\n      \"dataAiHint\": \"rice grains\",\n      \"category\": \"grains\",\n      \"inStock\": true,\n      \"createdAt\": \"2026-01-22T23:23:45.326Z\",\n      \"updatedAt\": \"2026-01-22T23:23:45.326Z\"\n    },\n    {\n      \"id\": \"8\",\n      \"name\": \"Greek Yogurt\",\n      \"price\": 4.99,\n      \"description\": \"Creamy Greek yogurt, high in protein and probiotics.\",\n      \"image\": \"https://placehold.co/300x200.png\",\n      \"dataAiHint\": \"yogurt dairy\",\n      \"category\": \"dairy\",\n      \"inStock\": true,\n      \"createdAt\": \"2026-01-22T23:23:45.326Z\",\n      \"updatedAt\": \"2026-01-22T23:23:45.326Z\"\n    }\n  ],\n  \"total\": 8,\n  \"page\": 1,\n  \"limit\": 10,\n  \"totalPages\": 1\n}\n"
+                            },
+                            {
+                              "text": "[2026-01-22T23:56:08.724Z] [INFO] [CartAPI] POST Request: http://localhost:3000/api/cart/test-user-123/items\n"
+                            },
+                            {
+                              "text": "[2026-01-22T23:56:08.724Z] [DEBUG] [CartAPI] Payload: {\n  \"productId\": \"1\",\n  \"quantity\": 2\n}\n"
+                            },
+                            {
+                              "text": "[2026-01-22T23:56:08.760Z] [INFO] [CartAPI] Response Status: 200 OK\n"
+                            },
+                            {
+                              "text": "[2026-01-22T23:56:08.762Z] [DEBUG] [CartAPI] Response Body: {\n  \"id\": \"4297edab-cb7f-4147-a793-1a29aa0b7011\",\n  \"userId\": \"test-user-123\",\n  \"items\": [\n    {\n      \"id\": \"1\",\n      \"name\": \"Organic Apples\",\n      \"price\": 3.99,\n      \"description\": \"Crisp and juicy organic apples, perfect for snacking or baking.\",\n      \"image\": \"https://placehold.co/300x200.png\",\n      \"dataAiHint\": \"apples fruit\",\n      \"category\": \"fruits\",\n      \"inStock\": true,\n      \"createdAt\": \"2026-01-22T23:23:45.326Z\",\n      \"updatedAt\": \"2026-01-22T23:23:45.326Z\",\n      \"quantity\": 2,\n      \"addedAt\": \"2026-01-22T23:56:08.749Z\"\n    }\n  ],\n  \"totalAmount\": 7.98,\n  \"totalItems\": 2,\n  \"createdAt\": \"2026-01-22T23:24:15.576Z\",\n  \"updatedAt\": \"2026-01-22T23:56:08.749Z\"\n}\n"
+                            }
+                          ],
+                          "stderr": [],
+                          "retry": 0,
+                          "startTime": "2026-01-22T23:56:08.640Z",
+                          "annotations": [],
+                          "attachments": []
+                        }
+                      ],
+                      "status": "expected"
+                    }
+                  ],
+                  "id": "aa19791499d3dd3066ca-69f6464e14328a348043",
+                  "file": "cart-service/cart.spec.ts",
+                  "line": 36,
+                  "column": 9
+                },
+                {
+                  "title": "should get user cart",
+                  "ok": true,
+                  "tags": [],
+                  "tests": [
+                    {
+                      "timeout": 30000,
+                      "annotations": [],
+                      "expectedStatus": "passed",
+                      "projectId": "api",
+                      "projectName": "api",
+                      "results": [
+                        {
+                          "workerIndex": 0,
+                          "parallelIndex": 0,
+                          "status": "passed",
+                          "duration": 29,
+                          "errors": [],
+                          "stdout": [
+                            {
+                              "text": "[2026-01-22T23:56:08.799Z] [INFO] [CartAPI] GET Request: http://localhost:3000/api/cart/test-user-123\n"
+                            },
+                            {
+                              "text": "[2026-01-22T23:56:08.816Z] [INFO] [CartAPI] Response Status: 200 OK\n"
+                            },
+                            {
+                              "text": "[2026-01-22T23:56:08.817Z] [DEBUG] [CartAPI] Response Body: {\n  \"id\": \"4297edab-cb7f-4147-a793-1a29aa0b7011\",\n  \"userId\": \"test-user-123\",\n  \"items\": [\n    {\n      \"id\": \"1\",\n      \"name\": \"Organic Apples\",\n      \"price\": 3.99,\n      \"description\": \"Crisp and juicy organic apples, perfect for snacking or baking.\",\n      \"image\": \"https://placehold.co/300x200.png\",\n      \"dataAiHint\": \"apples fruit\",\n      \"category\": \"fruits\",\n      \"inStock\": true,\n      \"createdAt\": \"2026-01-22T23:23:45.326Z\",\n      \"updatedAt\": \"2026-01-22T23:23:45.326Z\",\n      \"quantity\": 2,\n      \"addedAt\": \"2026-01-22T23:56:08.749Z\"\n    }\n  ],\n  \"totalAmount\": 7.98,\n  \"totalItems\": 2,\n  \"createdAt\": \"2026-01-22T23:24:15.576Z\",\n  \"updatedAt\": \"2026-01-22T23:56:08.749Z\"\n}\n"
+                            }
+                          ],
+                          "stderr": [],
+                          "retry": 0,
+                          "startTime": "2026-01-22T23:56:08.783Z",
+                          "annotations": [],
+                          "attachments": []
+                        }
+                      ],
+                      "status": "expected"
+                    }
+                  ],
+                  "id": "aa19791499d3dd3066ca-e83ce92d38bde4d339db",
+                  "file": "cart-service/cart.spec.ts",
+                  "line": 48,
+                  "column": 9
+                },
+                {
+                  "title": "should update item quantity",
+                  "ok": true,
+                  "tags": [],
+                  "tests": [
+                    {
+                      "timeout": 30000,
+                      "annotations": [],
+                      "expectedStatus": "passed",
+                      "projectId": "api",
+                      "projectName": "api",
+                      "results": [
+                        {
+                          "workerIndex": 0,
+                          "parallelIndex": 0,
+                          "status": "passed",
+                          "duration": 42,
+                          "errors": [],
+                          "stdout": [
+                            {
+                              "text": "[2026-01-22T23:56:08.859Z] [INFO] [CartAPI] PUT Request: http://localhost:3000/api/cart/test-user-123/items/1\n"
+                            },
+                            {
+                              "text": "[2026-01-22T23:56:08.859Z] [DEBUG] [CartAPI] Payload: {\n  \"quantity\": 5\n}\n"
+                            },
+                            {
+                              "text": "[2026-01-22T23:56:08.879Z] [INFO] [CartAPI] Response Status: 200 OK\n"
+                            },
+                            {
+                              "text": "[2026-01-22T23:56:08.880Z] [DEBUG] [CartAPI] Response Body: {\n  \"id\": \"4297edab-cb7f-4147-a793-1a29aa0b7011\",\n  \"userId\": \"test-user-123\",\n  \"items\": [\n    {\n      \"id\": \"1\",\n      \"name\": \"Organic Apples\",\n      \"price\": 3.99,\n      \"description\": \"Crisp and juicy organic apples, perfect for snacking or baking.\",\n      \"image\": \"https://placehold.co/300x200.png\",\n      \"dataAiHint\": \"apples fruit\",\n      \"category\": \"fruits\",\n      \"inStock\": true,\n      \"createdAt\": \"2026-01-22T23:23:45.326Z\",\n      \"updatedAt\": \"2026-01-22T23:23:45.326Z\",\n      \"quantity\": 5,\n      \"addedAt\": \"2026-01-22T23:56:08.749Z\"\n    }\n  ],\n  \"totalAmount\": 19.95,\n  \"totalItems\": 5,\n  \"createdAt\": \"2026-01-22T23:24:15.576Z\",\n  \"updatedAt\": \"2026-01-22T23:56:08.868Z\"\n}\n"
+                            }
+                          ],
+                          "stderr": [],
+                          "retry": 0,
+                          "startTime": "2026-01-22T23:56:08.835Z",
+                          "annotations": [],
+                          "attachments": []
+                        }
+                      ],
+                      "status": "expected"
+                    }
+                  ],
+                  "id": "aa19791499d3dd3066ca-d7d50bd7ef11264ca295",
+                  "file": "cart-service/cart.spec.ts",
+                  "line": 57,
+                  "column": 9
+                },
+                {
+                  "title": "should get cart summary",
+                  "ok": true,
+                  "tags": [],
+                  "tests": [
+                    {
+                      "timeout": 30000,
+                      "annotations": [],
+                      "expectedStatus": "passed",
+                      "projectId": "api",
+                      "projectName": "api",
+                      "results": [
+                        {
+                          "workerIndex": 0,
+                          "parallelIndex": 0,
+                          "status": "passed",
+                          "duration": 32,
+                          "errors": [],
+                          "stdout": [
+                            {
+                              "text": "[2026-01-22T23:56:08.919Z] [INFO] [CartAPI] GET Request: http://localhost:3000/api/cart/test-user-123/summary\n"
+                            },
+                            {
+                              "text": "[2026-01-22T23:56:08.940Z] [INFO] [CartAPI] Response Status: 200 OK\n"
+                            },
+                            {
+                              "text": "[2026-01-22T23:56:08.941Z] [DEBUG] [CartAPI] Response Body: {\n  \"totalItems\": 5,\n  \"totalAmount\": 19.95,\n  \"itemCount\": 1\n}\n"
+                            }
+                          ],
+                          "stderr": [],
+                          "retry": 0,
+                          "startTime": "2026-01-22T23:56:08.902Z",
+                          "annotations": [],
+                          "attachments": []
+                        }
+                      ],
+                      "status": "expected"
+                    }
+                  ],
+                  "id": "aa19791499d3dd3066ca-48982d9e2f7e52ca9c46",
+                  "file": "cart-service/cart.spec.ts",
+                  "line": 66,
+                  "column": 9
+                },
+                {
+                  "title": "should remove item from cart",
+                  "ok": true,
+                  "tags": [],
+                  "tests": [
+                    {
+                      "timeout": 30000,
+                      "annotations": [],
+                      "expectedStatus": "passed",
+                      "projectId": "api",
+                      "projectName": "api",
+                      "results": [
+                        {
+                          "workerIndex": 0,
+                          "parallelIndex": 0,
+                          "status": "passed",
+                          "duration": 27,
+                          "errors": [],
+                          "stdout": [
+                            {
+                              "text": "[2026-01-22T23:56:08.966Z] [INFO] [CartAPI] DELETE Request: http://localhost:3000/api/cart/test-user-123/items/1\n"
+                            },
+                            {
+                              "text": "[2026-01-22T23:56:08.984Z] [INFO] [CartAPI] Response Status: 200 OK\n"
+                            },
+                            {
+                              "text": "[2026-01-22T23:56:08.986Z] [DEBUG] [CartAPI] Response Body: {\n  \"id\": \"4297edab-cb7f-4147-a793-1a29aa0b7011\",\n  \"userId\": \"test-user-123\",\n  \"items\": [],\n  \"totalAmount\": 0,\n  \"totalItems\": 0,\n  \"createdAt\": \"2026-01-22T23:24:15.576Z\",\n  \"updatedAt\": \"2026-01-22T23:56:08.974Z\"\n}\n"
+                            }
+                          ],
+                          "stderr": [],
+                          "retry": 0,
+                          "startTime": "2026-01-22T23:56:08.954Z",
+                          "annotations": [],
+                          "attachments": []
+                        }
+                      ],
+                      "status": "expected"
+                    }
+                  ],
+                  "id": "aa19791499d3dd3066ca-245f79b16c9c91b8dbba",
+                  "file": "cart-service/cart.spec.ts",
+                  "line": 75,
+                  "column": 9
+                },
+                {
+                  "title": "should clear cart",
+                  "ok": true,
+                  "tags": [],
+                  "tests": [
+                    {
+                      "timeout": 30000,
+                      "annotations": [],
+                      "expectedStatus": "passed",
+                      "projectId": "api",
+                      "projectName": "api",
+                      "results": [
+                        {
+                          "workerIndex": 0,
+                          "parallelIndex": 0,
+                          "status": "passed",
+                          "duration": 52,
+                          "errors": [],
+                          "stdout": [
+                            {
+                              "text": "[2026-01-22T23:56:09.020Z] [INFO] [CartAPI] POST Request: http://localhost:3000/api/cart/test-user-123/items\n"
+                            },
+                            {
+                              "text": "[2026-01-22T23:56:09.020Z] [DEBUG] [CartAPI] Payload: {\n  \"productId\": \"1\",\n  \"quantity\": 1\n}\n"
+                            },
+                            {
+                              "text": "[2026-01-22T23:56:09.043Z] [INFO] [CartAPI] Response Status: 200 OK\n"
+                            },
+                            {
+                              "text": "[2026-01-22T23:56:09.044Z] [DEBUG] [CartAPI] Response Body: {\n  \"id\": \"4297edab-cb7f-4147-a793-1a29aa0b7011\",\n  \"userId\": \"test-user-123\",\n  \"items\": [\n    {\n      \"id\": \"1\",\n      \"name\": \"Organic Apples\",\n      \"price\": 3.99,\n      \"description\": \"Crisp and juicy organic apples, perfect for snacking or baking.\",\n      \"image\": \"https://placehold.co/300x200.png\",\n      \"dataAiHint\": \"apples fruit\",\n      \"category\": \"fruits\",\n      \"inStock\": true,\n      \"createdAt\": \"2026-01-22T23:23:45.326Z\",\n      \"updatedAt\": \"2026-01-22T23:23:45.326Z\",\n      \"quantity\": 1,\n      \"addedAt\": \"2026-01-22T23:56:09.033Z\"\n    }\n  ],\n  \"totalAmount\": 3.99,\n  \"totalItems\": 1,\n  \"createdAt\": \"2026-01-22T23:24:15.576Z\",\n  \"updatedAt\": \"2026-01-22T23:56:09.033Z\"\n}\n"
+                            },
+                            {
+                              "text": "[2026-01-22T23:56:09.044Z] [INFO] [CartAPI] DELETE Request: http://localhost:3000/api/cart/test-user-123\n"
+                            },
+                            {
+                              "text": "[2026-01-22T23:56:09.065Z] [INFO] [CartAPI] Response Status: 200 OK\n"
+                            },
+                            {
+                              "text": "[2026-01-22T23:56:09.066Z] [DEBUG] [CartAPI] Response Body: {\n  \"id\": \"4297edab-cb7f-4147-a793-1a29aa0b7011\",\n  \"userId\": \"test-user-123\",\n  \"items\": [],\n  \"totalAmount\": 0,\n  \"totalItems\": 0,\n  \"createdAt\": \"2026-01-22T23:24:15.576Z\",\n  \"updatedAt\": \"2026-01-22T23:56:09.054Z\"\n}\n"
+                            }
+                          ],
+                          "stderr": [],
+                          "retry": 0,
+                          "startTime": "2026-01-22T23:56:08.998Z",
+                          "annotations": [],
+                          "attachments": []
+                        }
+                      ],
+                      "status": "expected"
+                    }
+                  ],
+                  "id": "aa19791499d3dd3066ca-189f7788271feba223f9",
+                  "file": "cart-service/cart.spec.ts",
+                  "line": 83,
+                  "column": 9
+                }
+              ]
+            },
+            {
+              "title": "Negative Testing",
+              "file": "cart-service/cart.spec.ts",
+              "line": 95,
+              "column": 8,
+              "specs": [
+                {
+                  "title": "should fail to add item with invalid quantity",
+                  "ok": true,
+                  "tags": [],
+                  "tests": [
+                    {
+                      "timeout": 30000,
+                      "annotations": [],
+                      "expectedStatus": "passed",
+                      "projectId": "api",
+                      "projectName": "api",
+                      "results": [
+                        {
+                          "workerIndex": 0,
+                          "parallelIndex": 0,
+                          "status": "passed",
+                          "duration": 20,
+                          "errors": [],
+                          "stdout": [
+                            {
+                              "text": "[2026-01-22T23:56:09.086Z] [INFO] [CartAPI] POST Request: http://localhost:3000/api/cart/test-user-123/items\n"
+                            },
+                            {
+                              "text": "[2026-01-22T23:56:09.086Z] [DEBUG] [CartAPI] Payload: {\n  \"productId\": \"1\",\n  \"quantity\": -1\n}\n"
+                            },
+                            {
+                              "text": "[2026-01-22T23:56:09.100Z] [INFO] [CartAPI] Response Status: 400 Bad Request\n"
+                            },
+                            {
+                              "text": "[2026-01-22T23:56:09.101Z] [DEBUG] [CartAPI] Response Body: {\n  \"error\": \"Invalid request data\",\n  \"details\": [\n    {\n      \"code\": \"too_small\",\n      \"minimum\": 0,\n      \"type\": \"number\",\n      \"inclusive\": false,\n      \"exact\": false,\n      \"message\": \"Number must be greater than 0\",\n      \"path\": [\n        \"quantity\"\n      ]\n    }\n  ]\n}\n"
+                            }
+                          ],
+                          "stderr": [],
+                          "retry": 0,
+                          "startTime": "2026-01-22T23:56:09.076Z",
+                          "annotations": [],
+                          "attachments": []
+                        }
+                      ],
+                      "status": "expected"
+                    }
+                  ],
+                  "id": "aa19791499d3dd3066ca-a8c9b89665d5eb627c92",
+                  "file": "cart-service/cart.spec.ts",
+                  "line": 97,
+                  "column": 9
+                },
+                {
+                  "title": "should return 400 for invalid userId format if applicable",
+                  "ok": true,
+                  "tags": [],
+                  "tests": [
+                    {
+                      "timeout": 30000,
+                      "annotations": [],
+                      "expectedStatus": "passed",
+                      "projectId": "api",
+                      "projectName": "api",
+                      "results": [
+                        {
+                          "workerIndex": 0,
+                          "parallelIndex": 0,
+                          "status": "passed",
+                          "duration": 25,
+                          "errors": [],
+                          "stdout": [
+                            {
+                              "text": "[2026-01-22T23:56:09.121Z] [INFO] [CartAPI] GET Request: http://localhost:3000/api/cart/\n"
+                            },
+                            {
+                              "text": "[2026-01-22T23:56:09.141Z] [INFO] [CartAPI] Response Status: 404 Not Found\n"
+                            },
+                            {
+                              "text": "[2026-01-22T23:56:09.142Z] [DEBUG] [CartAPI] Response Body: {\n  \"error\": \"Route not found\"\n}\n"
+                            }
+                          ],
+                          "stderr": [],
+                          "retry": 0,
+                          "startTime": "2026-01-22T23:56:09.109Z",
+                          "annotations": [],
+                          "attachments": []
+                        }
+                      ],
+                      "status": "expected"
+                    }
+                  ],
+                  "id": "aa19791499d3dd3066ca-fc5953d6c036d8c89499",
+                  "file": "cart-service/cart.spec.ts",
+                  "line": 102,
+                  "column": 9
+                },
+                {
+                  "title": "should handle adding non-existent product",
+                  "ok": true,
+                  "tags": [],
+                  "tests": [
+                    {
+                      "timeout": 30000,
+                      "annotations": [],
+                      "expectedStatus": "passed",
+                      "projectId": "api",
+                      "projectName": "api",
+                      "results": [
+                        {
+                          "workerIndex": 0,
+                          "parallelIndex": 0,
+                          "status": "passed",
+                          "duration": 29,
+                          "errors": [],
+                          "stdout": [
+                            {
+                              "text": "[2026-01-22T23:56:09.163Z] [INFO] [CartAPI] POST Request: http://localhost:3000/api/cart/test-user-123/items\n"
+                            },
+                            {
+                              "text": "[2026-01-22T23:56:09.164Z] [DEBUG] [CartAPI] Payload: {\n  \"productId\": \"non-existent-product\",\n  \"quantity\": 1\n}\n"
+                            },
+                            {
+                              "text": "[2026-01-22T23:56:09.185Z] [INFO] [CartAPI] Response Status: 404 Not Found\n"
+                            },
+                            {
+                              "text": "[2026-01-22T23:56:09.186Z] [DEBUG] [CartAPI] Response Body: {\n  \"error\": \"Product not found\"\n}\n"
+                            },
+                            {
+                              "text": "[2026-01-22T23:56:09.205Z] [INFO] [CartAPI] DELETE Request: http://localhost:3000/api/cart/test-user-123\n"
+                            },
+                            {
+                              "text": "[2026-01-22T23:56:09.220Z] [INFO] [CartAPI] Response Status: 200 OK\n"
+                            },
+                            {
+                              "text": "[2026-01-22T23:56:09.222Z] [DEBUG] [CartAPI] Response Body: {\n  \"id\": \"4297edab-cb7f-4147-a793-1a29aa0b7011\",\n  \"userId\": \"test-user-123\",\n  \"items\": [],\n  \"totalAmount\": 0,\n  \"totalItems\": 0,\n  \"createdAt\": \"2026-01-22T23:24:15.576Z\",\n  \"updatedAt\": \"2026-01-22T23:56:09.211Z\"\n}\n"
+                            }
+                          ],
+                          "stderr": [],
+                          "retry": 0,
+                          "startTime": "2026-01-22T23:56:09.149Z",
+                          "annotations": [],
+                          "attachments": []
+                        }
+                      ],
+                      "status": "expected"
+                    }
+                  ],
+                  "id": "aa19791499d3dd3066ca-0e49317ac5328faf887f",
+                  "file": "cart-service/cart.spec.ts",
+                  "line": 108,
+                  "column": 9
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "cart-service\\health-audit\\issue1-dependency.spec.ts",
+      "file": "cart-service/health-audit/issue1-dependency.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "Issue #1: Dependency Validation @critical",
+          "file": "cart-service/health-audit/issue1-dependency.spec.ts",
+          "line": 8,
+          "column": 6,
+          "specs": [
+            {
+              "title": "Health check should return 200 when Product Service is reachable",
+              "ok": true,
+              "tags": [
+                "critical"
+              ],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "api",
+                  "projectName": "api",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 29,
+                      "errors": [],
+                      "stdout": [
+                        {
+                          "text": "[2026-01-22T23:56:09.253Z] [INFO] [CartAPI] GET Request: http://localhost:3000/api/cart/health\n"
+                        },
+                        {
+                          "text": "[2026-01-22T23:56:09.275Z] [INFO] [CartAPI] Response Status: 200 OK\n"
+                        },
+                        {
+                          "text": "[2026-01-22T23:56:09.276Z] [DEBUG] [CartAPI] Response Body: {\n  \"status\": \"healthy\",\n  \"service\": \"cart-service\",\n  \"version\": \"1.0.0\",\n  \"timestamp\": \"2026-01-22T23:55:40.421Z\",\n  \"uptime\": 1909,\n  \"checks\": {\n    \"dependencies\": [\n      {\n        \"name\": \"product-service\",\n        \"status\": \"healthy\",\n        \"responseTime\": 3\n      }\n    ],\n    \"resources\": [\n      {\n        \"name\": \"memory\",\n        \"status\": \"healthy\",\n        \"value\": 16,\n        \"limit\": 24,\n        \"percentage\": 65,\n        \"unit\": \"MB\"\n      },\n      {\n        \"name\": \"carts\",\n        \"status\": \"healthy\",\n        \"value\": 13,\n        \"limit\": 10000,\n        \"percentage\": 0,\n        \"unit\": \"count\"\n      }\n    ]\n  },\n  \"responseTime\": 3\n}\n"
+                        }
+                      ],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-01-22T23:56:09.243Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "e581fffdc2a38ee7a9be-4ea57c2f389c3c42a562",
+              "file": "cart-service/health-audit/issue1-dependency.spec.ts",
+              "line": 10,
+              "column": 7
+            },
+            {
+              "title": "Readiness check should return 503 when Product Service is down",
+              "ok": true,
+              "tags": [
+                "critical"
+              ],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [
+                    {
+                      "type": "requirement",
+                      "description": "System must return 503 if critical dependency is unreachable"
+                    }
+                  ],
+                  "expectedStatus": "passed",
+                  "projectId": "api",
+                  "projectName": "api",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 18,
+                      "errors": [],
+                      "stdout": [
+                        {
+                          "text": "[2026-01-22T23:56:09.300Z] [INFO] [CartAPI] GET Request: http://localhost:3000/api/cart/health/ready\n"
+                        },
+                        {
+                          "text": "[2026-01-22T23:56:09.313Z] [INFO] [CartAPI] Response Status: 200 OK\n"
+                        },
+                        {
+                          "text": "[2026-01-22T23:56:09.315Z] [DEBUG] [CartAPI] Response Body: {\n  \"status\": \"healthy\",\n  \"service\": \"cart-service\",\n  \"version\": \"1.0.0\",\n  \"timestamp\": \"2026-01-22T23:55:40.421Z\",\n  \"uptime\": 1909,\n  \"checks\": {\n    \"dependencies\": [\n      {\n        \"name\": \"product-service\",\n        \"status\": \"healthy\",\n        \"responseTime\": 3\n      }\n    ],\n    \"resources\": [\n      {\n        \"name\": \"memory\",\n        \"status\": \"healthy\",\n        \"value\": 16,\n        \"limit\": 24,\n        \"percentage\": 65,\n        \"unit\": \"MB\"\n      },\n      {\n        \"name\": \"carts\",\n        \"status\": \"healthy\",\n        \"value\": 13,\n        \"limit\": 10000,\n        \"percentage\": 0,\n        \"unit\": \"count\"\n      }\n    ]\n  },\n  \"responseTime\": 3\n}\n"
+                        }
+                      ],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-01-22T23:56:09.291Z",
+                      "annotations": [
+                        {
+                          "type": "requirement",
+                          "description": "System must return 503 if critical dependency is unreachable"
+                        }
+                      ],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "e581fffdc2a38ee7a9be-0dd616e5fab2d4ea6803",
+              "file": "cart-service/health-audit/issue1-dependency.spec.ts",
+              "line": 22,
+              "column": 7
+            },
+            {
+              "title": "Dependency status should include response time",
+              "ok": true,
+              "tags": [
+                "critical"
+              ],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "api",
+                  "projectName": "api",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 24,
+                      "errors": [],
+                      "stdout": [
+                        {
+                          "text": "[2026-01-22T23:56:09.335Z] [INFO] [CartAPI] GET Request: http://localhost:3000/api/cart/health\n"
+                        },
+                        {
+                          "text": "[2026-01-22T23:56:09.352Z] [INFO] [CartAPI] Response Status: 200 OK\n"
+                        },
+                        {
+                          "text": "[2026-01-22T23:56:09.353Z] [DEBUG] [CartAPI] Response Body: {\n  \"status\": \"healthy\",\n  \"service\": \"cart-service\",\n  \"version\": \"1.0.0\",\n  \"timestamp\": \"2026-01-22T23:55:40.421Z\",\n  \"uptime\": 1909,\n  \"checks\": {\n    \"dependencies\": [\n      {\n        \"name\": \"product-service\",\n        \"status\": \"healthy\",\n        \"responseTime\": 3\n      }\n    ],\n    \"resources\": [\n      {\n        \"name\": \"memory\",\n        \"status\": \"healthy\",\n        \"value\": 16,\n        \"limit\": 24,\n        \"percentage\": 65,\n        \"unit\": \"MB\"\n      },\n      {\n        \"name\": \"carts\",\n        \"status\": \"healthy\",\n        \"value\": 13,\n        \"limit\": 10000,\n        \"percentage\": 0,\n        \"unit\": \"count\"\n      }\n    ]\n  },\n  \"responseTime\": 3\n}\n"
+                        }
+                      ],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-01-22T23:56:09.327Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "e581fffdc2a38ee7a9be-5367d038de8f9b8f8eab",
+              "file": "cart-service/health-audit/issue1-dependency.spec.ts",
+              "line": 38,
+              "column": 7
+            },
+            {
+              "title": "Liveness check should NOT fail when Product Service is down",
+              "ok": true,
+              "tags": [
+                "critical"
+              ],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "api",
+                  "projectName": "api",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 21,
+                      "errors": [],
+                      "stdout": [
+                        {
+                          "text": "[2026-01-22T23:56:09.377Z] [INFO] [CartAPI] GET Request: http://localhost:3000/api/cart/health/live\n"
+                        },
+                        {
+                          "text": "[2026-01-22T23:56:09.391Z] [INFO] [CartAPI] Response Status: 200 OK\n"
+                        },
+                        {
+                          "text": "[2026-01-22T23:56:09.392Z] [DEBUG] [CartAPI] Response Body: {\n  \"status\": \"healthy\",\n  \"service\": \"cart-service\",\n  \"version\": \"1.0.0\",\n  \"timestamp\": \"2026-01-22T23:56:09.381Z\",\n  \"uptime\": 1938\n}\n"
+                        }
+                      ],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-01-22T23:56:09.369Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "e581fffdc2a38ee7a9be-0651d5f87e3c7f084a09",
+              "file": "cart-service/health-audit/issue1-dependency.spec.ts",
+              "line": 50,
+              "column": 7
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "cart-service\\health-audit\\issue2-distinction.spec.ts",
+      "file": "cart-service/health-audit/issue2-distinction.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "Issue #2: Liveness vs Readiness @critical",
+          "file": "cart-service/health-audit/issue2-distinction.spec.ts",
+          "line": 7,
+          "column": 6,
+          "specs": [
+            {
+              "title": "Liveness endpoint /api/cart/health/live should exist and return 200",
+              "ok": true,
+              "tags": [
+                "critical"
+              ],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "api",
+                  "projectName": "api",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 28,
+                      "errors": [],
+                      "stdout": [
+                        {
+                          "text": "[2026-01-22T23:56:09.419Z] [INFO] [CartAPI] GET Request: http://localhost:3000/api/cart/health/live\n"
+                        },
+                        {
+                          "text": "[2026-01-22T23:56:09.432Z] [INFO] [CartAPI] Response Status: 200 OK\n"
+                        },
+                        {
+                          "text": "[2026-01-22T23:56:09.433Z] [DEBUG] [CartAPI] Response Body: {\n  \"status\": \"healthy\",\n  \"service\": \"cart-service\",\n  \"version\": \"1.0.0\",\n  \"timestamp\": \"2026-01-22T23:56:09.381Z\",\n  \"uptime\": 1938\n}\n"
+                        }
+                      ],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-01-22T23:56:09.412Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "b3134105603720f82676-c9fce12f9c6d51d16bf6",
+              "file": "cart-service/health-audit/issue2-distinction.spec.ts",
+              "line": 9,
+              "column": 7
+            },
+            {
+              "title": "Readiness endpoint /api/cart/health/ready should exist",
+              "ok": true,
+              "tags": [
+                "critical"
+              ],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "api",
+                  "projectName": "api",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 20,
+                      "errors": [],
+                      "stdout": [
+                        {
+                          "text": "[2026-01-22T23:56:09.465Z] [INFO] [CartAPI] GET Request: http://localhost:3000/api/cart/health/ready\n"
+                        },
+                        {
+                          "text": "[2026-01-22T23:56:09.480Z] [INFO] [CartAPI] Response Status: 200 OK\n"
+                        },
+                        {
+                          "text": "[2026-01-22T23:56:09.481Z] [DEBUG] [CartAPI] Response Body: {\n  \"status\": \"healthy\",\n  \"service\": \"cart-service\",\n  \"version\": \"1.0.0\",\n  \"timestamp\": \"2026-01-22T23:55:40.421Z\",\n  \"uptime\": 1909,\n  \"checks\": {\n    \"dependencies\": [\n      {\n        \"name\": \"product-service\",\n        \"status\": \"healthy\",\n        \"responseTime\": 3\n      }\n    ],\n    \"resources\": [\n      {\n        \"name\": \"memory\",\n        \"status\": \"healthy\",\n        \"value\": 16,\n        \"limit\": 24,\n        \"percentage\": 65,\n        \"unit\": \"MB\"\n      },\n      {\n        \"name\": \"carts\",\n        \"status\": \"healthy\",\n        \"value\": 13,\n        \"limit\": 10000,\n        \"percentage\": 0,\n        \"unit\": \"count\"\n      }\n    ]\n  },\n  \"responseTime\": 3\n}\n"
+                        }
+                      ],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-01-22T23:56:09.456Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "b3134105603720f82676-eb74e0fb1dbcaf91019b",
+              "file": "cart-service/health-audit/issue2-distinction.spec.ts",
+              "line": 18,
+              "column": 7
+            },
+            {
+              "title": "Liveness should be lightweight (no dependency checks)",
+              "ok": true,
+              "tags": [
+                "critical"
+              ],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "api",
+                  "projectName": "api",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 19,
+                      "errors": [],
+                      "stdout": [
+                        {
+                          "text": "[2026-01-22T23:56:09.504Z] [INFO] [CartAPI] GET Request: http://localhost:3000/api/cart/health/live\n"
+                        },
+                        {
+                          "text": "[2026-01-22T23:56:09.517Z] [INFO] [CartAPI] Response Status: 200 OK\n"
+                        },
+                        {
+                          "text": "[2026-01-22T23:56:09.518Z] [DEBUG] [CartAPI] Response Body: {\n  \"status\": \"healthy\",\n  \"service\": \"cart-service\",\n  \"version\": \"1.0.0\",\n  \"timestamp\": \"2026-01-22T23:56:09.381Z\",\n  \"uptime\": 1938\n}\n"
+                        }
+                      ],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-01-22T23:56:09.495Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "b3134105603720f82676-febc1e14b4d641f3e541",
+              "file": "cart-service/health-audit/issue2-distinction.spec.ts",
+              "line": 23,
+              "column": 7
+            },
+            {
+              "title": "Readiness should include comprehensive checks",
+              "ok": true,
+              "tags": [
+                "critical"
+              ],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "api",
+                  "projectName": "api",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 19,
+                      "errors": [],
+                      "stdout": [
+                        {
+                          "text": "[2026-01-22T23:56:09.541Z] [INFO] [CartAPI] GET Request: http://localhost:3000/api/cart/health/ready\n"
+                        },
+                        {
+                          "text": "[2026-01-22T23:56:09.553Z] [INFO] [CartAPI] Response Status: 200 OK\n"
+                        },
+                        {
+                          "text": "[2026-01-22T23:56:09.554Z] [DEBUG] [CartAPI] Response Body: {\n  \"status\": \"healthy\",\n  \"service\": \"cart-service\",\n  \"version\": \"1.0.0\",\n  \"timestamp\": \"2026-01-22T23:55:40.421Z\",\n  \"uptime\": 1909,\n  \"checks\": {\n    \"dependencies\": [\n      {\n        \"name\": \"product-service\",\n        \"status\": \"healthy\",\n        \"responseTime\": 3\n      }\n    ],\n    \"resources\": [\n      {\n        \"name\": \"memory\",\n        \"status\": \"healthy\",\n        \"value\": 16,\n        \"limit\": 24,\n        \"percentage\": 65,\n        \"unit\": \"MB\"\n      },\n      {\n        \"name\": \"carts\",\n        \"status\": \"healthy\",\n        \"value\": 13,\n        \"limit\": 10000,\n        \"percentage\": 0,\n        \"unit\": \"count\"\n      }\n    ]\n  },\n  \"responseTime\": 3\n}\n"
+                        }
+                      ],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-01-22T23:56:09.532Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "b3134105603720f82676-4dd962fb0685fe345d66",
+              "file": "cart-service/health-audit/issue2-distinction.spec.ts",
+              "line": 30,
+              "column": 7
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "cart-service\\health-audit\\issue4-resources.spec.ts",
+      "file": "cart-service/health-audit/issue4-resources.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "Issue #4: Resource Monitoring @high",
+          "file": "cart-service/health-audit/issue4-resources.spec.ts",
+          "line": 7,
+          "column": 6,
+          "specs": [
+            {
+              "title": "Health check should include memory metrics",
+              "ok": true,
+              "tags": [
+                "high"
+              ],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "api",
+                  "projectName": "api",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 20,
+                      "errors": [],
+                      "stdout": [
+                        {
+                          "text": "[2026-01-22T23:56:09.579Z] [INFO] [CartAPI] GET Request: http://localhost:3000/api/cart/health\n"
+                        },
+                        {
+                          "text": "[2026-01-22T23:56:09.593Z] [INFO] [CartAPI] Response Status: 200 OK\n"
+                        },
+                        {
+                          "text": "[2026-01-22T23:56:09.593Z] [DEBUG] [CartAPI] Response Body: {\n  \"status\": \"healthy\",\n  \"service\": \"cart-service\",\n  \"version\": \"1.0.0\",\n  \"timestamp\": \"2026-01-22T23:55:40.421Z\",\n  \"uptime\": 1909,\n  \"checks\": {\n    \"dependencies\": [\n      {\n        \"name\": \"product-service\",\n        \"status\": \"healthy\",\n        \"responseTime\": 3\n      }\n    ],\n    \"resources\": [\n      {\n        \"name\": \"memory\",\n        \"status\": \"healthy\",\n        \"value\": 16,\n        \"limit\": 24,\n        \"percentage\": 65,\n        \"unit\": \"MB\"\n      },\n      {\n        \"name\": \"carts\",\n        \"status\": \"healthy\",\n        \"value\": 13,\n        \"limit\": 10000,\n        \"percentage\": 0,\n        \"unit\": \"count\"\n      }\n    ]\n  },\n  \"responseTime\": 3\n}\n"
+                        }
+                      ],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-01-22T23:56:09.572Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "fc660cbc9ac1f5328b62-c99850a54d8f3956e33c",
+              "file": "cart-service/health-audit/issue4-resources.spec.ts",
+              "line": 9,
+              "column": 7
+            },
+            {
+              "title": "Health check should include cart count",
+              "ok": true,
+              "tags": [
+                "high"
+              ],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "api",
+                  "projectName": "api",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 19,
+                      "errors": [],
+                      "stdout": [
+                        {
+                          "text": "[2026-01-22T23:56:09.615Z] [INFO] [CartAPI] GET Request: http://localhost:3000/api/cart/health\n"
+                        },
+                        {
+                          "text": "[2026-01-22T23:56:09.628Z] [INFO] [CartAPI] Response Status: 200 OK\n"
+                        },
+                        {
+                          "text": "[2026-01-22T23:56:09.629Z] [DEBUG] [CartAPI] Response Body: {\n  \"status\": \"healthy\",\n  \"service\": \"cart-service\",\n  \"version\": \"1.0.0\",\n  \"timestamp\": \"2026-01-22T23:55:40.421Z\",\n  \"uptime\": 1909,\n  \"checks\": {\n    \"dependencies\": [\n      {\n        \"name\": \"product-service\",\n        \"status\": \"healthy\",\n        \"responseTime\": 3\n      }\n    ],\n    \"resources\": [\n      {\n        \"name\": \"memory\",\n        \"status\": \"healthy\",\n        \"value\": 16,\n        \"limit\": 24,\n        \"percentage\": 65,\n        \"unit\": \"MB\"\n      },\n      {\n        \"name\": \"carts\",\n        \"status\": \"healthy\",\n        \"value\": 13,\n        \"limit\": 10000,\n        \"percentage\": 0,\n        \"unit\": \"count\"\n      }\n    ]\n  },\n  \"responseTime\": 3\n}\n"
+                        }
+                      ],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-01-22T23:56:09.607Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "fc660cbc9ac1f5328b62-5714c9ccd1e2bf74117b",
+              "file": "cart-service/health-audit/issue4-resources.spec.ts",
+              "line": 20,
+              "column": 7
+            },
+            {
+              "title": "Service should report unhealthy if memory exceeds threshold",
+              "ok": true,
+              "tags": [
+                "high"
+              ],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "api",
+                  "projectName": "api",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 24,
+                      "errors": [],
+                      "stdout": [
+                        {
+                          "text": "[2026-01-22T23:56:09.656Z] [INFO] [CartAPI] GET Request: http://localhost:3000/api/cart/health\n"
+                        },
+                        {
+                          "text": "[2026-01-22T23:56:09.674Z] [INFO] [CartAPI] Response Status: 200 OK\n"
+                        },
+                        {
+                          "text": "[2026-01-22T23:56:09.674Z] [DEBUG] [CartAPI] Response Body: {\n  \"status\": \"healthy\",\n  \"service\": \"cart-service\",\n  \"version\": \"1.0.0\",\n  \"timestamp\": \"2026-01-22T23:55:40.421Z\",\n  \"uptime\": 1909,\n  \"checks\": {\n    \"dependencies\": [\n      {\n        \"name\": \"product-service\",\n        \"status\": \"healthy\",\n        \"responseTime\": 3\n      }\n    ],\n    \"resources\": [\n      {\n        \"name\": \"memory\",\n        \"status\": \"healthy\",\n        \"value\": 16,\n        \"limit\": 24,\n        \"percentage\": 65,\n        \"unit\": \"MB\"\n      },\n      {\n        \"name\": \"carts\",\n        \"status\": \"healthy\",\n        \"value\": 13,\n        \"limit\": 10000,\n        \"percentage\": 0,\n        \"unit\": \"count\"\n      }\n    ]\n  },\n  \"responseTime\": 3\n}\n"
+                        }
+                      ],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-01-22T23:56:09.646Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "fc660cbc9ac1f5328b62-664e5b34042e84865035",
+              "file": "cart-service/health-audit/issue4-resources.spec.ts",
+              "line": 30,
+              "column": 7
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "cart-service\\health-audit\\issue6-caching.spec.ts",
+      "file": "cart-service/health-audit/issue6-caching.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "Issue #6: Caching Mechanism @high",
+          "file": "cart-service/health-audit/issue6-caching.spec.ts",
+          "line": 7,
+          "column": 6,
+          "specs": [
+            {
+              "title": "Consecutive health checks should return cached results",
+              "ok": true,
+              "tags": [
+                "high"
+              ],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "api",
+                  "projectName": "api",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 36,
+                      "errors": [],
+                      "stdout": [
+                        {
+                          "text": "[2026-01-22T23:56:09.698Z] [INFO] [CartAPI] GET Request: http://localhost:3000/api/cart/health/ready\n"
+                        },
+                        {
+                          "text": "[2026-01-22T23:56:09.711Z] [INFO] [CartAPI] Response Status: 200 OK\n"
+                        },
+                        {
+                          "text": "[2026-01-22T23:56:09.711Z] [DEBUG] [CartAPI] Response Body: {\n  \"status\": \"healthy\",\n  \"service\": \"cart-service\",\n  \"version\": \"1.0.0\",\n  \"timestamp\": \"2026-01-22T23:55:40.421Z\",\n  \"uptime\": 1909,\n  \"checks\": {\n    \"dependencies\": [\n      {\n        \"name\": \"product-service\",\n        \"status\": \"healthy\",\n        \"responseTime\": 3\n      }\n    ],\n    \"resources\": [\n      {\n        \"name\": \"memory\",\n        \"status\": \"healthy\",\n        \"value\": 16,\n        \"limit\": 24,\n        \"percentage\": 65,\n        \"unit\": \"MB\"\n      },\n      {\n        \"name\": \"carts\",\n        \"status\": \"healthy\",\n        \"value\": 13,\n        \"limit\": 10000,\n        \"percentage\": 0,\n        \"unit\": \"count\"\n      }\n    ]\n  },\n  \"responseTime\": 3\n}\n"
+                        },
+                        {
+                          "text": "[2026-01-22T23:56:09.712Z] [INFO] [CartAPI] GET Request: http://localhost:3000/api/cart/health/ready\n"
+                        },
+                        {
+                          "text": "[2026-01-22T23:56:09.727Z] [INFO] [CartAPI] Response Status: 200 OK\n"
+                        },
+                        {
+                          "text": "[2026-01-22T23:56:09.728Z] [DEBUG] [CartAPI] Response Body: {\n  \"status\": \"healthy\",\n  \"service\": \"cart-service\",\n  \"version\": \"1.0.0\",\n  \"timestamp\": \"2026-01-22T23:55:40.421Z\",\n  \"uptime\": 1909,\n  \"checks\": {\n    \"dependencies\": [\n      {\n        \"name\": \"product-service\",\n        \"status\": \"healthy\",\n        \"responseTime\": 3\n      }\n    ],\n    \"resources\": [\n      {\n        \"name\": \"memory\",\n        \"status\": \"healthy\",\n        \"value\": 16,\n        \"limit\": 24,\n        \"percentage\": 65,\n        \"unit\": \"MB\"\n      },\n      {\n        \"name\": \"carts\",\n        \"status\": \"healthy\",\n        \"value\": 13,\n        \"limit\": 10000,\n        \"percentage\": 0,\n        \"unit\": \"count\"\n      }\n    ]\n  },\n  \"responseTime\": 3\n}\n"
+                        }
+                      ],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-01-22T23:56:09.690Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "0d22986d162943875010-bce0e759edf5ff9112a4",
+              "file": "cart-service/health-audit/issue6-caching.spec.ts",
+              "line": 9,
+              "column": 7
+            },
+            {
+              "title": "Cache should expire after 30 seconds",
+              "ok": true,
+              "tags": [
+                "high"
+              ],
+              "tests": [
+                {
+                  "timeout": 45000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "api",
+                  "projectName": "api",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 31062,
+                      "errors": [],
+                      "stdout": [
+                        {
+                          "text": "[2026-01-22T23:56:09.775Z] [INFO] [CartAPI] GET Request: http://localhost:3000/api/cart/health/ready\n"
+                        },
+                        {
+                          "text": "[2026-01-22T23:56:09.790Z] [INFO] [CartAPI] Response Status: 200 OK\n"
+                        },
+                        {
+                          "text": "[2026-01-22T23:56:09.791Z] [DEBUG] [CartAPI] Response Body: {\n  \"status\": \"healthy\",\n  \"service\": \"cart-service\",\n  \"version\": \"1.0.0\",\n  \"timestamp\": \"2026-01-22T23:55:40.421Z\",\n  \"uptime\": 1909,\n  \"checks\": {\n    \"dependencies\": [\n      {\n        \"name\": \"product-service\",\n        \"status\": \"healthy\",\n        \"responseTime\": 3\n      }\n    ],\n    \"resources\": [\n      {\n        \"name\": \"memory\",\n        \"status\": \"healthy\",\n        \"value\": 16,\n        \"limit\": 24,\n        \"percentage\": 65,\n        \"unit\": \"MB\"\n      },\n      {\n        \"name\": \"carts\",\n        \"status\": \"healthy\",\n        \"value\": 13,\n        \"limit\": 10000,\n        \"percentage\": 0,\n        \"unit\": \"count\"\n      }\n    ]\n  },\n  \"responseTime\": 3\n}\n"
+                        },
+                        {
+                          "text": "Waiting 31s for cache expiry...\n"
+                        },
+                        {
+                          "text": "[2026-01-22T23:56:40.807Z] [INFO] [CartAPI] GET Request: http://localhost:3000/api/cart/health/ready\n"
+                        },
+                        {
+                          "text": "[2026-01-22T23:56:40.827Z] [INFO] [CartAPI] Response Status: 200 OK\n"
+                        },
+                        {
+                          "text": "[2026-01-22T23:56:40.829Z] [DEBUG] [CartAPI] Response Body: {\n  \"status\": \"healthy\",\n  \"service\": \"cart-service\",\n  \"version\": \"1.0.0\",\n  \"timestamp\": \"2026-01-22T23:56:40.812Z\",\n  \"uptime\": 1969,\n  \"checks\": {\n    \"dependencies\": [\n      {\n        \"name\": \"product-service\",\n        \"status\": \"healthy\",\n        \"responseTime\": 4\n      }\n    ],\n    \"resources\": [\n      {\n        \"name\": \"memory\",\n        \"status\": \"healthy\",\n        \"value\": 17,\n        \"limit\": 24,\n        \"percentage\": 69,\n        \"unit\": \"MB\"\n      },\n      {\n        \"name\": \"carts\",\n        \"status\": \"healthy\",\n        \"value\": 13,\n        \"limit\": 10000,\n        \"percentage\": 0,\n        \"unit\": \"count\"\n      }\n    ]\n  },\n  \"responseTime\": 5\n}\n"
+                        }
+                      ],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-01-22T23:56:09.766Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "0d22986d162943875010-86d4064adce1fd2ec4ce",
+              "file": "cart-service/health-audit/issue6-caching.spec.ts",
+              "line": 23,
+              "column": 7
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "cart-service\\health-audit\\issue7-docker.spec.ts",
+      "file": "cart-service/health-audit/issue7-docker.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "Issue #7: Docker Health @high",
+          "file": "cart-service/health-audit/issue7-docker.spec.ts",
+          "line": 7,
+          "column": 6,
+          "specs": [
+            {
+              "title": "Docker health check endpoint /api/cart/health/ready should be accessible",
+              "ok": true,
+              "tags": [
+                "high"
+              ],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "api",
+                  "projectName": "api",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 26,
+                      "errors": [],
+                      "stdout": [
+                        {
+                          "text": "[2026-01-22T23:56:40.873Z] [INFO] [CartAPI] GET Request: http://localhost:3000/api/cart/health/ready\n"
+                        },
+                        {
+                          "text": "[2026-01-22T23:56:40.891Z] [INFO] [CartAPI] Response Status: 200 OK\n"
+                        },
+                        {
+                          "text": "[2026-01-22T23:56:40.892Z] [DEBUG] [CartAPI] Response Body: {\n  \"status\": \"healthy\",\n  \"service\": \"cart-service\",\n  \"version\": \"1.0.0\",\n  \"timestamp\": \"2026-01-22T23:56:40.812Z\",\n  \"uptime\": 1969,\n  \"checks\": {\n    \"dependencies\": [\n      {\n        \"name\": \"product-service\",\n        \"status\": \"healthy\",\n        \"responseTime\": 4\n      }\n    ],\n    \"resources\": [\n      {\n        \"name\": \"memory\",\n        \"status\": \"healthy\",\n        \"value\": 17,\n        \"limit\": 24,\n        \"percentage\": 69,\n        \"unit\": \"MB\"\n      },\n      {\n        \"name\": \"carts\",\n        \"status\": \"healthy\",\n        \"value\": 13,\n        \"limit\": 10000,\n        \"percentage\": 0,\n        \"unit\": \"count\"\n      }\n    ]\n  },\n  \"responseTime\": 5\n}\n"
+                        }
+                      ],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-01-22T23:56:40.858Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "f171ca5568cf186866f7-678ffdf3f3fae1f0dbb5",
+              "file": "cart-service/health-audit/issue7-docker.spec.ts",
+              "line": 9,
+              "column": 7
+            },
+            {
+              "title": "Readiness check should respond within Docker default timeout (default 5s)",
+              "ok": true,
+              "tags": [
+                "high"
+              ],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "api",
+                  "projectName": "api",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 28,
+                      "errors": [],
+                      "stdout": [
+                        {
+                          "text": "[2026-01-22T23:56:40.925Z] [INFO] [CartAPI] GET Request: http://localhost:3000/api/cart/health/ready\n"
+                        },
+                        {
+                          "text": "[2026-01-22T23:56:40.943Z] [INFO] [CartAPI] Response Status: 200 OK\n"
+                        },
+                        {
+                          "text": "[2026-01-22T23:56:40.944Z] [DEBUG] [CartAPI] Response Body: {\n  \"status\": \"healthy\",\n  \"service\": \"cart-service\",\n  \"version\": \"1.0.0\",\n  \"timestamp\": \"2026-01-22T23:56:40.812Z\",\n  \"uptime\": 1969,\n  \"checks\": {\n    \"dependencies\": [\n      {\n        \"name\": \"product-service\",\n        \"status\": \"healthy\",\n        \"responseTime\": 4\n      }\n    ],\n    \"resources\": [\n      {\n        \"name\": \"memory\",\n        \"status\": \"healthy\",\n        \"value\": 17,\n        \"limit\": 24,\n        \"percentage\": 69,\n        \"unit\": \"MB\"\n      },\n      {\n        \"name\": \"carts\",\n        \"status\": \"healthy\",\n        \"value\": 13,\n        \"limit\": 10000,\n        \"percentage\": 0,\n        \"unit\": \"count\"\n      }\n    ]\n  },\n  \"responseTime\": 5\n}\n"
+                        }
+                      ],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-01-22T23:56:40.914Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "f171ca5568cf186866f7-333a9407a5b94e559130",
+              "file": "cart-service/health-audit/issue7-docker.spec.ts",
+              "line": 14,
+              "column": 7
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "cart-service\\health.spec.ts",
+      "file": "cart-service/health.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "Cart Service Health Checks",
+          "file": "cart-service/health.spec.ts",
+          "line": 3,
+          "column": 6,
+          "specs": [
+            {
+              "title": "Liveness check should return 200 Healthy",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "api",
+                  "projectName": "api",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 30,
+                      "errors": [],
+                      "stdout": [
+                        {
+                          "text": "[2026-01-22T23:56:40.988Z] [INFO] [CartAPI] GET Request: http://localhost:3000/api/cart/health/live\n"
+                        },
+                        {
+                          "text": "[2026-01-22T23:56:41.003Z] [INFO] [CartAPI] Response Status: 200 OK\n"
+                        },
+                        {
+                          "text": "[2026-01-22T23:56:41.004Z] [DEBUG] [CartAPI] Response Body: {\n  \"status\": \"healthy\",\n  \"service\": \"cart-service\",\n  \"version\": \"1.0.0\",\n  \"timestamp\": \"2026-01-22T23:56:09.381Z\",\n  \"uptime\": 1938\n}\n"
+                        }
+                      ],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-01-22T23:56:40.972Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "72fd244a28d9012e26ac-25f1e263499edce081b3",
+              "file": "cart-service/health.spec.ts",
+              "line": 5,
+              "column": 7
+            },
+            {
+              "title": "Readiness check should return 200 when all dependencies are healthy",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "api",
+                  "projectName": "api",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 45,
+                      "errors": [],
+                      "stdout": [
+                        {
+                          "text": "[2026-01-22T23:56:41.042Z] [INFO] [CartAPI] GET Request: http://localhost:3000/api/cart/health/ready\n"
+                        },
+                        {
+                          "text": "[2026-01-22T23:56:41.062Z] [INFO] [CartAPI] Response Status: 200 OK\n"
+                        },
+                        {
+                          "text": "[2026-01-22T23:56:41.071Z] [DEBUG] [CartAPI] Response Body: {\n  \"status\": \"healthy\",\n  \"service\": \"cart-service\",\n  \"version\": \"1.0.0\",\n  \"timestamp\": \"2026-01-22T23:56:40.812Z\",\n  \"uptime\": 1969,\n  \"checks\": {\n    \"dependencies\": [\n      {\n        \"name\": \"product-service\",\n        \"status\": \"healthy\",\n        \"responseTime\": 4\n      }\n    ],\n    \"resources\": [\n      {\n        \"name\": \"memory\",\n        \"status\": \"healthy\",\n        \"value\": 17,\n        \"limit\": 24,\n        \"percentage\": 69,\n        \"unit\": \"MB\"\n      },\n      {\n        \"name\": \"carts\",\n        \"status\": \"healthy\",\n        \"value\": 13,\n        \"limit\": 10000,\n        \"percentage\": 0,\n        \"unit\": \"count\"\n      }\n    ]\n  },\n  \"responseTime\": 5\n}\n"
+                        }
+                      ],
+                      "stderr": [],
+                      "retry": 0,
+                      "steps": [
+                        {
+                          "title": "Check readiness status",
+                          "duration": 8
+                        }
+                      ],
+                      "startTime": "2026-01-22T23:56:41.031Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "72fd244a28d9012e26ac-e631c2faf7158f1eb01a",
+              "file": "cart-service/health.spec.ts",
+              "line": 15,
+              "column": 7
+            },
+            {
+              "title": "Health check should include detailed status and response times",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "api",
+                  "projectName": "api",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 33,
+                      "errors": [],
+                      "stdout": [
+                        {
+                          "text": "[2026-01-22T23:56:41.119Z] [INFO] [CartAPI] GET Request: http://localhost:3000/api/cart/health\n"
+                        },
+                        {
+                          "text": "[2026-01-22T23:56:41.134Z] [INFO] [CartAPI] Response Status: 200 OK\n"
+                        },
+                        {
+                          "text": "[2026-01-22T23:56:41.136Z] [DEBUG] [CartAPI] Response Body: {\n  \"status\": \"healthy\",\n  \"service\": \"cart-service\",\n  \"version\": \"1.0.0\",\n  \"timestamp\": \"2026-01-22T23:56:40.812Z\",\n  \"uptime\": 1969,\n  \"checks\": {\n    \"dependencies\": [\n      {\n        \"name\": \"product-service\",\n        \"status\": \"healthy\",\n        \"responseTime\": 4\n      }\n    ],\n    \"resources\": [\n      {\n        \"name\": \"memory\",\n        \"status\": \"healthy\",\n        \"value\": 17,\n        \"limit\": 24,\n        \"percentage\": 69,\n        \"unit\": \"MB\"\n      },\n      {\n        \"name\": \"carts\",\n        \"status\": \"healthy\",\n        \"value\": 13,\n        \"limit\": 10000,\n        \"percentage\": 0,\n        \"unit\": \"count\"\n      }\n    ]\n  },\n  \"responseTime\": 5\n}\n"
+                        }
+                      ],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-01-22T23:56:41.105Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "72fd244a28d9012e26ac-4b19853a1548dc9731df",
+              "file": "cart-service/health.spec.ts",
+              "line": 39,
+              "column": 7
+            },
+            {
+              "title": "Health check should include resource metrics",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "api",
+                  "projectName": "api",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 32,
+                      "errors": [],
+                      "stdout": [
+                        {
+                          "text": "[2026-01-22T23:56:41.182Z] [INFO] [CartAPI] GET Request: http://localhost:3000/api/cart/health\n"
+                        },
+                        {
+                          "text": "[2026-01-22T23:56:41.200Z] [INFO] [CartAPI] Response Status: 200 OK\n"
+                        },
+                        {
+                          "text": "[2026-01-22T23:56:41.201Z] [DEBUG] [CartAPI] Response Body: {\n  \"status\": \"healthy\",\n  \"service\": \"cart-service\",\n  \"version\": \"1.0.0\",\n  \"timestamp\": \"2026-01-22T23:56:40.812Z\",\n  \"uptime\": 1969,\n  \"checks\": {\n    \"dependencies\": [\n      {\n        \"name\": \"product-service\",\n        \"status\": \"healthy\",\n        \"responseTime\": 4\n      }\n    ],\n    \"resources\": [\n      {\n        \"name\": \"memory\",\n        \"status\": \"healthy\",\n        \"value\": 17,\n        \"limit\": 24,\n        \"percentage\": 69,\n        \"unit\": \"MB\"\n      },\n      {\n        \"name\": \"carts\",\n        \"status\": \"healthy\",\n        \"value\": 13,\n        \"limit\": 10000,\n        \"percentage\": 0,\n        \"unit\": \"count\"\n      }\n    ]\n  },\n  \"responseTime\": 5\n}\n"
+                        }
+                      ],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-01-22T23:56:41.167Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "72fd244a28d9012e26ac-20dfb992ed2cfe582dd0",
+              "file": "cart-service/health.spec.ts",
+              "line": 55,
+              "column": 7
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "gateway\\health.spec.ts",
+      "file": "gateway/health.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "Service Discovery & Gateway Health",
+          "file": "gateway/health.spec.ts",
+          "line": 3,
+          "column": 6,
+          "specs": [
+            {
+              "title": "Gateway health should aggregate all services",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "api",
+                  "projectName": "api",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 37,
+                      "errors": [],
+                      "stdout": [
+                        {
+                          "text": "[2026-01-22T23:56:41.245Z] [INFO] [GatewayAPI] GET Request: http://localhost:3000/health\n"
+                        },
+                        {
+                          "text": "[2026-01-22T23:56:41.269Z] [INFO] [GatewayAPI] Response Status: 200 OK\n"
+                        },
+                        {
+                          "text": "[2026-01-22T23:56:41.270Z] [DEBUG] [GatewayAPI] Response Body: {\n  \"gateway\": \"api-gateway\",\n  \"status\": \"healthy\",\n  \"services\": [\n    {\n      \"service\": \"product-service\",\n      \"status\": \"healthy\",\n      \"responseTime\": 9\n    },\n    {\n      \"service\": \"product-service\",\n      \"status\": \"healthy\",\n      \"responseTime\": 9\n    },\n    {\n      \"service\": \"cart-service\",\n      \"status\": \"healthy\",\n      \"responseTime\": 4\n    },\n    {\n      \"service\": \"order-service\",\n      \"status\": \"healthy\",\n      \"responseTime\": 7\n    },\n    {\n      \"service\": \"ai-service\",\n      \"status\": \"healthy\",\n      \"responseTime\": 6\n    }\n  ],\n  \"timestamp\": \"2026-01-22T23:56:41.253Z\"\n}\n"
+                        }
+                      ],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-01-22T23:56:41.233Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "86f70998de328c2d95f0-61ec4dba9256a26948d6",
+              "file": "gateway/health.spec.ts",
+              "line": 5,
+              "column": 7
+            },
+            {
+              "title": "Gateway info should return version and service list",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "api",
+                  "projectName": "api",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 41,
+                      "errors": [],
+                      "stdout": [
+                        {
+                          "text": "[2026-01-22T23:56:41.320Z] [INFO] [GatewayAPI] GET Request: http://localhost:3000/info\n"
+                        },
+                        {
+                          "text": "[2026-01-22T23:56:41.330Z] [INFO] [GatewayAPI] Response Status: 200 OK\n"
+                        },
+                        {
+                          "text": "[2026-01-22T23:56:41.332Z] [DEBUG] [GatewayAPI] Response Body: {\n  \"gateway\": \"api-gateway\",\n  \"version\": \"1.0.0\",\n  \"services\": [\n    {\n      \"name\": \"product-service\",\n      \"path\": \"/api/products\"\n    },\n    {\n      \"name\": \"product-service\",\n      \"path\": \"/api/categories\"\n    },\n    {\n      \"name\": \"cart-service\",\n      \"path\": \"/api/cart\"\n    },\n    {\n      \"name\": \"order-service\",\n      \"path\": \"/api/orders\"\n    },\n    {\n      \"name\": \"ai-service\",\n      \"path\": \"/api/recommendations\"\n    }\n  ],\n  \"timestamp\": \"2026-01-22T23:56:41.315Z\"\n}\n"
+                        }
+                      ],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-01-22T23:56:41.299Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "86f70998de328c2d95f0-87cc754d22b784022ac2",
+              "file": "gateway/health.spec.ts",
+              "line": 16,
+              "column": 7
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "integration\\e2e-workflow.spec.ts",
+      "file": "integration/e2e-workflow.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "End-to-End Integration Workflow",
+          "file": "integration/e2e-workflow.spec.ts",
+          "line": 3,
+          "column": 6,
+          "specs": [
+            {
+              "title": "should complete a full user journey",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "api",
+                  "projectName": "api",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 306,
+                      "errors": [],
+                      "stdout": [
+                        {
+                          "text": "[2026-01-22T23:56:41.396Z] [INFO] [GatewayAPI] GET Request: http://localhost:3000/health\n"
+                        },
+                        {
+                          "text": "[2026-01-22T23:56:41.413Z] [INFO] [GatewayAPI] Response Status: 200 OK\n"
+                        },
+                        {
+                          "text": "[2026-01-22T23:56:41.414Z] [DEBUG] [GatewayAPI] Response Body: {\n  \"gateway\": \"api-gateway\",\n  \"status\": \"healthy\",\n  \"services\": [\n    {\n      \"service\": \"product-service\",\n      \"status\": \"healthy\",\n      \"responseTime\": 6\n    },\n    {\n      \"service\": \"product-service\",\n      \"status\": \"healthy\",\n      \"responseTime\": 7\n    },\n    {\n      \"service\": \"cart-service\",\n      \"status\": \"healthy\",\n      \"responseTime\": 6\n    },\n    {\n      \"service\": \"order-service\",\n      \"status\": \"healthy\",\n      \"responseTime\": 5\n    },\n    {\n      \"service\": \"ai-service\",\n      \"status\": \"healthy\",\n      \"responseTime\": 4\n    }\n  ],\n  \"timestamp\": \"2026-01-22T23:56:41.398Z\"\n}\n"
+                        },
+                        {
+                          "text": "[2026-01-22T23:56:41.418Z] [INFO] [ProductAPI] GET Request: http://localhost:3000/api/products\n"
+                        },
+                        {
+                          "text": "[2026-01-22T23:56:41.456Z] [INFO] [ProductAPI] Response Status: 200 OK\n"
+                        },
+                        {
+                          "text": "[2026-01-22T23:56:41.458Z] [DEBUG] [ProductAPI] Response Body: {\n  \"products\": [\n    {\n      \"id\": \"1\",\n      \"name\": \"Organic Apples\",\n      \"price\": 3.99,\n      \"description\": \"Crisp and juicy organic apples, perfect for snacking or baking.\",\n      \"image\": \"https://placehold.co/300x200.png\",\n      \"dataAiHint\": \"apples fruit\",\n      \"category\": \"fruits\",\n      \"inStock\": true,\n      \"createdAt\": \"2026-01-22T23:23:45.326Z\",\n      \"updatedAt\": \"2026-01-22T23:23:45.326Z\"\n    },\n    {\n      \"id\": \"2\",\n      \"name\": \"Whole Wheat Bread\",\n      \"price\": 4.49,\n      \"description\": \"Freshly baked whole wheat bread, rich in fiber.\",\n      \"image\": \"https://placehold.co/300x200.png\",\n      \"dataAiHint\": \"bread bakery\",\n      \"category\": \"bakery\",\n      \"inStock\": true,\n      \"createdAt\": \"2026-01-22T23:23:45.326Z\",\n      \"updatedAt\": \"2026-01-22T23:23:45.326Z\"\n    },\n    {\n      \"id\": \"3\",\n      \"name\": \"Free-Range Eggs\",\n      \"price\": 5.99,\n      \"description\": \"A dozen large free-range eggs, great for breakfast.\",\n      \"image\": \"https://placehold.co/300x200.png\",\n      \"dataAiHint\": \"eggs dairy\",\n      \"category\": \"dairy\",\n      \"inStock\": true,\n      \"createdAt\": \"2026-01-22T23:23:45.326Z\",\n      \"updatedAt\": \"2026-01-22T23:23:45.326Z\"\n    },\n    {\n      \"id\": \"4\",\n      \"name\": \"Organic Spinach\",\n      \"price\": 2.99,\n      \"description\": \"A bag of fresh organic spinach, packed with nutrients.\",\n      \"image\": \"https://placehold.co/300x200.png\",\n      \"dataAiHint\": \"spinach vegetables\",\n      \"category\": \"vegetables\",\n      \"inStock\": true,\n      \"createdAt\": \"2026-01-22T23:23:45.326Z\",\n      \"updatedAt\": \"2026-01-22T23:23:45.326Z\"\n    },\n    {\n      \"id\": \"5\",\n      \"name\": \"Almond Milk\",\n      \"price\": 3.79,\n      \"description\": \"Unsweetened almond milk, a great dairy-free alternative.\",\n      \"image\": \"https://placehold.co/300x200.png\",\n      \"dataAiHint\": \"almond milk\",\n      \"category\": \"dairy\",\n      \"inStock\": true,\n      \"createdAt\": \"2026-01-22T23:23:45.326Z\",\n      \"updatedAt\": \"2026-01-22T23:23:45.326Z\"\n    },\n    {\n      \"id\": \"6\",\n      \"name\": \"Chicken Breast\",\n      \"price\": 9.99,\n      \"description\": \"Boneless, skinless chicken breast, lean and versatile.\",\n      \"image\": \"https://placehold.co/300x200.png\",\n      \"dataAiHint\": \"chicken meat\",\n      \"category\": \"meat\",\n      \"inStock\": true,\n      \"createdAt\": \"2026-01-22T23:23:45.326Z\",\n      \"updatedAt\": \"2026-01-22T23:23:45.326Z\"\n    },\n    {\n      \"id\": \"7\",\n      \"name\": \"Brown Rice\",\n      \"price\": 2.49,\n      \"description\": \"Long-grain brown rice, a healthy whole grain option.\",\n      \"image\": \"https://placehold.co/300x200.png\",\n      \"dataAiHint\": \"rice grains\",\n      \"category\": \"grains\",\n      \"inStock\": true,\n      \"createdAt\": \"2026-01-22T23:23:45.326Z\",\n      \"updatedAt\": \"2026-01-22T23:23:45.326Z\"\n    },\n    {\n      \"id\": \"8\",\n      \"name\": \"Greek Yogurt\",\n      \"price\": 4.99,\n      \"description\": \"Creamy Greek yogurt, high in protein and probiotics.\",\n      \"image\": \"https://placehold.co/300x200.png\",\n      \"dataAiHint\": \"yogurt dairy\",\n      \"category\": \"dairy\",\n      \"inStock\": true,\n      \"createdAt\": \"2026-01-22T23:23:45.326Z\",\n      \"updatedAt\": \"2026-01-22T23:23:45.326Z\"\n    }\n  ],\n  \"total\": 8,\n  \"page\": 1,\n  \"limit\": 10,\n  \"totalPages\": 1\n}\n"
+                        },
+                        {
+                          "text": "[2026-01-22T23:56:41.465Z] [INFO] [CartAPI] POST Request: http://localhost:3000/api/cart/e2e-user-1769126201378/items\n"
+                        },
+                        {
+                          "text": "[2026-01-22T23:56:41.466Z] [DEBUG] [CartAPI] Payload: {\n  \"productId\": \"1\",\n  \"quantity\": 1\n}\n"
+                        },
+                        {
+                          "text": "[2026-01-22T23:56:41.510Z] [INFO] [CartAPI] Response Status: 200 OK\n"
+                        },
+                        {
+                          "text": "[2026-01-22T23:56:41.511Z] [DEBUG] [CartAPI] Response Body: {\n  \"id\": \"2d3b5277-4609-4837-92ec-06b8af4e6c20\",\n  \"userId\": \"e2e-user-1769126201378\",\n  \"items\": [\n    {\n      \"id\": \"1\",\n      \"name\": \"Organic Apples\",\n      \"price\": 3.99,\n      \"description\": \"Crisp and juicy organic apples, perfect for snacking or baking.\",\n      \"image\": \"https://placehold.co/300x200.png\",\n      \"dataAiHint\": \"apples fruit\",\n      \"category\": \"fruits\",\n      \"inStock\": true,\n      \"createdAt\": \"2026-01-22T23:23:45.326Z\",\n      \"updatedAt\": \"2026-01-22T23:23:45.326Z\",\n      \"quantity\": 1,\n      \"addedAt\": \"2026-01-22T23:56:41.494Z\"\n    }\n  ],\n  \"totalAmount\": 3.99,\n  \"totalItems\": 1,\n  \"createdAt\": \"2026-01-22T23:56:41.494Z\",\n  \"updatedAt\": \"2026-01-22T23:56:41.494Z\"\n}\n"
+                        },
+                        {
+                          "text": "[2026-01-22T23:56:41.514Z] [INFO] [AIAPI] POST Request: http://localhost:3000/api/recommendations/grocery-suggestions\n"
+                        },
+                        {
+                          "text": "[2026-01-22T23:56:41.514Z] [DEBUG] [AIAPI] Payload: {\n  \"items\": [\n    \"milk\"\n  ]\n}\n"
+                        },
+                        {
+                          "text": "[2026-01-22T23:56:41.543Z] [INFO] [AIAPI] Response Status: 200 OK\n"
+                        },
+                        {
+                          "text": "[2026-01-22T23:56:41.546Z] [DEBUG] [AIAPI] Response Body: {\n  \"suggestions\": [\n    \"Fresh fruits\",\n    \"Vegetables\",\n    \"Whole grain bread\",\n    \"Lean proteins\",\n    \"Dairy products\",\n    \"Healthy snacks\",\n    \"Cooking oils\",\n    \"Seasonings and spices\"\n  ],\n  \"generatedAt\": \"2026-01-22T23:56:41.527Z\",\n  \"confidence\": 0.8\n}\n"
+                        },
+                        {
+                          "text": "[2026-01-22T23:56:41.553Z] [INFO] [OrderAPI] POST Request: http://localhost:3000/api/orders/e2e-user-1769126201378\n"
+                        },
+                        {
+                          "text": "[2026-01-22T23:56:41.554Z] [DEBUG] [OrderAPI] Payload: {\n  \"items\": [\n    {\n      \"id\": \"1\",\n      \"name\": \"Organic Apples\",\n      \"price\": 3.99,\n      \"description\": \"Crisp and juicy organic apples, perfect for snacking or baking.\",\n      \"image\": \"https://placehold.co/300x200.png\",\n      \"dataAiHint\": \"apples fruit\",\n      \"category\": \"fruits\",\n      \"inStock\": true,\n      \"createdAt\": \"2026-01-22T23:23:45.326Z\",\n      \"updatedAt\": \"2026-01-22T23:23:45.326Z\",\n      \"quantity\": 1\n    }\n  ],\n  \"shippingAddress\": {\n    \"street\": \"123 Test St\",\n    \"city\": \"Test City\",\n    \"state\": \"TS\",\n    \"zipCode\": \"12345\",\n    \"country\": \"Testland\"\n  },\n  \"billingAddress\": {\n    \"street\": \"123 Test St\",\n    \"city\": \"Test City\",\n    \"state\": \"TS\",\n    \"zipCode\": \"12345\",\n    \"country\": \"Testland\"\n  },\n  \"paymentMethod\": {\n    \"type\": \"credit_card\",\n    \"last4\": \"4242\",\n    \"brand\": \"Visa\"\n  }\n}\n"
+                        },
+                        {
+                          "text": "[2026-01-22T23:56:41.606Z] [INFO] [OrderAPI] Response Status: 201 Created\n"
+                        },
+                        {
+                          "text": "[2026-01-22T23:56:41.608Z] [DEBUG] [OrderAPI] Response Body: {\n  \"id\": \"f07f0a41-0226-46d3-bb4b-db7fff2f7a9c\",\n  \"userId\": \"e2e-user-1769126201378\",\n  \"items\": [\n    {\n      \"id\": \"1\",\n      \"name\": \"Organic Apples\",\n      \"price\": 3.99,\n      \"description\": \"Crisp and juicy organic apples, perfect for snacking or baking.\",\n      \"image\": \"https://placehold.co/300x200.png\",\n      \"dataAiHint\": \"apples fruit\",\n      \"quantity\": 1\n    }\n  ],\n  \"totalAmount\": 3.99,\n  \"status\": \"pending\",\n  \"shippingAddress\": {\n    \"street\": \"123 Test St\",\n    \"city\": \"Test City\",\n    \"state\": \"TS\",\n    \"zipCode\": \"12345\",\n    \"country\": \"Testland\"\n  },\n  \"billingAddress\": {\n    \"street\": \"123 Test St\",\n    \"city\": \"Test City\",\n    \"state\": \"TS\",\n    \"zipCode\": \"12345\",\n    \"country\": \"Testland\"\n  },\n  \"paymentMethod\": {\n    \"type\": \"credit_card\",\n    \"last4\": \"4242\",\n    \"brand\": \"Visa\"\n  },\n  \"orderDate\": \"2026-01-22T23:56:41.570Z\",\n  \"estimatedDelivery\": \"2026-01-27T23:56:41.570Z\",\n  \"createdAt\": \"2026-01-22T23:56:41.571Z\",\n  \"updatedAt\": \"2026-01-22T23:56:41.571Z\"\n}\n"
+                        },
+                        {
+                          "text": "[2026-01-22T23:56:41.615Z] [INFO] [OrderAPI] GET Request: http://localhost:3000/api/orders/e2e-user-1769126201378/f07f0a41-0226-46d3-bb4b-db7fff2f7a9c\n"
+                        },
+                        {
+                          "text": "[2026-01-22T23:56:41.638Z] [INFO] [OrderAPI] Response Status: 200 OK\n"
+                        },
+                        {
+                          "text": "[2026-01-22T23:56:41.639Z] [DEBUG] [OrderAPI] Response Body: {\n  \"id\": \"f07f0a41-0226-46d3-bb4b-db7fff2f7a9c\",\n  \"userId\": \"e2e-user-1769126201378\",\n  \"items\": [\n    {\n      \"id\": \"1\",\n      \"name\": \"Organic Apples\",\n      \"price\": 3.99,\n      \"description\": \"Crisp and juicy organic apples, perfect for snacking or baking.\",\n      \"image\": \"https://placehold.co/300x200.png\",\n      \"dataAiHint\": \"apples fruit\",\n      \"quantity\": 1\n    }\n  ],\n  \"totalAmount\": 3.99,\n  \"status\": \"pending\",\n  \"shippingAddress\": {\n    \"street\": \"123 Test St\",\n    \"city\": \"Test City\",\n    \"state\": \"TS\",\n    \"zipCode\": \"12345\",\n    \"country\": \"Testland\"\n  },\n  \"billingAddress\": {\n    \"street\": \"123 Test St\",\n    \"city\": \"Test City\",\n    \"state\": \"TS\",\n    \"zipCode\": \"12345\",\n    \"country\": \"Testland\"\n  },\n  \"paymentMethod\": {\n    \"type\": \"credit_card\",\n    \"last4\": \"4242\",\n    \"brand\": \"Visa\"\n  },\n  \"orderDate\": \"2026-01-22T23:56:41.570Z\",\n  \"estimatedDelivery\": \"2026-01-27T23:56:41.570Z\",\n  \"createdAt\": \"2026-01-22T23:56:41.571Z\",\n  \"updatedAt\": \"2026-01-22T23:56:41.571Z\"\n}\n"
+                        },
+                        {
+                          "text": "[2026-01-22T23:56:41.642Z] [INFO] [CartAPI] GET Request: http://localhost:3000/api/cart/e2e-user-1769126201378/summary\n"
+                        },
+                        {
+                          "text": "[2026-01-22T23:56:41.664Z] [INFO] [CartAPI] Response Status: 200 OK\n"
+                        },
+                        {
+                          "text": "[2026-01-22T23:56:41.666Z] [DEBUG] [CartAPI] Response Body: {\n  \"totalItems\": 0,\n  \"totalAmount\": 0,\n  \"itemCount\": 0\n}\n"
+                        },
+                        {
+                          "text": "[2026-01-22T23:56:41.670Z] [INFO] [CartAPI] DELETE Request: http://localhost:3000/api/cart/e2e-user-1769126201378\n"
+                        },
+                        {
+                          "text": "[2026-01-22T23:56:41.691Z] [INFO] [CartAPI] Response Status: 200 OK\n"
+                        },
+                        {
+                          "text": "[2026-01-22T23:56:41.693Z] [DEBUG] [CartAPI] Response Body: {\n  \"id\": \"2d3b5277-4609-4837-92ec-06b8af4e6c20\",\n  \"userId\": \"e2e-user-1769126201378\",\n  \"items\": [],\n  \"totalAmount\": 0,\n  \"totalItems\": 0,\n  \"createdAt\": \"2026-01-22T23:56:41.494Z\",\n  \"updatedAt\": \"2026-01-22T23:56:41.673Z\"\n}\n"
+                        }
+                      ],
+                      "stderr": [],
+                      "retry": 0,
+                      "steps": [
+                        {
+                          "title": "Verify system health",
+                          "duration": 20
+                        },
+                        {
+                          "title": "Browse products",
+                          "duration": 47
+                        },
+                        {
+                          "title": "Add product to cart",
+                          "duration": 48
+                        },
+                        {
+                          "title": "Get AI recommendations",
+                          "duration": 36
+                        },
+                        {
+                          "title": "Place order",
+                          "duration": 59
+                        },
+                        {
+                          "title": "Verify order and cart summary",
+                          "duration": 56
+                        },
+                        {
+                          "title": "Cleanup",
+                          "duration": 23
+                        }
+                      ],
+                      "startTime": "2026-01-22T23:56:41.378Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "faa0a0332a43959f671d-a4cfe7ec1400b1a5ab62",
+              "file": "integration/e2e-workflow.spec.ts",
+              "line": 10,
+              "column": 7
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "order-service\\order.spec.ts",
+      "file": "order-service/order.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "Order Service API Tests",
+          "file": "order-service/order.spec.ts",
+          "line": 3,
+          "column": 6,
+          "specs": [],
+          "suites": [
+            {
+              "title": "Order Lifecycle",
+              "file": "order-service/order.spec.ts",
+              "line": 38,
+              "column": 8,
+              "specs": [
+                {
+                  "title": "should create order from cart",
+                  "ok": true,
+                  "tags": [],
+                  "tests": [
+                    {
+                      "timeout": 30000,
+                      "annotations": [],
+                      "expectedStatus": "passed",
+                      "projectId": "api",
+                      "projectName": "api",
+                      "results": [
+                        {
+                          "workerIndex": 0,
+                          "parallelIndex": 0,
+                          "status": "passed",
+                          "duration": 47,
+                          "errors": [],
+                          "stdout": [
+                            {
+                              "text": "[2026-01-22T23:56:41.752Z] [INFO] [ProductAPI] GET Request: http://localhost:3000/api/products\n"
+                            },
+                            {
+                              "text": "[2026-01-22T23:56:41.774Z] [INFO] [ProductAPI] Response Status: 200 OK\n"
+                            },
+                            {
+                              "text": "[2026-01-22T23:56:41.775Z] [DEBUG] [ProductAPI] Response Body: {\n  \"products\": [\n    {\n      \"id\": \"1\",\n      \"name\": \"Organic Apples\",\n      \"price\": 3.99,\n      \"description\": \"Crisp and juicy organic apples, perfect for snacking or baking.\",\n      \"image\": \"https://placehold.co/300x200.png\",\n      \"dataAiHint\": \"apples fruit\",\n      \"category\": \"fruits\",\n      \"inStock\": true,\n      \"createdAt\": \"2026-01-22T23:23:45.326Z\",\n      \"updatedAt\": \"2026-01-22T23:23:45.326Z\"\n    },\n    {\n      \"id\": \"2\",\n      \"name\": \"Whole Wheat Bread\",\n      \"price\": 4.49,\n      \"description\": \"Freshly baked whole wheat bread, rich in fiber.\",\n      \"image\": \"https://placehold.co/300x200.png\",\n      \"dataAiHint\": \"bread bakery\",\n      \"category\": \"bakery\",\n      \"inStock\": true,\n      \"createdAt\": \"2026-01-22T23:23:45.326Z\",\n      \"updatedAt\": \"2026-01-22T23:23:45.326Z\"\n    },\n    {\n      \"id\": \"3\",\n      \"name\": \"Free-Range Eggs\",\n      \"price\": 5.99,\n      \"description\": \"A dozen large free-range eggs, great for breakfast.\",\n      \"image\": \"https://placehold.co/300x200.png\",\n      \"dataAiHint\": \"eggs dairy\",\n      \"category\": \"dairy\",\n      \"inStock\": true,\n      \"createdAt\": \"2026-01-22T23:23:45.326Z\",\n      \"updatedAt\": \"2026-01-22T23:23:45.326Z\"\n    },\n    {\n      \"id\": \"4\",\n      \"name\": \"Organic Spinach\",\n      \"price\": 2.99,\n      \"description\": \"A bag of fresh organic spinach, packed with nutrients.\",\n      \"image\": \"https://placehold.co/300x200.png\",\n      \"dataAiHint\": \"spinach vegetables\",\n      \"category\": \"vegetables\",\n      \"inStock\": true,\n      \"createdAt\": \"2026-01-22T23:23:45.326Z\",\n      \"updatedAt\": \"2026-01-22T23:23:45.326Z\"\n    },\n    {\n      \"id\": \"5\",\n      \"name\": \"Almond Milk\",\n      \"price\": 3.79,\n      \"description\": \"Unsweetened almond milk, a great dairy-free alternative.\",\n      \"image\": \"https://placehold.co/300x200.png\",\n      \"dataAiHint\": \"almond milk\",\n      \"category\": \"dairy\",\n      \"inStock\": true,\n      \"createdAt\": \"2026-01-22T23:23:45.326Z\",\n      \"updatedAt\": \"2026-01-22T23:23:45.326Z\"\n    },\n    {\n      \"id\": \"6\",\n      \"name\": \"Chicken Breast\",\n      \"price\": 9.99,\n      \"description\": \"Boneless, skinless chicken breast, lean and versatile.\",\n      \"image\": \"https://placehold.co/300x200.png\",\n      \"dataAiHint\": \"chicken meat\",\n      \"category\": \"meat\",\n      \"inStock\": true,\n      \"createdAt\": \"2026-01-22T23:23:45.326Z\",\n      \"updatedAt\": \"2026-01-22T23:23:45.326Z\"\n    },\n    {\n      \"id\": \"7\",\n      \"name\": \"Brown Rice\",\n      \"price\": 2.49,\n      \"description\": \"Long-grain brown rice, a healthy whole grain option.\",\n      \"image\": \"https://placehold.co/300x200.png\",\n      \"dataAiHint\": \"rice grains\",\n      \"category\": \"grains\",\n      \"inStock\": true,\n      \"createdAt\": \"2026-01-22T23:23:45.326Z\",\n      \"updatedAt\": \"2026-01-22T23:23:45.326Z\"\n    },\n    {\n      \"id\": \"8\",\n      \"name\": \"Greek Yogurt\",\n      \"price\": 4.99,\n      \"description\": \"Creamy Greek yogurt, high in protein and probiotics.\",\n      \"image\": \"https://placehold.co/300x200.png\",\n      \"dataAiHint\": \"yogurt dairy\",\n      \"category\": \"dairy\",\n      \"inStock\": true,\n      \"createdAt\": \"2026-01-22T23:23:45.326Z\",\n      \"updatedAt\": \"2026-01-22T23:23:45.326Z\"\n    }\n  ],\n  \"total\": 8,\n  \"page\": 1,\n  \"limit\": 10,\n  \"totalPages\": 1\n}\n"
+                            },
+                            {
+                              "text": "[2026-01-22T23:56:41.776Z] [INFO] [CartAPI] POST Request: http://localhost:3000/api/cart/order-test-user/items\n"
+                            },
+                            {
+                              "text": "[2026-01-22T23:56:41.776Z] [DEBUG] [CartAPI] Payload: {\n  \"productId\": \"1\",\n  \"quantity\": 1\n}\n"
+                            },
+                            {
+                              "text": "[2026-01-22T23:56:41.799Z] [INFO] [CartAPI] Response Status: 200 OK\n"
+                            },
+                            {
+                              "text": "[2026-01-22T23:56:41.802Z] [DEBUG] [CartAPI] Response Body: {\n  \"id\": \"07cd4de3-517d-46f2-b628-b820d7ebfce7\",\n  \"userId\": \"order-test-user\",\n  \"items\": [\n    {\n      \"id\": \"1\",\n      \"name\": \"Organic Apples\",\n      \"price\": 3.99,\n      \"description\": \"Crisp and juicy organic apples, perfect for snacking or baking.\",\n      \"image\": \"https://placehold.co/300x200.png\",\n      \"dataAiHint\": \"apples fruit\",\n      \"category\": \"fruits\",\n      \"inStock\": true,\n      \"createdAt\": \"2026-01-22T23:23:45.326Z\",\n      \"updatedAt\": \"2026-01-22T23:23:45.326Z\",\n      \"quantity\": 1,\n      \"addedAt\": \"2026-01-22T23:56:41.783Z\"\n    }\n  ],\n  \"totalAmount\": 3.99,\n  \"totalItems\": 1,\n  \"createdAt\": \"2026-01-22T23:24:22.143Z\",\n  \"updatedAt\": \"2026-01-22T23:56:41.783Z\"\n}\n"
+                            },
+                            {
+                              "text": "[2026-01-22T23:56:41.831Z] [INFO] [OrderAPI] POST Request: http://localhost:3000/api/orders/order-test-user\n"
+                            },
+                            {
+                              "text": "[2026-01-22T23:56:41.831Z] [DEBUG] [OrderAPI] Payload: {\n  \"items\": [\n    {\n      \"id\": \"1\",\n      \"name\": \"Organic Apples\",\n      \"price\": 3.99,\n      \"description\": \"Crisp and juicy organic apples, perfect for snacking or baking.\",\n      \"image\": \"https://placehold.co/300x200.png\",\n      \"dataAiHint\": \"apples fruit\",\n      \"category\": \"fruits\",\n      \"inStock\": true,\n      \"createdAt\": \"2026-01-22T23:23:45.326Z\",\n      \"updatedAt\": \"2026-01-22T23:23:45.326Z\",\n      \"quantity\": 1\n    }\n  ],\n  \"shippingAddress\": {\n    \"street\": \"123 Test St\",\n    \"city\": \"Test City\",\n    \"state\": \"TS\",\n    \"zipCode\": \"12345\",\n    \"country\": \"Testland\"\n  },\n  \"billingAddress\": {\n    \"street\": \"123 Test St\",\n    \"city\": \"Test City\",\n    \"state\": \"TS\",\n    \"zipCode\": \"12345\",\n    \"country\": \"Testland\"\n  },\n  \"paymentMethod\": {\n    \"type\": \"credit_card\",\n    \"last4\": \"4242\",\n    \"brand\": \"Visa\"\n  }\n}\n"
+                            },
+                            {
+                              "text": "[2026-01-22T23:56:41.857Z] [INFO] [OrderAPI] Response Status: 201 Created\n"
+                            },
+                            {
+                              "text": "[2026-01-22T23:56:41.859Z] [DEBUG] [OrderAPI] Response Body: {\n  \"id\": \"23dfc529-ecf7-45db-970d-16c10e7e1ae3\",\n  \"userId\": \"order-test-user\",\n  \"items\": [\n    {\n      \"id\": \"1\",\n      \"name\": \"Organic Apples\",\n      \"price\": 3.99,\n      \"description\": \"Crisp and juicy organic apples, perfect for snacking or baking.\",\n      \"image\": \"https://placehold.co/300x200.png\",\n      \"dataAiHint\": \"apples fruit\",\n      \"quantity\": 1\n    }\n  ],\n  \"totalAmount\": 3.99,\n  \"status\": \"pending\",\n  \"shippingAddress\": {\n    \"street\": \"123 Test St\",\n    \"city\": \"Test City\",\n    \"state\": \"TS\",\n    \"zipCode\": \"12345\",\n    \"country\": \"Testland\"\n  },\n  \"billingAddress\": {\n    \"street\": \"123 Test St\",\n    \"city\": \"Test City\",\n    \"state\": \"TS\",\n    \"zipCode\": \"12345\",\n    \"country\": \"Testland\"\n  },\n  \"paymentMethod\": {\n    \"type\": \"credit_card\",\n    \"last4\": \"4242\",\n    \"brand\": \"Visa\"\n  },\n  \"orderDate\": \"2026-01-22T23:56:41.833Z\",\n  \"estimatedDelivery\": \"2026-01-27T23:56:41.833Z\",\n  \"createdAt\": \"2026-01-22T23:56:41.833Z\",\n  \"updatedAt\": \"2026-01-22T23:56:41.833Z\"\n}\n"
+                            }
+                          ],
+                          "stderr": [],
+                          "retry": 0,
+                          "startTime": "2026-01-22T23:56:41.732Z",
+                          "annotations": [],
+                          "attachments": []
+                        }
+                      ],
+                      "status": "expected"
+                    }
+                  ],
+                  "id": "6356182538d915a08ec9-194fb643f81919b37569",
+                  "file": "order-service/order.spec.ts",
+                  "line": 40,
+                  "column": 9
+                },
+                {
+                  "title": "should get user orders",
+                  "ok": true,
+                  "tags": [],
+                  "tests": [
+                    {
+                      "timeout": 30000,
+                      "annotations": [],
+                      "expectedStatus": "passed",
+                      "projectId": "api",
+                      "projectName": "api",
+                      "results": [
+                        {
+                          "workerIndex": 0,
+                          "parallelIndex": 0,
+                          "status": "passed",
+                          "duration": 43,
+                          "errors": [],
+                          "stdout": [
+                            {
+                              "text": "[2026-01-22T23:56:41.914Z] [INFO] [OrderAPI] GET Request: http://localhost:3000/api/orders/order-test-user\n"
+                            },
+                            {
+                              "text": "[2026-01-22T23:56:41.940Z] [INFO] [OrderAPI] Response Status: 200 OK\n"
+                            },
+                            {
+                              "text": "[2026-01-22T23:56:41.942Z] [DEBUG] [OrderAPI] Response Body: {\n  \"orders\": [\n    {\n      \"id\": \"23dfc529-ecf7-45db-970d-16c10e7e1ae3\",\n      \"userId\": \"order-test-user\",\n      \"items\": [\n        {\n          \"id\": \"1\",\n          \"name\": \"Organic Apples\",\n          \"price\": 3.99,\n          \"description\": \"Crisp and juicy organic apples, perfect for snacking or baking.\",\n          \"image\": \"https://placehold.co/300x200.png\",\n          \"dataAiHint\": \"apples fruit\",\n          \"quantity\": 1\n        }\n      ],\n      \"totalAmount\": 3.99,\n      \"status\": \"pending\",\n      \"shippingAddress\": {\n        \"street\": \"123 Test St\",\n        \"city\": \"Test City\",\n        \"state\": \"TS\",\n        \"zipCode\": \"12345\",\n        \"country\": \"Testland\"\n      },\n      \"billingAddress\": {\n        \"street\": \"123 Test St\",\n        \"city\": \"Test City\",\n        \"state\": \"TS\",\n        \"zipCode\": \"12345\",\n        \"country\": \"Testland\"\n      },\n      \"paymentMethod\": {\n        \"type\": \"credit_card\",\n        \"last4\": \"4242\",\n        \"brand\": \"Visa\"\n      },\n      \"orderDate\": \"2026-01-22T23:56:41.833Z\",\n      \"estimatedDelivery\": \"2026-01-27T23:56:41.833Z\",\n      \"createdAt\": \"2026-01-22T23:56:41.833Z\",\n      \"updatedAt\": \"2026-01-22T23:56:41.833Z\"\n    },\n    {\n      \"id\": \"81beb74d-be4d-4c95-a2c9-21e4e5932d21\",\n      \"userId\": \"order-test-user\",\n      \"items\": [\n        {\n          \"id\": \"1\",\n          \"name\": \"Organic Apples\",\n          \"price\": 3.99,\n          \"description\": \"Crisp and juicy organic apples, perfect for snacking or baking.\",\n          \"image\": \"https://placehold.co/300x200.png\",\n          \"dataAiHint\": \"apples fruit\",\n          \"quantity\": 1\n        }\n      ],\n      \"totalAmount\": 3.99,\n      \"status\": \"cancelled\",\n      \"shippingAddress\": {\n        \"street\": \"123 Test St\",\n        \"city\": \"Test City\",\n        \"state\": \"TS\",\n        \"zipCode\": \"12345\",\n        \"country\": \"Testland\"\n      },\n      \"billingAddress\": {\n        \"street\": \"123 Test St\",\n        \"city\": \"Test City\",\n        \"state\": \"TS\",\n        \"zipCode\": \"12345\",\n        \"country\": \"Testland\"\n      },\n      \"paymentMethod\": {\n        \"type\": \"credit_card\",\n        \"last4\": \"4242\",\n        \"brand\": \"Visa\"\n      },\n      \"orderDate\": \"2026-01-22T23:34:50.276Z\",\n      \"estimatedDelivery\": \"2026-01-27T23:34:50.276Z\",\n      \"createdAt\": \"2026-01-22T23:34:50.276Z\",\n      \"updatedAt\": \"2026-01-22T23:34:50.466Z\"\n    },\n    {\n      \"id\": \"d0345325-4b17-41b0-9911-225bca8e62b8\",\n      \"userId\": \"order-test-user\",\n      \"items\": [\n        {\n          \"id\": \"1\",\n          \"name\": \"Organic Apples\",\n          \"price\": 3.99,\n          \"description\": \"Crisp and juicy organic apples, perfect for snacking or baking.\",\n          \"image\": \"https://placehold.co/300x200.png\",\n          \"dataAiHint\": \"apples fruit\",\n          \"quantity\": 1\n        }\n      ],\n      \"totalAmount\": 3.99,\n      \"status\": \"cancelled\",\n      \"shippingAddress\": {\n        \"street\": \"123 Test St\",\n        \"city\": \"Test City\",\n        \"state\": \"TS\",\n        \"zipCode\": \"12345\",\n        \"country\": \"Testland\"\n      },\n      \"billingAddress\": {\n        \"street\": \"123 Test St\",\n        \"city\": \"Test City\",\n        \"state\": \"TS\",\n        \"zipCode\": \"12345\",\n        \"country\": \"Testland\"\n      },\n      \"paymentMethod\": {\n        \"type\": \"credit_card\",\n        \"last4\": \"4242\",\n        \"brand\": \"Visa\"\n      },\n      \"orderDate\": \"2026-01-22T23:34:28.785Z\",\n      \"estimatedDelivery\": \"2026-01-27T23:34:28.785Z\",\n      \"createdAt\": \"2026-01-22T23:34:28.785Z\",\n      \"updatedAt\": \"2026-01-22T23:34:28.986Z\"\n    },\n    {\n      \"id\": \"b23c23a1-79c1-4b86-8960-36338ea84c82\",\n      \"userId\": \"order-test-user\",\n      \"items\": [\n        {\n          \"id\": \"1\",\n          \"name\": \"Organic Apples\",\n          \"price\": 3.99,\n          \"description\": \"Crisp and juicy organic apples, perfect for snacking or baking.\",\n          \"image\": \"https://placehold.co/300x200.png\",\n          \"dataAiHint\": \"apples fruit\",\n          \"quantity\": 1\n        }\n      ],\n      \"totalAmount\": 3.99,\n      \"status\": \"confirmed\",\n      \"shippingAddress\": {\n        \"street\": \"123 Test St\",\n        \"city\": \"Test City\",\n        \"state\": \"TS\",\n        \"zipCode\": \"12345\",\n        \"country\": \"Testland\"\n      },\n      \"billingAddress\": {\n        \"street\": \"123 Test St\",\n        \"city\": \"Test City\",\n        \"state\": \"TS\",\n        \"zipCode\": \"12345\",\n        \"country\": \"Testland\"\n      },\n      \"paymentMethod\": {\n        \"type\": \"credit_card\",\n        \"last4\": \"4242\",\n        \"brand\": \"Visa\"\n      },\n      \"orderDate\": \"2026-01-22T23:33:34.933Z\",\n      \"estimatedDelivery\": \"2026-01-27T23:33:34.933Z\",\n      \"createdAt\": \"2026-01-22T23:33:34.933Z\",\n      \"updatedAt\": \"2026-01-22T23:33:35.047Z\"\n    },\n    {\n      \"id\": \"73f5af91-2878-4b9c-9f35-3119e71509eb\",\n      \"userId\": \"order-test-user\",\n      \"items\": [\n        {\n          \"id\": \"1\",\n          \"name\": \"Organic Apples\",\n          \"price\": 3.99,\n          \"description\": \"Crisp and juicy organic apples, perfect for snacking or baking.\",\n          \"image\": \"https://placehold.co/300x200.png\",\n          \"dataAiHint\": \"apples fruit\",\n          \"quantity\": 1\n        }\n      ],\n      \"totalAmount\": 3.99,\n      \"status\": \"confirmed\",\n      \"shippingAddress\": {\n        \"street\": \"123 Test St\",\n        \"city\": \"Test City\",\n        \"state\": \"TS\",\n        \"zipCode\": \"12345\",\n        \"country\": \"Testland\"\n      },\n      \"billingAddress\": {\n        \"street\": \"123 Test St\",\n        \"city\": \"Test City\",\n        \"state\": \"TS\",\n        \"zipCode\": \"12345\",\n        \"country\": \"Testland\"\n      },\n      \"paymentMethod\": {\n        \"type\": \"credit_card\",\n        \"last4\": \"4242\",\n        \"brand\": \"Visa\"\n      },\n      \"orderDate\": \"2026-01-22T23:33:18.591Z\",\n      \"estimatedDelivery\": \"2026-01-27T23:33:18.591Z\",\n      \"createdAt\": \"2026-01-22T23:33:18.591Z\",\n      \"updatedAt\": \"2026-01-22T23:33:18.692Z\"\n    },\n    {\n      \"id\": \"55ba4235-4247-4360-b49f-47fe74e43872\",\n      \"userId\": \"order-test-user\",\n      \"items\": [\n        {\n          \"id\": \"1\",\n          \"name\": \"Organic Apples\",\n          \"price\": 3.99,\n          \"description\": \"Crisp and juicy organic apples, perfect for snacking or baking.\",\n          \"image\": \"https://placehold.co/300x200.png\",\n          \"dataAiHint\": \"apples fruit\",\n          \"quantity\": 1\n        }\n      ],\n      \"totalAmount\": 3.99,\n      \"status\": \"confirmed\",\n      \"shippingAddress\": {\n        \"street\": \"123 Test St\",\n        \"city\": \"Test City\",\n        \"state\": \"TS\",\n        \"zipCode\": \"12345\",\n        \"country\": \"Testland\"\n      },\n      \"billingAddress\": {\n        \"street\": \"123 Test St\",\n        \"city\": \"Test City\",\n        \"state\": \"TS\",\n        \"zipCode\": \"12345\",\n        \"country\": \"Testland\"\n      },\n      \"paymentMethod\": {\n        \"type\": \"credit_card\",\n        \"last4\": \"4242\",\n        \"brand\": \"Visa\"\n      },\n      \"orderDate\": \"2026-01-22T23:33:01.761Z\",\n      \"estimatedDelivery\": \"2026-01-27T23:33:01.761Z\",\n      \"createdAt\": \"2026-01-22T23:33:01.761Z\",\n      \"updatedAt\": \"2026-01-22T23:33:01.958Z\"\n    },\n    {\n      \"id\": \"4f86ab68-780b-45fc-ba43-ad9d45a5b4bd\",\n      \"userId\": \"order-test-user\",\n      \"items\": [\n        {\n          \"id\": \"1\",\n          \"name\": \"Organic Apples\",\n          \"price\": 3.99,\n          \"description\": \"Crisp and juicy organic apples, perfect for snacking or baking.\",\n          \"image\": \"https://placehold.co/300x200.png\",\n          \"dataAiHint\": \"apples fruit\",\n          \"quantity\": 1\n        }\n      ],\n      \"totalAmount\": 3.99,\n      \"status\": \"pending\",\n      \"shippingAddress\": {\n        \"street\": \"123 Test St\",\n        \"city\": \"Test City\",\n        \"state\": \"TS\",\n        \"zipCode\": \"12345\",\n        \"country\": \"Testland\"\n      },\n      \"billingAddress\": {\n        \"street\": \"123 Test St\",\n        \"city\": \"Test City\",\n        \"state\": \"TS\",\n        \"zipCode\": \"12345\",\n        \"country\": \"Testland\"\n      },\n      \"paymentMethod\": {\n        \"type\": \"credit_card\",\n        \"last4\": \"4242\",\n        \"brand\": \"Visa\"\n      },\n      \"orderDate\": \"2026-01-22T23:30:37.184Z\",\n      \"estimatedDelivery\": \"2026-01-27T23:30:37.184Z\",\n      \"createdAt\": \"2026-01-22T23:30:37.184Z\",\n      \"updatedAt\": \"2026-01-22T23:30:37.184Z\"\n    },\n    {\n      \"id\": \"96e87fd1-ca85-44f4-943c-1fb0e300a7e8\",\n      \"userId\": \"order-test-user\",\n      \"items\": [\n        {\n          \"id\": \"1\",\n          \"name\": \"Organic Apples\",\n          \"price\": 3.99,\n          \"description\": \"Crisp and juicy organic apples, perfect for snacking or baking.\",\n          \"image\": \"https://placehold.co/300x200.png\",\n          \"dataAiHint\": \"apples fruit\",\n          \"quantity\": 1\n        }\n      ],\n      \"totalAmount\": 3.99,\n      \"status\": \"pending\",\n      \"shippingAddress\": {\n        \"street\": \"123 Test St\",\n        \"city\": \"Test City\",\n        \"state\": \"TS\",\n        \"zipCode\": \"12345\",\n        \"country\": \"Testland\"\n      },\n      \"billingAddress\": {\n        \"street\": \"123 Test St\",\n        \"city\": \"Test City\",\n        \"state\": \"TS\",\n        \"zipCode\": \"12345\",\n        \"country\": \"Testland\"\n      },\n      \"paymentMethod\": {\n        \"type\": \"credit_card\",\n        \"last4\": \"4242\",\n        \"brand\": \"Visa\"\n      },\n      \"orderDate\": \"2026-01-22T23:30:12.670Z\",\n      \"estimatedDelivery\": \"2026-01-27T23:30:12.670Z\",\n      \"createdAt\": \"2026-01-22T23:30:12.670Z\",\n      \"updatedAt\": \"2026-01-22T23:30:12.670Z\"\n    },\n    {\n      \"id\": \"fd7b88ff-4578-498e-9183-5b66dfce81dd\",\n      \"userId\": \"order-test-user\",\n      \"items\": [\n        {\n          \"id\": \"1\",\n          \"name\": \"Organic Apples\",\n          \"price\": 3.99,\n          \"description\": \"Crisp and juicy organic apples, perfect for snacking or baking.\",\n          \"image\": \"https://placehold.co/300x200.png\",\n          \"dataAiHint\": \"apples fruit\",\n          \"quantity\": 1\n        }\n      ],\n      \"totalAmount\": 3.99,\n      \"status\": \"pending\",\n      \"shippingAddress\": {\n        \"street\": \"123 Test St\",\n        \"city\": \"Test City\",\n        \"state\": \"TS\",\n        \"zipCode\": \"12345\",\n        \"country\": \"Testland\"\n      },\n      \"billingAddress\": {\n        \"street\": \"123 Test St\",\n        \"city\": \"Test City\",\n        \"state\": \"TS\",\n        \"zipCode\": \"12345\",\n        \"country\": \"Testland\"\n      },\n      \"paymentMethod\": {\n        \"type\": \"credit_card\",\n        \"last4\": \"4242\",\n        \"brand\": \"Visa\"\n      },\n      \"orderDate\": \"2026-01-22T23:29:48.840Z\",\n      \"estimatedDelivery\": \"2026-01-27T23:29:48.840Z\",\n      \"createdAt\": \"2026-01-22T23:29:48.840Z\",\n      \"updatedAt\": \"2026-01-22T23:29:48.840Z\"\n    },\n    {\n      \"id\": \"b6851582-b691-4941-a7c4-b40d8fbf6ce9\",\n      \"userId\": \"order-test-user\",\n      \"items\": [\n        {\n          \"id\": \"1\",\n          \"name\": \"Organic Apples\",\n          \"price\": 3.99,\n          \"description\": \"Crisp and juicy organic apples, perfect for snacking or baking.\",\n          \"image\": \"https://placehold.co/300x200.png\",\n          \"dataAiHint\": \"apples fruit\",\n          \"quantity\": 1\n        }\n      ],\n      \"totalAmount\": 3.99,\n      \"status\": \"pending\",\n      \"shippingAddress\": {\n        \"street\": \"123 Test St\",\n        \"city\": \"Test City\",\n        \"state\": \"TS\",\n        \"zipCode\": \"12345\",\n        \"country\": \"Testland\"\n      },\n      \"billingAddress\": {\n        \"street\": \"123 Test St\",\n        \"city\": \"Test City\",\n        \"state\": \"TS\",\n        \"zipCode\": \"12345\",\n        \"country\": \"Testland\"\n      },\n      \"paymentMethod\": {\n        \"type\": \"credit_card\",\n        \"last4\": \"4242\",\n        \"brand\": \"Visa\"\n      },\n      \"orderDate\": \"2026-01-22T23:27:52.091Z\",\n      \"estimatedDelivery\": \"2026-01-27T23:27:52.091Z\",\n      \"createdAt\": \"2026-01-22T23:27:52.091Z\",\n      \"updatedAt\": \"2026-01-22T23:27:52.091Z\"\n    }\n  ],\n  \"total\": 12,\n  \"page\": 1,\n  \"limit\": 10,\n  \"totalPages\": 2\n}\n"
+                            }
+                          ],
+                          "stderr": [],
+                          "retry": 0,
+                          "startTime": "2026-01-22T23:56:41.894Z",
+                          "annotations": [],
+                          "attachments": []
+                        }
+                      ],
+                      "status": "expected"
+                    }
+                  ],
+                  "id": "6356182538d915a08ec9-eb9f6990965509278f03",
+                  "file": "order-service/order.spec.ts",
+                  "line": 61,
+                  "column": 9
+                },
+                {
+                  "title": "should get specific order",
+                  "ok": true,
+                  "tags": [],
+                  "tests": [
+                    {
+                      "timeout": 30000,
+                      "annotations": [],
+                      "expectedStatus": "passed",
+                      "projectId": "api",
+                      "projectName": "api",
+                      "results": [
+                        {
+                          "workerIndex": 0,
+                          "parallelIndex": 0,
+                          "status": "passed",
+                          "duration": 28,
+                          "errors": [],
+                          "stdout": [
+                            {
+                              "text": "[2026-01-22T23:56:41.981Z] [INFO] [OrderAPI] GET Request: http://localhost:3000/api/orders/order-test-user/23dfc529-ecf7-45db-970d-16c10e7e1ae3\n"
+                            },
+                            {
+                              "text": "[2026-01-22T23:56:41.998Z] [INFO] [OrderAPI] Response Status: 200 OK\n"
+                            },
+                            {
+                              "text": "[2026-01-22T23:56:41.999Z] [DEBUG] [OrderAPI] Response Body: {\n  \"id\": \"23dfc529-ecf7-45db-970d-16c10e7e1ae3\",\n  \"userId\": \"order-test-user\",\n  \"items\": [\n    {\n      \"id\": \"1\",\n      \"name\": \"Organic Apples\",\n      \"price\": 3.99,\n      \"description\": \"Crisp and juicy organic apples, perfect for snacking or baking.\",\n      \"image\": \"https://placehold.co/300x200.png\",\n      \"dataAiHint\": \"apples fruit\",\n      \"quantity\": 1\n    }\n  ],\n  \"totalAmount\": 3.99,\n  \"status\": \"pending\",\n  \"shippingAddress\": {\n    \"street\": \"123 Test St\",\n    \"city\": \"Test City\",\n    \"state\": \"TS\",\n    \"zipCode\": \"12345\",\n    \"country\": \"Testland\"\n  },\n  \"billingAddress\": {\n    \"street\": \"123 Test St\",\n    \"city\": \"Test City\",\n    \"state\": \"TS\",\n    \"zipCode\": \"12345\",\n    \"country\": \"Testland\"\n  },\n  \"paymentMethod\": {\n    \"type\": \"credit_card\",\n    \"last4\": \"4242\",\n    \"brand\": \"Visa\"\n  },\n  \"orderDate\": \"2026-01-22T23:56:41.833Z\",\n  \"estimatedDelivery\": \"2026-01-27T23:56:41.833Z\",\n  \"createdAt\": \"2026-01-22T23:56:41.833Z\",\n  \"updatedAt\": \"2026-01-22T23:56:41.833Z\"\n}\n"
+                            }
+                          ],
+                          "stderr": [],
+                          "retry": 0,
+                          "startTime": "2026-01-22T23:56:41.966Z",
+                          "annotations": [],
+                          "attachments": []
+                        }
+                      ],
+                      "status": "expected"
+                    }
+                  ],
+                  "id": "6356182538d915a08ec9-3ec5980addcd62d9d8ab",
+                  "file": "order-service/order.spec.ts",
+                  "line": 71,
+                  "column": 9
+                },
+                {
+                  "title": "should update order status",
+                  "ok": true,
+                  "tags": [],
+                  "tests": [
+                    {
+                      "timeout": 30000,
+                      "annotations": [],
+                      "expectedStatus": "passed",
+                      "projectId": "api",
+                      "projectName": "api",
+                      "results": [
+                        {
+                          "workerIndex": 0,
+                          "parallelIndex": 0,
+                          "status": "passed",
+                          "duration": 29,
+                          "errors": [],
+                          "stdout": [
+                            {
+                              "text": "[2026-01-22T23:56:42.031Z] [INFO] [OrderAPI] PUT Request: http://localhost:3000/api/orders/order-test-user/23dfc529-ecf7-45db-970d-16c10e7e1ae3/status\n"
+                            },
+                            {
+                              "text": "[2026-01-22T23:56:42.031Z] [DEBUG] [OrderAPI] Payload: {\n  \"status\": \"confirmed\"\n}\n"
+                            },
+                            {
+                              "text": "[2026-01-22T23:56:42.047Z] [INFO] [OrderAPI] Response Status: 200 OK\n"
+                            },
+                            {
+                              "text": "[2026-01-22T23:56:42.049Z] [DEBUG] [OrderAPI] Response Body: {\n  \"id\": \"23dfc529-ecf7-45db-970d-16c10e7e1ae3\",\n  \"userId\": \"order-test-user\",\n  \"items\": [\n    {\n      \"id\": \"1\",\n      \"name\": \"Organic Apples\",\n      \"price\": 3.99,\n      \"description\": \"Crisp and juicy organic apples, perfect for snacking or baking.\",\n      \"image\": \"https://placehold.co/300x200.png\",\n      \"dataAiHint\": \"apples fruit\",\n      \"quantity\": 1\n    }\n  ],\n  \"totalAmount\": 3.99,\n  \"status\": \"confirmed\",\n  \"shippingAddress\": {\n    \"street\": \"123 Test St\",\n    \"city\": \"Test City\",\n    \"state\": \"TS\",\n    \"zipCode\": \"12345\",\n    \"country\": \"Testland\"\n  },\n  \"billingAddress\": {\n    \"street\": \"123 Test St\",\n    \"city\": \"Test City\",\n    \"state\": \"TS\",\n    \"zipCode\": \"12345\",\n    \"country\": \"Testland\"\n  },\n  \"paymentMethod\": {\n    \"type\": \"credit_card\",\n    \"last4\": \"4242\",\n    \"brand\": \"Visa\"\n  },\n  \"orderDate\": \"2026-01-22T23:56:41.833Z\",\n  \"estimatedDelivery\": \"2026-01-27T23:56:41.833Z\",\n  \"createdAt\": \"2026-01-22T23:56:41.833Z\",\n  \"updatedAt\": \"2026-01-22T23:56:42.032Z\"\n}\n"
+                            }
+                          ],
+                          "stderr": [],
+                          "retry": 0,
+                          "startTime": "2026-01-22T23:56:42.017Z",
+                          "annotations": [],
+                          "attachments": []
+                        }
+                      ],
+                      "status": "expected"
+                    }
+                  ],
+                  "id": "6356182538d915a08ec9-360d1041c094e7993b99",
+                  "file": "order-service/order.spec.ts",
+                  "line": 81,
+                  "column": 9
+                },
+                {
+                  "title": "should cancel order",
+                  "ok": true,
+                  "tags": [],
+                  "tests": [
+                    {
+                      "timeout": 30000,
+                      "annotations": [],
+                      "expectedStatus": "passed",
+                      "projectId": "api",
+                      "projectName": "api",
+                      "results": [
+                        {
+                          "workerIndex": 0,
+                          "parallelIndex": 0,
+                          "status": "passed",
+                          "duration": 30,
+                          "errors": [],
+                          "stdout": [
+                            {
+                              "text": "[2026-01-22T23:56:42.079Z] [INFO] [OrderAPI] POST Request: http://localhost:3000/api/orders/order-test-user/23dfc529-ecf7-45db-970d-16c10e7e1ae3/cancel\n"
+                            },
+                            {
+                              "text": "[2026-01-22T23:56:42.079Z] [DEBUG] [OrderAPI] Payload: {}\n"
+                            },
+                            {
+                              "text": "[2026-01-22T23:56:42.097Z] [INFO] [OrderAPI] Response Status: 200 OK\n"
+                            },
+                            {
+                              "text": "[2026-01-22T23:56:42.099Z] [DEBUG] [OrderAPI] Response Body: {\n  \"id\": \"23dfc529-ecf7-45db-970d-16c10e7e1ae3\",\n  \"userId\": \"order-test-user\",\n  \"items\": [\n    {\n      \"id\": \"1\",\n      \"name\": \"Organic Apples\",\n      \"price\": 3.99,\n      \"description\": \"Crisp and juicy organic apples, perfect for snacking or baking.\",\n      \"image\": \"https://placehold.co/300x200.png\",\n      \"dataAiHint\": \"apples fruit\",\n      \"quantity\": 1\n    }\n  ],\n  \"totalAmount\": 3.99,\n  \"status\": \"cancelled\",\n  \"shippingAddress\": {\n    \"street\": \"123 Test St\",\n    \"city\": \"Test City\",\n    \"state\": \"TS\",\n    \"zipCode\": \"12345\",\n    \"country\": \"Testland\"\n  },\n  \"billingAddress\": {\n    \"street\": \"123 Test St\",\n    \"city\": \"Test City\",\n    \"state\": \"TS\",\n    \"zipCode\": \"12345\",\n    \"country\": \"Testland\"\n  },\n  \"paymentMethod\": {\n    \"type\": \"credit_card\",\n    \"last4\": \"4242\",\n    \"brand\": \"Visa\"\n  },\n  \"orderDate\": \"2026-01-22T23:56:41.833Z\",\n  \"estimatedDelivery\": \"2026-01-27T23:56:41.833Z\",\n  \"createdAt\": \"2026-01-22T23:56:41.833Z\",\n  \"updatedAt\": \"2026-01-22T23:56:42.082Z\"\n}\n"
+                            }
+                          ],
+                          "stderr": [],
+                          "retry": 0,
+                          "startTime": "2026-01-22T23:56:42.066Z",
+                          "annotations": [],
+                          "attachments": []
+                        }
+                      ],
+                      "status": "expected"
+                    }
+                  ],
+                  "id": "6356182538d915a08ec9-abc2c00799c094d5d455",
+                  "file": "order-service/order.spec.ts",
+                  "line": 91,
+                  "column": 9
+                }
+              ]
+            },
+            {
+              "title": "Negative Testing",
+              "file": "order-service/order.spec.ts",
+              "line": 102,
+              "column": 8,
+              "specs": [
+                {
+                  "title": "should return 404 for non-existent order",
+                  "ok": true,
+                  "tags": [],
+                  "tests": [
+                    {
+                      "timeout": 30000,
+                      "annotations": [],
+                      "expectedStatus": "passed",
+                      "projectId": "api",
+                      "projectName": "api",
+                      "results": [
+                        {
+                          "workerIndex": 0,
+                          "parallelIndex": 0,
+                          "status": "passed",
+                          "duration": 28,
+                          "errors": [],
+                          "stdout": [
+                            {
+                              "text": "[2026-01-22T23:56:42.129Z] [INFO] [OrderAPI] GET Request: http://localhost:3000/api/orders/order-test-user/non-existent-order\n"
+                            },
+                            {
+                              "text": "[2026-01-22T23:56:42.147Z] [INFO] [OrderAPI] Response Status: 404 Not Found\n"
+                            },
+                            {
+                              "text": "[2026-01-22T23:56:42.148Z] [DEBUG] [OrderAPI] Response Body: {\n  \"error\": \"Order not found\"\n}\n"
+                            }
+                          ],
+                          "stderr": [],
+                          "retry": 0,
+                          "startTime": "2026-01-22T23:56:42.117Z",
+                          "annotations": [],
+                          "attachments": []
+                        }
+                      ],
+                      "status": "expected"
+                    }
+                  ],
+                  "id": "6356182538d915a08ec9-109cfd2dc27707cd2c25",
+                  "file": "order-service/order.spec.ts",
+                  "line": 103,
+                  "column": 9
+                },
+                {
+                  "title": "should fail to update status to invalid value",
+                  "ok": true,
+                  "tags": [],
+                  "tests": [
+                    {
+                      "timeout": 30000,
+                      "annotations": [],
+                      "expectedStatus": "passed",
+                      "projectId": "api",
+                      "projectName": "api",
+                      "results": [
+                        {
+                          "workerIndex": 0,
+                          "parallelIndex": 0,
+                          "status": "passed",
+                          "duration": 28,
+                          "errors": [],
+                          "stdout": [
+                            {
+                              "text": "[2026-01-22T23:56:42.182Z] [INFO] [OrderAPI] PUT Request: http://localhost:3000/api/orders/order-test-user/23dfc529-ecf7-45db-970d-16c10e7e1ae3/status\n"
+                            },
+                            {
+                              "text": "[2026-01-22T23:56:42.182Z] [DEBUG] [OrderAPI] Payload: {\n  \"status\": \"INVALID_STATUS\"\n}\n"
+                            },
+                            {
+                              "text": "[2026-01-22T23:56:42.202Z] [INFO] [OrderAPI] Response Status: 400 Bad Request\n"
+                            },
+                            {
+                              "text": "[2026-01-22T23:56:42.203Z] [DEBUG] [OrderAPI] Response Body: {\n  \"error\": \"Invalid update data\",\n  \"details\": [\n    {\n      \"received\": \"INVALID_STATUS\",\n      \"code\": \"invalid_enum_value\",\n      \"options\": [\n        \"pending\",\n        \"confirmed\",\n        \"processing\",\n        \"shipped\",\n        \"delivered\",\n        \"cancelled\",\n        \"refunded\"\n      ],\n      \"path\": [\n        \"status\"\n      ],\n      \"message\": \"Invalid enum value. Expected 'pending' | 'confirmed' | 'processing' | 'shipped' | 'delivered' | 'cancelled' | 'refunded', received 'INVALID_STATUS'\"\n    }\n  ]\n}\n"
+                            },
+                            {
+                              "text": "[2026-01-22T23:56:42.229Z] [INFO] [CartAPI] DELETE Request: http://localhost:3000/api/cart/order-test-user\n"
+                            },
+                            {
+                              "text": "[2026-01-22T23:56:42.243Z] [INFO] [CartAPI] Response Status: 200 OK\n"
+                            },
+                            {
+                              "text": "[2026-01-22T23:56:42.247Z] [DEBUG] [CartAPI] Response Body: {\n  \"id\": \"07cd4de3-517d-46f2-b628-b820d7ebfce7\",\n  \"userId\": \"order-test-user\",\n  \"items\": [],\n  \"totalAmount\": 0,\n  \"totalItems\": 0,\n  \"createdAt\": \"2026-01-22T23:24:22.143Z\",\n  \"updatedAt\": \"2026-01-22T23:56:42.229Z\"\n}\n"
+                            }
+                          ],
+                          "stderr": [],
+                          "retry": 0,
+                          "startTime": "2026-01-22T23:56:42.167Z",
+                          "annotations": [],
+                          "attachments": []
+                        }
+                      ],
+                      "status": "expected"
+                    }
+                  ],
+                  "id": "6356182538d915a08ec9-25f4c9cbca2745baa394",
+                  "file": "order-service/order.spec.ts",
+                  "line": 108,
+                  "column": 9
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "product-service\\product.spec.ts",
+      "file": "product-service/product.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "Product Service API Tests",
+          "file": "product-service/product.spec.ts",
+          "line": 4,
+          "column": 6,
+          "specs": [],
+          "suites": [
+            {
+              "title": "CRUD Operations",
+              "file": "product-service/product.spec.ts",
+              "line": 7,
+              "column": 8,
+              "specs": [
+                {
+                  "title": "should get product by id",
+                  "ok": true,
+                  "tags": [],
+                  "tests": [
+                    {
+                      "timeout": 30000,
+                      "annotations": [],
+                      "expectedStatus": "passed",
+                      "projectId": "api",
+                      "projectName": "api",
+                      "results": [
+                        {
+                          "workerIndex": 0,
+                          "parallelIndex": 0,
+                          "status": "passed",
+                          "duration": 37,
+                          "errors": [],
+                          "stdout": [
+                            {
+                              "text": "[2026-01-22T23:56:42.503Z] [INFO] [ProductAPI] POST Request: http://localhost:3000/api/products\n"
+                            },
+                            {
+                              "text": "[2026-01-22T23:56:42.503Z] [DEBUG] [ProductAPI] Payload: {\n  \"name\": \"Test Product\",\n  \"description\": \"This is a test product\",\n  \"price\": 29.99,\n  \"category\": \"Electronics\",\n  \"inStock\": true,\n  \"image\": \"http://example.com/image.jpg\",\n  \"dataAiHint\": \"electronic\"\n}\n"
+                            },
+                            {
+                              "text": "[2026-01-22T23:56:42.520Z] [INFO] [ProductAPI] Response Status: 201 Created\n"
+                            },
+                            {
+                              "text": "[2026-01-22T23:56:42.521Z] [DEBUG] [ProductAPI] Response Body: {\n  \"name\": \"Test Product\",\n  \"price\": 29.99,\n  \"description\": \"This is a test product\",\n  \"image\": \"http://example.com/image.jpg\",\n  \"dataAiHint\": \"electronic\",\n  \"category\": \"Electronics\",\n  \"inStock\": true,\n  \"id\": \"1769126202504\",\n  \"createdAt\": \"2026-01-22T23:56:42.504Z\",\n  \"updatedAt\": \"2026-01-22T23:56:42.504Z\"\n}\n"
+                            },
+                            {
+                              "text": "[2026-01-22T23:56:42.551Z] [INFO] [ProductAPI] GET Request: http://localhost:3000/api/products/1769126202504\n"
+                            },
+                            {
+                              "text": "[2026-01-22T23:56:42.571Z] [INFO] [ProductAPI] Response Status: 200 OK\n"
+                            },
+                            {
+                              "text": "[2026-01-22T23:56:42.574Z] [DEBUG] [ProductAPI] Response Body: {\n  \"name\": \"Test Product\",\n  \"price\": 29.99,\n  \"description\": \"This is a test product\",\n  \"image\": \"http://example.com/image.jpg\",\n  \"dataAiHint\": \"electronic\",\n  \"category\": \"Electronics\",\n  \"inStock\": true,\n  \"id\": \"1769126202504\",\n  \"createdAt\": \"2026-01-22T23:56:42.504Z\",\n  \"updatedAt\": \"2026-01-22T23:56:42.504Z\"\n}\n"
+                            }
+                          ],
+                          "stderr": [],
+                          "retry": 0,
+                          "startTime": "2026-01-22T23:56:42.493Z",
+                          "annotations": [],
+                          "attachments": []
+                        }
+                      ],
+                      "status": "expected"
+                    }
+                  ],
+                  "id": "b606afbd812b5e6c5a97-78ff4be31e89be27226a",
+                  "file": "product-service/product.spec.ts",
+                  "line": 24,
+                  "column": 9
+                },
+                {
+                  "title": "should update product",
+                  "ok": true,
+                  "tags": [],
+                  "tests": [
+                    {
+                      "timeout": 30000,
+                      "annotations": [],
+                      "expectedStatus": "passed",
+                      "projectId": "api",
+                      "projectName": "api",
+                      "results": [
+                        {
+                          "workerIndex": 0,
+                          "parallelIndex": 0,
+                          "status": "passed",
+                          "duration": 28,
+                          "errors": [],
+                          "stdout": [
+                            {
+                              "text": "[2026-01-22T23:56:42.607Z] [INFO] [ProductAPI] PUT Request: http://localhost:3000/api/products/1769126202504\n"
+                            },
+                            {
+                              "text": "[2026-01-22T23:56:42.607Z] [DEBUG] [ProductAPI] Payload: {\n  \"price\": 34.99,\n  \"inStock\": false\n}\n"
+                            },
+                            {
+                              "text": "[2026-01-22T23:56:42.622Z] [INFO] [ProductAPI] Response Status: 200 OK\n"
+                            },
+                            {
+                              "text": "[2026-01-22T23:56:42.624Z] [DEBUG] [ProductAPI] Response Body: {\n  \"name\": \"Test Product\",\n  \"price\": 34.99,\n  \"description\": \"This is a test product\",\n  \"image\": \"http://example.com/image.jpg\",\n  \"dataAiHint\": \"electronic\",\n  \"category\": \"Electronics\",\n  \"inStock\": false,\n  \"id\": \"1769126202504\",\n  \"createdAt\": \"2026-01-22T23:56:42.504Z\",\n  \"updatedAt\": \"2026-01-22T23:56:42.607Z\"\n}\n"
+                            }
+                          ],
+                          "stderr": [],
+                          "retry": 0,
+                          "startTime": "2026-01-22T23:56:42.595Z",
+                          "annotations": [],
+                          "attachments": []
+                        }
+                      ],
+                      "status": "expected"
+                    }
+                  ],
+                  "id": "b606afbd812b5e6c5a97-ebcc9a2ecc0348bb6916",
+                  "file": "product-service/product.spec.ts",
+                  "line": 35,
+                  "column": 9
+                },
+                {
+                  "title": "should list all products",
+                  "ok": true,
+                  "tags": [],
+                  "tests": [
+                    {
+                      "timeout": 30000,
+                      "annotations": [],
+                      "expectedStatus": "passed",
+                      "projectId": "api",
+                      "projectName": "api",
+                      "results": [
+                        {
+                          "workerIndex": 0,
+                          "parallelIndex": 0,
+                          "status": "passed",
+                          "duration": 30,
+                          "errors": [],
+                          "stdout": [
+                            {
+                              "text": "[2026-01-22T23:56:42.648Z] [INFO] [ProductAPI] GET Request: http://localhost:3000/api/products\n"
+                            },
+                            {
+                              "text": "[2026-01-22T23:56:42.668Z] [INFO] [ProductAPI] Response Status: 200 OK\n"
+                            },
+                            {
+                              "text": "[2026-01-22T23:56:42.670Z] [DEBUG] [ProductAPI] Response Body: {\n  \"products\": [\n    {\n      \"id\": \"1\",\n      \"name\": \"Organic Apples\",\n      \"price\": 3.99,\n      \"description\": \"Crisp and juicy organic apples, perfect for snacking or baking.\",\n      \"image\": \"https://placehold.co/300x200.png\",\n      \"dataAiHint\": \"apples fruit\",\n      \"category\": \"fruits\",\n      \"inStock\": true,\n      \"createdAt\": \"2026-01-22T23:23:45.326Z\",\n      \"updatedAt\": \"2026-01-22T23:23:45.326Z\"\n    },\n    {\n      \"id\": \"2\",\n      \"name\": \"Whole Wheat Bread\",\n      \"price\": 4.49,\n      \"description\": \"Freshly baked whole wheat bread, rich in fiber.\",\n      \"image\": \"https://placehold.co/300x200.png\",\n      \"dataAiHint\": \"bread bakery\",\n      \"category\": \"bakery\",\n      \"inStock\": true,\n      \"createdAt\": \"2026-01-22T23:23:45.326Z\",\n      \"updatedAt\": \"2026-01-22T23:23:45.326Z\"\n    },\n    {\n      \"id\": \"3\",\n      \"name\": \"Free-Range Eggs\",\n      \"price\": 5.99,\n      \"description\": \"A dozen large free-range eggs, great for breakfast.\",\n      \"image\": \"https://placehold.co/300x200.png\",\n      \"dataAiHint\": \"eggs dairy\",\n      \"category\": \"dairy\",\n      \"inStock\": true,\n      \"createdAt\": \"2026-01-22T23:23:45.326Z\",\n      \"updatedAt\": \"2026-01-22T23:23:45.326Z\"\n    },\n    {\n      \"id\": \"4\",\n      \"name\": \"Organic Spinach\",\n      \"price\": 2.99,\n      \"description\": \"A bag of fresh organic spinach, packed with nutrients.\",\n      \"image\": \"https://placehold.co/300x200.png\",\n      \"dataAiHint\": \"spinach vegetables\",\n      \"category\": \"vegetables\",\n      \"inStock\": true,\n      \"createdAt\": \"2026-01-22T23:23:45.326Z\",\n      \"updatedAt\": \"2026-01-22T23:23:45.326Z\"\n    },\n    {\n      \"id\": \"5\",\n      \"name\": \"Almond Milk\",\n      \"price\": 3.79,\n      \"description\": \"Unsweetened almond milk, a great dairy-free alternative.\",\n      \"image\": \"https://placehold.co/300x200.png\",\n      \"dataAiHint\": \"almond milk\",\n      \"category\": \"dairy\",\n      \"inStock\": true,\n      \"createdAt\": \"2026-01-22T23:23:45.326Z\",\n      \"updatedAt\": \"2026-01-22T23:23:45.326Z\"\n    },\n    {\n      \"id\": \"6\",\n      \"name\": \"Chicken Breast\",\n      \"price\": 9.99,\n      \"description\": \"Boneless, skinless chicken breast, lean and versatile.\",\n      \"image\": \"https://placehold.co/300x200.png\",\n      \"dataAiHint\": \"chicken meat\",\n      \"category\": \"meat\",\n      \"inStock\": true,\n      \"createdAt\": \"2026-01-22T23:23:45.326Z\",\n      \"updatedAt\": \"2026-01-22T23:23:45.326Z\"\n    },\n    {\n      \"id\": \"7\",\n      \"name\": \"Brown Rice\",\n      \"price\": 2.49,\n      \"description\": \"Long-grain brown rice, a healthy whole grain option.\",\n      \"image\": \"https://placehold.co/300x200.png\",\n      \"dataAiHint\": \"rice grains\",\n      \"category\": \"grains\",\n      \"inStock\": true,\n      \"createdAt\": \"2026-01-22T23:23:45.326Z\",\n      \"updatedAt\": \"2026-01-22T23:23:45.326Z\"\n    },\n    {\n      \"id\": \"8\",\n      \"name\": \"Greek Yogurt\",\n      \"price\": 4.99,\n      \"description\": \"Creamy Greek yogurt, high in protein and probiotics.\",\n      \"image\": \"https://placehold.co/300x200.png\",\n      \"dataAiHint\": \"yogurt dairy\",\n      \"category\": \"dairy\",\n      \"inStock\": true,\n      \"createdAt\": \"2026-01-22T23:23:45.326Z\",\n      \"updatedAt\": \"2026-01-22T23:23:45.326Z\"\n    },\n    {\n      \"name\": \"Test Product\",\n      \"price\": 34.99,\n      \"description\": \"This is a test product\",\n      \"image\": \"http://example.com/image.jpg\",\n      \"dataAiHint\": \"electronic\",\n      \"category\": \"Electronics\",\n      \"inStock\": false,\n      \"id\": \"1769126202504\",\n      \"createdAt\": \"2026-01-22T23:56:42.504Z\",\n      \"updatedAt\": \"2026-01-22T23:56:42.607Z\"\n    }\n  ],\n  \"total\": 9,\n  \"page\": 1,\n  \"limit\": 10,\n  \"totalPages\": 1\n}\n"
+                            }
+                          ],
+                          "stderr": [],
+                          "retry": 0,
+                          "startTime": "2026-01-22T23:56:42.641Z",
+                          "annotations": [],
+                          "attachments": []
+                        }
+                      ],
+                      "status": "expected"
+                    }
+                  ],
+                  "id": "b606afbd812b5e6c5a97-49b3773928d6add18e0c",
+                  "file": "product-service/product.spec.ts",
+                  "line": 51,
+                  "column": 9
+                },
+                {
+                  "title": "should delete product",
+                  "ok": true,
+                  "tags": [],
+                  "tests": [
+                    {
+                      "timeout": 30000,
+                      "annotations": [],
+                      "expectedStatus": "passed",
+                      "projectId": "api",
+                      "projectName": "api",
+                      "results": [
+                        {
+                          "workerIndex": 0,
+                          "parallelIndex": 0,
+                          "status": "passed",
+                          "duration": 48,
+                          "errors": [],
+                          "stdout": [
+                            {
+                              "text": "[2026-01-22T23:56:42.695Z] [INFO] [ProductAPI] DELETE Request: http://localhost:3000/api/products/1769126202504\n"
+                            },
+                            {
+                              "text": "[2026-01-22T23:56:42.713Z] [INFO] [ProductAPI] Response Status: 204 No Content\n"
+                            },
+                            {
+                              "text": "[2026-01-22T23:56:42.717Z] [INFO] [ProductAPI] GET Request: http://localhost:3000/api/products/1769126202504\n"
+                            },
+                            {
+                              "text": "[2026-01-22T23:56:42.733Z] [INFO] [ProductAPI] Response Status: 404 Not Found\n"
+                            },
+                            {
+                              "text": "[2026-01-22T23:56:42.735Z] [DEBUG] [ProductAPI] Response Body: {\n  \"error\": \"Product not found\"\n}\n"
+                            }
+                          ],
+                          "stderr": [],
+                          "retry": 0,
+                          "startTime": "2026-01-22T23:56:42.683Z",
+                          "annotations": [],
+                          "attachments": []
+                        }
+                      ],
+                      "status": "expected"
+                    }
+                  ],
+                  "id": "b606afbd812b5e6c5a97-33f2a8eca79485a7affe",
+                  "file": "product-service/product.spec.ts",
+                  "line": 61,
+                  "column": 9
+                }
+              ]
+            },
+            {
+              "title": "Negative Testing",
+              "file": "product-service/product.spec.ts",
+              "line": 72,
+              "column": 8,
+              "specs": [
+                {
+                  "title": "should fail to create product with missing required fields",
+                  "ok": true,
+                  "tags": [],
+                  "tests": [
+                    {
+                      "timeout": 30000,
+                      "annotations": [],
+                      "expectedStatus": "passed",
+                      "projectId": "api",
+                      "projectName": "api",
+                      "results": [
+                        {
+                          "workerIndex": 0,
+                          "parallelIndex": 0,
+                          "status": "passed",
+                          "duration": 24,
+                          "errors": [],
+                          "stdout": [
+                            {
+                              "text": "[2026-01-22T23:56:42.297Z] [INFO] [ProductAPI] POST Request: http://localhost:3000/api/products\n"
+                            },
+                            {
+                              "text": "[2026-01-22T23:56:42.297Z] [DEBUG] [ProductAPI] Payload: {\n  \"name\": \"Incomplete Product\"\n}\n"
+                            },
+                            {
+                              "text": "[2026-01-22T23:56:42.313Z] [INFO] [ProductAPI] Response Status: 400 Bad Request\n"
+                            },
+                            {
+                              "text": "[2026-01-22T23:56:42.314Z] [DEBUG] [ProductAPI] Response Body: {\n  \"error\": \"Invalid product data\",\n  \"details\": [\n    {\n      \"code\": \"invalid_type\",\n      \"expected\": \"number\",\n      \"received\": \"undefined\",\n      \"path\": [\n        \"price\"\n      ],\n      \"message\": \"Required\"\n    },\n    {\n      \"code\": \"invalid_type\",\n      \"expected\": \"string\",\n      \"received\": \"undefined\",\n      \"path\": [\n        \"description\"\n      ],\n      \"message\": \"Required\"\n    },\n    {\n      \"code\": \"invalid_type\",\n      \"expected\": \"string\",\n      \"received\": \"undefined\",\n      \"path\": [\n        \"image\"\n      ],\n      \"message\": \"Required\"\n    },\n    {\n      \"code\": \"invalid_type\",\n      \"expected\": \"string\",\n      \"received\": \"undefined\",\n      \"path\": [\n        \"dataAiHint\"\n      ],\n      \"message\": \"Required\"\n    }\n  ]\n}\n"
+                            }
+                          ],
+                          "stderr": [],
+                          "retry": 0,
+                          "startTime": "2026-01-22T23:56:42.285Z",
+                          "annotations": [],
+                          "attachments": []
+                        }
+                      ],
+                      "status": "expected"
+                    }
+                  ],
+                  "id": "b606afbd812b5e6c5a97-0943794d9d839f123952",
+                  "file": "product-service/product.spec.ts",
+                  "line": 74,
+                  "column": 9
+                },
+                {
+                  "title": "should return 404 for non-existent product",
+                  "ok": true,
+                  "tags": [],
+                  "tests": [
+                    {
+                      "timeout": 30000,
+                      "annotations": [],
+                      "expectedStatus": "passed",
+                      "projectId": "api",
+                      "projectName": "api",
+                      "results": [
+                        {
+                          "workerIndex": 0,
+                          "parallelIndex": 0,
+                          "status": "passed",
+                          "duration": 26,
+                          "errors": [],
+                          "stdout": [
+                            {
+                              "text": "[2026-01-22T23:56:42.350Z] [INFO] [ProductAPI] GET Request: http://localhost:3000/api/products/non-existent-id\n"
+                            },
+                            {
+                              "text": "[2026-01-22T23:56:42.368Z] [INFO] [ProductAPI] Response Status: 404 Not Found\n"
+                            },
+                            {
+                              "text": "[2026-01-22T23:56:42.370Z] [DEBUG] [ProductAPI] Response Body: {\n  \"error\": \"Product not found\"\n}\n"
+                            }
+                          ],
+                          "stderr": [],
+                          "retry": 0,
+                          "startTime": "2026-01-22T23:56:42.338Z",
+                          "annotations": [],
+                          "attachments": []
+                        }
+                      ],
+                      "status": "expected"
+                    }
+                  ],
+                  "id": "b606afbd812b5e6c5a97-5f29c07792567bcb899d",
+                  "file": "product-service/product.spec.ts",
+                  "line": 84,
+                  "column": 9
+                },
+                {
+                  "title": "should fail to create product with invalid data types",
+                  "ok": true,
+                  "tags": [],
+                  "tests": [
+                    {
+                      "timeout": 30000,
+                      "annotations": [],
+                      "expectedStatus": "passed",
+                      "projectId": "api",
+                      "projectName": "api",
+                      "results": [
+                        {
+                          "workerIndex": 0,
+                          "parallelIndex": 0,
+                          "status": "passed",
+                          "duration": 26,
+                          "errors": [],
+                          "stdout": [
+                            {
+                              "text": "[2026-01-22T23:56:42.401Z] [INFO] [ProductAPI] POST Request: http://localhost:3000/api/products\n"
+                            },
+                            {
+                              "text": "[2026-01-22T23:56:42.401Z] [DEBUG] [ProductAPI] Payload: {\n  \"name\": \"Invalid Price Product\",\n  \"description\": \"Test\",\n  \"price\": \"not-a-number\",\n  \"category\": \"Electronics\",\n  \"inStock\": true,\n  \"image\": \"http://example.com/image.jpg\",\n  \"dataAiHint\": \"test\"\n}\n"
+                            },
+                            {
+                              "text": "[2026-01-22T23:56:42.418Z] [INFO] [ProductAPI] Response Status: 400 Bad Request\n"
+                            },
+                            {
+                              "text": "[2026-01-22T23:56:42.419Z] [DEBUG] [ProductAPI] Response Body: {\n  \"error\": \"Invalid product data\",\n  \"details\": [\n    {\n      \"code\": \"invalid_type\",\n      \"expected\": \"number\",\n      \"received\": \"string\",\n      \"path\": [\n        \"price\"\n      ],\n      \"message\": \"Expected number, received string\"\n    }\n  ]\n}\n"
+                            }
+                          ],
+                          "stderr": [],
+                          "retry": 0,
+                          "startTime": "2026-01-22T23:56:42.389Z",
+                          "annotations": [],
+                          "attachments": []
+                        }
+                      ],
+                      "status": "expected"
+                    }
+                  ],
+                  "id": "b606afbd812b5e6c5a97-e36b3135eb6216fd2acd",
+                  "file": "product-service/product.spec.ts",
+                  "line": 89,
+                  "column": 9
+                }
+              ]
+            },
+            {
+              "title": "Category Management",
+              "file": "product-service/product.spec.ts",
+              "line": 105,
+              "column": 8,
+              "specs": [
+                {
+                  "title": "should list all categories",
+                  "ok": true,
+                  "tags": [],
+                  "tests": [
+                    {
+                      "timeout": 30000,
+                      "annotations": [],
+                      "expectedStatus": "passed",
+                      "projectId": "api",
+                      "projectName": "api",
+                      "results": [
+                        {
+                          "workerIndex": 0,
+                          "parallelIndex": 0,
+                          "status": "passed",
+                          "duration": 24,
+                          "errors": [],
+                          "stdout": [
+                            {
+                              "text": "[2026-01-22T23:56:42.454Z] [INFO] [ProductAPI] GET Request: http://localhost:3000/api/categories\n"
+                            },
+                            {
+                              "text": "[2026-01-22T23:56:42.468Z] [INFO] [ProductAPI] Response Status: 200 OK\n"
+                            },
+                            {
+                              "text": "[2026-01-22T23:56:42.469Z] [DEBUG] [ProductAPI] Response Body: {\n  \"categories\": [\n    \"fruits\",\n    \"bakery\",\n    \"dairy\",\n    \"vegetables\",\n    \"meat\",\n    \"grains\"\n  ]\n}\n"
+                            }
+                          ],
+                          "stderr": [],
+                          "retry": 0,
+                          "startTime": "2026-01-22T23:56:42.444Z",
+                          "annotations": [],
+                          "attachments": []
+                        }
+                      ],
+                      "status": "expected"
+                    }
+                  ],
+                  "id": "b606afbd812b5e6c5a97-af42ebe1b04cffaf67d4",
+                  "file": "product-service/product.spec.ts",
+                  "line": 106,
+                  "column": 9
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-01-22T23:56:06.998Z",
+    "duration": 35810.020000000004,
+    "expected": 50,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  }
+}

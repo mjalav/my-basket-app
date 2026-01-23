@@ -25,7 +25,8 @@
     "docker:up": "docker compose up -d",
     "docker:down": "docker compose down",
     "docker:logs": "docker compose logs -f",
-    "test:api": "cd microservices && npm run test",
+    "test:api": "cd my-basket-api-tests && npm test",
+    "test:report": "cd my-basket-api-tests && npx playwright show-report",
     "dev:full": "npm run microservices:start && npm run dev"
   },
   "dependencies": {

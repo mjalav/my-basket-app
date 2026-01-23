@@ -5,6 +5,21 @@ import { z } from 'zod';
 const router = express.Router();
 const productService = new ProductService();
 
+/**
+ * @swagger
+ * /api/products/health:
+ *   get:
+ *     summary: Health check
+ *     description: Check if the service is healthy
+ *     tags: [Health]
+ *     responses:
+ *       200:
+ *         description: Service is healthy
+ */
+router.get('/products/health', (req: Request, res: Response) => {
+  res.json({ status: 'healthy', service: 'product-service', timestamp: new Date().toISOString() });
+});
+
 // Validation schemas
 const ProductFiltersSchema = z.object({
   category: z.string().optional(),
@@ -237,33 +252,5 @@ router.get('/categories', async (req: Request, res: Response) => {
   }
 });
 
-/**
- * @swagger
- * /api/health:
- *   get:
- *     summary: Health check
- *     description: Check if the service is healthy
- *     tags: [Health]
- *     responses:
- *       200:
- *         description: Service is healthy
- *         content:
- *           application/json:
- *             schema:
- *               type: object
- *               properties:
- *                 status:
- *                   type: string
- *                   example: healthy
- *                 service:
- *                   type: string
- *                   example: product-service
- *                 timestamp:
- *                   type: string
- *                   format: date-time
- */
-router.get('/health', (req: Request, res: Response) => {
-  res.json({ status: 'healthy', service: 'product-service', timestamp: new Date().toISOString() });
-});
-
+// Health check moved to top
 export default router;

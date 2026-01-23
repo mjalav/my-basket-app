@@ -1,0 +1,100 @@
+﻿      "createdAt": "2026-01-22T23:30:38.794Z",
+      "updatedAt": "2026-01-22T23:30:38.854Z"
+    }
+  ],
+  "total": 9,
+  "page": 1,
+  "limit": 10,
+  "totalPages": 1
+}
+  âœ“  34 [api] â€º tests\product-service\product.spec.ts:51:9 â€º Product Service API Tests â€º CRUD Operations â€º should list all products (23ms)
+[2026-01-22T23:30:38.910Z] [INFO] [ProductAPI] DELETE Request: http://localhost:3000/api/products/1769124638794
+[2026-01-22T23:30:38.923Z] [INFO] [ProductAPI] Response Status: 204 No Content
+[2026-01-22T23:30:38.924Z] [INFO] [ProductAPI] GET Request: http://localhost:3000/api/products/1769124638794
+[2026-01-22T23:30:38.934Z] [INFO] [ProductAPI] Response Status: 404 Not Found
+[2026-01-22T23:30:38.934Z] [DEBUG] [ProductAPI] Response Body: {
+  "error": "Product not found"
+}
+  âœ“  35 [api] â€º tests\product-service\product.spec.ts:61:9 â€º Product Service API Tests â€º CRUD Operations â€º should delete product (28ms)
+
+
+  1) [api] â€º tests\cart-service\cart.spec.ts:36:9 â€º Cart Service API Tests â€º Cart Operations â€º should add item to cart 
+
+    Error: [2mexpect([22m[31mreceived[39m[2m).[22mtoBeTruthy[2m()[22m
+
+    Received: [31mfalse[39m
+
+      40 |       const body = await response.json();
+      41 |       expect(body.userId).toBe(userId);
+    > 42 |       expect(body.items.some((item: any) => item.productId === productId)).toBeTruthy();
+         |                                                                            ^
+      43 |       
+      44 |       const item = body.items.find((i: any) => i.productId === productId);
+      45 |       expect(item.quantity).toBe(2);
+        at D:\Personal\AI Course\daily-challenge\lesson1\my-basket-app\my-basket-api-tests\tests\cart-service\cart.spec.ts:42:76
+
+  2) [api] â€º tests\cart-service\cart.spec.ts:48:9 â€º Cart Service API Tests â€º Cart Operations â€º should get user cart 
+
+    Error: [2mexpect([22m[31mreceived[39m[2m).[22mtoBeGreaterThan[2m([22m[32mexpected[39m[2m)[22m
+
+    Expected: > [32m0[39m
+    Received:   [31m0[39m
+
+      52 |       const body = await response.json();
+      53 |       expect(body.userId).toBe(userId);
+    > 54 |       expect(body.items.length).toBeGreaterThan(0);
+         |                                 ^
+      55 |     });
+      56 |
+      57 |     test('should update item quantity', async ({ cartApi }) => {
+        at D:\Personal\AI Course\daily-challenge\lesson1\my-basket-app\my-basket-api-tests\tests\cart-service\cart.spec.ts:54:33
+
+  3) [api] â€º tests\cart-service\cart.spec.ts:57:9 â€º Cart Service API Tests â€º Cart Operations â€º should update item quantity 
+
+    Error: Expected status 200 but got 404
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+    Expected: [32m200[39m
+    Received: [31m404[39m
+
+       at ..\src\pages\BaseAPI.ts:79
+
+      77 |    */
+      78 |   async assertStatus(response: APIResponse, expectedStatus: number) {
+    > 79 |     expect(response.status(), `Expected status ${expectedStatus} but got ${response.status()}`).toBe(expectedStatus);
+         |                                                                                                 ^
+      80 |   }
+      81 |
+      82 |   async assertSuccess(response: APIResponse) {
+        at CartAPI.assertStatus (D:\Personal\AI Course\daily-challenge\lesson1\my-basket-app\my-basket-api-tests\src\pages\BaseAPI.ts:79:97)
+        at D:\Personal\AI Course\daily-challenge\lesson1\my-basket-app\my-basket-api-tests\tests\cart-service\cart.spec.ts:59:21
+
+  4) [api] â€º tests\order-service\order.spec.ts:81:9 â€º Order Service API Tests â€º Order Lifecycle â€º should update order status 
+
+    Error: Expected status 200 but got 400
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+    Expected: [32m200[39m
+    Received: [31m400[39m
+
+       at ..\src\pages\BaseAPI.ts:79
+
+      77 |    */
+      78 |   async assertStatus(response: APIResponse, expectedStatus: number) {
+    > 79 |     expect(response.status(), `Expected status ${expectedStatus} but got ${response.status()}`).toBe(expectedStatus);
+         |                                                                                                 ^
+      80 |   }
+      81 |
+      82 |   async assertSuccess(response: APIResponse) {
+        at OrderAPI.assertStatus (D:\Personal\AI Course\daily-challenge\lesson1\my-basket-app\my-basket-api-tests\src\pages\BaseAPI.ts:79:97)
+        at D:\Personal\AI Course\daily-challenge\lesson1\my-basket-app\my-basket-api-tests\tests\order-service\order.spec.ts:85:22
+
+  4 failed
+    [api] â€º tests\cart-service\cart.spec.ts:36:9 â€º Cart Service API Tests â€º Cart Operations â€º should add item to cart 
+    [api] â€º tests\cart-service\cart.spec.ts:48:9 â€º Cart Service API Tests â€º Cart Operations â€º should get user cart 
+    [api] â€º tests\cart-service\cart.spec.ts:57:9 â€º Cart Service API Tests â€º Cart Operations â€º should update item quantity 
+    [api] â€º tests\order-service\order.spec.ts:81:9 â€º Order Service API Tests â€º Order Lifecycle â€º should update order status 
+  2 skipped
+  29 passed (8.2s)

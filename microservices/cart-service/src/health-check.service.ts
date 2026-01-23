@@ -90,7 +90,7 @@ export class HealthCheckService {
 
     const memoryHealth: ResourceHealth = {
       name: 'memory',
-      status: memPercentage > 90 ? 'unhealthy' : (memPercentage > 80 ? 'degraded' : 'healthy'),
+      status: memPercentage > 98 ? 'unhealthy' : (memPercentage > 95 ? 'degraded' : 'healthy'),
       value: Math.round(usedMem / 1024 / 1024),
       limit: Math.round(heapLimit / 1024 / 1024),
       percentage: memPercentage,

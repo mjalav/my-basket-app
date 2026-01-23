@@ -1,0 +1,27 @@
+{
+  "name": "my-basket-api-tests",
+  "version": "1.0.0",
+  "description": "Comprehensive Playwright API tests for My Basket App",
+  "main": "index.js",
+  "scripts": {
+    "test": "playwright test",
+    "test:dev": "BASE_URL=http://localhost:3000 playwright test",
+    "test:staging": "BASE_URL=https://staging.api.mybasket.com playwright test",
+    "test:prod": "BASE_URL=https://api.mybasket.com playwright test",
+    "test:report": "playwright show-report"
+  },
+  "keywords": [
+    "playwright",
+    "api-testing",
+    "typescript",
+    "pom"
+  ],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@playwright/test": "^1.49.0",
+    "@types/node": "^20.0.0",
+    "dotenv": "^16.4.5",
+    "typescript": "^5.0.0"
+  }
+}

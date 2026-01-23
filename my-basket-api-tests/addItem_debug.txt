@@ -1,0 +1,84 @@
+﻿> D:\Personal\AI Course\daily-challenge\lesson1\my-basket-app\my-basket-api-tests\results.txt:192:[2026-01-22T23:30:32.363Z] [INFO] [CartAPI] POST Request: http://localhost:3000/api/cart/test-user-123/items
+  D:\Personal\AI Course\daily-challenge\lesson1\my-basket-app\my-basket-api-tests\results.txt:193:[2026-01-22T23:30:32.363Z] [DEBUG] [CartAPI] Payload: {
+  D:\Personal\AI Course\daily-challenge\lesson1\my-basket-app\my-basket-api-tests\results.txt:194:  "productId": "1",
+  D:\Personal\AI Course\daily-challenge\lesson1\my-basket-app\my-basket-api-tests\results.txt:195:  "quantity": 2
+  D:\Personal\AI Course\daily-challenge\lesson1\my-basket-app\my-basket-api-tests\results.txt:196:}
+  D:\Personal\AI Course\daily-challenge\lesson1\my-basket-app\my-basket-api-tests\results.txt:197:[2026-01-22T23:30:32.386Z] [INFO] [CartAPI] Response Status: 200 OK
+  D:\Personal\AI Course\daily-challenge\lesson1\my-basket-app\my-basket-api-tests\results.txt:198:[2026-01-22T23:30:32.387Z] [DEBUG] [CartAPI] Response Body: {
+  D:\Personal\AI Course\daily-challenge\lesson1\my-basket-app\my-basket-api-tests\results.txt:199:  "id": "4297edab-cb7f-4147-a793-1a29aa0b7011",
+  D:\Personal\AI Course\daily-challenge\lesson1\my-basket-app\my-basket-api-tests\results.txt:200:  "userId": "test-user-123",
+  D:\Personal\AI Course\daily-challenge\lesson1\my-basket-app\my-basket-api-tests\results.txt:201:  "items": [
+  D:\Personal\AI Course\daily-challenge\lesson1\my-basket-app\my-basket-api-tests\results.txt:202:    {
+  D:\Personal\AI Course\daily-challenge\lesson1\my-basket-app\my-basket-api-tests\results.txt:203:      "id": "1",
+  D:\Personal\AI Course\daily-challenge\lesson1\my-basket-app\my-basket-api-tests\results.txt:204:      "name": "Organic Apples",
+  D:\Personal\AI Course\daily-challenge\lesson1\my-basket-app\my-basket-api-tests\results.txt:205:      "price": 3.99,
+  D:\Personal\AI Course\daily-challenge\lesson1\my-basket-app\my-basket-api-tests\results.txt:206:      "description": "Crisp and juicy organic apples, perfect for snacking or baking.",
+  D:\Personal\AI Course\daily-challenge\lesson1\my-basket-app\my-basket-api-tests\results.txt:207:      "image": "https://placehold.co/300x200.png",
+  D:\Personal\AI Course\daily-challenge\lesson1\my-basket-app\my-basket-api-tests\results.txt:208:      "dataAiHint": "apples fruit",
+  D:\Personal\AI Course\daily-challenge\lesson1\my-basket-app\my-basket-api-tests\results.txt:209:      "category": "fruits",
+  D:\Personal\AI Course\daily-challenge\lesson1\my-basket-app\my-basket-api-tests\results.txt:210:      "inStock": true,
+  D:\Personal\AI Course\daily-challenge\lesson1\my-basket-app\my-basket-api-tests\results.txt:211:      "createdAt": "2026-01-22T23:23:45.326Z",
+  D:\Personal\AI Course\daily-challenge\lesson1\my-basket-app\my-basket-api-tests\results.txt:212:      "updatedAt": "2026-01-22T23:23:45.326Z",
+> D:\Personal\AI Course\daily-challenge\lesson1\my-basket-app\my-basket-api-tests\results.txt:615:[2026-01-22T23:30:36.630Z] [INFO] [CartAPI] POST Request: http://localhost:3000/api/cart/test-user-123/items
+  D:\Personal\AI Course\daily-challenge\lesson1\my-basket-app\my-basket-api-tests\results.txt:616:[2026-01-22T23:30:36.630Z] [DEBUG] [CartAPI] Payload: {
+  D:\Personal\AI Course\daily-challenge\lesson1\my-basket-app\my-basket-api-tests\results.txt:617:  "productId": "1",
+  D:\Personal\AI Course\daily-challenge\lesson1\my-basket-app\my-basket-api-tests\results.txt:618:  "quantity": 1
+  D:\Personal\AI Course\daily-challenge\lesson1\my-basket-app\my-basket-api-tests\results.txt:619:}
+  D:\Personal\AI Course\daily-challenge\lesson1\my-basket-app\my-basket-api-tests\results.txt:620:[2026-01-22T23:30:36.647Z] [INFO] [CartAPI] Response Status: 200 OK
+  D:\Personal\AI Course\daily-challenge\lesson1\my-basket-app\my-basket-api-tests\results.txt:621:[2026-01-22T23:30:36.648Z] [DEBUG] [CartAPI] Response Body: {
+  D:\Personal\AI Course\daily-challenge\lesson1\my-basket-app\my-basket-api-tests\results.txt:622:  "id": "4297edab-cb7f-4147-a793-1a29aa0b7011",
+  D:\Personal\AI Course\daily-challenge\lesson1\my-basket-app\my-basket-api-tests\results.txt:623:  "userId": "test-user-123",
+  D:\Personal\AI Course\daily-challenge\lesson1\my-basket-app\my-basket-api-tests\results.txt:624:  "items": [
+  D:\Personal\AI Course\daily-challenge\lesson1\my-basket-app\my-basket-api-tests\results.txt:625:    {
+  D:\Personal\AI Course\daily-challenge\lesson1\my-basket-app\my-basket-api-tests\results.txt:626:      "id": "1",
+  D:\Personal\AI Course\daily-challenge\lesson1\my-basket-app\my-basket-api-tests\results.txt:627:      "name": "Organic Apples",
+  D:\Personal\AI Course\daily-challenge\lesson1\my-basket-app\my-basket-api-tests\results.txt:628:      "price": 3.99,
+  D:\Personal\AI Course\daily-challenge\lesson1\my-basket-app\my-basket-api-tests\results.txt:629:      "description": "Crisp and juicy organic apples, perfect for snacking or baking.",
+  D:\Personal\AI Course\daily-challenge\lesson1\my-basket-app\my-basket-api-tests\results.txt:630:      "image": "https://placehold.co/300x200.png",
+  D:\Personal\AI Course\daily-challenge\lesson1\my-basket-app\my-basket-api-tests\results.txt:631:      "dataAiHint": "apples fruit",
+  D:\Personal\AI Course\daily-challenge\lesson1\my-basket-app\my-basket-api-tests\results.txt:632:      "category": "fruits",
+  D:\Personal\AI Course\daily-challenge\lesson1\my-basket-app\my-basket-api-tests\results.txt:633:      "inStock": true,
+  D:\Personal\AI Course\daily-challenge\lesson1\my-basket-app\my-basket-api-tests\results.txt:634:      "createdAt": "2026-01-22T23:23:45.326Z",
+  D:\Personal\AI Course\daily-challenge\lesson1\my-basket-app\my-basket-api-tests\results.txt:635:      "updatedAt": "2026-01-22T23:23:45.326Z",
+> D:\Personal\AI Course\daily-challenge\lesson1\my-basket-app\my-basket-api-tests\results.txt:657:[2026-01-22T23:30:36.676Z] [INFO] [CartAPI] POST Request: http://localhost:3000/api/cart/test-user-123/items
+  D:\Personal\AI Course\daily-challenge\lesson1\my-basket-app\my-basket-api-tests\results.txt:658:[2026-01-22T23:30:36.676Z] [DEBUG] [CartAPI] Payload: {
+  D:\Personal\AI Course\daily-challenge\lesson1\my-basket-app\my-basket-api-tests\results.txt:659:  "productId": "1",
+  D:\Personal\AI Course\daily-challenge\lesson1\my-basket-app\my-basket-api-tests\results.txt:660:  "quantity": -1
+  D:\Personal\AI Course\daily-challenge\lesson1\my-basket-app\my-basket-api-tests\results.txt:661:}
+  D:\Personal\AI Course\daily-challenge\lesson1\my-basket-app\my-basket-api-tests\results.txt:662:[2026-01-22T23:30:36.689Z] [INFO] [CartAPI] Response Status: 400 Bad Request
+  D:\Personal\AI Course\daily-challenge\lesson1\my-basket-app\my-basket-api-tests\results.txt:663:[2026-01-22T23:30:36.690Z] [DEBUG] [CartAPI] Response Body: {
+  D:\Personal\AI Course\daily-challenge\lesson1\my-basket-app\my-basket-api-tests\results.txt:664:  "error": "Invalid request data",
+  D:\Personal\AI Course\daily-challenge\lesson1\my-basket-app\my-basket-api-tests\results.txt:665:  "details": [
+  D:\Personal\AI Course\daily-challenge\lesson1\my-basket-app\my-basket-api-tests\results.txt:666:    {
+  D:\Personal\AI Course\daily-challenge\lesson1\my-basket-app\my-basket-api-tests\results.txt:667:      "code": "too_small",
+  D:\Personal\AI Course\daily-challenge\lesson1\my-basket-app\my-basket-api-tests\results.txt:668:      "minimum": 0,
+  D:\Personal\AI Course\daily-challenge\lesson1\my-basket-app\my-basket-api-tests\results.txt:669:      "type": "number",
+  D:\Personal\AI Course\daily-challenge\lesson1\my-basket-app\my-basket-api-tests\results.txt:670:      "inclusive": false,
+  D:\Personal\AI Course\daily-challenge\lesson1\my-basket-app\my-basket-api-tests\results.txt:671:      "exact": false,
+  D:\Personal\AI Course\daily-challenge\lesson1\my-basket-app\my-basket-api-tests\results.txt:672:      "message": "Number must be greater than 0",
+  D:\Personal\AI Course\daily-challenge\lesson1\my-basket-app\my-basket-api-tests\results.txt:673:      "path": [
+  D:\Personal\AI Course\daily-challenge\lesson1\my-basket-app\my-basket-api-tests\results.txt:674:        "quantity"
+  D:\Personal\AI Course\daily-challenge\lesson1\my-basket-app\my-basket-api-tests\results.txt:675:      ]
+  D:\Personal\AI Course\daily-challenge\lesson1\my-basket-app\my-basket-api-tests\results.txt:676:    }
+  D:\Personal\AI Course\daily-challenge\lesson1\my-basket-app\my-basket-api-tests\results.txt:677:  ]
+> D:\Personal\AI Course\daily-challenge\lesson1\my-basket-app\my-basket-api-tests\results.txt:686:[2026-01-22T23:30:36.735Z] [INFO] [CartAPI] POST Request: http://localhost:3000/api/cart/test-user-123/items
+  D:\Personal\AI Course\daily-challenge\lesson1\my-basket-app\my-basket-api-tests\results.txt:687:[2026-01-22T23:30:36.735Z] [DEBUG] [CartAPI] Payload: {
+  D:\Personal\AI Course\daily-challenge\lesson1\my-basket-app\my-basket-api-tests\results.txt:688:  "productId": "non-existent-product",
+  D:\Personal\AI Course\daily-challenge\lesson1\my-basket-app\my-basket-api-tests\results.txt:689:  "quantity": 1
+  D:\Personal\AI Course\daily-challenge\lesson1\my-basket-app\my-basket-api-tests\results.txt:690:}
+  D:\Personal\AI Course\daily-challenge\lesson1\my-basket-app\my-basket-api-tests\results.txt:691:[2026-01-22T23:30:36.752Z] [INFO] [CartAPI] Response Status: 404 Not Found
+  D:\Personal\AI Course\daily-challenge\lesson1\my-basket-app\my-basket-api-tests\results.txt:692:[2026-01-22T23:30:36.752Z] [DEBUG] [CartAPI] Response Body: {
+  D:\Personal\AI Course\daily-challenge\lesson1\my-basket-app\my-basket-api-tests\results.txt:693:  "error": "Product not found"
+  D:\Personal\AI Course\daily-challenge\lesson1\my-basket-app\my-basket-api-tests\results.txt:694:}
+  D:\Personal\AI Course\daily-challenge\lesson1\my-basket-app\my-basket-api-tests\results.txt:695:[2026-01-22T23:30:36.766Z] [INFO] [CartAPI] DELETE Request: http://localhost:3000/api/cart/test-user-123
+  D:\Personal\AI Course\daily-challenge\lesson1\my-basket-app\my-basket-api-tests\results.txt:696:[2026-01-22T23:30:36.777Z] [INFO] [CartAPI] Response Status: 200 OK
+  D:\Personal\AI Course\daily-challenge\lesson1\my-basket-app\my-basket-api-tests\results.txt:697:[2026-01-22T23:30:36.778Z] [DEBUG] [CartAPI] Response Body: {
+  D:\Personal\AI Course\daily-challenge\lesson1\my-basket-app\my-basket-api-tests\results.txt:698:  "id": "4297edab-cb7f-4147-a793-1a29aa0b7011",
+  D:\Personal\AI Course\daily-challenge\lesson1\my-basket-app\my-basket-api-tests\results.txt:699:  "userId": "test-user-123",
+  D:\Personal\AI Course\daily-challenge\lesson1\my-basket-app\my-basket-api-tests\results.txt:700:  "items": [],
+  D:\Personal\AI Course\daily-challenge\lesson1\my-basket-app\my-basket-api-tests\results.txt:701:  "totalAmount": 0,
+  D:\Personal\AI Course\daily-challenge\lesson1\my-basket-app\my-basket-api-tests\results.txt:702:  "totalItems": 0,
+  D:\Personal\AI Course\daily-challenge\lesson1\my-basket-app\my-basket-api-tests\results.txt:703:  "createdAt": "2026-01-22T23:24:15.576Z",
+  D:\Personal\AI Course\daily-challenge\lesson1\my-basket-app\my-basket-api-tests\results.txt:704:  "updatedAt": "2026-01-22T23:30:36.768Z"
+  D:\Personal\AI Course\daily-challenge\lesson1\my-basket-app\my-basket-api-tests\results.txt:705:}
+  D:\Personal\AI Course\daily-challenge\lesson1\my-basket-app\my-basket-api-tests\results.txt:706:  ✓  13 [api] › tests\cart-service\cart.spec.ts:108:9 › Cart Service API Tests › Negative Testing › should handle adding non-existent product (21ms)
