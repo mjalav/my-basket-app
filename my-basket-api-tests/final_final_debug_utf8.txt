@@ -1,0 +1,2374 @@
+﻿
+Running 35 tests using 1 worker
+
+[1A[2K[1/35] [api] ΓÇ║ tests\ai-service\ai.spec.ts:6:7 ΓÇ║ AI Service API Tests ΓÇ║ should get grocery suggestions based on items
+[1A[2K[api] ΓÇ║ tests\ai-service\ai.spec.ts:6:7 ΓÇ║ AI Service API Tests ΓÇ║ should get grocery suggestions based on items
+[2026-01-22T23:27:46.523Z] [INFO] [AIAPI] POST Request: http://localhost:3000/api/recommendations/grocery-suggestions
+
+[1A[2K[2026-01-22T23:27:46.524Z] [DEBUG] [AIAPI] Payload: {
+  "items": [
+    "milk",
+    "bread"
+  ]
+}
+
+[1A[2K[2026-01-22T23:27:46.577Z] [INFO] [AIAPI] Response Status: 200 OK
+
+[1A[2K[2026-01-22T23:27:46.581Z] [DEBUG] [AIAPI] Response Body: {
+  "suggestions": [
+    "Fresh fruits",
+    "Vegetables",
+    "Whole grain bread",
+    "Lean proteins",
+    "Dairy products",
+    "Healthy snacks",
+    "Cooking oils",
+    "Seasonings and spices"
+  ],
+  "generatedAt": "2026-01-22T23:27:46.579Z",
+  "confidence": 0.8
+}
+
+[1A[2K[2/35] [api] ΓÇ║ tests\ai-service\ai.spec.ts:16:7 ΓÇ║ AI Service API Tests ΓÇ║ should get personalized recommendations for user
+[1A[2K[api] ΓÇ║ tests\ai-service\ai.spec.ts:16:7 ΓÇ║ AI Service API Tests ΓÇ║ should get personalized recommendations for user
+[2026-01-22T23:27:46.617Z] [INFO] [AIAPI] POST Request: http://localhost:3000/api/recommendations/personalized
+
+[1A[2K[2026-01-22T23:27:46.617Z] [DEBUG] [AIAPI] Payload: {
+  "userId": "ai-test-user"
+}
+
+[1A[2K[2026-01-22T23:27:46.631Z] [INFO] [AIAPI] Response Status: 200 OK
+
+[1A[2K[2026-01-22T23:27:46.632Z] [DEBUG] [AIAPI] Response Body: {
+  "suggestions": [
+    "Winter vegetables",
+    "Warm beverages",
+    "Fresh fruits",
+    "Vegetables",
+    "Whole grain bread",
+    "Lean proteins"
+  ],
+  "userId": "ai-test-user",
+  "generatedAt": "2026-01-22T23:27:46.636Z",
+  "confidence": 0.85
+}
+
+[1A[2K[3/35] [api] ΓÇ║ tests\ai-service\ai.spec.ts:26:9 ΓÇ║ AI Service API Tests ΓÇ║ Negative Testing ΓÇ║ should handle empty items list for suggestions
+[1A[2K[api] ΓÇ║ tests\ai-service\ai.spec.ts:26:9 ΓÇ║ AI Service API Tests ΓÇ║ Negative Testing ΓÇ║ should handle empty items list for suggestions
+[2026-01-22T23:27:46.655Z] [INFO] [AIAPI] POST Request: http://localhost:3000/api/recommendations/grocery-suggestions
+
+[1A[2K[2026-01-22T23:27:46.655Z] [DEBUG] [AIAPI] Payload: {
+  "items": []
+}
+
+[1A[2K[2026-01-22T23:27:46.668Z] [INFO] [AIAPI] Response Status: 200 OK
+
+[1A[2K[2026-01-22T23:27:46.669Z] [DEBUG] [AIAPI] Response Body: {
+  "suggestions": [
+    "Fresh fruits",
+    "Vegetables",
+    "Whole grain bread",
+    "Lean proteins",
+    "Dairy products",
+    "Healthy snacks",
+    "Cooking oils",
+    "Seasonings and spices"
+  ],
+  "generatedAt": "2026-01-22T23:27:46.674Z",
+  "confidence": 0.8
+}
+
+[1A[2K[4/35] [api] ΓÇ║ tests\ai-service\ai.spec.ts:34:9 ΓÇ║ AI Service API Tests ΓÇ║ Negative Testing ΓÇ║ should handle invalid payload format gracefully
+[1A[2K[api] ΓÇ║ tests\ai-service\ai.spec.ts:34:9 ΓÇ║ AI Service API Tests ΓÇ║ Negative Testing ΓÇ║ should handle invalid payload format gracefully
+[2026-01-22T23:27:46.687Z] [INFO] [AIAPI] POST Request: http://localhost:3000/api/recommendations/grocery-suggestions
+
+[1A[2K[2026-01-22T23:27:46.687Z] [DEBUG] [AIAPI] Payload: {
+  "invalid": "data"
+}
+
+[1A[2K[2026-01-22T23:27:46.699Z] [INFO] [AIAPI] Response Status: 200 OK
+
+[1A[2K[2026-01-22T23:27:46.700Z] [DEBUG] [AIAPI] Response Body: {
+  "suggestions": [
+    "Fresh fruits",
+    "Vegetables",
+    "Whole grain bread",
+    "Lean proteins",
+    "Dairy products",
+    "Healthy snacks",
+    "Cooking oils",
+    "Seasonings and spices"
+  ],
+  "generatedAt": "2026-01-22T23:27:46.705Z",
+  "confidence": 0.8
+}
+
+[1A[2K[5/35] [api] ΓÇ║ tests\cart-service\cart.spec.ts:36:9 ΓÇ║ Cart Service API Tests ΓÇ║ Cart Operations ΓÇ║ should add item to cart
+[1A[2K[api] ΓÇ║ tests\cart-service\cart.spec.ts:36:9 ΓÇ║ Cart Service API Tests ΓÇ║ Cart Operations ΓÇ║ should add item to cart
+[2026-01-22T23:27:46.739Z] [INFO] [ProductAPI] GET Request: http://localhost:3000/api/products
+
+[1A[2K[2026-01-22T23:27:46.759Z] [INFO] [ProductAPI] Response Status: 200 OK
+
+[1A[2K[2026-01-22T23:27:46.760Z] [DEBUG] [ProductAPI] Response Body: {
+  "products": [
+    {
+      "id": "1",
+      "name": "Organic Apples",
+      "price": 3.99,
+      "description": "Crisp and juicy organic apples, perfect for snacking or baking.",
+      "image": "https://placehold.co/300x200.png",
+      "dataAiHint": "apples fruit",
+      "category": "fruits",
+      "inStock": true,
+      "createdAt": "2026-01-22T23:23:45.326Z",
+      "updatedAt": "2026-01-22T23:23:45.326Z"
+    },
+    {
+      "id": "2",
+      "name": "Whole Wheat Bread",
+      "price": 4.49,
+      "description": "Freshly baked whole wheat bread, rich in fiber.",
+      "image": "https://placehold.co/300x200.png",
+      "dataAiHint": "bread bakery",
+      "category": "bakery",
+      "inStock": true,
+      "createdAt": "2026-01-22T23:23:45.326Z",
+      "updatedAt": "2026-01-22T23:23:45.326Z"
+    },
+    {
+      "id": "3",
+      "name": "Free-Range Eggs",
+      "price": 5.99,
+      "description": "A dozen large free-range eggs, great for breakfast.",
+      "image": "https://placehold.co/300x200.png",
+      "dataAiHint": "eggs dairy",
+      "category": "dairy",
+      "inStock": true,
+      "createdAt": "2026-01-22T23:23:45.326Z",
+      "updatedAt": "2026-01-22T23:23:45.326Z"
+    },
+    {
+      "id": "4",
+      "name": "Organic Spinach",
+      "price": 2.99,
+      "description": "A bag of fresh organic spinach, packed with nutrients.",
+      "image": "https://placehold.co/300x200.png",
+      "dataAiHint": "spinach vegetables",
+      "category": "vegetables",
+      "inStock": true,
+      "createdAt": "2026-01-22T23:23:45.326Z",
+      "updatedAt": "2026-01-22T23:23:45.326Z"
+    },
+    {
+      "id": "5",
+      "name": "Almond Milk",
+      "price": 3.79,
+      "description": "Unsweetened almond milk, a great dairy-free alternative.",
+      "image": "https://placehold.co/300x200.png",
+      "dataAiHint": "almond milk",
+      "category": "dairy",
+      "inStock": true,
+      "createdAt": "2026-01-22T23:23:45.326Z",
+      "updatedAt": "2026-01-22T23:23:45.326Z"
+    },
+    {
+      "id": "6",
+      "name": "Chicken Breast",
+      "price": 9.99,
+      "description": "Boneless, skinless chicken breast, lean and versatile.",
+      "image": "https://placehold.co/300x200.png",
+      "dataAiHint": "chicken meat",
+      "category": "meat",
+      "inStock": true,
+      "createdAt": "2026-01-22T23:23:45.326Z",
+      "updatedAt": "2026-01-22T23:23:45.326Z"
+    },
+    {
+      "id": "7",
+      "name": "Brown Rice",
+      "price": 2.49,
+      "description": "Long-grain brown rice, a healthy whole grain option.",
+      "image": "https://placehold.co/300x200.png",
+      "dataAiHint": "rice grains",
+      "category": "grains",
+      "inStock": true,
+      "createdAt": "2026-01-22T23:23:45.326Z",
+      "updatedAt": "2026-01-22T23:23:45.326Z"
+    },
+    {
+      "id": "8",
+      "name": "Greek Yogurt",
+      "price": 4.99,
+      "description": "Creamy Greek yogurt, high in protein and probiotics.",
+      "image": "https://placehold.co/300x200.png",
+      "dataAiHint": "yogurt dairy",
+      "category": "dairy",
+      "inStock": true,
+      "createdAt": "2026-01-22T23:23:45.326Z",
+      "updatedAt": "2026-01-22T23:23:45.326Z"
+    }
+  ],
+  "total": 8,
+  "page": 1,
+  "limit": 10,
+  "totalPages": 1
+}
+
+[1A[2K[2026-01-22T23:27:46.773Z] [INFO] [CartAPI] POST Request: http://localhost:3000/api/cart/test-user-123/items
+
+[1A[2K[2026-01-22T23:27:46.773Z] [DEBUG] [CartAPI] Payload: {
+  "productId": "1",
+  "quantity": 2
+}
+
+[1A[2K[2026-01-22T23:27:46.790Z] [INFO] [CartAPI] Response Status: 200 OK
+
+[1A[2K[2026-01-22T23:27:46.791Z] [DEBUG] [CartAPI] Response Body: {
+  "id": "4297edab-cb7f-4147-a793-1a29aa0b7011",
+  "userId": "test-user-123",
+  "items": [
+    {
+      "id": "1",
+      "name": "Organic Apples",
+      "price": 3.99,
+      "description": "Crisp and juicy organic apples, perfect for snacking or baking.",
+      "image": "https://placehold.co/300x200.png",
+      "dataAiHint": "apples fruit",
+      "category": "fruits",
+      "inStock": true,
+      "createdAt": "2026-01-22T23:23:45.326Z",
+      "updatedAt": "2026-01-22T23:23:45.326Z",
+      "quantity": 2,
+      "addedAt": "2026-01-22T23:27:46.795Z"
+    }
+  ],
+  "totalAmount": 7.98,
+  "totalItems": 2,
+  "createdAt": "2026-01-22T23:24:15.576Z",
+  "updatedAt": "2026-01-22T23:27:46.795Z"
+}
+
+[1A[2K[2026-01-22T23:27:46.809Z] [INFO] [CartAPI] DELETE Request: http://localhost:3000/api/cart/test-user-123
+
+[1A[2K[2026-01-22T23:27:46.821Z] [INFO] [CartAPI] Response Status: 200 OK
+
+[1A[2K[2026-01-22T23:27:46.822Z] [DEBUG] [CartAPI] Response Body: {
+  "id": "4297edab-cb7f-4147-a793-1a29aa0b7011",
+  "userId": "test-user-123",
+  "items": [],
+  "totalAmount": 0,
+  "totalItems": 0,
+  "createdAt": "2026-01-22T23:24:15.576Z",
+  "updatedAt": "2026-01-22T23:27:46.826Z"
+}
+
+[1A[2K  1) [api] ΓÇ║ tests\cart-service\cart.spec.ts:36:9 ΓÇ║ Cart Service API Tests ΓÇ║ Cart Operations ΓÇ║ should add item to cart 
+
+    Error: [2mexpect([22m[31mreceived[39m[2m).[22mtoBeTruthy[2m()[22m
+
+    Received: [31mfalse[39m
+
+      40 |       const body = await response.json();
+      41 |       expect(body.userId).toBe(userId);
+    > 42 |       expect(body.items.some((item: any) => item.productId === productId)).toBeTruthy();
+         |                                                                            ^
+      43 |       
+      44 |       const item = body.items.find((i: any) => i.productId === productId);
+      45 |       expect(item.quantity).toBe(2);
+        at D:\Personal\AI Course\daily-challenge\lesson1\my-basket-app\my-basket-api-tests\tests\cart-service\cart.spec.ts:42:76
+
+
+[1A[2K[6/35] [api] ΓÇ║ tests\cart-service\cart.spec.ts:48:9 ΓÇ║ Cart Service API Tests ΓÇ║ Cart Operations ΓÇ║ should get user cart
+[1A[2K[api] ΓÇ║ tests\cart-service\cart.spec.ts:48:9 ΓÇ║ Cart Service API Tests ΓÇ║ Cart Operations ΓÇ║ should get user cart
+[2026-01-22T23:27:48.083Z] [INFO] [ProductAPI] GET Request: http://localhost:3000/api/products
+
+[1A[2K[2026-01-22T23:27:48.141Z] [INFO] [ProductAPI] Response Status: 200 OK
+
+[1A[2K[2026-01-22T23:27:48.143Z] [DEBUG] [ProductAPI] Response Body: {
+  "products": [
+    {
+      "id": "1",
+      "name": "Organic Apples",
+      "price": 3.99,
+      "description": "Crisp and juicy organic apples, perfect for snacking or baking.",
+      "image": "https://placehold.co/300x200.png",
+      "dataAiHint": "apples fruit",
+      "category": "fruits",
+      "inStock": true,
+      "createdAt": "2026-01-22T23:23:45.326Z",
+      "updatedAt": "2026-01-22T23:23:45.326Z"
+    },
+    {
+      "id": "2",
+      "name": "Whole Wheat Bread",
+      "price": 4.49,
+      "description": "Freshly baked whole wheat bread, rich in fiber.",
+      "image": "https://placehold.co/300x200.png",
+      "dataAiHint": "bread bakery",
+      "category": "bakery",
+      "inStock": true,
+      "createdAt": "2026-01-22T23:23:45.326Z",
+      "updatedAt": "2026-01-22T23:23:45.326Z"
+    },
+    {
+      "id": "3",
+      "name": "Free-Range Eggs",
+      "price": 5.99,
+      "description": "A dozen large free-range eggs, great for breakfast.",
+      "image": "https://placehold.co/300x200.png",
+      "dataAiHint": "eggs dairy",
+      "category": "dairy",
+      "inStock": true,
+      "createdAt": "2026-01-22T23:23:45.326Z",
+      "updatedAt": "2026-01-22T23:23:45.326Z"
+    },
+    {
+      "id": "4",
+      "name": "Organic Spinach",
+      "price": 2.99,
+      "description": "A bag of fresh organic spinach, packed with nutrients.",
+      "image": "https://placehold.co/300x200.png",
+      "dataAiHint": "spinach vegetables",
+      "category": "vegetables",
+      "inStock": true,
+      "createdAt": "2026-01-22T23:23:45.326Z",
+      "updatedAt": "2026-01-22T23:23:45.326Z"
+    },
+    {
+      "id": "5",
+      "name": "Almond Milk",
+      "price": 3.79,
+      "description": "Unsweetened almond milk, a great dairy-free alternative.",
+      "image": "https://placehold.co/300x200.png",
+      "dataAiHint": "almond milk",
+      "category": "dairy",
+      "inStock": true,
+      "createdAt": "2026-01-22T23:23:45.326Z",
+      "updatedAt": "2026-01-22T23:23:45.326Z"
+    },
+    {
+      "id": "6",
+      "name": "Chicken Breast",
+      "price": 9.99,
+      "description": "Boneless, skinless chicken breast, lean and versatile.",
+      "image": "https://placehold.co/300x200.png",
+      "dataAiHint": "chicken meat",
+      "category": "meat",
+      "inStock": true,
+      "createdAt": "2026-01-22T23:23:45.326Z",
+      "updatedAt": "2026-01-22T23:23:45.326Z"
+    },
+    {
+      "id": "7",
+      "name": "Brown Rice",
+      "price": 2.49,
+      "description": "Long-grain brown rice, a healthy whole grain option.",
+      "image": "https://placehold.co/300x200.png",
+      "dataAiHint": "rice grains",
+      "category": "grains",
+      "inStock": true,
+      "createdAt": "2026-01-22T23:23:45.326Z",
+      "updatedAt": "2026-01-22T23:23:45.326Z"
+    },
+    {
+      "id": "8",
+      "name": "Greek Yogurt",
+      "price": 4.99,
+      "description": "Creamy Greek yogurt, high in protein and probiotics.",
+      "image": "https://placehold.co/300x200.png",
+      "dataAiHint": "yogurt dairy",
+      "category": "dairy",
+      "inStock": true,
+      "createdAt": "2026-01-22T23:23:45.326Z",
+      "updatedAt": "2026-01-22T23:23:45.326Z"
+    }
+  ],
+  "total": 8,
+  "page": 1,
+  "limit": 10,
+  "totalPages": 1
+}
+
+[1A[2K[2026-01-22T23:27:48.170Z] [INFO] [CartAPI] GET Request: http://localhost:3000/api/cart/test-user-123
+
+[1A[2K[2026-01-22T23:27:48.188Z] [INFO] [CartAPI] Response Status: 200 OK
+
+[1A[2K[2026-01-22T23:27:48.190Z] [DEBUG] [CartAPI] Response Body: {
+  "id": "4297edab-cb7f-4147-a793-1a29aa0b7011",
+  "userId": "test-user-123",
+  "items": [],
+  "totalAmount": 0,
+  "totalItems": 0,
+  "createdAt": "2026-01-22T23:24:15.576Z",
+  "updatedAt": "2026-01-22T23:27:46.826Z"
+}
+
+[1A[2K[2026-01-22T23:27:48.231Z] [INFO] [CartAPI] DELETE Request: http://localhost:3000/api/cart/test-user-123
+
+[1A[2K[2026-01-22T23:27:48.254Z] [INFO] [CartAPI] Response Status: 200 OK
+
+[1A[2K[2026-01-22T23:27:48.255Z] [DEBUG] [CartAPI] Response Body: {
+  "id": "4297edab-cb7f-4147-a793-1a29aa0b7011",
+  "userId": "test-user-123",
+  "items": [],
+  "totalAmount": 0,
+  "totalItems": 0,
+  "createdAt": "2026-01-22T23:24:15.576Z",
+  "updatedAt": "2026-01-22T23:27:48.260Z"
+}
+
+[1A[2K  2) [api] ΓÇ║ tests\cart-service\cart.spec.ts:48:9 ΓÇ║ Cart Service API Tests ΓÇ║ Cart Operations ΓÇ║ should get user cart 
+
+    Error: [2mexpect([22m[31mreceived[39m[2m).[22mtoBeGreaterThan[2m([22m[32mexpected[39m[2m)[22m
+
+    Expected: > [32m0[39m
+    Received:   [31m0[39m
+
+      52 |       const body = await response.json();
+      53 |       expect(body.userId).toBe(userId);
+    > 54 |       expect(body.items.length).toBeGreaterThan(0);
+         |                                 ^
+      55 |     });
+      56 |
+      57 |     test('should update item quantity', async ({ cartApi }) => {
+        at D:\Personal\AI Course\daily-challenge\lesson1\my-basket-app\my-basket-api-tests\tests\cart-service\cart.spec.ts:54:33
+
+
+[1A[2K[7/35] [api] ΓÇ║ tests\cart-service\cart.spec.ts:57:9 ΓÇ║ Cart Service API Tests ΓÇ║ Cart Operations ΓÇ║ should update item quantity
+[1A[2K[api] ΓÇ║ tests\cart-service\cart.spec.ts:57:9 ΓÇ║ Cart Service API Tests ΓÇ║ Cart Operations ΓÇ║ should update item quantity
+[2026-01-22T23:27:49.484Z] [INFO] [ProductAPI] GET Request: http://localhost:3000/api/products
+
+[1A[2K[2026-01-22T23:27:49.528Z] [INFO] [ProductAPI] Response Status: 200 OK
+
+[1A[2K[2026-01-22T23:27:49.529Z] [DEBUG] [ProductAPI] Response Body: {
+  "products": [
+    {
+      "id": "1",
+      "name": "Organic Apples",
+      "price": 3.99,
+      "description": "Crisp and juicy organic apples, perfect for snacking or baking.",
+      "image": "https://placehold.co/300x200.png",
+      "dataAiHint": "apples fruit",
+      "category": "fruits",
+      "inStock": true,
+      "createdAt": "2026-01-22T23:23:45.326Z",
+      "updatedAt": "2026-01-22T23:23:45.326Z"
+    },
+    {
+      "id": "2",
+      "name": "Whole Wheat Bread",
+      "price": 4.49,
+      "description": "Freshly baked whole wheat bread, rich in fiber.",
+      "image": "https://placehold.co/300x200.png",
+      "dataAiHint": "bread bakery",
+      "category": "bakery",
+      "inStock": true,
+      "createdAt": "2026-01-22T23:23:45.326Z",
+      "updatedAt": "2026-01-22T23:23:45.326Z"
+    },
+    {
+      "id": "3",
+      "name": "Free-Range Eggs",
+      "price": 5.99,
+      "description": "A dozen large free-range eggs, great for breakfast.",
+      "image": "https://placehold.co/300x200.png",
+      "dataAiHint": "eggs dairy",
+      "category": "dairy",
+      "inStock": true,
+      "createdAt": "2026-01-22T23:23:45.326Z",
+      "updatedAt": "2026-01-22T23:23:45.326Z"
+    },
+    {
+      "id": "4",
+      "name": "Organic Spinach",
+      "price": 2.99,
+      "description": "A bag of fresh organic spinach, packed with nutrients.",
+      "image": "https://placehold.co/300x200.png",
+      "dataAiHint": "spinach vegetables",
+      "category": "vegetables",
+      "inStock": true,
+      "createdAt": "2026-01-22T23:23:45.326Z",
+      "updatedAt": "2026-01-22T23:23:45.326Z"
+    },
+    {
+      "id": "5",
+      "name": "Almond Milk",
+      "price": 3.79,
+      "description": "Unsweetened almond milk, a great dairy-free alternative.",
+      "image": "https://placehold.co/300x200.png",
+      "dataAiHint": "almond milk",
+      "category": "dairy",
+      "inStock": true,
+      "createdAt": "2026-01-22T23:23:45.326Z",
+      "updatedAt": "2026-01-22T23:23:45.326Z"
+    },
+    {
+      "id": "6",
+      "name": "Chicken Breast",
+      "price": 9.99,
+      "description": "Boneless, skinless chicken breast, lean and versatile.",
+      "image": "https://placehold.co/300x200.png",
+      "dataAiHint": "chicken meat",
+      "category": "meat",
+      "inStock": true,
+      "createdAt": "2026-01-22T23:23:45.326Z",
+      "updatedAt": "2026-01-22T23:23:45.326Z"
+    },
+    {
+      "id": "7",
+      "name": "Brown Rice",
+      "price": 2.49,
+      "description": "Long-grain brown rice, a healthy whole grain option.",
+      "image": "https://placehold.co/300x200.png",
+      "dataAiHint": "rice grains",
+      "category": "grains",
+      "inStock": true,
+      "createdAt": "2026-01-22T23:23:45.326Z",
+      "updatedAt": "2026-01-22T23:23:45.326Z"
+    },
+    {
+      "id": "8",
+      "name": "Greek Yogurt",
+      "price": 4.99,
+      "description": "Creamy Greek yogurt, high in protein and probiotics.",
+      "image": "https://placehold.co/300x200.png",
+      "dataAiHint": "yogurt dairy",
+      "category": "dairy",
+      "inStock": true,
+      "createdAt": "2026-01-22T23:23:45.326Z",
+      "updatedAt": "2026-01-22T23:23:45.326Z"
+    }
+  ],
+  "total": 8,
+  "page": 1,
+  "limit": 10,
+  "totalPages": 1
+}
+
+[1A[2K[2026-01-22T23:27:49.550Z] [INFO] [CartAPI] PUT Request: http://localhost:3000/api/cart/test-user-123/items/1
+
+[1A[2K[2026-01-22T23:27:49.550Z] [DEBUG] [CartAPI] Payload: {
+  "quantity": 5
+}
+
+[1A[2K[2026-01-22T23:27:49.564Z] [INFO] [CartAPI] Response Status: 404 Not Found
+
+[1A[2K[2026-01-22T23:27:49.565Z] [DEBUG] [CartAPI] Response Body: {
+  "error": "Item not found in cart"
+}
+
+[1A[2K[2026-01-22T23:27:49.586Z] [INFO] [CartAPI] DELETE Request: http://localhost:3000/api/cart/test-user-123
+
+[1A[2K[2026-01-22T23:27:49.604Z] [INFO] [CartAPI] Response Status: 200 OK
+
+[1A[2K[2026-01-22T23:27:49.605Z] [DEBUG] [CartAPI] Response Body: {
+  "id": "4297edab-cb7f-4147-a793-1a29aa0b7011",
+  "userId": "test-user-123",
+  "items": [],
+  "totalAmount": 0,
+  "totalItems": 0,
+  "createdAt": "2026-01-22T23:24:15.576Z",
+  "updatedAt": "2026-01-22T23:27:49.612Z"
+}
+
+[1A[2K  3) [api] ΓÇ║ tests\cart-service\cart.spec.ts:57:9 ΓÇ║ Cart Service API Tests ΓÇ║ Cart Operations ΓÇ║ should update item quantity 
+
+    Error: Expected status 200 but got 404
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+    Expected: [32m200[39m
+    Received: [31m404[39m
+
+       at ..\src\pages\BaseAPI.ts:79
+
+      77 |    */
+      78 |   async assertStatus(response: APIResponse, expectedStatus: number) {
+    > 79 |     expect(response.status(), `Expected status ${expectedStatus} but got ${response.status()}`).toBe(expectedStatus);
+         |                                                                                                 ^
+      80 |   }
+      81 |
+      82 |   async assertSuccess(response: APIResponse) {
+        at CartAPI.assertStatus (D:\Personal\AI Course\daily-challenge\lesson1\my-basket-app\my-basket-api-tests\src\pages\BaseAPI.ts:79:97)
+        at D:\Personal\AI Course\daily-challenge\lesson1\my-basket-app\my-basket-api-tests\tests\cart-service\cart.spec.ts:59:21
+
+
+[1A[2K[8/35] [api] ΓÇ║ tests\cart-service\cart.spec.ts:66:9 ΓÇ║ Cart Service API Tests ΓÇ║ Cart Operations ΓÇ║ should get cart summary
+[1A[2K[api] ΓÇ║ tests\cart-service\cart.spec.ts:66:9 ΓÇ║ Cart Service API Tests ΓÇ║ Cart Operations ΓÇ║ should get cart summary
+[2026-01-22T23:27:51.010Z] [INFO] [ProductAPI] GET Request: http://localhost:3000/api/products
+
+[1A[2K[2026-01-22T23:27:51.051Z] [INFO] [ProductAPI] Response Status: 200 OK
+
+[1A[2K[2026-01-22T23:27:51.052Z] [DEBUG] [ProductAPI] Response Body: {
+  "products": [
+    {
+      "id": "1",
+      "name": "Organic Apples",
+      "price": 3.99,
+      "description": "Crisp and juicy organic apples, perfect for snacking or baking.",
+      "image": "https://placehold.co/300x200.png",
+      "dataAiHint": "apples fruit",
+      "category": "fruits",
+      "inStock": true,
+      "createdAt": "2026-01-22T23:23:45.326Z",
+      "updatedAt": "2026-01-22T23:23:45.326Z"
+    },
+    {
+      "id": "2",
+      "name": "Whole Wheat Bread",
+      "price": 4.49,
+      "description": "Freshly baked whole wheat bread, rich in fiber.",
+      "image": "https://placehold.co/300x200.png",
+      "dataAiHint": "bread bakery",
+      "category": "bakery",
+      "inStock": true,
+      "createdAt": "2026-01-22T23:23:45.326Z",
+      "updatedAt": "2026-01-22T23:23:45.326Z"
+    },
+    {
+      "id": "3",
+      "name": "Free-Range Eggs",
+      "price": 5.99,
+      "description": "A dozen large free-range eggs, great for breakfast.",
+      "image": "https://placehold.co/300x200.png",
+      "dataAiHint": "eggs dairy",
+      "category": "dairy",
+      "inStock": true,
+      "createdAt": "2026-01-22T23:23:45.326Z",
+      "updatedAt": "2026-01-22T23:23:45.326Z"
+    },
+    {
+      "id": "4",
+      "name": "Organic Spinach",
+      "price": 2.99,
+      "description": "A bag of fresh organic spinach, packed with nutrients.",
+      "image": "https://placehold.co/300x200.png",
+      "dataAiHint": "spinach vegetables",
+      "category": "vegetables",
+      "inStock": true,
+      "createdAt": "2026-01-22T23:23:45.326Z",
+      "updatedAt": "2026-01-22T23:23:45.326Z"
+    },
+    {
+      "id": "5",
+      "name": "Almond Milk",
+      "price": 3.79,
+      "description": "Unsweetened almond milk, a great dairy-free alternative.",
+      "image": "https://placehold.co/300x200.png",
+      "dataAiHint": "almond milk",
+      "category": "dairy",
+      "inStock": true,
+      "createdAt": "2026-01-22T23:23:45.326Z",
+      "updatedAt": "2026-01-22T23:23:45.326Z"
+    },
+    {
+      "id": "6",
+      "name": "Chicken Breast",
+      "price": 9.99,
+      "description": "Boneless, skinless chicken breast, lean and versatile.",
+      "image": "https://placehold.co/300x200.png",
+      "dataAiHint": "chicken meat",
+      "category": "meat",
+      "inStock": true,
+      "createdAt": "2026-01-22T23:23:45.326Z",
+      "updatedAt": "2026-01-22T23:23:45.326Z"
+    },
+    {
+      "id": "7",
+      "name": "Brown Rice",
+      "price": 2.49,
+      "description": "Long-grain brown rice, a healthy whole grain option.",
+      "image": "https://placehold.co/300x200.png",
+      "dataAiHint": "rice grains",
+      "category": "grains",
+      "inStock": true,
+      "createdAt": "2026-01-22T23:23:45.326Z",
+      "updatedAt": "2026-01-22T23:23:45.326Z"
+    },
+    {
+      "id": "8",
+      "name": "Greek Yogurt",
+      "price": 4.99,
+      "description": "Creamy Greek yogurt, high in protein and probiotics.",
+      "image": "https://placehold.co/300x200.png",
+      "dataAiHint": "yogurt dairy",
+      "category": "dairy",
+      "inStock": true,
+      "createdAt": "2026-01-22T23:23:45.326Z",
+      "updatedAt": "2026-01-22T23:23:45.326Z"
+    }
+  ],
+  "total": 8,
+  "page": 1,
+  "limit": 10,
+  "totalPages": 1
+}
+
+[1A[2K[2026-01-22T23:27:51.073Z] [INFO] [CartAPI] GET Request: http://localhost:3000/api/cart/test-user-123/summary
+
+[1A[2K[2026-01-22T23:27:51.086Z] [INFO] [CartAPI] Response Status: 200 OK
+
+[1A[2K[2026-01-22T23:27:51.087Z] [DEBUG] [CartAPI] Response Body: {
+  "totalItems": 0,
+  "totalAmount": 0,
+  "itemCount": 0
+}
+
+[1A[2K[9/35] [api] ΓÇ║ tests\cart-service\cart.spec.ts:75:9 ΓÇ║ Cart Service API Tests ΓÇ║ Cart Operations ΓÇ║ should remove item from cart
+[1A[2K[api] ΓÇ║ tests\cart-service\cart.spec.ts:75:9 ΓÇ║ Cart Service API Tests ΓÇ║ Cart Operations ΓÇ║ should remove item from cart
+[2026-01-22T23:27:51.111Z] [INFO] [CartAPI] DELETE Request: http://localhost:3000/api/cart/test-user-123/items/1
+
+[1A[2K[2026-01-22T23:27:51.128Z] [INFO] [CartAPI] Response Status: 200 OK
+
+[1A[2K[2026-01-22T23:27:51.130Z] [DEBUG] [CartAPI] Response Body: {
+  "id": "4297edab-cb7f-4147-a793-1a29aa0b7011",
+  "userId": "test-user-123",
+  "items": [],
+  "totalAmount": 0,
+  "totalItems": 0,
+  "createdAt": "2026-01-22T23:24:15.576Z",
+  "updatedAt": "2026-01-22T23:27:51.137Z"
+}
+
+[1A[2K[10/35] [api] ΓÇ║ tests\cart-service\cart.spec.ts:83:9 ΓÇ║ Cart Service API Tests ΓÇ║ Cart Operations ΓÇ║ should clear cart
+[1A[2K[api] ΓÇ║ tests\cart-service\cart.spec.ts:83:9 ΓÇ║ Cart Service API Tests ΓÇ║ Cart Operations ΓÇ║ should clear cart
+[2026-01-22T23:27:51.148Z] [INFO] [CartAPI] POST Request: http://localhost:3000/api/cart/test-user-123/items
+
+[1A[2K[2026-01-22T23:27:51.148Z] [DEBUG] [CartAPI] Payload: {
+  "productId": "1",
+  "quantity": 1
+}
+
+[1A[2K[2026-01-22T23:27:51.164Z] [INFO] [CartAPI] Response Status: 200 OK
+
+[1A[2K[2026-01-22T23:27:51.164Z] [DEBUG] [CartAPI] Response Body: {
+  "id": "4297edab-cb7f-4147-a793-1a29aa0b7011",
+  "userId": "test-user-123",
+  "items": [
+    {
+      "id": "1",
+      "name": "Organic Apples",
+      "price": 3.99,
+      "description": "Crisp and juicy organic apples, perfect for snacking or baking.",
+      "image": "https://placehold.co/300x200.png",
+      "dataAiHint": "apples fruit",
+      "category": "fruits",
+      "inStock": true,
+      "createdAt": "2026-01-22T23:23:45.326Z",
+      "updatedAt": "2026-01-22T23:23:45.326Z",
+      "quantity": 1,
+      "addedAt": "2026-01-22T23:27:51.174Z"
+    }
+  ],
+  "totalAmount": 3.99,
+  "totalItems": 1,
+  "createdAt": "2026-01-22T23:24:15.576Z",
+  "updatedAt": "2026-01-22T23:27:51.174Z"
+}
+
+[1A[2K[2026-01-22T23:27:51.165Z] [INFO] [CartAPI] DELETE Request: http://localhost:3000/api/cart/test-user-123
+
+[1A[2K[2026-01-22T23:27:51.176Z] [INFO] [CartAPI] Response Status: 200 OK
+
+[1A[2K[2026-01-22T23:27:51.177Z] [DEBUG] [CartAPI] Response Body: {
+  "id": "4297edab-cb7f-4147-a793-1a29aa0b7011",
+  "userId": "test-user-123",
+  "items": [],
+  "totalAmount": 0,
+  "totalItems": 0,
+  "createdAt": "2026-01-22T23:24:15.576Z",
+  "updatedAt": "2026-01-22T23:27:51.186Z"
+}
+
+[1A[2K[11/35] [api] ΓÇ║ tests\cart-service\cart.spec.ts:97:9 ΓÇ║ Cart Service API Tests ΓÇ║ Negative Testing ΓÇ║ should fail to add item with invalid quantity
+[1A[2K[api] ΓÇ║ tests\cart-service\cart.spec.ts:97:9 ΓÇ║ Cart Service API Tests ΓÇ║ Negative Testing ΓÇ║ should fail to add item with invalid quantity
+[2026-01-22T23:27:51.189Z] [INFO] [CartAPI] POST Request: http://localhost:3000/api/cart/test-user-123/items
+
+[1A[2K[2026-01-22T23:27:51.189Z] [DEBUG] [CartAPI] Payload: {
+  "productId": "1",
+  "quantity": -1
+}
+
+[1A[2K[2026-01-22T23:27:51.201Z] [INFO] [CartAPI] Response Status: 400 Bad Request
+
+[1A[2K[2026-01-22T23:27:51.202Z] [DEBUG] [CartAPI] Response Body: {
+  "error": "Invalid request data",
+  "details": [
+    {
+      "code": "too_small",
+      "minimum": 0,
+      "type": "number",
+      "inclusive": false,
+      "exact": false,
+      "message": "Number must be greater than 0",
+      "path": [
+        "quantity"
+      ]
+    }
+  ]
+}
+
+[1A[2K[12/35] [api] ΓÇ║ tests\cart-service\cart.spec.ts:102:9 ΓÇ║ Cart Service API Tests ΓÇ║ Negative Testing ΓÇ║ should return 400 for invalid userId format if applicable
+[1A[2K[api] ΓÇ║ tests\cart-service\cart.spec.ts:102:9 ΓÇ║ Cart Service API Tests ΓÇ║ Negative Testing ΓÇ║ should return 400 for invalid userId format if applicable
+[2026-01-22T23:27:51.218Z] [INFO] [CartAPI] GET Request: http://localhost:3000/api/cart/
+
+[1A[2K[2026-01-22T23:27:51.231Z] [INFO] [CartAPI] Response Status: 404 Not Found
+
+[1A[2K[2026-01-22T23:27:51.232Z] [DEBUG] [CartAPI] Response Body: {
+  "error": "Route not found"
+}
+
+[1A[2K[13/35] [api] ΓÇ║ tests\cart-service\cart.spec.ts:108:9 ΓÇ║ Cart Service API Tests ΓÇ║ Negative Testing ΓÇ║ should handle adding non-existent product
+[1A[2K[api] ΓÇ║ tests\cart-service\cart.spec.ts:108:9 ΓÇ║ Cart Service API Tests ΓÇ║ Negative Testing ΓÇ║ should handle adding non-existent product
+[2026-01-22T23:27:51.253Z] [INFO] [CartAPI] POST Request: http://localhost:3000/api/cart/test-user-123/items
+
+[1A[2K[2026-01-22T23:27:51.254Z] [DEBUG] [CartAPI] Payload: {
+  "productId": "non-existent-product",
+  "quantity": 1
+}
+
+[1A[2K[2026-01-22T23:27:51.274Z] [INFO] [CartAPI] Response Status: 404 Not Found
+
+[1A[2K[2026-01-22T23:27:51.275Z] [DEBUG] [CartAPI] Response Body: {
+  "error": "Product not found"
+}
+
+[1A[2K[2026-01-22T23:27:51.291Z] [INFO] [CartAPI] DELETE Request: http://localhost:3000/api/cart/test-user-123
+
+[1A[2K[2026-01-22T23:27:51.306Z] [INFO] [CartAPI] Response Status: 200 OK
+
+[1A[2K[2026-01-22T23:27:51.308Z] [DEBUG] [CartAPI] Response Body: {
+  "id": "4297edab-cb7f-4147-a793-1a29aa0b7011",
+  "userId": "test-user-123",
+  "items": [],
+  "totalAmount": 0,
+  "totalItems": 0,
+  "createdAt": "2026-01-22T23:24:15.576Z",
+  "updatedAt": "2026-01-22T23:27:51.314Z"
+}
+
+[1A[2K[14/35] [api] ΓÇ║ tests\cart-service\health.spec.ts:5:7 ΓÇ║ Cart Service Health Checks ΓÇ║ Liveness check should return 200 Healthy
+[1A[2K[api] ΓÇ║ tests\cart-service\health.spec.ts:5:7 ΓÇ║ Cart Service Health Checks ΓÇ║ Liveness check should return 200 Healthy
+[2026-01-22T23:27:51.335Z] [INFO] [CartAPI] GET Request: http://localhost:3000/api/cart/health/live
+
+[1A[2K[2026-01-22T23:27:51.351Z] [INFO] [CartAPI] Response Status: 200 OK
+
+[1A[2K[2026-01-22T23:27:51.352Z] [DEBUG] [CartAPI] Response Body: {
+  "status": "healthy",
+  "service": "cart-service",
+  "version": "1.0.0",
+  "timestamp": "2026-01-22T23:27:51.360Z",
+  "uptime": 240
+}
+
+[1A[2K[15/35] [api] ΓÇ║ tests\cart-service\health.spec.ts:15:7 ΓÇ║ Cart Service Health Checks ΓÇ║ Readiness check should return 200 when all dependencies are healthy
+[1A[2K[api] ΓÇ║ tests\cart-service\health.spec.ts:15:7 ΓÇ║ Cart Service Health Checks ΓÇ║ Readiness check should return 200 when all dependencies are healthy
+[2026-01-22T23:27:51.378Z] [INFO] [CartAPI] GET Request: http://localhost:3000/api/cart/health/ready
+
+[1A[2K[2026-01-22T23:27:51.392Z] [INFO] [CartAPI] Response Status: 200 OK
+
+[1A[2K[2026-01-22T23:27:51.394Z] [DEBUG] [CartAPI] Response Body: {
+  "status": "healthy",
+  "service": "cart-service",
+  "version": "1.0.0",
+  "timestamp": "2026-01-22T23:27:27.451Z",
+  "uptime": 216,
+  "checks": {
+    "dependencies": [
+      {
+        "name": "product-service",
+        "status": "healthy",
+        "responseTime": 4
+      }
+    ],
+    "resources": [
+      {
+        "name": "memory",
+        "status": "healthy",
+        "value": 20,
+        "limit": 22,
+        "percentage": 91,
+        "unit": "MB"
+      },
+      {
+        "name": "carts",
+        "status": "healthy",
+        "value": 4,
+        "limit": 10000,
+        "percentage": 0,
+        "unit": "count"
+      }
+    ]
+  },
+  "responseTime": 5
+}
+
+[1A[2K[16/35] [api] ΓÇ║ tests\cart-service\health.spec.ts:39:7 ΓÇ║ Cart Service Health Checks ΓÇ║ Health check should include detailed status and response times
+[1A[2K[api] ΓÇ║ tests\cart-service\health.spec.ts:39:7 ΓÇ║ Cart Service Health Checks ΓÇ║ Health check should include detailed status and response times
+[2026-01-22T23:27:51.429Z] [INFO] [CartAPI] GET Request: http://localhost:3000/api/cart/health
+
+[1A[2K[2026-01-22T23:27:51.445Z] [INFO] [CartAPI] Response Status: 200 OK
+
+[1A[2K[2026-01-22T23:27:51.446Z] [DEBUG] [CartAPI] Response Body: {
+  "status": "healthy",
+  "service": "cart-service",
+  "version": "1.0.0",
+  "timestamp": "2026-01-22T23:27:27.451Z",
+  "uptime": 216,
+  "checks": {
+    "dependencies": [
+      {
+        "name": "product-service",
+        "status": "healthy",
+        "responseTime": 4
+      }
+    ],
+    "resources": [
+      {
+        "name": "memory",
+        "status": "healthy",
+        "value": 20,
+        "limit": 22,
+        "percentage": 91,
+        "unit": "MB"
+      },
+      {
+        "name": "carts",
+        "status": "healthy",
+        "value": 4,
+        "limit": 10000,
+        "percentage": 0,
+        "unit": "count"
+      }
+    ]
+  },
+  "responseTime": 5
+}
+
+[1A[2K[17/35] [api] ΓÇ║ tests\cart-service\health.spec.ts:55:7 ΓÇ║ Cart Service Health Checks ΓÇ║ Health check should include resource metrics
+[1A[2K[api] ΓÇ║ tests\cart-service\health.spec.ts:55:7 ΓÇ║ Cart Service Health Checks ΓÇ║ Health check should include resource metrics
+[2026-01-22T23:27:51.473Z] [INFO] [CartAPI] GET Request: http://localhost:3000/api/cart/health
+
+[1A[2K[2026-01-22T23:27:51.490Z] [INFO] [CartAPI] Response Status: 200 OK
+
+[1A[2K[2026-01-22T23:27:51.491Z] [DEBUG] [CartAPI] Response Body: {
+  "status": "healthy",
+  "service": "cart-service",
+  "version": "1.0.0",
+  "timestamp": "2026-01-22T23:27:27.451Z",
+  "uptime": 216,
+  "checks": {
+    "dependencies": [
+      {
+        "name": "product-service",
+        "status": "healthy",
+        "responseTime": 4
+      }
+    ],
+    "resources": [
+      {
+        "name": "memory",
+        "status": "healthy",
+        "value": 20,
+        "limit": 22,
+        "percentage": 91,
+        "unit": "MB"
+      },
+      {
+        "name": "carts",
+        "status": "healthy",
+        "value": 4,
+        "limit": 10000,
+        "percentage": 0,
+        "unit": "count"
+      }
+    ]
+  },
+  "responseTime": 5
+}
+
+[1A[2K[18/35] [api] ΓÇ║ tests\gateway\health.spec.ts:5:7 ΓÇ║ Service Discovery & Gateway Health ΓÇ║ Gateway health should aggregate all services
+[1A[2K[api] ΓÇ║ tests\gateway\health.spec.ts:5:7 ΓÇ║ Service Discovery & Gateway Health ΓÇ║ Gateway health should aggregate all services
+[2026-01-22T23:27:51.522Z] [INFO] [GatewayAPI] GET Request: http://localhost:3000/health
+
+[1A[2K[2026-01-22T23:27:51.563Z] [INFO] [GatewayAPI] Response Status: 200 OK
+
+[1A[2K[2026-01-22T23:27:51.564Z] [DEBUG] [GatewayAPI] Response Body: {
+  "gateway": "api-gateway",
+  "status": "healthy",
+  "services": [
+    {
+      "service": "product-service",
+      "status": "healthy",
+      "responseTime": 21
+    },
+    {
+      "service": "product-service",
+      "status": "healthy",
+      "responseTime": 18
+    },
+    {
+      "service": "cart-service",
+      "status": "healthy",
+      "responseTime": 18
+    },
+    {
+      "service": "order-service",
+      "status": "healthy",
+      "responseTime": 18
+    },
+    {
+      "service": "ai-service",
+      "status": "healthy",
+      "responseTime": 19
+    }
+  ],
+  "timestamp": "2026-01-22T23:27:51.571Z"
+}
+
+[1A[2K[19/35] [api] ΓÇ║ tests\gateway\health.spec.ts:16:7 ΓÇ║ Service Discovery & Gateway Health ΓÇ║ Gateway info should return version and service list
+[1A[2K[api] ΓÇ║ tests\gateway\health.spec.ts:16:7 ΓÇ║ Service Discovery & Gateway Health ΓÇ║ Gateway info should return version and service list
+[2026-01-22T23:27:51.599Z] [INFO] [GatewayAPI] GET Request: http://localhost:3000/info
+
+[1A[2K[2026-01-22T23:27:51.607Z] [INFO] [GatewayAPI] Response Status: 200 OK
+
+[1A[2K[2026-01-22T23:27:51.608Z] [DEBUG] [GatewayAPI] Response Body: {
+  "gateway": "api-gateway",
+  "version": "1.0.0",
+  "services": [
+    {
+      "name": "product-service",
+      "path": "/api/products"
+    },
+    {
+      "name": "product-service",
+      "path": "/api/categories"
+    },
+    {
+      "name": "cart-service",
+      "path": "/api/cart"
+    },
+    {
+      "name": "order-service",
+      "path": "/api/orders"
+    },
+    {
+      "name": "ai-service",
+      "path": "/api/recommendations"
+    }
+  ],
+  "timestamp": "2026-01-22T23:27:51.618Z"
+}
+
+[1A[2K[20/35] [api] ΓÇ║ tests\integration\e2e-workflow.spec.ts:10:7 ΓÇ║ End-to-End Integration Workflow ΓÇ║ should complete a full user journey
+[1A[2K[api] ΓÇ║ tests\integration\e2e-workflow.spec.ts:10:7 ΓÇ║ End-to-End Integration Workflow ΓÇ║ should complete a full user journey
+[2026-01-22T23:27:51.657Z] [INFO] [GatewayAPI] GET Request: http://localhost:3000/health
+
+[1A[2K[2026-01-22T23:27:51.697Z] [INFO] [GatewayAPI] Response Status: 200 OK
+
+[1A[2K[2026-01-22T23:27:51.698Z] [DEBUG] [GatewayAPI] Response Body: {
+  "gateway": "api-gateway",
+  "status": "healthy",
+  "services": [
+    {
+      "service": "product-service",
+      "status": "healthy",
+      "responseTime": 19
+    },
+    {
+      "service": "product-service",
+      "status": "healthy",
+      "responseTime": 19
+    },
+    {
+      "service": "cart-service",
+      "status": "healthy",
+      "responseTime": 9
+    },
+    {
+      "service": "order-service",
+      "status": "healthy",
+      "responseTime": 10
+    },
+    {
+      "service": "ai-service",
+      "status": "healthy",
+      "responseTime": 10
+    }
+  ],
+  "timestamp": "2026-01-22T23:27:51.697Z"
+}
+
+[1A[2K[2026-01-22T23:27:51.701Z] [INFO] [ProductAPI] GET Request: http://localhost:3000/api/products
+
+[1A[2K[2026-01-22T23:27:51.724Z] [INFO] [ProductAPI] Response Status: 200 OK
+
+[1A[2K[2026-01-22T23:27:51.726Z] [DEBUG] [ProductAPI] Response Body: {
+  "products": [
+    {
+      "id": "1",
+      "name": "Organic Apples",
+      "price": 3.99,
+      "description": "Crisp and juicy organic apples, perfect for snacking or baking.",
+      "image": "https://placehold.co/300x200.png",
+      "dataAiHint": "apples fruit",
+      "category": "fruits",
+      "inStock": true,
+      "createdAt": "2026-01-22T23:23:45.326Z",
+      "updatedAt": "2026-01-22T23:23:45.326Z"
+    },
+    {
+      "id": "2",
+      "name": "Whole Wheat Bread",
+      "price": 4.49,
+      "description": "Freshly baked whole wheat bread, rich in fiber.",
+      "image": "https://placehold.co/300x200.png",
+      "dataAiHint": "bread bakery",
+      "category": "bakery",
+      "inStock": true,
+      "createdAt": "2026-01-22T23:23:45.326Z",
+      "updatedAt": "2026-01-22T23:23:45.326Z"
+    },
+    {
+      "id": "3",
+      "name": "Free-Range Eggs",
+      "price": 5.99,
+      "description": "A dozen large free-range eggs, great for breakfast.",
+      "image": "https://placehold.co/300x200.png",
+      "dataAiHint": "eggs dairy",
+      "category": "dairy",
+      "inStock": true,
+      "createdAt": "2026-01-22T23:23:45.326Z",
+      "updatedAt": "2026-01-22T23:23:45.326Z"
+    },
+    {
+      "id": "4",
+      "name": "Organic Spinach",
+      "price": 2.99,
+      "description": "A bag of fresh organic spinach, packed with nutrients.",
+      "image": "https://placehold.co/300x200.png",
+      "dataAiHint": "spinach vegetables",
+      "category": "vegetables",
+      "inStock": true,
+      "createdAt": "2026-01-22T23:23:45.326Z",
+      "updatedAt": "2026-01-22T23:23:45.326Z"
+    },
+    {
+      "id": "5",
+      "name": "Almond Milk",
+      "price": 3.79,
+      "description": "Unsweetened almond milk, a great dairy-free alternative.",
+      "image": "https://placehold.co/300x200.png",
+      "dataAiHint": "almond milk",
+      "category": "dairy",
+      "inStock": true,
+      "createdAt": "2026-01-22T23:23:45.326Z",
+      "updatedAt": "2026-01-22T23:23:45.326Z"
+    },
+    {
+      "id": "6",
+      "name": "Chicken Breast",
+      "price": 9.99,
+      "description": "Boneless, skinless chicken breast, lean and versatile.",
+      "image": "https://placehold.co/300x200.png",
+      "dataAiHint": "chicken meat",
+      "category": "meat",
+      "inStock": true,
+      "createdAt": "2026-01-22T23:23:45.326Z",
+      "updatedAt": "2026-01-22T23:23:45.326Z"
+    },
+    {
+      "id": "7",
+      "name": "Brown Rice",
+      "price": 2.49,
+      "description": "Long-grain brown rice, a healthy whole grain option.",
+      "image": "https://placehold.co/300x200.png",
+      "dataAiHint": "rice grains",
+      "category": "grains",
+      "inStock": true,
+      "createdAt": "2026-01-22T23:23:45.326Z",
+      "updatedAt": "2026-01-22T23:23:45.326Z"
+    },
+    {
+      "id": "8",
+      "name": "Greek Yogurt",
+      "price": 4.99,
+      "description": "Creamy Greek yogurt, high in protein and probiotics.",
+      "image": "https://placehold.co/300x200.png",
+      "dataAiHint": "yogurt dairy",
+      "category": "dairy",
+      "inStock": true,
+      "createdAt": "2026-01-22T23:23:45.326Z",
+      "updatedAt": "2026-01-22T23:23:45.326Z"
+    }
+  ],
+  "total": 8,
+  "page": 1,
+  "limit": 10,
+  "totalPages": 1
+}
+
+[1A[2K[2026-01-22T23:27:51.732Z] [INFO] [CartAPI] POST Request: http://localhost:3000/api/cart/e2e-user-1769124471638/items
+
+[1A[2K[2026-01-22T23:27:51.733Z] [DEBUG] [CartAPI] Payload: {
+  "productId": "1",
+  "quantity": 1
+}
+
+[1A[2K[2026-01-22T23:27:51.763Z] [INFO] [CartAPI] Response Status: 200 OK
+
+[1A[2K[2026-01-22T23:27:51.764Z] [DEBUG] [CartAPI] Response Body: {
+  "id": "47441fcf-cade-43fc-bb7e-c78b51386ff3",
+  "userId": "e2e-user-1769124471638",
+  "items": [
+    {
+      "id": "1",
+      "name": "Organic Apples",
+      "price": 3.99,
+      "description": "Crisp and juicy organic apples, perfect for snacking or baking.",
+      "image": "https://placehold.co/300x200.png",
+      "dataAiHint": "apples fruit",
+      "category": "fruits",
+      "inStock": true,
+      "createdAt": "2026-01-22T23:23:45.326Z",
+      "updatedAt": "2026-01-22T23:23:45.326Z",
+      "quantity": 1,
+      "addedAt": "2026-01-22T23:27:51.767Z"
+    }
+  ],
+  "totalAmount": 3.99,
+  "totalItems": 1,
+  "createdAt": "2026-01-22T23:27:51.767Z",
+  "updatedAt": "2026-01-22T23:27:51.767Z"
+}
+
+[1A[2K[2026-01-22T23:27:51.767Z] [INFO] [AIAPI] POST Request: http://localhost:3000/api/recommendations/grocery-suggestions
+
+[1A[2K[2026-01-22T23:27:51.767Z] [DEBUG] [AIAPI] Payload: {
+  "items": [
+    "milk"
+  ]
+}
+
+[1A[2K[2026-01-22T23:27:51.810Z] [INFO] [AIAPI] Response Status: 200 OK
+
+[1A[2K[2026-01-22T23:27:51.811Z] [DEBUG] [AIAPI] Response Body: {
+  "suggestions": [
+    "Fresh fruits",
+    "Vegetables",
+    "Whole grain bread",
+    "Lean proteins",
+    "Dairy products",
+    "Healthy snacks",
+    "Cooking oils",
+    "Seasonings and spices"
+  ],
+  "generatedAt": "2026-01-22T23:27:51.813Z",
+  "confidence": 0.8
+}
+
+[1A[2K[2026-01-22T23:27:51.814Z] [INFO] [OrderAPI] POST Request: http://localhost:3000/api/orders/e2e-user-1769124471638
+
+[1A[2K[2026-01-22T23:27:51.814Z] [DEBUG] [OrderAPI] Payload: {
+  "items": [
+    {
+      "id": "1",
+      "name": "Organic Apples",
+      "price": 3.99,
+      "description": "Crisp and juicy organic apples, perfect for snacking or baking.",
+      "image": "https://placehold.co/300x200.png",
+      "dataAiHint": "apples fruit",
+      "category": "fruits",
+      "inStock": true,
+      "createdAt": "2026-01-22T23:23:45.326Z",
+      "updatedAt": "2026-01-22T23:23:45.326Z",
+      "quantity": 1
+    }
+  ],
+  "shippingAddress": {
+    "street": "123 Test St",
+    "city": "Test City",
+    "state": "TS",
+    "zipCode": "12345",
+    "country": "Testland"
+  },
+  "billingAddress": {
+    "street": "123 Test St",
+    "city": "Test City",
+    "state": "TS",
+    "zipCode": "12345",
+    "country": "Testland"
+  },
+  "paymentMethod": {
+    "type": "credit_card",
+    "last4": "4242",
+    "brand": "Visa"
+  }
+}
+
+[1A[2K[2026-01-22T23:27:51.866Z] [INFO] [OrderAPI] Response Status: 201 Created
+
+[1A[2K[2026-01-22T23:27:51.868Z] [DEBUG] [OrderAPI] Response Body: {
+  "id": "c0bd8526-2b6d-4686-855b-ccc7c3f36a6c",
+  "userId": "e2e-user-1769124471638",
+  "items": [
+    {
+      "id": "1",
+      "name": "Organic Apples",
+      "price": 3.99,
+      "description": "Crisp and juicy organic apples, perfect for snacking or baking.",
+      "image": "https://placehold.co/300x200.png",
+      "dataAiHint": "apples fruit",
+      "quantity": 1
+    }
+  ],
+  "totalAmount": 3.99,
+  "status": "pending",
+  "shippingAddress": {
+    "street": "123 Test St",
+    "city": "Test City",
+    "state": "TS",
+    "zipCode": "12345",
+    "country": "Testland"
+  },
+  "billingAddress": {
+    "street": "123 Test St",
+    "city": "Test City",
+    "state": "TS",
+    "zipCode": "12345",
+    "country": "Testland"
+  },
+  "paymentMethod": {
+    "type": "credit_card",
+    "last4": "4242",
+    "brand": "Visa"
+  },
+  "orderDate": "2026-01-22T23:27:51.858Z",
+  "estimatedDelivery": "2026-01-27T23:27:51.858Z",
+  "createdAt": "2026-01-22T23:27:51.858Z",
+  "updatedAt": "2026-01-22T23:27:51.858Z"
+}
+
+[1A[2K[2026-01-22T23:27:51.875Z] [INFO] [OrderAPI] GET Request: http://localhost:3000/api/orders/e2e-user-1769124471638/c0bd8526-2b6d-4686-855b-ccc7c3f36a6c
+
+[1A[2K[2026-01-22T23:27:51.903Z] [INFO] [OrderAPI] Response Status: 200 OK
+
+[1A[2K[2026-01-22T23:27:51.904Z] [DEBUG] [OrderAPI] Response Body: {
+  "id": "c0bd8526-2b6d-4686-855b-ccc7c3f36a6c",
+  "userId": "e2e-user-1769124471638",
+  "items": [
+    {
+      "id": "1",
+      "name": "Organic Apples",
+      "price": 3.99,
+      "description": "Crisp and juicy organic apples, perfect for snacking or baking.",
+      "image": "https://placehold.co/300x200.png",
+      "dataAiHint": "apples fruit",
+      "quantity": 1
+    }
+  ],
+  "totalAmount": 3.99,
+  "status": "pending",
+  "shippingAddress": {
+    "street": "123 Test St",
+    "city": "Test City",
+    "state": "TS",
+    "zipCode": "12345",
+    "country": "Testland"
+  },
+  "billingAddress": {
+    "street": "123 Test St",
+    "city": "Test City",
+    "state": "TS",
+    "zipCode": "12345",
+    "country": "Testland"
+  },
+  "paymentMethod": {
+    "type": "credit_card",
+    "last4": "4242",
+    "brand": "Visa"
+  },
+  "orderDate": "2026-01-22T23:27:51.858Z",
+  "estimatedDelivery": "2026-01-27T23:27:51.858Z",
+  "createdAt": "2026-01-22T23:27:51.858Z",
+  "updatedAt": "2026-01-22T23:27:51.858Z"
+}
+
+[1A[2K[2026-01-22T23:27:51.906Z] [INFO] [CartAPI] GET Request: http://localhost:3000/api/cart/e2e-user-1769124471638/summary
+
+[1A[2K[2026-01-22T23:27:51.925Z] [INFO] [CartAPI] Response Status: 200 OK
+
+[1A[2K[2026-01-22T23:27:51.926Z] [DEBUG] [CartAPI] Response Body: {
+  "totalItems": 0,
+  "totalAmount": 0,
+  "itemCount": 0
+}
+
+[1A[2K[2026-01-22T23:27:51.929Z] [INFO] [CartAPI] DELETE Request: http://localhost:3000/api/cart/e2e-user-1769124471638
+
+[1A[2K[2026-01-22T23:27:51.945Z] [INFO] [CartAPI] Response Status: 200 OK
+
+[1A[2K[2026-01-22T23:27:51.946Z] [DEBUG] [CartAPI] Response Body: {
+  "id": "47441fcf-cade-43fc-bb7e-c78b51386ff3",
+  "userId": "e2e-user-1769124471638",
+  "items": [],
+  "totalAmount": 0,
+  "totalItems": 0,
+  "createdAt": "2026-01-22T23:27:51.767Z",
+  "updatedAt": "2026-01-22T23:27:51.955Z"
+}
+
+[1A[2K[21/35] [api] ΓÇ║ tests\order-service\order.spec.ts:40:9 ΓÇ║ Order Service API Tests ΓÇ║ Order Lifecycle ΓÇ║ should create order from cart
+[1A[2K[api] ΓÇ║ tests\order-service\order.spec.ts:40:9 ΓÇ║ Order Service API Tests ΓÇ║ Order Lifecycle ΓÇ║ should create order from cart
+[2026-01-22T23:27:51.980Z] [INFO] [ProductAPI] GET Request: http://localhost:3000/api/products
+
+[1A[2K[2026-01-22T23:27:51.995Z] [INFO] [ProductAPI] Response Status: 200 OK
+
+[1A[2K[2026-01-22T23:27:51.997Z] [DEBUG] [ProductAPI] Response Body: {
+  "products": [
+    {
+      "id": "1",
+      "name": "Organic Apples",
+      "price": 3.99,
+      "description": "Crisp and juicy organic apples, perfect for snacking or baking.",
+      "image": "https://placehold.co/300x200.png",
+      "dataAiHint": "apples fruit",
+      "category": "fruits",
+      "inStock": true,
+      "createdAt": "2026-01-22T23:23:45.326Z",
+      "updatedAt": "2026-01-22T23:23:45.326Z"
+    },
+    {
+      "id": "2",
+      "name": "Whole Wheat Bread",
+      "price": 4.49,
+      "description": "Freshly baked whole wheat bread, rich in fiber.",
+      "image": "https://placehold.co/300x200.png",
+      "dataAiHint": "bread bakery",
+      "category": "bakery",
+      "inStock": true,
+      "createdAt": "2026-01-22T23:23:45.326Z",
+      "updatedAt": "2026-01-22T23:23:45.326Z"
+    },
+    {
+      "id": "3",
+      "name": "Free-Range Eggs",
+      "price": 5.99,
+      "description": "A dozen large free-range eggs, great for breakfast.",
+      "image": "https://placehold.co/300x200.png",
+      "dataAiHint": "eggs dairy",
+      "category": "dairy",
+      "inStock": true,
+      "createdAt": "2026-01-22T23:23:45.326Z",
+      "updatedAt": "2026-01-22T23:23:45.326Z"
+    },
+    {
+      "id": "4",
+      "name": "Organic Spinach",
+      "price": 2.99,
+      "description": "A bag of fresh organic spinach, packed with nutrients.",
+      "image": "https://placehold.co/300x200.png",
+      "dataAiHint": "spinach vegetables",
+      "category": "vegetables",
+      "inStock": true,
+      "createdAt": "2026-01-22T23:23:45.326Z",
+      "updatedAt": "2026-01-22T23:23:45.326Z"
+    },
+    {
+      "id": "5",
+      "name": "Almond Milk",
+      "price": 3.79,
+      "description": "Unsweetened almond milk, a great dairy-free alternative.",
+      "image": "https://placehold.co/300x200.png",
+      "dataAiHint": "almond milk",
+      "category": "dairy",
+      "inStock": true,
+      "createdAt": "2026-01-22T23:23:45.326Z",
+      "updatedAt": "2026-01-22T23:23:45.326Z"
+    },
+    {
+      "id": "6",
+      "name": "Chicken Breast",
+      "price": 9.99,
+      "description": "Boneless, skinless chicken breast, lean and versatile.",
+      "image": "https://placehold.co/300x200.png",
+      "dataAiHint": "chicken meat",
+      "category": "meat",
+      "inStock": true,
+      "createdAt": "2026-01-22T23:23:45.326Z",
+      "updatedAt": "2026-01-22T23:23:45.326Z"
+    },
+    {
+      "id": "7",
+      "name": "Brown Rice",
+      "price": 2.49,
+      "description": "Long-grain brown rice, a healthy whole grain option.",
+      "image": "https://placehold.co/300x200.png",
+      "dataAiHint": "rice grains",
+      "category": "grains",
+      "inStock": true,
+      "createdAt": "2026-01-22T23:23:45.326Z",
+      "updatedAt": "2026-01-22T23:23:45.326Z"
+    },
+    {
+      "id": "8",
+      "name": "Greek Yogurt",
+      "price": 4.99,
+      "description": "Creamy Greek yogurt, high in protein and probiotics.",
+      "image": "https://placehold.co/300x200.png",
+      "dataAiHint": "yogurt dairy",
+      "category": "dairy",
+      "inStock": true,
+      "createdAt": "2026-01-22T23:23:45.326Z",
+      "updatedAt": "2026-01-22T23:23:45.326Z"
+    }
+  ],
+  "total": 8,
+  "page": 1,
+  "limit": 10,
+  "totalPages": 1
+}
+
+[1A[2K[2026-01-22T23:27:51.998Z] [INFO] [CartAPI] POST Request: http://localhost:3000/api/cart/order-test-user/items
+
+[1A[2K[2026-01-22T23:27:51.998Z] [DEBUG] [CartAPI] Payload: {
+  "productId": "1",
+  "quantity": 1
+}
+
+[1A[2K[2026-01-22T23:27:52.033Z] [INFO] [CartAPI] Response Status: 200 OK
+
+[1A[2K[2026-01-22T23:27:52.034Z] [DEBUG] [CartAPI] Response Body: {
+  "id": "07cd4de3-517d-46f2-b628-b820d7ebfce7",
+  "userId": "order-test-user",
+  "items": [
+    {
+      "id": "1",
+      "name": "Organic Apples",
+      "price": 3.99,
+      "description": "Crisp and juicy organic apples, perfect for snacking or baking.",
+      "image": "https://placehold.co/300x200.png",
+      "dataAiHint": "apples fruit",
+      "category": "fruits",
+      "inStock": true,
+      "createdAt": "2026-01-22T23:23:45.326Z",
+      "updatedAt": "2026-01-22T23:23:45.326Z",
+      "quantity": 1,
+      "addedAt": "2026-01-22T23:27:52.043Z"
+    }
+  ],
+  "totalAmount": 3.99,
+  "totalItems": 1,
+  "createdAt": "2026-01-22T23:24:22.143Z",
+  "updatedAt": "2026-01-22T23:27:52.043Z"
+}
+
+[1A[2K[2026-01-22T23:27:52.062Z] [INFO] [OrderAPI] POST Request: http://localhost:3000/api/orders/order-test-user
+
+[1A[2K[2026-01-22T23:27:52.062Z] [DEBUG] [OrderAPI] Payload: {
+  "items": [
+    {
+      "id": "1",
+      "name": "Organic Apples",
+      "price": 3.99,
+      "description": "Crisp and juicy organic apples, perfect for snacking or baking.",
+      "image": "https://placehold.co/300x200.png",
+      "dataAiHint": "apples fruit",
+      "category": "fruits",
+      "inStock": true,
+      "createdAt": "2026-01-22T23:23:45.326Z",
+      "updatedAt": "2026-01-22T23:23:45.326Z",
+      "quantity": 1
+    }
+  ],
+  "shippingAddress": {
+    "street": "123 Test St",
+    "city": "Test City",
+    "state": "TS",
+    "zipCode": "12345",
+    "country": "Testland"
+  },
+  "billingAddress": {
+    "street": "123 Test St",
+    "city": "Test City",
+    "state": "TS",
+    "zipCode": "12345",
+    "country": "Testland"
+  },
+  "paymentMethod": {
+    "type": "credit_card",
+    "last4": "4242",
+    "brand": "Visa"
+  }
+}
+
+[1A[2K[2026-01-22T23:27:52.086Z] [INFO] [OrderAPI] Response Status: 201 Created
+
+[1A[2K[2026-01-22T23:27:52.087Z] [DEBUG] [OrderAPI] Response Body: {
+  "id": "b6851582-b691-4941-a7c4-b40d8fbf6ce9",
+  "userId": "order-test-user",
+  "items": [
+    {
+      "id": "1",
+      "name": "Organic Apples",
+      "price": 3.99,
+      "description": "Crisp and juicy organic apples, perfect for snacking or baking.",
+      "image": "https://placehold.co/300x200.png",
+      "dataAiHint": "apples fruit",
+      "quantity": 1
+    }
+  ],
+  "totalAmount": 3.99,
+  "status": "pending",
+  "shippingAddress": {
+    "street": "123 Test St",
+    "city": "Test City",
+    "state": "TS",
+    "zipCode": "12345",
+    "country": "Testland"
+  },
+  "billingAddress": {
+    "street": "123 Test St",
+    "city": "Test City",
+    "state": "TS",
+    "zipCode": "12345",
+    "country": "Testland"
+  },
+  "paymentMethod": {
+    "type": "credit_card",
+    "last4": "4242",
+    "brand": "Visa"
+  },
+  "orderDate": "2026-01-22T23:27:52.091Z",
+  "estimatedDelivery": "2026-01-27T23:27:52.091Z",
+  "createdAt": "2026-01-22T23:27:52.091Z",
+  "updatedAt": "2026-01-22T23:27:52.091Z"
+}
+
+[1A[2K[22/35] [api] ΓÇ║ tests\order-service\order.spec.ts:61:9 ΓÇ║ Order Service API Tests ΓÇ║ Order Lifecycle ΓÇ║ should get user orders
+[1A[2K[api] ΓÇ║ tests\order-service\order.spec.ts:61:9 ΓÇ║ Order Service API Tests ΓÇ║ Order Lifecycle ΓÇ║ should get user orders
+[2026-01-22T23:27:52.122Z] [INFO] [OrderAPI] GET Request: http://localhost:3000/api/orders/order-test-user
+
+[1A[2K[2026-01-22T23:27:52.137Z] [INFO] [OrderAPI] Response Status: 200 OK
+
+[1A[2K[2026-01-22T23:27:52.138Z] [DEBUG] [OrderAPI] Response Body: {
+  "orders": [
+    {
+      "id": "b6851582-b691-4941-a7c4-b40d8fbf6ce9",
+      "userId": "order-test-user",
+      "items": [
+        {
+          "id": "1",
+          "name": "Organic Apples",
+          "price": 3.99,
+          "description": "Crisp and juicy organic apples, perfect for snacking or baking.",
+          "image": "https://placehold.co/300x200.png",
+          "dataAiHint": "apples fruit",
+          "quantity": 1
+        }
+      ],
+      "totalAmount": 3.99,
+      "status": "pending",
+      "shippingAddress": {
+        "street": "123 Test St",
+        "city": "Test City",
+        "state": "TS",
+        "zipCode": "12345",
+        "country": "Testland"
+      },
+      "billingAddress": {
+        "street": "123 Test St",
+        "city": "Test City",
+        "state": "TS",
+        "zipCode": "12345",
+        "country": "Testland"
+      },
+      "paymentMethod": {
+        "type": "credit_card",
+        "last4": "4242",
+        "brand": "Visa"
+      },
+      "orderDate": "2026-01-22T23:27:52.091Z",
+      "estimatedDelivery": "2026-01-27T23:27:52.091Z",
+      "createdAt": "2026-01-22T23:27:52.091Z",
+      "updatedAt": "2026-01-22T23:27:52.091Z"
+    },
+    {
+      "id": "600f3cca-8950-468b-a512-e5cb9544c547",
+      "userId": "order-test-user",
+      "items": [
+        {
+          "id": "1",
+          "name": "Organic Apples",
+          "price": 3.99,
+          "description": "Crisp and juicy organic apples, perfect for snacking or baking.",
+          "image": "https://placehold.co/300x200.png",
+          "dataAiHint": "apples fruit",
+          "quantity": 1
+        }
+      ],
+      "totalAmount": 3.99,
+      "status": "pending",
+      "shippingAddress": {
+        "street": "123 Test St",
+        "city": "Test City",
+        "state": "TS",
+        "zipCode": "12345",
+        "country": "Testland"
+      },
+      "billingAddress": {
+        "street": "123 Test St",
+        "city": "Test City",
+        "state": "TS",
+        "zipCode": "12345",
+        "country": "Testland"
+      },
+      "paymentMethod": {
+        "type": "credit_card",
+        "last4": "4242",
+        "brand": "Visa"
+      },
+      "orderDate": "2026-01-22T23:27:20.363Z",
+      "estimatedDelivery": "2026-01-27T23:27:20.363Z",
+      "createdAt": "2026-01-22T23:27:20.363Z",
+      "updatedAt": "2026-01-22T23:27:20.363Z"
+    },
+    {
+      "id": "22f2e016-ebaa-45b4-a8c2-ecf63e33f8b4",
+      "userId": "order-test-user",
+      "items": [
+        {
+          "id": "1",
+          "name": "Organic Apples",
+          "price": 3.99,
+          "description": "Crisp and juicy organic apples, perfect for snacking or baking.",
+          "image": "https://placehold.co/300x200.png",
+          "dataAiHint": "apples fruit",
+          "quantity": 1
+        }
+      ],
+      "totalAmount": 3.99,
+      "status": "pending",
+      "shippingAddress": {
+        "street": "123 Test St",
+        "city": "Test City",
+        "state": "TS",
+        "zipCode": "12345",
+        "country": "Testland"
+      },
+      "billingAddress": {
+        "street": "123 Test St",
+        "city": "Test City",
+        "state": "TS",
+        "zipCode": "12345",
+        "country": "Testland"
+      },
+      "paymentMethod": {
+        "type": "credit_card",
+        "last4": "4242",
+        "brand": "Visa"
+      },
+      "orderDate": "2026-01-22T23:26:49.517Z",
+      "estimatedDelivery": "2026-01-27T23:26:49.517Z",
+      "createdAt": "2026-01-22T23:26:49.517Z",
+      "updatedAt": "2026-01-22T23:26:49.517Z"
+    }
+  ],
+  "total": 3,
+  "page": 1,
+  "limit": 10,
+  "totalPages": 1
+}
+
+[1A[2K[23/35] [api] ΓÇ║ tests\order-service\order.spec.ts:71:9 ΓÇ║ Order Service API Tests ΓÇ║ Order Lifecycle ΓÇ║ should get specific order
+[1A[2K[api] ΓÇ║ tests\order-service\order.spec.ts:71:9 ΓÇ║ Order Service API Tests ΓÇ║ Order Lifecycle ΓÇ║ should get specific order
+[2026-01-22T23:27:52.159Z] [INFO] [OrderAPI] GET Request: http://localhost:3000/api/orders/order-test-user/b6851582-b691-4941-a7c4-b40d8fbf6ce9
+
+[1A[2K[2026-01-22T23:27:52.175Z] [INFO] [OrderAPI] Response Status: 200 OK
+
+[1A[2K[2026-01-22T23:27:52.176Z] [DEBUG] [OrderAPI] Response Body: {
+  "id": "b6851582-b691-4941-a7c4-b40d8fbf6ce9",
+  "userId": "order-test-user",
+  "items": [
+    {
+      "id": "1",
+      "name": "Organic Apples",
+      "price": 3.99,
+      "description": "Crisp and juicy organic apples, perfect for snacking or baking.",
+      "image": "https://placehold.co/300x200.png",
+      "dataAiHint": "apples fruit",
+      "quantity": 1
+    }
+  ],
+  "totalAmount": 3.99,
+  "status": "pending",
+  "shippingAddress": {
+    "street": "123 Test St",
+    "city": "Test City",
+    "state": "TS",
+    "zipCode": "12345",
+    "country": "Testland"
+  },
+  "billingAddress": {
+    "street": "123 Test St",
+    "city": "Test City",
+    "state": "TS",
+    "zipCode": "12345",
+    "country": "Testland"
+  },
+  "paymentMethod": {
+    "type": "credit_card",
+    "last4": "4242",
+    "brand": "Visa"
+  },
+  "orderDate": "2026-01-22T23:27:52.091Z",
+  "estimatedDelivery": "2026-01-27T23:27:52.091Z",
+  "createdAt": "2026-01-22T23:27:52.091Z",
+  "updatedAt": "2026-01-22T23:27:52.091Z"
+}
+
+[1A[2K[24/35] [api] ΓÇ║ tests\order-service\order.spec.ts:81:9 ΓÇ║ Order Service API Tests ΓÇ║ Order Lifecycle ΓÇ║ should update order status
+[1A[2K[api] ΓÇ║ tests\order-service\order.spec.ts:81:9 ΓÇ║ Order Service API Tests ΓÇ║ Order Lifecycle ΓÇ║ should update order status
+[2026-01-22T23:27:52.191Z] [INFO] [OrderAPI] PATCH Request: http://localhost:3000/api/orders/order-test-user/b6851582-b691-4941-a7c4-b40d8fbf6ce9/status
+
+[1A[2K[2026-01-22T23:27:52.191Z] [DEBUG] [OrderAPI] Payload: {
+  "status": "processing"
+}
+
+[1A[2K[2026-01-22T23:27:52.206Z] [INFO] [OrderAPI] Response Status: 404 Not Found
+
+[1A[2K[2026-01-22T23:27:52.207Z] [DEBUG] [OrderAPI] Response Body: {
+  "error": "Route not found"
+}
+
+[1A[2K[2026-01-22T23:27:52.225Z] [INFO] [CartAPI] DELETE Request: http://localhost:3000/api/cart/order-test-user
+
+[1A[2K[2026-01-22T23:27:52.239Z] [INFO] [CartAPI] Response Status: 200 OK
+
+[1A[2K[2026-01-22T23:27:52.240Z] [DEBUG] [CartAPI] Response Body: {
+  "id": "07cd4de3-517d-46f2-b628-b820d7ebfce7",
+  "userId": "order-test-user",
+  "items": [],
+  "totalAmount": 0,
+  "totalItems": 0,
+  "createdAt": "2026-01-22T23:24:22.143Z",
+  "updatedAt": "2026-01-22T23:27:52.250Z"
+}
+
+[1A[2K  4) [api] ΓÇ║ tests\order-service\order.spec.ts:81:9 ΓÇ║ Order Service API Tests ΓÇ║ Order Lifecycle ΓÇ║ should update order status 
+
+    Error: Expected status 200 but got 404
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+    Expected: [32m200[39m
+    Received: [31m404[39m
+
+       at ..\src\pages\BaseAPI.ts:79
+
+      77 |    */
+      78 |   async assertStatus(response: APIResponse, expectedStatus: number) {
+    > 79 |     expect(response.status(), `Expected status ${expectedStatus} but got ${response.status()}`).toBe(expectedStatus);
+         |                                                                                                 ^
+      80 |   }
+      81 |
+      82 |   async assertSuccess(response: APIResponse) {
+        at OrderAPI.assertStatus (D:\Personal\AI Course\daily-challenge\lesson1\my-basket-app\my-basket-api-tests\src\pages\BaseAPI.ts:79:97)
+        at D:\Personal\AI Course\daily-challenge\lesson1\my-basket-app\my-basket-api-tests\tests\order-service\order.spec.ts:85:22
+
+
+[1A[2K[25/35] [api] ΓÇ║ tests\order-service\order.spec.ts:91:9 ΓÇ║ Order Service API Tests ΓÇ║ Order Lifecycle ΓÇ║ should cancel order
+[1A[2K[api] ΓÇ║ tests\order-service\order.spec.ts:91:9 ΓÇ║ Order Service API Tests ΓÇ║ Order Lifecycle ΓÇ║ should cancel order
+[2026-01-22T23:27:53.438Z] [INFO] [ProductAPI] GET Request: http://localhost:3000/api/products
+
+[1A[2K[2026-01-22T23:27:53.477Z] [INFO] [ProductAPI] Response Status: 200 OK
+
+[1A[2K[2026-01-22T23:27:53.479Z] [DEBUG] [ProductAPI] Response Body: {
+  "products": [
+    {
+      "id": "1",
+      "name": "Organic Apples",
+      "price": 3.99,
+      "description": "Crisp and juicy organic apples, perfect for snacking or baking.",
+      "image": "https://placehold.co/300x200.png",
+      "dataAiHint": "apples fruit",
+      "category": "fruits",
+      "inStock": true,
+      "createdAt": "2026-01-22T23:23:45.326Z",
+      "updatedAt": "2026-01-22T23:23:45.326Z"
+    },
+    {
+      "id": "2",
+      "name": "Whole Wheat Bread",
+      "price": 4.49,
+      "description": "Freshly baked whole wheat bread, rich in fiber.",
+      "image": "https://placehold.co/300x200.png",
+      "dataAiHint": "bread bakery",
+      "category": "bakery",
+      "inStock": true,
+      "createdAt": "2026-01-22T23:23:45.326Z",
+      "updatedAt": "2026-01-22T23:23:45.326Z"
+    },
+    {
+      "id": "3",
+      "name": "Free-Range Eggs",
+      "price": 5.99,
+      "description": "A dozen large free-range eggs, great for breakfast.",
+      "image": "https://placehold.co/300x200.png",
+      "dataAiHint": "eggs dairy",
+      "category": "dairy",
+      "inStock": true,
+      "createdAt": "2026-01-22T23:23:45.326Z",
+      "updatedAt": "2026-01-22T23:23:45.326Z"
+    },
+    {
+      "id": "4",
+      "name": "Organic Spinach",
+      "price": 2.99,
+      "description": "A bag of fresh organic spinach, packed with nutrients.",
+      "image": "https://placehold.co/300x200.png",
+      "dataAiHint": "spinach vegetables",
+      "category": "vegetables",
+      "inStock": true,
+      "createdAt": "2026-01-22T23:23:45.326Z",
+      "updatedAt": "2026-01-22T23:23:45.326Z"
+    },
+    {
+      "id": "5",
+      "name": "Almond Milk",
+      "price": 3.79,
+      "description": "Unsweetened almond milk, a great dairy-free alternative.",
+      "image": "https://placehold.co/300x200.png",
+      "dataAiHint": "almond milk",
+      "category": "dairy",
+      "inStock": true,
+      "createdAt": "2026-01-22T23:23:45.326Z",
+      "updatedAt": "2026-01-22T23:23:45.326Z"
+    },
+    {
+      "id": "6",
+      "name": "Chicken Breast",
+      "price": 9.99,
+      "description": "Boneless, skinless chicken breast, lean and versatile.",
+      "image": "https://placehold.co/300x200.png",
+      "dataAiHint": "chicken meat",
+      "category": "meat",
+      "inStock": true,
+      "createdAt": "2026-01-22T23:23:45.326Z",
+      "updatedAt": "2026-01-22T23:23:45.326Z"
+    },
+    {
+      "id": "7",
+      "name": "Brown Rice",
+      "price": 2.49,
+      "description": "Long-grain brown rice, a healthy whole grain option.",
+      "image": "https://placehold.co/300x200.png",
+      "dataAiHint": "rice grains",
+      "category": "grains",
+      "inStock": true,
+      "createdAt": "2026-01-22T23:23:45.326Z",
+      "updatedAt": "2026-01-22T23:23:45.326Z"
+    },
+    {
+      "id": "8",
+      "name": "Greek Yogurt",
+      "price": 4.99,
+      "description": "Creamy Greek yogurt, high in protein and probiotics.",
+      "image": "https://placehold.co/300x200.png",
+      "dataAiHint": "yogurt dairy",
+      "category": "dairy",
+      "inStock": true,
+      "createdAt": "2026-01-22T23:23:45.326Z",
+      "updatedAt": "2026-01-22T23:23:45.326Z"
+    }
+  ],
+  "total": 8,
+  "page": 1,
+  "limit": 10,
+  "totalPages": 1
+}
+
+[1A[2K[2026-01-22T23:27:53.480Z] [INFO] [CartAPI] POST Request: http://localhost:3000/api/cart/order-test-user/items
+
+[1A[2K[2026-01-22T23:27:53.481Z] [DEBUG] [CartAPI] Payload: {
+  "productId": "1",
+  "quantity": 1
+}
+
+[1A[2K[2026-01-22T23:27:53.499Z] [INFO] [CartAPI] Response Status: 200 OK
+
+[1A[2K[2026-01-22T23:27:53.500Z] [DEBUG] [CartAPI] Response Body: {
+  "id": "07cd4de3-517d-46f2-b628-b820d7ebfce7",
+  "userId": "order-test-user",
+  "items": [
+    {
+      "id": "1",
+      "name": "Organic Apples",
+      "price": 3.99,
+      "description": "Crisp and juicy organic apples, perfect for snacking or baking.",
+      "image": "https://placehold.co/300x200.png",
+      "dataAiHint": "apples fruit",
+      "category": "fruits",
+      "inStock": true,
+      "createdAt": "2026-01-22T23:23:45.326Z",
+      "updatedAt": "2026-01-22T23:23:45.326Z",
+      "quantity": 1,
+      "addedAt": "2026-01-22T23:27:53.512Z"
+    }
+  ],
+  "totalAmount": 3.99,
+  "totalItems": 1,
+  "createdAt": "2026-01-22T23:24:22.143Z",
+  "updatedAt": "2026-01-22T23:27:53.512Z"
+}
+
+[1A[2K[26/35] [api] ΓÇ║ tests\order-service\order.spec.ts:103:9 ΓÇ║ Order Service API Tests ΓÇ║ Negative Testing ΓÇ║ should return 404 for non-existent order
+[1A[2K[api] ΓÇ║ tests\order-service\order.spec.ts:103:9 ΓÇ║ Order Service API Tests ΓÇ║ Negative Testing ΓÇ║ should return 404 for non-existent order
+[2026-01-22T23:27:53.537Z] [INFO] [OrderAPI] GET Request: http://localhost:3000/api/orders/order-test-user/non-existent-order
+
+[1A[2K[2026-01-22T23:27:53.553Z] [INFO] [OrderAPI] Response Status: 404 Not Found
+
+[1A[2K[2026-01-22T23:27:53.561Z] [DEBUG] [OrderAPI] Response Body: {
+  "error": "Order not found"
+}
+
+[1A[2K[27/35] [api] ΓÇ║ tests\order-service\order.spec.ts:108:9 ΓÇ║ Order Service API Tests ΓÇ║ Negative Testing ΓÇ║ should fail to update status to invalid value
+[1A[2K[api] ΓÇ║ tests\order-service\order.spec.ts:108:9 ΓÇ║ Order Service API Tests ΓÇ║ Negative Testing ΓÇ║ should fail to update status to invalid value
+[2026-01-22T23:27:53.614Z] [INFO] [CartAPI] DELETE Request: http://localhost:3000/api/cart/order-test-user
+
+[1A[2K[2026-01-22T23:27:53.631Z] [INFO] [CartAPI] Response Status: 200 OK
+
+[1A[2K[2026-01-22T23:27:53.633Z] [DEBUG] [CartAPI] Response Body: {
+  "id": "07cd4de3-517d-46f2-b628-b820d7ebfce7",
+  "userId": "order-test-user",
+  "items": [],
+  "totalAmount": 0,
+  "totalItems": 0,
+  "createdAt": "2026-01-22T23:24:22.143Z",
+  "updatedAt": "2026-01-22T23:27:53.643Z"
+}
+
+[1A[2K[28/35] [api] ΓÇ║ tests\product-service\product.spec.ts:74:9 ΓÇ║ Product Service API Tests ΓÇ║ Negative Testing ΓÇ║ should fail to create product with missing required fields
+[1A[2K[api] ΓÇ║ tests\product-service\product.spec.ts:74:9 ΓÇ║ Product Service API Tests ΓÇ║ Negative Testing ΓÇ║ should fail to create product with missing required fields
+[2026-01-22T23:27:53.659Z] [INFO] [ProductAPI] POST Request: http://localhost:3000/api/products
+
+[1A[2K[2026-01-22T23:27:53.659Z] [DEBUG] [ProductAPI] Payload: {
+  "name": "Incomplete Product"
+}
+
+[1A[2K[2026-01-22T23:27:53.674Z] [INFO] [ProductAPI] Response Status: 400 Bad Request
+
+[1A[2K[2026-01-22T23:27:53.675Z] [DEBUG] [ProductAPI] Response Body: {
+  "error": "Invalid product data",
+  "details": [
+    {
+      "code": "invalid_type",
+      "expected": "number",
+      "received": "undefined",
+      "path": [
+        "price"
+      ],
+      "message": "Required"
+    },
+    {
+      "code": "invalid_type",
+      "expected": "string",
+      "received": "undefined",
+      "path": [
+        "description"
+      ],
+      "message": "Required"
+    },
+    {
+      "code": "invalid_type",
+      "expected": "string",
+      "received": "undefined",
+      "path": [
+        "image"
+      ],
+      "message": "Required"
+    },
+    {
+      "code": "invalid_type",
+      "expected": "string",
+      "received": "undefined",
+      "path": [
+        "dataAiHint"
+      ],
+      "message": "Required"
+    }
+  ]
+}
+
+[1A[2K[29/35] [api] ΓÇ║ tests\product-service\product.spec.ts:84:9 ΓÇ║ Product Service API Tests ΓÇ║ Negative Testing ΓÇ║ should return 404 for non-existent product
+[1A[2K[api] ΓÇ║ tests\product-service\product.spec.ts:84:9 ΓÇ║ Product Service API Tests ΓÇ║ Negative Testing ΓÇ║ should return 404 for non-existent product
+[2026-01-22T23:27:53.702Z] [INFO] [ProductAPI] GET Request: http://localhost:3000/api/products/non-existent-id
+
+[1A[2K[2026-01-22T23:27:53.717Z] [INFO] [ProductAPI] Response Status: 404 Not Found
+
+[1A[2K[2026-01-22T23:27:53.718Z] [DEBUG] [ProductAPI] Response Body: {
+  "error": "Product not found"
+}
+
+[1A[2K[30/35] [api] ΓÇ║ tests\product-service\product.spec.ts:89:9 ΓÇ║ Product Service API Tests ΓÇ║ Negative Testing ΓÇ║ should fail to create product with invalid data types
+[1A[2K[api] ΓÇ║ tests\product-service\product.spec.ts:89:9 ΓÇ║ Product Service API Tests ΓÇ║ Negative Testing ΓÇ║ should fail to create product with invalid data types
+[2026-01-22T23:27:53.738Z] [INFO] [ProductAPI] POST Request: http://localhost:3000/api/products
+
+[1A[2K[2026-01-22T23:27:53.738Z] [DEBUG] [ProductAPI] Payload: {
+  "name": "Invalid Price Product",
+  "description": "Test",
+  "price": "not-a-number",
+  "category": "Electronics",
+  "inStock": true,
+  "image": "http://example.com/image.jpg",
+  "dataAiHint": "test"
+}
+
+[1A[2K[2026-01-22T23:27:53.755Z] [INFO] [ProductAPI] Response Status: 400 Bad Request
+
+[1A[2K[2026-01-22T23:27:53.757Z] [DEBUG] [ProductAPI] Response Body: {
+  "error": "Invalid product data",
+  "details": [
+    {
+      "code": "invalid_type",
+      "expected": "number",
+      "received": "string",
+      "path": [
+        "price"
+      ],
+      "message": "Expected number, received string"
+    }
+  ]
+}
+
+[1A[2K[31/35] [api] ΓÇ║ tests\product-service\product.spec.ts:106:9 ΓÇ║ Product Service API Tests ΓÇ║ Category Management ΓÇ║ should list all categories
+[1A[2K[api] ΓÇ║ tests\product-service\product.spec.ts:106:9 ΓÇ║ Product Service API Tests ΓÇ║ Category Management ΓÇ║ should list all categories
+[2026-01-22T23:27:53.774Z] [INFO] [ProductAPI] GET Request: http://localhost:3000/api/categories
+
+[1A[2K[2026-01-22T23:27:53.787Z] [INFO] [ProductAPI] Response Status: 200 OK
+
+[1A[2K[2026-01-22T23:27:53.789Z] [DEBUG] [ProductAPI] Response Body: {
+  "categories": [
+    "fruits",
+    "bakery",
+    "dairy",
+    "vegetables",
+    "meat",
+    "grains"
+  ]
+}
+
+[1A[2K[32/35] [api] ΓÇ║ tests\product-service\product.spec.ts:24:9 ΓÇ║ Product Service API Tests ΓÇ║ CRUD Operations ΓÇ║ should get product by id
+[1A[2K[api] ΓÇ║ tests\product-service\product.spec.ts:24:9 ΓÇ║ Product Service API Tests ΓÇ║ CRUD Operations ΓÇ║ should get product by id
+[2026-01-22T23:27:53.820Z] [INFO] [ProductAPI] POST Request: http://localhost:3000/api/products
+
+[1A[2K[2026-01-22T23:27:53.820Z] [DEBUG] [ProductAPI] Payload: {
+  "name": "Test Product",
+  "description": "This is a test product",
+  "price": 29.99,
+  "category": "Electronics",
+  "inStock": true,
+  "image": "http://example.com/image.jpg",
+  "dataAiHint": "electronic"
+}
+
+[1A[2K[2026-01-22T23:27:53.834Z] [INFO] [ProductAPI] Response Status: 201 Created
+
+[1A[2K[2026-01-22T23:27:53.836Z] [DEBUG] [ProductAPI] Response Body: {
+  "name": "Test Product",
+  "price": 29.99,
+  "description": "This is a test product",
+  "image": "http://example.com/image.jpg",
+  "dataAiHint": "electronic",
+  "category": "Electronics",
+  "inStock": true,
+  "id": "1769124473846",
+  "createdAt": "2026-01-22T23:27:53.846Z",
+  "updatedAt": "2026-01-22T23:27:53.846Z"
+}
+
+[1A[2K[2026-01-22T23:27:53.860Z] [INFO] [ProductAPI] GET Request: http://localhost:3000/api/products/1769124473846
+
+[1A[2K[2026-01-22T23:27:53.880Z] [INFO] [ProductAPI] Response Status: 200 OK
+
+[1A[2K[2026-01-22T23:27:53.882Z] [DEBUG] [ProductAPI] Response Body: {
+  "name": "Test Product",
+  "price": 29.99,
+  "description": "This is a test product",
+  "image": "http://example.com/image.jpg",
+  "dataAiHint": "electronic",
+  "category": "Electronics",
+  "inStock": true,
+  "id": "1769124473846",
+  "createdAt": "2026-01-22T23:27:53.846Z",
+  "updatedAt": "2026-01-22T23:27:53.846Z"
+}
+
+[1A[2K[33/35] [api] ΓÇ║ tests\product-service\product.spec.ts:35:9 ΓÇ║ Product Service API Tests ΓÇ║ CRUD Operations ΓÇ║ should update product
+[1A[2K[api] ΓÇ║ tests\product-service\product.spec.ts:35:9 ΓÇ║ Product Service API Tests ΓÇ║ CRUD Operations ΓÇ║ should update product
+[2026-01-22T23:27:53.926Z] [INFO] [ProductAPI] PUT Request: http://localhost:3000/api/products/1769124473846
+
+[1A[2K[2026-01-22T23:27:53.926Z] [DEBUG] [ProductAPI] Payload: {
+  "price": 34.99,
+  "inStock": false
+}
+
+[1A[2K[2026-01-22T23:27:53.941Z] [INFO] [ProductAPI] Response Status: 200 OK
+
+[1A[2K[2026-01-22T23:27:53.943Z] [DEBUG] [ProductAPI] Response Body: {
+  "name": "Test Product",
+  "price": 34.99,
+  "description": "This is a test product",
+  "image": "http://example.com/image.jpg",
+  "dataAiHint": "electronic",
+  "category": "Electronics",
+  "inStock": false,
+  "id": "1769124473846",
+  "createdAt": "2026-01-22T23:27:53.846Z",
+  "updatedAt": "2026-01-22T23:27:53.953Z"
+}
+
+[1A[2K[34/35] [api] ΓÇ║ tests\product-service\product.spec.ts:51:9 ΓÇ║ Product Service API Tests ΓÇ║ CRUD Operations ΓÇ║ should list all products
+[1A[2K[api] ΓÇ║ tests\product-service\product.spec.ts:51:9 ΓÇ║ Product Service API Tests ΓÇ║ CRUD Operations ΓÇ║ should list all products
+[2026-01-22T23:27:53.967Z] [INFO] [ProductAPI] GET Request: http://localhost:3000/api/products
+
+[1A[2K[2026-01-22T23:27:53.986Z] [INFO] [ProductAPI] Response Status: 200 OK
+
+[1A[2K[2026-01-22T23:27:53.987Z] [DEBUG] [ProductAPI] Response Body: {
+  "products": [
+    {
+      "id": "1",
+      "name": "Organic Apples",
+      "price": 3.99,
+      "description": "Crisp and juicy organic apples, perfect for snacking or baking.",
+      "image": "https://placehold.co/300x200.png",
+      "dataAiHint": "apples fruit",
+      "category": "fruits",
+      "inStock": true,
+      "createdAt": "2026-01-22T23:23:45.326Z",
+      "updatedAt": "2026-01-22T23:23:45.326Z"
+    },
+    {
+      "id": "2",
+      "name": "Whole Wheat Bread",
+      "price": 4.49,
+      "description": "Freshly baked whole wheat bread, rich in fiber.",
+      "image": "https://placehold.co/300x200.png",
+      "dataAiHint": "bread bakery",
+      "category": "bakery",
+      "inStock": true,
+      "createdAt": "2026-01-22T23:23:45.326Z",
+      "updatedAt": "2026-01-22T23:23:45.326Z"
+    },
+    {
+      "id": "3",
+      "name": "Free-Range Eggs",
+      "price": 5.99,
+      "description": "A dozen large free-range eggs, great for breakfast.",
+      "image": "https://placehold.co/300x200.png",
+      "dataAiHint": "eggs dairy",
+      "category": "dairy",
+      "inStock": true,
+      "createdAt": "2026-01-22T23:23:45.326Z",
+      "updatedAt": "2026-01-22T23:23:45.326Z"
+    },
+    {
+      "id": "4",
+      "name": "Organic Spinach",
+      "price": 2.99,
+      "description": "A bag of fresh organic spinach, packed with nutrients.",
+      "image": "https://placehold.co/300x200.png",
+      "dataAiHint": "spinach vegetables",
+      "category": "vegetables",
+      "inStock": true,
+      "createdAt": "2026-01-22T23:23:45.326Z",
+      "updatedAt": "2026-01-22T23:23:45.326Z"
+    },
+    {
+      "id": "5",
+      "name": "Almond Milk",
+      "price": 3.79,
+      "description": "Unsweetened almond milk, a great dairy-free alternative.",
+      "image": "https://placehold.co/300x200.png",
+      "dataAiHint": "almond milk",
+      "category": "dairy",
+      "inStock": true,
+      "createdAt": "2026-01-22T23:23:45.326Z",
+      "updatedAt": "2026-01-22T23:23:45.326Z"
+    },
+    {
+      "id": "6",
+      "name": "Chicken Breast",
+      "price": 9.99,
+      "description": "Boneless, skinless chicken breast, lean and versatile.",
+      "image": "https://placehold.co/300x200.png",
+      "dataAiHint": "chicken meat",
+      "category": "meat",
+      "inStock": true,
+      "createdAt": "2026-01-22T23:23:45.326Z",
+      "updatedAt": "2026-01-22T23:23:45.326Z"
+    },
+    {
+      "id": "7",
+      "name": "Brown Rice",
+      "price": 2.49,
+      "description": "Long-grain brown rice, a healthy whole grain option.",
+      "image": "https://placehold.co/300x200.png",
+      "dataAiHint": "rice grains",
+      "category": "grains",
+      "inStock": true,
+      "createdAt": "2026-01-22T23:23:45.326Z",
+      "updatedAt": "2026-01-22T23:23:45.326Z"
+    },
+    {
+      "id": "8",
+      "name": "Greek Yogurt",
+      "price": 4.99,
+      "description": "Creamy Greek yogurt, high in protein and probiotics.",
+      "image": "https://placehold.co/300x200.png",
+      "dataAiHint": "yogurt dairy",
+      "category": "dairy",
+      "inStock": true,
+      "createdAt": "2026-01-22T23:23:45.326Z",
+      "updatedAt": "2026-01-22T23:23:45.326Z"
+    },
+    {
+      "name": "Test Product",
+      "price": 34.99,
+      "description": "This is a test product",
+      "image": "http://example.com/image.jpg",
+      "dataAiHint": "electronic",
+      "category": "Electronics",
+      "inStock": false,
+      "id": "1769124473846",
+      "createdAt": "2026-01-22T23:27:53.846Z",
+      "updatedAt": "2026-01-22T23:27:53.953Z"
+    }
+  ],
+  "total": 9,
+  "page": 1,
+  "limit": 10,
+  "totalPages": 1
+}
+
+[1A[2K[35/35] [api] ΓÇ║ tests\product-service\product.spec.ts:61:9 ΓÇ║ Product Service API Tests ΓÇ║ CRUD Operations ΓÇ║ should delete product
+[1A[2K[api] ΓÇ║ tests\product-service\product.spec.ts:61:9 ΓÇ║ Product Service API Tests ΓÇ║ CRUD Operations ΓÇ║ should delete product
+[2026-01-22T23:27:54.016Z] [INFO] [ProductAPI] DELETE Request: http://localhost:3000/api/products/1769124473846
+
+[1A[2K[2026-01-22T23:27:54.030Z] [INFO] [ProductAPI] Response Status: 204 No Content
+
+[1A[2K[2026-01-22T23:27:54.033Z] [INFO] [ProductAPI] GET Request: http://localhost:3000/api/products/1769124473846
+
+[1A[2K[2026-01-22T23:27:54.049Z] [INFO] [ProductAPI] Response Status: 404 Not Found
+
+[1A[2K[2026-01-22T23:27:54.051Z] [DEBUG] [ProductAPI] Response Body: {
+  "error": "Product not found"
+}
+
+[1A[2K  4 failed
+    [api] ΓÇ║ tests\cart-service\cart.spec.ts:36:9 ΓÇ║ Cart Service API Tests ΓÇ║ Cart Operations ΓÇ║ should add item to cart 
+    [api] ΓÇ║ tests\cart-service\cart.spec.ts:48:9 ΓÇ║ Cart Service API Tests ΓÇ║ Cart Operations ΓÇ║ should get user cart 
+    [api] ΓÇ║ tests\cart-service\cart.spec.ts:57:9 ΓÇ║ Cart Service API Tests ΓÇ║ Cart Operations ΓÇ║ should update item quantity 
+    [api] ΓÇ║ tests\order-service\order.spec.ts:81:9 ΓÇ║ Order Service API Tests ΓÇ║ Order Lifecycle ΓÇ║ should update order status 
+  2 skipped
+  29 passed (9.1s)

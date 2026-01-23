@@ -6,6 +6,21 @@ import { z } from 'zod';
 const router = express.Router();
 const orderService = new OrderService();
 
+/**
+ * @swagger
+ * /api/orders/health:
+ *   get:
+ *     summary: Health check
+ *     description: Check if the service is healthy
+ *     tags: [Health]
+ *     responses:
+ *       200:
+ *         description: Service is healthy
+ */
+router.get('/orders/health', (req: Request, res: Response) => {
+  res.json({ status: 'healthy', service: 'order-service', timestamp: new Date().toISOString() });
+});
+
 // Validation schemas
 const AddressSchema = z.object({
   street: z.string().min(1),
@@ -225,9 +240,6 @@ router.post('/orders/:userId/:orderId/cancel', async (req: Request, res: Respons
   }
 });
 
-// Health check
-router.get('/health', (req: Request, res: Response) => {
-  res.json({ status: 'healthy', service: 'order-service', timestamp: new Date().toISOString() });
-});
+// Health check moved to top
 
 export default router;

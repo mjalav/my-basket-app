@@ -5,6 +5,21 @@ import { z } from 'zod';
 const router = express.Router();
 const aiService = new AIService();
 
+/**
+ * @swagger
+ * /api/recommendations/health:
+ *   get:
+ *     summary: Health check
+ *     description: Check if the AI service is healthy
+ *     tags: [Health]
+ *     responses:
+ *       200:
+ *         description: Service is healthy
+ */
+router.get('/recommendations/health', (req: Request, res: Response) => {
+  res.json({ status: 'healthy', service: 'ai-service', timestamp: new Date().toISOString() });
+});
+
 // Validation schemas
 const GrocerySuggestionsSchema = z.object({
   cartItems: z.array(z.string()).default([]),
@@ -124,19 +139,6 @@ router.post('/grocery-suggestions', async (req: Request, res: Response) => {
   }
 });
 
-/**
- * @swagger
- * /api/health:
- *   get:
- *     summary: Health check
- *     description: Check if the AI service is healthy
- *     tags: [Health]
- *     responses:
- *       200:
- *         description: Service is healthy
- */
-router.get('/health', (req: Request, res: Response) => {
-  res.json({ status: 'healthy', service: 'ai-service', timestamp: new Date().toISOString() });
-});
+// Health check moved to top
 
 export default router;

@@ -1,0 +1,373 @@
+
+Running 8 tests using 1 worker
+
+[2026-01-22T23:06:08.415Z] [INFO] [ProductAPI] POST Request: http://localhost:3000/api/products
+[2026-01-22T23:06:08.416Z] [DEBUG] [ProductAPI] Payload: {
+  "name": "Incomplete Product"
+}
+[2026-01-22T23:06:08.468Z] [INFO] [ProductAPI] Response Status: 400 Bad Request
+[2026-01-22T23:06:08.469Z] [DEBUG] [ProductAPI] Response Body: {
+  "error": "Invalid product data",
+  "details": [
+    {
+      "code": "invalid_type",
+      "expected": "number",
+      "received": "undefined",
+      "path": [
+        "price"
+      ],
+      "message": "Required"
+    },
+    {
+      "code": "invalid_type",
+      "expected": "string",
+      "received": "undefined",
+      "path": [
+        "description"
+      ],
+      "message": "Required"
+    },
+    {
+      "code": "invalid_type",
+      "expected": "string",
+      "received": "undefined",
+      "path": [
+        "image"
+      ],
+      "message": "Required"
+    },
+    {
+      "code": "invalid_type",
+      "expected": "string",
+      "received": "undefined",
+      "path": [
+        "dataAiHint"
+      ],
+      "message": "Required"
+    }
+  ]
+}
+  ✓  1 [api] › tests\product-service\product.spec.ts:73:9 › Product Service API Tests › Negative Testing › should fail to create product with missing required fields (75ms)
+[2026-01-22T23:06:08.495Z] [INFO] [ProductAPI] GET Request: http://localhost:3000/api/products/non-existent-id
+[2026-01-22T23:06:08.508Z] [INFO] [ProductAPI] Response Status: 404 Not Found
+[2026-01-22T23:06:08.509Z] [DEBUG] [ProductAPI] Response Body: {
+  "error": "Product not found"
+}
+  ✓  2 [api] › tests\product-service\product.spec.ts:83:9 › Product Service API Tests › Negative Testing › should return 404 for non-existent product (24ms)
+[2026-01-22T23:06:08.533Z] [INFO] [ProductAPI] POST Request: http://localhost:3000/api/products
+[2026-01-22T23:06:08.534Z] [DEBUG] [ProductAPI] Payload: {
+  "name": "Invalid Price Product",
+  "description": "Test",
+  "price": "not-a-number",
+  "category": "Electronics",
+  "inStock": true,
+  "image": "http://example.com/image.jpg",
+  "dataAiHint": "test"
+}
+[2026-01-22T23:06:08.550Z] [INFO] [ProductAPI] Response Status: 400 Bad Request
+[2026-01-22T23:06:08.551Z] [DEBUG] [ProductAPI] Response Body: {
+  "error": "Invalid product data",
+  "details": [
+    {
+      "code": "invalid_type",
+      "expected": "number",
+      "received": "string",
+      "path": [
+        "price"
+      ],
+      "message": "Expected number, received string"
+    }
+  ]
+}
+  ✓  3 [api] › tests\product-service\product.spec.ts:88:9 › Product Service API Tests › Negative Testing › should fail to create product with invalid data types (22ms)
+[2026-01-22T23:06:08.574Z] [INFO] [ProductAPI] GET Request: http://localhost:3000/api/categories
+[2026-01-22T23:06:08.589Z] [INFO] [ProductAPI] Response Status: 404 Not Found
+[2026-01-22T23:06:08.589Z] [DEBUG] [ProductAPI] Response Body: {
+  "error": "Route not found",
+  "path": "/api/categories",
+  "availableServices": [
+    "/api/products",
+    "/api/cart",
+    "/api/orders",
+    "/api/recommendations"
+  ]
+}
+  ✘  4 [api] › tests\product-service\product.spec.ts:105:9 › Product Service API Tests › Category Management › should list all categories (23ms)
+[2026-01-22T23:06:10.154Z] [INFO] [ProductAPI] POST Request: http://localhost:3000/api/products
+[2026-01-22T23:06:10.155Z] [DEBUG] [ProductAPI] Payload: {
+  "name": "Test Product",
+  "description": "This is a test product",
+  "price": 29.99,
+  "category": "Electronics",
+  "inStock": true,
+  "image": "http://example.com/image.jpg",
+  "dataAiHint": "electronic"
+}
+[2026-01-22T23:06:10.203Z] [INFO] [ProductAPI] Response Status: 201 Created
+[2026-01-22T23:06:10.205Z] [DEBUG] [ProductAPI] Response Body: {
+  "name": "Test Product",
+  "price": 29.99,
+  "description": "This is a test product",
+  "image": "http://example.com/image.jpg",
+  "dataAiHint": "electronic",
+  "category": "Electronics",
+  "inStock": true,
+  "id": "1769123170151",
+  "createdAt": "2026-01-22T23:06:10.151Z",
+  "updatedAt": "2026-01-22T23:06:10.151Z"
+}
+[2026-01-22T23:06:10.237Z] [INFO] [ProductAPI] GET Request: http://localhost:3000/api/products/1769123170151
+[2026-01-22T23:06:10.253Z] [INFO] [ProductAPI] Response Status: 200 OK
+[2026-01-22T23:06:10.254Z] [DEBUG] [ProductAPI] Response Body: {
+  "name": "Test Product",
+  "price": 29.99,
+  "description": "This is a test product",
+  "image": "http://example.com/image.jpg",
+  "dataAiHint": "electronic",
+  "category": "Electronics",
+  "inStock": true,
+  "id": "1769123170151",
+  "createdAt": "2026-01-22T23:06:10.151Z",
+  "updatedAt": "2026-01-22T23:06:10.151Z"
+}
+  ✓  5 [api] › tests\product-service\product.spec.ts:24:9 › Product Service API Tests › CRUD Operations › should get product by id (35ms)
+[2026-01-22T23:06:10.283Z] [INFO] [ProductAPI] PUT Request: http://localhost:3000/api/products/1769123170151
+[2026-01-22T23:06:10.283Z] [DEBUG] [ProductAPI] Payload: {
+  "price": 34.99,
+  "inStock": false
+}
+[2026-01-22T23:06:10.300Z] [INFO] [ProductAPI] Response Status: 200 OK
+[2026-01-22T23:06:10.302Z] [DEBUG] [ProductAPI] Response Body: {
+  "name": "Test Product",
+  "price": 34.99,
+  "description": "This is a test product",
+  "image": "http://example.com/image.jpg",
+  "dataAiHint": "electronic",
+  "category": "Electronics",
+  "inStock": false,
+  "id": "1769123170151",
+  "createdAt": "2026-01-22T23:06:10.151Z",
+  "updatedAt": "2026-01-22T23:06:10.256Z"
+}
+  ✓  6 [api] › tests\product-service\product.spec.ts:35:9 › Product Service API Tests › CRUD Operations › should update product (33ms)
+[2026-01-22T23:06:10.320Z] [INFO] [ProductAPI] GET Request: http://localhost:3000/api/products
+[2026-01-22T23:06:10.339Z] [INFO] [ProductAPI] Response Status: 200 OK
+[2026-01-22T23:06:10.340Z] [DEBUG] [ProductAPI] Response Body: {
+  "products": [
+    {
+      "id": "1",
+      "name": "Organic Apples",
+      "price": 3.99,
+      "description": "Crisp and juicy organic apples, perfect for snacking or baking.",
+      "image": "https://placehold.co/300x200.png",
+      "dataAiHint": "apples fruit",
+      "category": "fruits",
+      "inStock": true,
+      "createdAt": "2026-01-22T20:44:27.403Z",
+      "updatedAt": "2026-01-22T20:44:27.403Z"
+    },
+    {
+      "id": "2",
+      "name": "Whole Wheat Bread",
+      "price": 4.49,
+      "description": "Freshly baked whole wheat bread, rich in fiber.",
+      "image": "https://placehold.co/300x200.png",
+      "dataAiHint": "bread bakery",
+      "category": "bakery",
+      "inStock": true,
+      "createdAt": "2026-01-22T20:44:27.403Z",
+      "updatedAt": "2026-01-22T20:44:27.403Z"
+    },
+    {
+      "id": "3",
+      "name": "Free-Range Eggs",
+      "price": 5.99,
+      "description": "A dozen large free-range eggs, great for breakfast.",
+      "image": "https://placehold.co/300x200.png",
+      "dataAiHint": "eggs dairy",
+      "category": "dairy",
+      "inStock": true,
+      "createdAt": "2026-01-22T20:44:27.403Z",
+      "updatedAt": "2026-01-22T20:44:27.403Z"
+    },
+    {
+      "id": "4",
+      "name": "Organic Spinach",
+      "price": 2.99,
+      "description": "A bag of fresh organic spinach, packed with nutrients.",
+      "image": "https://placehold.co/300x200.png",
+      "dataAiHint": "spinach vegetables",
+      "category": "vegetables",
+      "inStock": true,
+      "createdAt": "2026-01-22T20:44:27.403Z",
+      "updatedAt": "2026-01-22T20:44:27.403Z"
+    },
+    {
+      "id": "5",
+      "name": "Almond Milk",
+      "price": 3.79,
+      "description": "Unsweetened almond milk, a great dairy-free alternative.",
+      "image": "https://placehold.co/300x200.png",
+      "dataAiHint": "almond milk",
+      "category": "dairy",
+      "inStock": true,
+      "createdAt": "2026-01-22T20:44:27.403Z",
+      "updatedAt": "2026-01-22T20:44:27.403Z"
+    },
+    {
+      "id": "6",
+      "name": "Chicken Breast",
+      "price": 9.99,
+      "description": "Boneless, skinless chicken breast, lean and versatile.",
+      "image": "https://placehold.co/300x200.png",
+      "dataAiHint": "chicken meat",
+      "category": "meat",
+      "inStock": true,
+      "createdAt": "2026-01-22T20:44:27.403Z",
+      "updatedAt": "2026-01-22T20:44:27.403Z"
+    },
+    {
+      "id": "7",
+      "name": "Brown Rice",
+      "price": 2.49,
+      "description": "Long-grain brown rice, a healthy whole grain option.",
+      "image": "https://placehold.co/300x200.png",
+      "dataAiHint": "rice grains",
+      "category": "grains",
+      "inStock": true,
+      "createdAt": "2026-01-22T20:44:27.403Z",
+      "updatedAt": "2026-01-22T20:44:27.403Z"
+    },
+    {
+      "id": "8",
+      "name": "Greek Yogurt",
+      "price": 4.99,
+      "description": "Creamy Greek yogurt, high in protein and probiotics.",
+      "image": "https://placehold.co/300x200.png",
+      "dataAiHint": "yogurt dairy",
+      "category": "dairy",
+      "inStock": true,
+      "createdAt": "2026-01-22T20:44:27.403Z",
+      "updatedAt": "2026-01-22T20:44:27.403Z"
+    },
+    {
+      "name": "Test Product",
+      "price": 34.99,
+      "description": "This is a test product",
+      "image": "http://example.com/image.jpg",
+      "dataAiHint": "electronic",
+      "category": "Electronics",
+      "inStock": false,
+      "id": "1769122973250",
+      "createdAt": "2026-01-22T23:02:53.250Z",
+      "updatedAt": "2026-01-22T23:02:53.451Z"
+    },
+    {
+      "name": "Test Product",
+      "price": 34.99,
+      "description": "This is a test product",
+      "image": "http://example.com/image.jpg",
+      "dataAiHint": "electronic",
+      "category": "Electronics",
+      "inStock": false,
+      "id": "1769123005178",
+      "createdAt": "2026-01-22T23:03:25.178Z",
+      "updatedAt": "2026-01-22T23:03:25.313Z"
+    }
+  ],
+  "total": 16,
+  "page": 1,
+  "limit": 10,
+  "totalPages": 2
+}
+  ✘  7 [api] › tests\product-service\product.spec.ts:51:9 › Product Service API Tests › CRUD Operations › should list all products (27ms)
+[2026-01-22T23:06:12.578Z] [INFO] [ProductAPI] POST Request: http://localhost:3000/api/products
+[2026-01-22T23:06:12.579Z] [DEBUG] [ProductAPI] Payload: {
+  "name": "Test Product",
+  "description": "This is a test product",
+  "price": 29.99,
+  "category": "Electronics",
+  "inStock": true,
+  "image": "http://example.com/image.jpg",
+  "dataAiHint": "electronic"
+}
+[2026-01-22T23:06:12.629Z] [INFO] [ProductAPI] Response Status: 201 Created
+[2026-01-22T23:06:12.631Z] [DEBUG] [ProductAPI] Response Body: {
+  "name": "Test Product",
+  "price": 29.99,
+  "description": "This is a test product",
+  "image": "http://example.com/image.jpg",
+  "dataAiHint": "electronic",
+  "category": "Electronics",
+  "inStock": true,
+  "id": "1769123172582",
+  "createdAt": "2026-01-22T23:06:12.582Z",
+  "updatedAt": "2026-01-22T23:06:12.582Z"
+}
+[2026-01-22T23:06:12.660Z] [INFO] [ProductAPI] DELETE Request: http://localhost:3000/api/products/1769123172582
+[2026-01-22T23:06:12.677Z] [INFO] [ProductAPI] Response Status: 204 No Content
+  ✘  8 [api] › tests\product-service\product.spec.ts:60:9 › Product Service API Tests › CRUD Operations › should delete product (35ms)
+
+
+  1) [api] › tests\product-service\product.spec.ts:51:9 › Product Service API Tests › CRUD Operations › should list all products 
+
+    Error: [2mexpect([22m[31mreceived[39m[2m).[22mtoBeTruthy[2m()[22m
+
+    Received: [31mfalse[39m
+
+      54 |       
+      55 |       const body = await response.json();
+    > 56 |       expect(Array.isArray(body)).toBeTruthy();
+         |                                   ^
+      57 |       expect(body.length).toBeGreaterThan(0);
+      58 |     });
+      59 |
+        at D:\Personal\AI Course\daily-challenge\lesson1\my-basket-app\my-basket-api-tests\tests\product-service\product.spec.ts:56:35
+
+  2) [api] › tests\product-service\product.spec.ts:60:9 › Product Service API Tests › CRUD Operations › should delete product 
+
+    Error: Expected status 200 but got 204
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+    Expected: [32m200[39m
+    Received: [31m204[39m
+
+       at ..\src\pages\BaseAPI.ts:79
+
+      77 |    */
+      78 |   async assertStatus(response: APIResponse, expectedStatus: number) {
+    > 79 |     expect(response.status(), `Expected status ${expectedStatus} but got ${response.status()}`).toBe(expectedStatus);
+         |                                                                                                 ^
+      80 |   }
+      81 |
+      82 |   async assertSuccess(response: APIResponse) {
+        at ProductAPI.assertStatus (D:\Personal\AI Course\daily-challenge\lesson1\my-basket-app\my-basket-api-tests\src\pages\BaseAPI.ts:79:97)
+        at D:\Personal\AI Course\daily-challenge\lesson1\my-basket-app\my-basket-api-tests\tests\product-service\product.spec.ts:64:24
+
+  3) [api] › tests\product-service\product.spec.ts:105:9 › Product Service API Tests › Category Management › should list all categories 
+
+    Error: Expected status 200 but got 404
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+    Expected: [32m200[39m
+    Received: [31m404[39m
+
+       at ..\src\pages\BaseAPI.ts:79
+
+      77 |    */
+      78 |   async assertStatus(response: APIResponse, expectedStatus: number) {
+    > 79 |     expect(response.status(), `Expected status ${expectedStatus} but got ${response.status()}`).toBe(expectedStatus);
+         |                                                                                                 ^
+      80 |   }
+      81 |
+      82 |   async assertSuccess(response: APIResponse) {
+        at ProductAPI.assertStatus (D:\Personal\AI Course\daily-challenge\lesson1\my-basket-app\my-basket-api-tests\src\pages\BaseAPI.ts:79:97)
+        at D:\Personal\AI Course\daily-challenge\lesson1\my-basket-app\my-basket-api-tests\tests\product-service\product.spec.ts:107:24
+
+  3 failed
+    [api] › tests\product-service\product.spec.ts:51:9 › Product Service API Tests › CRUD Operations › should list all products 
+    [api] › tests\product-service\product.spec.ts:60:9 › Product Service API Tests › CRUD Operations › should delete product 
+    [api] › tests\product-service\product.spec.ts:105:9 › Product Service API Tests › Category Management › should list all categories 
+  5 passed (5.5s)

@@ -9,7 +9,7 @@ export class ProductServiceClient {
 
   async checkHealth(): Promise<boolean> {
     try {
-      const response = await axios.get(`${PRODUCT_SERVICE_URL}/api/health`, {
+      const response = await axios.get(`${PRODUCT_SERVICE_URL}/api/products/health`, {
         timeout: this.healthCheckTimeout,
       });
       return response.status === 200;

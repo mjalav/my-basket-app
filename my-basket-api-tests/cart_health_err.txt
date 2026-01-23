@@ -1,0 +1,101 @@
+
+Running 4 tests using 4 workers
+
+[2026-01-22T23:11:11.258Z] [INFO] [CartAPI] GET Request: http://localhost:3000/api/cart/health/live
+[2026-01-22T23:11:11.267Z] [INFO] [CartAPI] GET Request: http://localhost:3000/api/cart/health
+[2026-01-22T23:11:11.282Z] [INFO] [CartAPI] GET Request: http://localhost:3000/api/cart/health/ready
+[2026-01-22T23:11:11.315Z] [INFO] [CartAPI] GET Request: http://localhost:3000/api/cart/health
+[2026-01-22T23:11:11.359Z] [INFO] [CartAPI] Response Status: 404 Not Found
+[2026-01-22T23:11:11.362Z] [DEBUG] [CartAPI] Response Body: {
+  "error": "Route not found"
+}
+[2026-01-22T23:11:11.365Z] [INFO] [CartAPI] Response Status: 200 OK
+[2026-01-22T23:11:11.368Z] [DEBUG] [CartAPI] Response Body: {
+  "id": "3aabf356-783f-4c92-a75d-22fb8005e78c",
+  "userId": "health",
+  "items": [],
+  "totalAmount": 0,
+  "totalItems": 0,
+  "createdAt": "2026-01-22T20:57:03.173Z",
+  "updatedAt": "2026-01-22T20:57:03.173Z"
+}
+[2026-01-22T23:11:11.398Z] [INFO] [CartAPI] Response Status: 404 Not Found
+[2026-01-22T23:11:11.401Z] [DEBUG] [CartAPI] Response Body: {
+  "error": "Route not found"
+}
+  ✘  2 [api] › tests\cart-service\health.spec.ts:5:7 › Cart Service Health Checks › Liveness check should return 200 Healthy (150ms)
+[2026-01-22T23:11:11.433Z] [INFO] [CartAPI] Response Status: 200 OK
+[2026-01-22T23:11:11.436Z] [DEBUG] [CartAPI] Response Body: {
+  "id": "3aabf356-783f-4c92-a75d-22fb8005e78c",
+  "userId": "health",
+  "items": [],
+  "totalAmount": 0,
+  "totalItems": 0,
+  "createdAt": "2026-01-22T20:57:03.173Z",
+  "updatedAt": "2026-01-22T20:57:03.173Z"
+}
+  ✘  1 [api] › tests\cart-service\health.spec.ts:39:7 › Cart Service Health Checks › Health check should include detailed status and response times (157ms)
+  ✘  3 [api] › tests\cart-service\health.spec.ts:15:7 › Cart Service Health Checks › Readiness check should return 200 when all dependencies are healthy (181ms)
+  ✓  4 [api] › tests\cart-service\health.spec.ts:55:7 › Cart Service Health Checks › Health check should include resource metrics (158ms)
+
+
+  1) [api] › tests\cart-service\health.spec.ts:5:7 › Cart Service Health Checks › Liveness check should return 200 Healthy 
+
+    Error: Expected status 200 but got 404
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+    Expected: [32m200[39m
+    Received: [31m404[39m
+
+       at ..\src\pages\BaseAPI.ts:79
+
+      77 |    */
+      78 |   async assertStatus(response: APIResponse, expectedStatus: number) {
+    > 79 |     expect(response.status(), `Expected status ${expectedStatus} but got ${response.status()}`).toBe(expectedStatus);
+         |                                                                                                 ^
+      80 |   }
+      81 |
+      82 |   async assertSuccess(response: APIResponse) {
+        at CartAPI.assertStatus (D:\Personal\AI Course\daily-challenge\lesson1\my-basket-app\my-basket-api-tests\src\pages\BaseAPI.ts:79:97)
+        at D:\Personal\AI Course\daily-challenge\lesson1\my-basket-app\my-basket-api-tests\tests\cart-service\health.spec.ts:7:19
+
+  2) [api] › tests\cart-service\health.spec.ts:15:7 › Cart Service Health Checks › Readiness check should return 200 when all dependencies are healthy › Check readiness status 
+
+    Error: [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+    Expected: [32m200[39m
+    Received: [31m404[39m
+
+      32 |         });
+      33 |       } else {
+    > 34 |         expect(response.status()).toBe(200);
+         |                                   ^
+      35 |       }
+      36 |     });
+      37 |   });
+        at D:\Personal\AI Course\daily-challenge\lesson1\my-basket-app\my-basket-api-tests\tests\cart-service\health.spec.ts:34:35
+        at D:\Personal\AI Course\daily-challenge\lesson1\my-basket-app\my-basket-api-tests\tests\cart-service\health.spec.ts:18:16
+
+  3) [api] › tests\cart-service\health.spec.ts:39:7 › Cart Service Health Checks › Health check should include detailed status and response times 
+
+    Error: [2mexpect([22m[31mreceived[39m[2m).[22mtoBeDefined[2m()[22m
+
+    Received: [31mundefined[39m
+
+      42 |     
+      43 |     const body = await response.json();
+    > 44 |     expect(body.timestamp).toBeDefined();
+         |                            ^
+      45 |     
+      46 |     if (body.checks?.dependencies) {
+      47 |       for (const dep of body.checks.dependencies) {
+        at D:\Personal\AI Course\daily-challenge\lesson1\my-basket-app\my-basket-api-tests\tests\cart-service\health.spec.ts:44:28
+
+  3 failed
+    [api] › tests\cart-service\health.spec.ts:5:7 › Cart Service Health Checks › Liveness check should return 200 Healthy 
+    [api] › tests\cart-service\health.spec.ts:15:7 › Cart Service Health Checks › Readiness check should return 200 when all dependencies are healthy 
+    [api] › tests\cart-service\health.spec.ts:39:7 › Cart Service Health Checks › Health check should include detailed status and response times 
+  1 passed (2.7s)
+
+[36m  Serving HTML report at http://localhost:52235. Press Ctrl+C to quit.[39m
