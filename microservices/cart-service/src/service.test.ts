@@ -1,4 +1,6 @@
+import { faker } from '@faker-js/faker';
 import { CartService } from './service';
+
 import { ProductServiceClient } from './product-client';
 import { Product, Cart, CartItem } from './types';
 
@@ -46,7 +48,8 @@ describe('CartService', () => {
   describe('addToCart', () => {
     test('should add a valid product to the cart', async () => {
       // Arrange
-      const userId = 'user-1';
+      const userId = faker.datatype.uuid();
+
       const productId = 'product-1';
       const quantity = 2;
 
@@ -67,7 +70,8 @@ describe('CartService', () => {
 
     test('should update quantity if product already exists in cart', async () => {
       // Arrange
-      const userId = 'user-1';
+      const userId = faker.datatype.uuid();
+
       const productId = 'product-1';
 
       mockProductClient.getProduct.mockResolvedValue(mockProduct);
@@ -84,7 +88,8 @@ describe('CartService', () => {
 
     test('should calculate totalAmount rounded to 2 decimal places', async () => {
       // Arrange
-      const userId = 'user-1';
+      const userId = faker.datatype.uuid();
+
       const productId = 'product-1';
       const quantity = 1;
 
@@ -102,7 +107,8 @@ describe('CartService', () => {
   describe('updateCartItem', () => {
     test('should update cart item quantity correctly', async () => {
       // Arrange
-      const userId = 'user-1';
+      const userId = faker.datatype.uuid();
+
       const productId = 'product-1';
 
       mockProductClient.getProduct.mockResolvedValue(mockProduct);
@@ -118,7 +124,8 @@ describe('CartService', () => {
 
     test('should calculate totalAmount correctly with multiple items', async () => {
       // Arrange
-      const userId = 'user-1';
+      const userId = faker.datatype.uuid();
+
 
       mockProductClient.getProduct
         .mockResolvedValueOnce(mockProduct)
@@ -139,7 +146,8 @@ describe('CartService', () => {
   describe('floating point precision', () => {
     test('should handle floating point precision when adding 3 items priced at 10.99', async () => {
       // Arrange
-      const userId = 'user-1';
+      const userId = faker.datatype.uuid();
+
       const productId = 'product-2';
       const quantity = 3;
 
@@ -162,7 +170,8 @@ describe('CartService', () => {
 
     test('should maintain precision with complex calculations', async () => {
       // Arrange
-      const userId = 'user-1';
+      const userId = faker.datatype.uuid();
+
 
       mockProductClient.getProduct.mockResolvedValue(mockExpensiveProduct);
 
@@ -180,7 +189,8 @@ describe('CartService', () => {
   describe('removeFromCart', () => {
     test('Manual: should completely remove an item and recalculate totals', async () => {
       // Arrange
-      const userId = 'user-1';
+      const userId = faker.datatype.uuid();
+
       mockProductClient.getProduct
         .mockResolvedValueOnce(mockProduct)
         .mockResolvedValueOnce(mockExpensiveProduct);
@@ -200,7 +210,8 @@ describe('CartService', () => {
 
     test('Copilot: should remove product from items array and update totalItems and totalAmount correctly', async () => {
       // Arrange
-      const userId = 'user-test-ai';
+      const userId = faker.datatype.uuid();
+
       const item1 = { ...mockProduct, id: 'item-1', price: 10.00 };
       const item2 = { ...mockProduct, id: 'item-2', price: 20.00 };
       
@@ -227,7 +238,8 @@ describe('CartService', () => {
   describe('edge cases', () => {
     test('should handle zero quantity updates', async () => {
       // Arrange
-      const userId = 'user-1';
+      const userId = faker.datatype.uuid();
+
       const productId = 'product-1';
 
       mockProductClient.getProduct.mockResolvedValue(mockProduct);
@@ -243,7 +255,8 @@ describe('CartService', () => {
 
     test('should throw error when updating non-existent item in cart', async () => {
       // Arrange
-      const userId = 'user-1';
+      const userId = faker.datatype.uuid();
+
       const nonExistentProductId = 'non-existent-product';
 
       // Act & Assert
