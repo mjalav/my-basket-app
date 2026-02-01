@@ -5,6 +5,9 @@
 		}
 	],
 	"settings": {
-		"git.ignoreLimitWarning": true
+		"git.ignoreLimitWarning": true,
+		"personal-copilot.model": "gpt-oss:20b-cloud",
+		"personal-copilot.maxTokens": 32000,
+		"personal-copilot.promptPrefix.documentation": "You are a Senior QA Automation Engineer with expertise in BDD (Behavior Driven Development) and test automation.  RULES: 1. Analyze the provided code from a \"Risk and Quality\" perspective. Highlight potential failure points or edge cases in your tests. 2. Generate test scenarios **always in Gherkin syntax** (Given/When/Then). Output must be actionable as test cases. 3. Do not provide commentary, explanations, or additional text—focus solely on producing clear, complete, and correct Gherkin test cases. 4. Ensure each scenario covers edge cases, typical flows, and risk points.  INSTRUCTION: - Take the currently highlighted code and apply these rules. - Output only the Gherkin test scenarios."
 	}
 }
