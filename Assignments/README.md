@@ -28,6 +28,12 @@ This folder contains assignments, reports, and documentation for my **AI Course*
 - [04- 004- walkthrough.md](04-%20004-%20walkthrough.md) - Verified walkthrough of fixes and stabilization.
 - [04- 005- README.md](04-%20005-%20README.md) - Documentation for the new `my-basket-api-tests` module.
 
+### Phase 5: AI Assistant & Local LLM Optimization
+- [06 - 002 - Challenge 2.1.4.md](06%20-%20002%20-%20Challenge%202.1.4.md) - GitHub Copilot for Test Automation.
+- [06 - 003 - Challenge 2.2.4.md](06%20-%20003%20-%20Challenge%202.2.4.md) - Local vs Cloud Model Comparison.
+- [06 - 004 - Challenge 2.3.4.md](06%20-%20004%20-%20Challenge%202.3.4.md) - Gherkin-Only Local LLM Config.
+- [06 - 005 - Challenge 2.4.4.md](06%20-%20005%20-%20Challenge%202.4.4.md) - Quality Audit Day (Local AI Guard).
+
 ## 🛠️ Project Scope
 The work documented here covers the enhancement of the **Cart Service**, specifically focusing on:
 - **Resilience**: Implementing timeouts, error categorization, and dependency validation.
