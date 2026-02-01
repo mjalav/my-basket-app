@@ -177,6 +177,53 @@ describe('CartService', () => {
     });
   });
 
+  describe('removeFromCart', () => {
+    test('Manual: should completely remove an item and recalculate totals', async () => {
+      // Arrange
+      const userId = 'user-1';
+      mockProductClient.getProduct
+        .mockResolvedValueOnce(mockProduct)
+        .mockResolvedValueOnce(mockExpensiveProduct);
+
+      await cartService.addToCart(userId, mockProduct.id, 2);
+      await cartService.addToCart(userId, mockExpensiveProduct.id, 1);
+
+      // Act
+      const cart = await cartService.removeFromCart(userId, mockProduct.id);
+
+      // Assert
+      expect(cart.items).toHaveLength(1);
+      expect(cart.items[0].id).toBe(mockExpensiveProduct.id);
+      expect(cart.totalItems).toBe(1);
+      expect(cart.totalAmount).toBe(10.99);
+    });
+
+    test('Copilot: should remove product from items array and update totalItems and totalAmount correctly', async () => {
+      // Arrange
+      const userId = 'user-test-ai';
+      const item1 = { ...mockProduct, id: 'item-1', price: 10.00 };
+      const item2 = { ...mockProduct, id: 'item-2', price: 20.00 };
+      
+      mockProductClient.getProduct
+        .mockResolvedValueOnce(item1)
+        .mockResolvedValueOnce(item2);
+
+      await cartService.addToCart(userId, item1.id, 3); // total: 30.00, items: 3
+      await cartService.addToCart(userId, item2.id, 2); // total: 40.00, items: 2 -> grand total: 70.00, items: 5
+
+      // Act
+      const updatedCart = await cartService.removeFromCart(userId, 'item-1');
+
+      // Assert
+      expect(updatedCart.items.find(i => i.id === 'item-1')).toBeUndefined();
+      expect(updatedCart.items).toHaveLength(1);
+      expect(updatedCart.items[0].id).toBe('item-2');
+      expect(updatedCart.totalItems).toBe(2);
+      expect(updatedCart.totalAmount).toBe(40.00);
+      expect(updatedCart.updatedAt).toBeInstanceOf(Date);
+    });
+  });
+
   describe('edge cases', () => {
     test('should handle zero quantity updates', async () => {
       // Arrange
