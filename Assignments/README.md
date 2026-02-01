@@ -34,6 +34,9 @@ This folder contains assignments, reports, and documentation for my **AI Course*
 - [06 - 004 - Challenge 2.3.4.md](06%20-%20004%20-%20Challenge%202.3.4.md) - Gherkin-Only Local LLM Config.
 - [06 - 005 - Challenge 2.4.4.md](06%20-%20005%20-%20Challenge%202.4.4.md) - Quality Audit Day (Local AI Guard).
 
+### Phase 6: Code Quality & Deep Cleaning
+- [07 - 001 - 2.5.3.md](07%20-%20001%20-%202.5.3.md) - The Deep Clean (Quality Audit & Refactoring).
+
 ## 🛠️ Project Scope
 The work documented here covers the enhancement of the **Cart Service**, specifically focusing on:
 - **Resilience**: Implementing timeouts, error categorization, and dependency validation.
