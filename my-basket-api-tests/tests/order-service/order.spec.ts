@@ -1,4 +1,5 @@
 import { test, expect } from '../../src/fixtures/api-fixtures';
+import { faker } from '@faker-js/faker';
 
 test.describe('Order Service API Tests', () => {
   const userId = 'order-test-user';
@@ -78,14 +79,36 @@ test.describe('Order Service API Tests', () => {
       expect(body.id).toBe(orderId);
     });
 
-    test('should update order status', async ({ orderApi }) => {
-      test.skip(!orderId, 'Skipping as order was not created');
+    test('should update order status', async ({ orderApi, productApi, cartApi }) => {
+      // Arrange: Independent setup for this test
+      const localUserId = `order-update-test-${faker.string.uuid()}`;
+      const prodResp = await productApi.getAllProducts();
+      const prodBody = await prodResp.json();
+      const localProduct = prodBody.products[0];
       
-      const response = await orderApi.updateOrderStatus(userId, orderId, 'confirmed');
+      await cartApi.addItem(localUserId, localProduct.id, 1);
+      
+      const orderPayload = {
+        items: [{ ...localProduct, quantity: 1 }],
+        shippingAddress: address,
+        billingAddress: address,
+        paymentMethod: paymentMethod
+      };
+      
+      const createResp = await orderApi.createOrder(localUserId, orderPayload);
+      const createBody = await createResp.json();
+      const localOrderId = createBody.id;
+
+      // Act
+      const response = await orderApi.updateOrderStatus(localUserId, localOrderId, 'confirmed');
       await orderApi.assertStatus(response, 200);
       
+      // Assert
       const body = await response.json();
       expect(body.status).toBe('confirmed');
+
+      // Cleanup
+      await cartApi.clearCart(localUserId);
     });
 
     test('should cancel order', async ({ orderApi }) => {

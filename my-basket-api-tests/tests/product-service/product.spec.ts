@@ -1,5 +1,6 @@
 import { test, expect } from '../../src/fixtures/api-fixtures';
 import { CreateProductRequest } from '../../src/types/api';
+import { faker } from '@faker-js/faker';
 
 test.describe('Product Service API Tests', () => {
   let createdProductId: string;
@@ -33,19 +34,37 @@ test.describe('Product Service API Tests', () => {
     });
 
     test('should update product', async ({ productApi }) => {
-      test.skip(!createdProductId, 'Skipping as product was not created');
+      // Arrange: Independent setup for this test
+      const newProduct = {
+        name: `${faker.commerce.productName()} - Update Test`,
+        description: 'Test Description',
+        price: 10.99,
+        category: 'Electronics',
+        inStock: true,
+        image: 'http://example.com/test.jpg',
+        dataAiHint: 'test'
+      };
       
+      const createResp = await productApi.createProduct(newProduct);
+      const createBody = await createResp.json();
+      const localProductId = createBody.id;
+
       const updateData = {
         price: 34.99,
         inStock: false
       };
 
-      const response = await productApi.updateProduct(createdProductId, updateData);
+      // Act
+      const response = await productApi.updateProduct(localProductId, updateData);
       await productApi.assertStatus(response, 200);
       
+      // Assert
       const body = await response.json();
       expect(body.price).toBe(34.99);
       expect(body.inStock).toBe(false);
+
+      // Cleanup
+      await productApi.deleteProduct(localProductId);
     });
 
     test('should list all products', async ({ productApi }) => {

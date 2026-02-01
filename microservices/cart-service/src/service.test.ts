@@ -125,21 +125,54 @@ describe('CartService', () => {
     test('should calculate totalAmount correctly with multiple items', async () => {
       // Arrange
       const userId = faker.datatype.uuid();
+      
+      const product1Id = faker.datatype.uuid();
+      const product1Price = parseFloat(faker.commerce.price(10, 50));
+      const product1: Product = {
+        id: product1Id,
+        name: faker.commerce.productName(),
+        price: product1Price,
+        description: faker.commerce.productDescription(),
+        image: faker.image.imageUrl(),
+        dataAiHint: faker.lorem.word()
+      };
 
+      const product2Id = faker.datatype.uuid();
+      const product2Price = parseFloat(faker.commerce.price(5, 20));
+      const product2: Product = {
+        id: product2Id,
+        name: faker.commerce.productName(),
+        price: product2Price,
+        description: faker.commerce.productDescription(),
+        image: faker.image.imageUrl(),
+        dataAiHint: faker.lorem.word()
+      };
 
-      mockProductClient.getProduct
-        .mockResolvedValueOnce(mockProduct)
-        .mockResolvedValueOnce(mockExpensiveProduct);
+      // Explicitly mock based on product ID to avoid reliance on call order
+      mockProductClient.getProduct.mockImplementation(async (id) => {
+        if (id === product1Id) return product1;
+        if (id === product2Id) return product2;
+        throw new Error('Product not found in mock');
+      });
 
-      await cartService.addToCart(userId, 'product-1', 2);
-      await cartService.addToCart(userId, 'product-2', 1);
+      const qty1 = 3;
+      const qty2 = 1;
+      const newQty1 = 2; // update from 3 to 2
+
+      await cartService.addToCart(userId, product1Id, qty1);
+      await cartService.addToCart(userId, product2Id, qty2);
 
       // Act
-      const cart = await cartService.updateCartItem(userId, 'product-1', 3);
+      const cart = await cartService.updateCartItem(userId, product1Id, newQty1);
 
       // Assert
       expect(cart.items).toHaveLength(2);
-      expect(cart.totalAmount).toBe(100.96); // (29.99 * 3) + (10.99 * 1) = 100.96
+      
+      const expectedTotal = Number(((product1Price * newQty1) + (product2Price * qty2)).toFixed(2));
+      expect(cart.totalAmount).toBe(expectedTotal);
+      
+      const item1 = cart.items.find(i => i.id === product1Id);
+      expect(item1?.quantity).toBe(newQty1);
     });
   });
 
