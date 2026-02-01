@@ -6,8 +6,8 @@ export class CartService {
   private carts: Map<string, Cart> = new Map();
   private productClient: ProductServiceClient;
 
-  constructor() {
-    this.productClient = new ProductServiceClient();
+  constructor(productClient?: ProductServiceClient) {
+    this.productClient = productClient || new ProductServiceClient();
   }
 
   async getOrCreateCart(userId: string): Promise<Cart> {
