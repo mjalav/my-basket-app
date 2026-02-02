@@ -8,7 +8,8 @@ export function getUserId(): string {
   
   let userId = localStorage.getItem(USER_ID_KEY);
   if (!userId) {
-    userId = `user_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`;
+    // Security Audit: Replaced Math.random() with crypto.randomUUID() for CSP/Identity compliance
+    userId = `user_${Date.now()}_${crypto.randomUUID().substring(0, 8)}`;
     localStorage.setItem(USER_ID_KEY, userId);
   }
   return userId;

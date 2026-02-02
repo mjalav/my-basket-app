@@ -22,7 +22,7 @@ export class ResponseValidator {
   ): boolean {
     const headers = response.headers();
     return requiredHeaders.every(header => 
-      headers.hasOwnProperty(header.toLowerCase())
+      Object.prototype.hasOwnProperty.call(headers, header.toLowerCase())
     );
   }
 
