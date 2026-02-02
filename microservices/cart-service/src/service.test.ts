@@ -1,4 +1,5 @@
 import { faker } from '@faker-js/faker';
+import { jest, describe, test, expect, beforeEach } from '@jest/globals';
 import { CartService } from './service';
 
 import { ProductServiceClient } from './product-client';

@@ -4,6 +4,15 @@
 
 echo "🚀 Starting microservices in development mode..."
 
+# Check if 1Password CLI is available
+if command -v op &> /dev/null; then
+    echo "🔐 1Password CLI detected. Secrets will be injected from vault."
+    OP_PREFIX="op run --env-file=\"../../.env.local\" --"
+else
+    echo "⚠️  1Password CLI not found. Using local environment only."
+    OP_PREFIX=""
+fi
+
 # Kill any existing processes on the ports
 echo "🔄 Killing existing processes..."
 lsof -ti:3000,3001,3002,3003,3004 | xargs kill -9 2>/dev/null || true
@@ -17,7 +26,7 @@ start_service() {
     echo "📦 Starting $service_name on port $port..."
     cd "$service_path"
     npm install &> /dev/null
-    npm run dev &
+    $OP_PREFIX npm run dev &
     cd - > /dev/null
 }
 

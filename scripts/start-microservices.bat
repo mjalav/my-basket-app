@@ -4,6 +4,17 @@ setlocal enabledelayedexpansion
 
 echo 🚀 Starting microservices in development mode...
 
+
+REM Check if 1Password CLI is available
+where op >nul 2>nul
+if %ERRORLEVEL% EQU 0 (
+    echo 🔐 1Password CLI detected. Secrets will be injected from vault.
+    set "OP_PREFIX=op run --env-file=..\..\\.env.local -- "
+) else (
+    echo ⚠️  1Password CLI not found. Using local environment only.
+    set "OP_PREFIX="
+)
+
 REM Kill any existing processes on the ports
 echo 🔄 Killing existing processes...
 for %%p in (3000,3001,3002,3003,3004) do (
@@ -13,21 +24,21 @@ for %%p in (3000,3001,3002,3003,3004) do (
 )
 
 REM Start all services
+
 echo 📦 Starting Product Service on port 3001...
-start "Product Service" cmd /k "cd microservices\product-service && npm install && npm run dev"
+start "Product Service" cmd /k "cd microservices\product-service && npm install && %OP_PREFIX%npm run dev"
 
 echo 📦 Starting Cart Service on port 3002...
-start "Cart Service" cmd /k "cd microservices\cart-service && npm install && npm run dev"
+start "Cart Service" cmd /k "cd microservices\cart-service && npm install && %OP_PREFIX%npm run dev"
 
 echo 📦 Starting Order Service on port 3003...
-start "Order Service" cmd /k "cd microservices\order-service && npm install && npm run dev"
+start "Order Service" cmd /k "cd microservices\order-service && npm install && %OP_PREFIX%npm run dev"
 
 echo 📦 Starting AI Service on port 3004...
-start "AI Service" cmd /k "cd microservices\ai-service && npm install && npm run dev"
+start "AI Service" cmd /k "cd microservices\ai-service && npm install && %OP_PREFIX%npm run dev"
 
 echo 📦 Starting API Gateway on port 3000...
-start "API Gateway" cmd /k "cd microservices\api-gateway && npm install && npm run dev"
-
+start "API Gateway" cmd /k "cd microservices\api-gateway && npm install && %OP_PREFIX%npm run dev"
 echo ⏳ Waiting for services to start up...
 timeout /t 10 >nul
 

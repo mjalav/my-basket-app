@@ -78,6 +78,8 @@ services:
     environment:
       - NODE_ENV=development
       - PORT=3004
+    env_file:
+      - .env.local
     networks:
       - microservices-network
 

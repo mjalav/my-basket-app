@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback } from "react";
 import { useCart } from "@/contexts/ApiCartContext";
 import { apiClient } from "@/lib/api/client";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -14,16 +14,7 @@ export function GrocerySuggestions() {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
-  useEffect(() => {
-    if (cartItems && cartItems.length > 0) {
-      fetchSuggestions();
-    } else {
-      setSuggestions([]);
-    }
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [cartItems]);
-
-  const fetchSuggestions = async () => {
+  const fetchSuggestions = useCallback(async () => {
     if (!cartItems || cartItems.length === 0) return;
     
     setIsLoading(true);
@@ -39,7 +30,15 @@ export function GrocerySuggestions() {
     } finally {
       setIsLoading(false);
     }
-  };
+  }, [cartItems]);
+
+  useEffect(() => {
+    if (cartItems && cartItems.length > 0) {
+      fetchSuggestions();
+    } else {
+      setSuggestions([]);
+    }
+  }, [cartItems, fetchSuggestions]);
 
   if (!cartItems || cartItems.length === 0) {
     return null; 

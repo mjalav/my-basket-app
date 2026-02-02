@@ -4,8 +4,8 @@
   "description": "Comprehensive Playwright API tests for My Basket App",
   "main": "index.js",
   "scripts": {
-    "test": "playwright test",
-    "test:dev": "BASE_URL=http://localhost:3000 playwright test",
+    "test": "node ../scripts/run-with-op.js playwright test",
+    "test:dev": "node ../scripts/run-with-op.js playwright test",
     "test:staging": "BASE_URL=https://staging.api.mybasket.com playwright test",
     "test:prod": "BASE_URL=https://api.mybasket.com playwright test",
     "test:report": "playwright show-report"
