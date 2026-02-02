@@ -68,6 +68,21 @@ File: `src/tests/existing.test.ts` - Intentionally created with all rule violati
 - **Thinking Process**: AI assistants like Copilot and Cursor can inadvertently ingest sensitive logic or keys from open files and history. By excluding `.env`, `.pem`, and `secrets.*` files at both the IDE level (`settings.json`) and the plugin level (`.copilotignore`), we ensure that these files are never visible to the LLM context.
 - **Action**: All team members must pull this file to ensure their AI assistants respect these boundaries.
 
+**File: [.copilotignore](../.copilotignore)**
+```ignore
+**/.env*
+**/*.env
+**/secrets/**
+**/credentials/**
+**/*.pem
+**/*.key
+node_modules/
+dist/
+.git/
+test-results/
+playwright-report/
+```
+
 ### Day 3-5: Mandate a Secrets Manager (1Password CLI)
 - **Implemented**: Adopted **1Password CLI** for secure vaulting of production and shared secrets.
 - **Verification Status**: Manual installation confirmed (v2.31.1).
@@ -77,6 +92,9 @@ File: `src/tests/existing.test.ts` - Intentionally created with all rule violati
   - Provided [.env.example](../.env.example) contains placeholder keys for local development only.
 
 #### 1Password Setup Guide for Developers
+
+![1Password CLI Integration](images/08%20-%20002%20-%201Password.gif)
+
 1. **Install 1Password CLI**:
    ```powershell
    winget install 1password-cli
@@ -109,6 +127,26 @@ File: `src/tests/existing.test.ts` - Intentionally created with all rule violati
 - **Final Result**: **PASSED**.
 - **Evidence**: `gitleaks` successfully scanned all files in the project and confirmed 0 secrets were found.
 
+**File: [.pre-commit-config.yaml](../.pre-commit-config.yaml)**
+```yaml
+repos:
+  - repo: https://github.com/gitleaks/gitleaks
+    rev: v8.18.0
+    hooks:
+      - id: gitleaks
+        args: ['protect', '--staged', '--no-banner', '-v']
+
+  - repo: local
+    hooks:
+      - id: ai-guard
+        name: AI Guard Security Scan
+        entry: python run-ai-guard.py
+        language: system
+        pass_filenames: false
+        always_run: true
+        stages: [pre-commit]
+```
+
 > [!IMPORTANT]
 > From now on, every time you run `git commit`, `gitleaks` will automatically check your changes. If it finds a secret, it will block the commit to protect your security.
 
@@ -116,7 +154,21 @@ File: `src/tests/existing.test.ts` - Intentionally created with all rule violati
 
 Gitleaks uses pattern matching and entropy analysis to detect real-world secret formats (AWS keys, GitHub tokens, API keys with specific prefixes). To add custom rules for your organization's secret patterns:
 
-**1. Create `.gitleaks.toml` in your project root** (same directory as `.pre-commit-config.yaml`):
+**1. Create [.gitleaks.toml](../.gitleaks.toml) in your project root** (same directory as `.pre-commit-config.yaml`):
+
+**Current Configuration: [.gitleaks.toml](../.gitleaks.toml)**
+```toml
+[extend]
+useDefault = true
+
+[allowlist]
+  paths = [
+    '''Assignments/08 - 001 - Security team Champion\.md$''',
+    '''src/tests/existing\.test\.ts$''',
+  ]
+```
+
+**Example Extended Configuration with Custom Rules:**
 
 ```toml
 # CRITICAL: This line is required to inherit default gitleaks rules
@@ -237,6 +289,8 @@ gitleaks detect --config=.gitleaks.toml --verbose
 **When to use AI Guard vs Gitleaks**:
 - **Gitleaks**: First line of defense for real-world secret formats (AWS keys, API tokens, etc.)
 - **AI Guard**: Semantic analysis layer for test anti-patterns, code quality, and context-aware violations
+
+![AI Guard vs Gitleaks Comparison](images/08%20-%20003%20-%20AI%20Guard%20vs%20Gitleaks.gif)
 
 > [!TIP]
 > **File Location**: Create `.gitleaks.toml` in `my-basket-app\` (project root, next to `package.json`)
