@@ -3,3 +3,14 @@ repos:
     rev: v8.18.0
     hooks:
       - id: gitleaks
+        args: ['protect', '--staged', '--no-banner', '-v']
+
+  - repo: local
+    hooks:
+      - id: ai-guard
+        name: AI Guard Security Scan
+        entry: python run-ai-guard.py
+        language: system
+        pass_filenames: false
+        always_run: true
+        stages: [pre-commit]

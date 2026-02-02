@@ -1,0 +1,8 @@
+[extend]
+useDefault = true
+
+[allowlist]
+  paths = [
+    '''Assignments/08 - 001 - Security team Champion\.md$''',
+    '''src/tests/existing\.test\.ts$''',
+  ]
