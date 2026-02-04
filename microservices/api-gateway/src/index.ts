@@ -39,6 +39,8 @@ app.use((req, res, next) => {
   if (isProxiedRoute) {
     return next();
   }
+  // Placeholder for request body validation (future endpoints)
+  // Example: if (req.body) { /* validate with Zod or similar */ }
   return express.json()(req, res, next);
 });
 
@@ -103,17 +105,20 @@ app.get('/info', (req: express.Request, res: express.Response) => {
 
 // Proxy setup for each service
 serviceConfig.forEach(service => {
-  console.log(`Setting up proxy for ${service.name}: ${service.path} -> ${service.url}`);
+  // Avoid logging full URLs and paths to prevent potential PII leakage
+  console.log(`Setting up proxy for ${service.name}`);
   
   const proxyOptions = {
     target: service.url,
     changeOrigin: true,
     logLevel: 'debug' as const,
     pathRewrite: (path: string, req: any) => {
-      console.log(`Proxying ${service.name}: ${path} -> ${service.url}${path}`);
+      // Avoid logging full proxy paths
+      console.log(`Proxying request for ${service.name}`);
       return path;
     },
     onError: (err: any, req: any, res: any) => {
+      // Log only error message, not full error object
       console.error(`Proxy error for ${service.name}:`, err.message);
       if (!res.headersSent) {
         res.status(503).json({
@@ -141,16 +146,18 @@ app.use('*', (req: express.Request, res: express.Response) => {
 
 // Global error handler
 app.use((err: Error, req: express.Request, res: express.Response, next: express.NextFunction) => {
-  console.error('Global error handler:', err);
+  // Log only error message, not full error object
+  console.error('Global error handler:', err.message);
   res.status(500).json({ error: 'Internal server error' });
 });
 
 app.listen(PORT, () => {
+  // Avoid logging full URLs and paths to prevent potential PII leakage
   console.log(`API Gateway running on port ${PORT}`);
   console.log('Available services:');
   serviceConfig.forEach(service => {
-    console.log(`- ${service.name}: ${service.path} -> ${service.url}`);
+    console.log(`- ${service.name}`);
   });
-  console.log(`Health check: http://localhost:${PORT}/health`);
-  console.log(`API Docs: http://localhost:${PORT}/api-docs`);
+  console.log(`Health check: /health`);
+  console.log(`API Docs: /api-docs`);
 });
