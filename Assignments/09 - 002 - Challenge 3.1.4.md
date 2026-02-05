@@ -12,9 +12,9 @@ Create a "Prompt Library" for the team to standardize and accelerate development
 
 ### 1. ✅ Created Prompt Files
 
-Created three comprehensive prompt templates in the [`.github/prompts/`](../../.github/prompts/) folder **using RCTC format** (Role, Context, Task, Constraints) to align with existing team standards in `.github/prompts/` and `.agent/skills/`.
+Created three comprehensive prompt templates in the [`.github/prompts/`](../.github/prompts/) folder **using RCTC format** (Role, Context, Task, Constraints) to align with existing team standards in `.github/prompts/` and `.agent/skills/`.
 
-#### [`unit-test.prompt.md`](../../.github/prompts/unit-test.prompt.md) - RCTC Format
+#### [`unit-test.prompt.md`](../.github/prompts/unit-test.prompt.md) - RCTC Format
 - **Purpose**: Generate high-quality Jest unit tests for TypeScript microservices
 - **Structure**: RCTC (Role: Senior QA Engineer, Context: Jest/TypeScript, Task: Generate tests, Constraints: Mandatory standards)
 - **Key Features**:
@@ -26,7 +26,7 @@ Created three comprehensive prompt templates in the [`.github/prompts/`](../../.
 - **Placeholder**: `[TARGET_CLASS_OR_MODULE]`
 - **Lines of Guidance**: 150+ lines (restructured for clarity)
 
-#### [`integration-test.prompt.md`](../../.github/prompts/integration-test.prompt.md) - RCTC Format
+#### [`integration-test.prompt.md`](../.github/prompts/integration-test.prompt.md) - RCTC Format
 - **Purpose**: Create Playwright API integration tests following Service Object Model
 - **Aligned With**: `.agent/skills/testing_framework/SKILL.md` Procedure B
 - **Structure**: RCTC format with explicit reference to 11-point API testing checklist
@@ -50,7 +50,7 @@ Created three comprehensive prompt templates in the [`.github/prompts/`](../../.
 - **Placeholder**: `[TARGET_API_SERVICE]`
 - **Lines of Guidance**: 200+ lines
 
-#### [`refactor-clean.prompt.md`](../../.github/prompts/refactor-clean.prompt.md) - RCTC Format
+#### [`refactor-clean.prompt.md`](../.github/prompts/refactor-clean.prompt.md) - RCTC Format
 - **Purpose**: Systematically refactor and clean code
 - **Structure**: RCTC with behavior-preserving workflow
 - **Key Features**:
@@ -68,7 +68,7 @@ Created three comprehensive prompt templates in the [`.github/prompts/`](../../.
 
 **Implementation**:
 - Used `unit-test.prompt.md` to generate comprehensive tests
-- Created [`product-client.test.ts`](../../microservices/cart-service/src/product-client.test.ts)
+- Created [`product-client.test.ts`](../microservices/cart-service/src/product-client.test.ts)
 - Generated 18 test cases covering:
   - Health check functionality (4 tests)
   - Single product fetching (6 tests)
@@ -234,10 +234,10 @@ Less effective for:
 ## Files Created/Modified
 
 ### New Files
-1. [`.github/prompts/unit-test.prompt.md`](../../.github/prompts/unit-test.prompt.md) - 150+ lines (RCTC format)
-2. [`.github/prompts/integration-test.prompt.md`](../../.github/prompts/integration-test.prompt.md) - 200+ lines (RCTC format, aligned with testing_framework skill)
-3. [`.github/prompts/refactor-clean.prompt.md`](../../.github/prompts/refactor-clean.prompt.md) - 200+ lines (RCTC format)
-4. [`microservices/cart-service/src/product-client.test.ts`](../../microservices/cart-service/src/product-client.test.ts) - 340 lines (18 tests)
+1. [`.github/prompts/unit-test.prompt.md`](../.github/prompts/unit-test.prompt.md) - 150+ lines (RCTC format)
+2. [`.github/prompts/integration-test.prompt.md`](../.github/prompts/integration-test.prompt.md) - 200+ lines (RCTC format, aligned with testing_framework skill)
+3. [`.github/prompts/refactor-clean.prompt.md`](../.github/prompts/refactor-clean.prompt.md) - 200+ lines (RCTC format)
+4. [`microservices/cart-service/src/product-client.test.ts`](../microservices/cart-service/src/product-client.test.ts) - 340 lines (18 tests)
 5. [`Assignments/09 - 002 - Challenge 3.1.4.md`](./09%20-%20002%20-%20Challenge%203.1.4.md) - This document (includes embedded prompt library guide)
 
 **Total**: ~1,100+ lines of new content (restructured for RCTC consistency)
@@ -339,7 +339,7 @@ The Prompt Library challenge was **highly successful**. The prompts:
 
 ## Submission
 
-- ✅ **Prompts**: 3 prompt files in [`.github/prompts/`](../../.github/prompts/) (RCTC format)
+- ✅ **Prompts**: 3 prompt files in [`.github/prompts/`](../.github/prompts/) (RCTC format)
 - ✅ **Test Results**: All 18 generated tests pass (100%)
 - ✅ **Effectiveness Rating**: ⭐⭐⭐⭐⭐ (5/5 stars)
 - ✅ **Documentation**: Comprehensive walkthrough with embedded prompt library guide
@@ -353,7 +353,7 @@ The Prompt Library challenge was **highly successful**. The prompts:
 
 ## Overview
 
-This section contains the complete guide for using the prompt templates located in [`.github/prompts/`](../../.github/prompts/). These standardized AI prompt templates follow the **RCTC format** (Role, Context, Task, Constraints) to maintain consistency and quality across our codebase.
+This section contains the complete guide for using the prompt templates located in [`.github/prompts/`](../.github/prompts/). These standardized AI prompt templates follow the **RCTC format** (Role, Context, Task, Constraints) to maintain consistency and quality across our codebase.
 
 ## Purpose
 
@@ -375,7 +375,7 @@ This format aligns with `.github/prompts/` and `.agent/skills/` patterns.
 
 ## Available Prompts
 
-### 1. [unit-test.prompt.md](../../.github/prompts/unit-test.prompt.md) - **RCTC Format**
+### 1. [unit-test.prompt.md](../.github/prompts/unit-test.prompt.md) - **RCTC Format**
 **Purpose**: Generate comprehensive Jest unit tests for TypeScript microservices
 
 **When to Use**:
@@ -396,7 +396,7 @@ This format aligns with `.github/prompts/` and `.agent/skills/` patterns.
 Using unit-test.prompt.md, generate tests for [TARGET_CLASS_OR_MODULE] = ProductServiceClient
 ```
 
-### 2. [integration-test.prompt.md](../../.github/prompts/integration-test.prompt.md) - **RCTC Format**
+### 2. [integration-test.prompt.md](../.github/prompts/integration-test.prompt.md) - **RCTC Format**
 **Purpose**: Create Playwright API integration tests following Service Object Model
 
 **Aligned With**: `.agent/skills/testing_framework/SKILL.md` Procedure B (11-point checklist)
@@ -420,7 +420,7 @@ Using integration-test.prompt.md, create API tests for [TARGET_API_SERVICE] = Or
 Include all 11 checklist points
 ```
 
-### 3. [refactor-clean.prompt.md](../../.github/prompts/refactor-clean.prompt.md) - **RCTC Format**
+### 3. [refactor-clean.prompt.md](../.github/prompts/refactor-clean.prompt.md) - **RCTC Format**
 **Purpose**: Systematically refactor and improve code quality
 
 **When to Use**:
