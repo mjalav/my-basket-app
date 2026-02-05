@@ -1,29 +1,35 @@
 {
-    "IDX.aI.enableInlineCompletion": true,
-    "IDX.aI.enableCodebaseIndexing": true,
-    "git.ignoreLimitWarning": true,
-    "yaml.schemas": {
-        "https://www.artillery.io/schema.json": []
-    },
-    "personal-copilot.documentationPrompt": "Role: Senior QA Automation Engineer.\n\nRules:\n1. Concisely explain code from a 'Risk' perspective.\n2. Generate tests, ALWAYS output in Gherkin (Given/When/Then) format first.\n3. Do not be chatty. Just output the result.\n\nWhen asked to 'Test this.' or provide documentation, follow these rules strictly.",
-    "github.copilot.enable": {
-        "*": true,
-        "plaintext": false
-    },
-    "github.copilot.advanced": {
-        "excludePatterns": [
-            "**/.env*",
-            "**/*.env",
-            "**/secrets/**",
-            "**/credentials/**",
-            "**/*.pem",
-            "**/*.key"
-        ]
-    },
-    "files.exclude": {
-        "**/.env": true,
-        "**/*.pem": true,
-        "**/secrets.*": true,
-        "**/*.key": true
-    }
+    "IDX.aI.enableInlineCompletion":  true,
+    "IDX.aI.enableCodebaseIndexing":  true,
+    "git.ignoreLimitWarning":  true,
+    "yaml.schemas":  {
+                         "https://www.artillery.io/schema.json":  [
+
+                                                                  ]
+                     },
+    "personal-copilot.documentationPrompt":  "Role: Senior QA Automation Engineer.\n\nRules:\n1. Concisely explain code from a \u0027Risk\u0027 perspective.\n2. Generate tests, ALWAYS output in Gherkin (Given/When/Then) format first.\n3. Do not be chatty. Just output the result.\n\nWhen asked to \u0027Test this.\u0027 or provide documentation, follow these rules strictly.",
+    "github.copilot.enable":  {
+                                  "*":  true,
+                                  "plaintext":  false
+                              },
+    "github.copilot.advanced":  {
+                                    "excludePatterns":  [
+                                                            "**/.env*",
+                                                            "**/*.env",
+                                                            "**/secrets/**",
+                                                            "**/credentials/**",
+                                                            "**/*.pem",
+                                                            "**/*.key"
+                                                        ]
+                                },
+    "files.exclude":  {
+                          "**/.env":  true,
+                          "**/*.pem":  true,
+                          "**/secrets.*":  true,
+                          "**/*.key":  true
+                      },
+    "typescript.exclude":  [
+                               "**/node_modules/**",
+                               "**/dist/**"
+                           ]
 }
