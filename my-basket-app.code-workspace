@@ -2,24 +2,6 @@
 	"folders": [
 		{
 			"path": "."
-		},
-		{
-			"path": "microservices/product-service"
-		},
-		{
-			"path": "microservices/cart-service"
-		},
-		{
-			"path": "microservices/order-service"
-		},
-		{
-			"path": "microservices/ai-service"
-		},
-		{
-			"path": "microservices/api-gateway"
-		},
-		{
-			"path": "my-basket-api-tests"
 		}
 	],
 	"settings": {
