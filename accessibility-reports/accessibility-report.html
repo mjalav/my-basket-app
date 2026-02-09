@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Accessibility Scan Report – WCAG 2.1 AA</title>
+  <style>
+    * { box-sizing: border-box; }
+    body { font-family: system-ui, -apple-system, sans-serif; margin: 0; padding: 24px; background: #1a1a2e; color: #eee; line-height: 1.5; }
+    h1 { margin-top: 0; }
+    h2 { border-bottom: 1px solid #444; padding-bottom: 8px; }
+    h3 { margin-top: 24px; }
+    a { color: #6eb8ff; }
+    .meta { color: #888; margin-bottom: 24px; }
+    .summary-cards { display: flex; gap: 16px; margin: 16px 0; flex-wrap: wrap; }
+    .card { padding: 16px 24px; border-radius: 8px; text-align: center; }
+    .card .count { display: block; font-size: 2rem; font-weight: 700; }
+    .card.critical { background: #4a1515; color: #ffb3b3; }
+    .card.serious { background: #4a3a15; color: #ffe0b3; }
+    table { width: 100%; border-collapse: collapse; margin-top: 16px; }
+    th, td { text-align: left; padding: 10px 12px; border-bottom: 1px solid #333; }
+    th { background: #2a2a4a; }
+    .badge { padding: 2px 8px; border-radius: 4px; font-size: 0.85em; }
+    .badge.critical { background: #8b2020; color: #fff; }
+    .badge.serious { background: #8b7020; color: #fff; }
+    .badge.moderate { background: #3a5a3a; color: #b8e0b8; }
+    .badge.minor { background: #2a3a5a; color: #b8c8e0; }
+    tr.impact-critical { background: rgba(139,32,32,0.15); }
+    tr.impact-serious { background: rgba(139,112,32,0.15); }
+    ul { padding-left: 20px; }
+    li { margin: 4px 0; }
+    code { background: #2a2a4a; padding: 2px 6px; border-radius: 4px; font-size: 0.9em; }
+    section { margin-bottom: 32px; }
+  </style>
+</head>
+<body>
+  <h1>Accessibility Scan Report</h1>
+  <p class="meta">WCAG 2.1 Level AA · Generated 2026-02-09T06:12:29.162Z · Base URL: http://localhost:9002</p>
+  
+    <section class="summary">
+      <h2>Summary – Critical and Serious violations (WCAG 2.1 AA)</h2>
+      <div class="summary-cards">
+        <div class="card critical">
+          <span class="count">0</span>
+          <span class="label">Critical</span>
+        </div>
+        <div class="card serious">
+          <span class="count">1</span>
+          <span class="label">Serious</span>
+        </div>
+      </div>
+      <h3>Critical violations (0)</h3>
+      <ul>
+        <li>None</li>
+      </ul>
+      <h3>Serious violations (1)</h3>
+      <ul>
+        
+          <li><strong>Main Page</strong> – Elements must meet minimum color contrast ratio thresholds (color-contrast)</li>
+        
+      </ul>
+    </section>
+  <section>
+    <h2>All violations by page</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Page</th>
+          <th>URL</th>
+          <th>Impact</th>
+          <th>Rule ID</th>
+          <th>Help</th>
+          <th>Description</th>
+          <th>Nodes</th>
+          <th>Docs</th>
+        </tr>
+      </thead>
+      <tbody>
+        
+        <tr class="impact-serious">
+          <td>Main Page</td>
+          <td><code>/</code></td>
+          <td><span class="badge impact-serious">serious</span></td>
+          <td>color-contrast</td>
+          <td>Elements must meet minimum color contrast ratio thresholds</td>
+          <td>Ensure the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds</td>
+          <td><ul><li>&lt;p class=&quot;text-xl font-bold text-primary&quot;&gt;$&lt;!-- --&gt;3.99&lt;/p&gt;</li><li>&lt;p class=&quot;text-xl font-bold text-primary&quot;&gt;$&lt;!-- --&gt;4.49&lt;/p&gt;</li><li>&lt;p class=&quot;text-xl font-bold text-primary&quot;&gt;$&lt;!-- --&gt;5.99&lt;/p&gt;</li><li>&lt;p class=&quot;text-xl font-bold text-primary&quot;&gt;$&lt;!-- --&gt;2.99&lt;/p&gt;</li><li>&lt;p class=&quot;text-xl font-bold text-primary&quot;&gt;$&lt;!-- --&gt;3.79&lt;/p&gt;</li><li>&lt;p class=&quot;text-xl font-bold text-primary&quot;&gt;$&lt;!-- --&gt;9.99&lt;/p&gt;</li><li>&lt;p class=&quot;text-xl font-bold text-primary&quot;&gt;$&lt;!-- --&gt;2.49&lt;/p&gt;</li><li>&lt;p class=&quot;text-xl font-bold text-primary&quot;&gt;$&lt;!-- --&gt;4.99&lt;/p&gt;</li><li>&lt;p class=&quot;text-xl font-bold text-primary&quot;&gt;$&lt;!-- --&gt;0.33&lt;/p&gt;</li><li>&lt;p class=&quot;text-xl font-bold text-primary&quot;&gt;$&lt;!-- --&gt;0.01&lt;/p&gt;</li><li>&lt;p class=&quot;text-xl font-bold text-primary&quot;&gt;$&lt;!-- --&gt;0.02&lt;/p&gt;</li><li>&lt;p class=&quot;text-xl font-bold text-primary&quot;&gt;$&lt;!-- --&gt;0.10&lt;/p&gt;</li><li>&lt;p class=&quot;text-xl font-bold text-primary&quot;&gt;$&lt;!-- --&gt;1.00&lt;/p&gt;</li><li>&lt;p class=&quot;text-xl font-bold text-primary&quot;&gt;$&lt;!-- --&gt;1000000.00&lt;/p&gt;</li></ul></td>
+          <td><a href="https://dequeuniversity.com/rules/axe/4.11/color-contrast?application=playwright" target="_blank" rel="noopener">Docs</a></td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+  <section>
+    <h2>Scan metadata</h2>
+    <p>Pages scanned: Main Page, Checkout Page, My Order Page</p>
+    <p>Total violations (all impacts): 1</p>
+  </section>
+</body>
+</html>

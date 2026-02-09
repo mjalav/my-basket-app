@@ -1,16 +1,27 @@
 {
-  "inputs": [],
   "servers": {
-    "democratize-quality": {
-      "type": "stdio",
+  "democratize-quality": {
+    "type": "stdio",
+    "command": "npx",
+    "args": [
+    "@democratize-quality/mcp-server@latest"
+    ],
+    "cwd": "${workspaceFolder}",
+    "env": {
+    "OUTPUT_DIR": "./api-test-reports"
+    }
+    },
+    "accessibility-mcp": {
       "command": "npx",
       "args": [
-        "@democratize-quality/mcp-server@latest"
+        "@democratize-quality/accessibility-mcp@latest",
+        "--output-dir",
+        "D:/Personal/AI Course/daily-challenge/lesson1/my-basket-app/accessibility-reports",
+        "--headless",
+        "false"
       ],
-      "cwd": "${workspaceFolder}",
-      "env": {
-        "OUTPUT_DIR": "./api-test-reports"
-      }
+      "type": "stdio"
     }
-  }
+  },
+  "inputs": []
 }
