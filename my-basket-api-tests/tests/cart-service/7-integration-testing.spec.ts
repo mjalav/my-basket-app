@@ -16,14 +16,10 @@ test.describe('Integration Testing', () => {
     expect(cart.userId).toBe(userId);
     const initialItemCount = cart.items?.length ?? 0;
 
-    // 2. Add item (use prod_123 - may 404 if product service has no such product)
+    // 2. Add item (using product ID 1 which exists in the product service)
     response = await request.post(`${baseUrl}cart/${userId}/items`, {
-      data: { productId: 'prod_123', quantity: 2 },
+      data: { productId: '1', quantity: 2 },
     });
-    if (response.status() === 404) {
-      test.skip();
-      return;
-    }
     expect(response.status()).toBe(200);
     cart = await response.json();
     expect(cart.items.length).toBeGreaterThanOrEqual(initialItemCount);
@@ -33,7 +29,7 @@ test.describe('Integration Testing', () => {
     expect(response.status()).toBe(200);
     cart = await response.json();
     expect(cart.totalItems).toBeGreaterThanOrEqual(2);
-    const item = cart.items.find((i: { id: string }) => i.id === 'prod_123');
+    const item = cart.items.find((i: { id: string }) => i.id === '1');
     expect(item).toBeDefined();
     expect(item.quantity).toBe(2);
   });
