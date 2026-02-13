@@ -84,7 +84,7 @@ const options: swaggerJsdoc.Options = {
             totalAmount: { type: 'number', example: 45.99 },
             status: {
               type: 'string',
-              enum: ['pending', 'confirmed', 'processing', 'shipped', 'delivered', 'cancelled'],
+              enum: ['pending', 'confirmed', 'processing', 'shipped', 'delivered', 'cancelled', 'refunded'],
               example: 'pending',
             },
             shippingAddress: { $ref: '#/components/schemas/Address' },
